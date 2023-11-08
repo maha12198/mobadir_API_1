@@ -1,12 +1,44 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <FrontendRoot>ClientApp</FrontendRoot>
+    
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\3rdpartylicenses.txt" />
+    <Content Remove="wwwroot\assets\css\style.css" />
+    <Content Remove="wwwroot\assets\images\cal.jpg" />
+    <Content Remove="wwwroot\assets\images\logo2.png" />
+    <Content Remove="wwwroot\assets\images\logo3.png" />
+    <Content Remove="wwwroot\assets\images\logo4.png" />
+    <Content Remove="wwwroot\assets\images\logoSM.png" />
+    <Content Remove="wwwroot\assets\images\math-bg.jpg" />
+    <Content Remove="wwwroot\assets\images\math-bg2.jpg" />
+    <Content Remove="wwwroot\assets\images\math-bg3.jpg" />
+    <Content Remove="wwwroot\assets\images\math-bg33.jpg" />
+    <Content Remove="wwwroot\assets\images\mobadrLogo1.jpg" />
+    <Content Remove="wwwroot\assets\images\newsletter-bg.jpg" />
+    <Content Remove="wwwroot\assets\images\pic-1.png" />
+    <Content Remove="wwwroot\assets\images\pic-2.png" />
+    <Content Remove="wwwroot\assets\images\pic-3.png" />
+    <Content Remove="wwwroot\assets\js\script.js" />
+    <Content Remove="wwwroot\favicon.ico" />
+    <Content Remove="wwwroot\index.html" />
+    <Content Remove="wwwroot\main.727fa925dc417111.js" />
+    <Content Remove="wwwroot\polyfills.c850ec5f6f3f7b4b.js" />
+    <Content Remove="wwwroot\runtime.05f13811ddf6814f.js" />
+    <Content Remove="wwwroot\styles.ef46db3751d8e999.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.24" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.24" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.24" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.24">
@@ -15,6 +47,36 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration" Version="6.0.16" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\3rdpartylicenses.txt" />
+    <None Include="wwwroot\assets\css\style.css" />
+    <None Include="wwwroot\assets\images\cal.jpg" />
+    <None Include="wwwroot\assets\images\logo2.png" />
+    <None Include="wwwroot\assets\images\logo3.png" />
+    <None Include="wwwroot\assets\images\logo4.png" />
+    <None Include="wwwroot\assets\images\logoSM.png" />
+    <None Include="wwwroot\assets\images\math-bg.jpg" />
+    <None Include="wwwroot\assets\images\math-bg2.jpg" />
+    <None Include="wwwroot\assets\images\math-bg3.jpg" />
+    <None Include="wwwroot\assets\images\math-bg33.jpg" />
+    <None Include="wwwroot\assets\images\mobadrLogo1.jpg" />
+    <None Include="wwwroot\assets\images\newsletter-bg.jpg" />
+    <None Include="wwwroot\assets\images\pic-1.png" />
+    <None Include="wwwroot\assets\images\pic-2.png" />
+    <None Include="wwwroot\assets\images\pic-3.png" />
+    <None Include="wwwroot\assets\js\script.js" />
+    <None Include="wwwroot\favicon.ico" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\main.727fa925dc417111.js" />
+    <None Include="wwwroot\polyfills.c850ec5f6f3f7b4b.js" />
+    <None Include="wwwroot\runtime.05f13811ddf6814f.js" />
+    <None Include="wwwroot\styles.ef46db3751d8e999.css" />
   </ItemGroup>
 
 </Project>

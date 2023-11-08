@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\main.1facbadfe0593862.js",
+      "PackagePath": "staticwebassets\\main.1facbadfe0593862.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.mobadir_API_1.props",
+      "PackagePath": "build\\mobadir_API_1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.mobadir_API_1.props",
+      "PackagePath": "buildMultiTargeting\\mobadir_API_1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.mobadir_API_1.props",
+      "PackagePath": "buildTransitive\\mobadir_API_1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.mobadir_API_1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

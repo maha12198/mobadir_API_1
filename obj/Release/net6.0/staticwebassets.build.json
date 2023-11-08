@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "w57yrJLbG8K8weEkoP7Q/U3uhxbncSB5LMGYBDaFwyg=",
+  "Hash": "ryK1meADdxHr3S6KB75VEhJn/qXMnUzvrfo8HXN0Lao=",
   "Source": "mobadir_API_1",
   "BasePath": "_content/mobadir_API_1",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "mobadir_API_1\\wwwroot",
+      "Source": "mobadir_API_1",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\main.1facbadfe0593862.js",
+      "SourceId": "mobadir_API_1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "RelativePath": "main.1facbadfe0593862.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main.1facbadfe0593862.js"
+    }
+  ]
 }
