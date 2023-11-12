@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { IUser } from '../models/IUser';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,8 +16,8 @@ export class HomeComponent {
 
   constructor(private api : ApiService) {}
 
-  ngOnInit() {
-    
+  ngOnInit() 
+  {
     // call the api service
     this.api.GetUsers().subscribe(
       {
@@ -32,7 +31,7 @@ export class HomeComponent {
                       },
         error: (err)=>{ console.log(err);}               
       }
-      );  
+    );  
 
   }
 

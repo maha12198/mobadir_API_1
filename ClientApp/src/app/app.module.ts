@@ -7,11 +7,23 @@ import { HomeComponent } from './home/home.component';
 
 //for using http
 import { HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { GradeComponent } from './grade/grade.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SubjectComponent } from './subject/subject.component';
+import { TopicComponent } from './topic/topic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginFormComponent,
+    GradeComponent,
+    HeaderComponent,
+    FooterComponent,
+    SubjectComponent,
+    TopicComponent,
   ],
   imports: [
     BrowserModule,
