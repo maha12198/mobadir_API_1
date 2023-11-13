@@ -847,3 +847,17 @@ section {
 .portfolio-menu ul li:active{
   color: var(--Navcolor);
 }
+
+
+
+
+
+/* topic page */
+.topic {
+  font-size: large;
+  /* font-size: 100%; */
+}
+.topic .pg-title-info {
+  /* font-size: larger; */
+  font-size: 20px;;
+}
