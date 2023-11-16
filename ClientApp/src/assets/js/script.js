@@ -29,3 +29,8 @@ window.onload = function()
       }
    }
 }
+
+function clearRadio() {
+   let radio = document.getElementById("option1");
+   radio.checked = false;
+}

@@ -1,0 +1,47 @@
+<section class="quiz mt-8">
+  <div class="container">
+    <div class="row">
+
+      <!-- left side -->
+      <div class="left col-lg-3 col-sm-12 pl-5 mb-5">
+          <div class="title mt-3">
+              <h3 class="font-weight-bold">قائـمـــــة الـــدرس</h3>
+          </div>
+          <div class="">
+            <ul class="list-unstyled ">
+                <li><a routerLink="/topic">فيديو الدرس</a></li>
+                <li><a routerLink="/topic">شرح الدرس</a></li>
+                <li>اختبار الدرس</li>
+            </ul>
+          </div>
+      </div>
+
+      <!-- right side -->
+      <div class="right col-lg-9 col-sm-12 pr-5">
+          <!-- title -->
+          <h1 class="font-weight-bold">الدرس: الدوال الهندسية</h1>
+          <small class="pg-title-info text-muted">الصف الأول • مادة الرياضيات</small>
+          
+          <!-- the quiz -->
+          <div class="quiz-main mt-4">
+              <div class="header">
+                <h3 class="mr-3 py-2 font-weight-bold">اختبار الدرس</h3>
+                <timer *ngIf="isQuizToBeStarted" class="ml-4"></timer>
+              </div>
+
+              <div class="quiz-questions" *ngIf="isQuizToBeStarted; else showStart">
+                <questions></questions>
+              </div>
+              
+              <ng-template #showStart>
+                <div class="start">
+                  <button (click)="onStart()">Start Quiz</button>
+                </div>
+              </ng-template>
+          </div>
+
+      </div>    
+
+    </div>
+  </div>  
+</section>

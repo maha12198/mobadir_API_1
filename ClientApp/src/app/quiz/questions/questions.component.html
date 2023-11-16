@@ -1,0 +1,33 @@
+<div class="questions">
+    <div *ngIf="question!=null; else showScore" class="question-box">
+        <!-- <h3>الســؤال {{i+1}}/{{totalQuestions}}</h3> -->
+        <h3 class="question-title">الســؤال {{i+1}}</h3>
+        <h3 class="ques-text mt-5 mb-4 d-flex justify-content-center">{{question.question}}</h3>
+
+        <div class="options py-2" *ngFor="let option of question.options">
+            <input
+              type="radio"
+              name="option+{{i}}"
+              id="option1"
+              value="{{option}}"
+              (change)="onSelecting($any($event.target).value)"
+            />
+            {{option}}
+        </div>
+
+        <div class="row d-flex justify-content-between">
+          <button class="prev px-3 ms-auto" *ngIf="i>0" (click)="onPrev()">السابق</button>
+          <button class="next px-3" *ngIf="i!=totalQuestions-1" (click)="onNext()">التالي</button>
+          <button class="next px-3 " *ngIf="i==totalQuestions-1" (click)="onNext()">إنهاء الاختبار</button>
+
+        </div>
+    </div>
+      
+    <ng-template #showScore>
+        <div class="score">
+          <h3>Score : {{this.score}}</h3>
+        </div>
+    </ng-template>
+
+</div>
+  
