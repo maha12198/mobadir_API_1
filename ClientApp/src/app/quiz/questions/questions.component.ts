@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-
-//
 import questions from "../../models/questions.json";
-
+import { IQuestion } from 'src/app/models/IQuestion';
 
 
 @Component({
@@ -13,7 +11,9 @@ import questions from "../../models/questions.json";
 export class QuestionsComponent {
 
   //get question data from the json file
-  questions: any = questions;
+  questions: IQuestion[] = questions;
+  //to track user answers and display them at the end of the quiz
+  answeredQuestions: { question: IQuestion, userAnswer: string, isCorrect: boolean }[] = [];
 
   //counter
   i: number = 0;
@@ -28,7 +28,6 @@ export class QuestionsComponent {
   answer: any;
   score: any = 0;
 
-makeFalse: boolean = false;
 
  //FOR TESTING ONLY
   ngOnInit() {
@@ -59,15 +58,22 @@ makeFalse: boolean = false;
       return;
     }
 
-
     // check if the answer is correct
-    if (this.answer === this.question.answer)
-    {
+    const isCorrect = this.answer === this.question.answer;
+
+    if (isCorrect) {
       ++this.score;
     }
 
+    //track answers
+    this.answeredQuestions.push({
+      question: this.question,
+      userAnswer: this.answer,
+      isCorrect: isCorrect
+    });
+
+    
     console.log("Score : ", this.score);
-    //console.log(this.questions);
     console.log("Answer : ", this.answer);
     
     //get the next question
@@ -83,6 +89,7 @@ makeFalse: boolean = false;
     radioButtons.forEach((radio: HTMLInputElement) => {
       radio.checked = false;
     });
+    
   }
 
 }

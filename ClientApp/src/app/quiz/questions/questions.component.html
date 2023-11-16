@@ -23,10 +23,37 @@
         </div>
     </div>
       
+    <!-- score section -->
     <ng-template #showScore>
-        <div class="score">
-          <h3>Score : {{this.score}}</h3>
+        <div class="score mt-5 mb-3">
+          <h3 class="btn px-5">الدرجة : {{this.score}} / {{totalQuestions}}</h3>
         </div>
+        
+        <!-- Display each answered question in a new row -->
+        <div *ngFor="let answeredQuestion of answeredQuestions; let i = index" class="answered-question-row mr-5">
+          <div class="answered-question">
+            <p class="font-weight-bold" style="font-size: 18px">{{answeredQuestion.question.question}}</p>
+            <p *ngFor="let option of answeredQuestion.question.options">
+              <input
+                type="radio"
+                [name]="'question' + i"
+                [value]="option"
+                [checked]="answeredQuestion.userAnswer === option"
+                disabled
+              />
+              <span [ngClass]="{'user-answer-correct': answeredQuestion.isCorrect && answeredQuestion.userAnswer === option, 'user-answer-incorrect': !answeredQuestion.isCorrect && answeredQuestion.userAnswer === option}">
+                {{option}}
+              </span>
+            </p>
+    
+            <!-- Display the correct answer only if the user's answer is incorrect -->
+            <p *ngIf="!answeredQuestion.isCorrect" class="correct-answer">
+              الإجابة الصحيحة :  {{answeredQuestion.question.answer}}
+            </p>
+
+          </div>
+        </div>
+
     </ng-template>
 
 </div>

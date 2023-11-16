@@ -918,17 +918,15 @@ color: #111;
 /* left side */
 .quiz .quiz-main {
   border: 1px solid #484646 ;
+  background-color: var(--greyBackground);
 }
-
 .quiz .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--yellow);
 }
-
 .quiz .start {
-  /* background-color: var(--greyBackground); */
   height: 100%;
   display: flex;
   justify-content: center;
@@ -936,7 +934,6 @@ color: #111;
   margin-top: 200px;
   margin-bottom: 200px;
 }
-
 .quiz button {
   padding: 12px 15px;
   background-color: var(--orange);
@@ -944,46 +941,34 @@ color: #111;
   border: none;
   border-radius: 0.5em;
 }
-
 .quiz  .quiz-questions {
   background-color: var(--greyBackground);
   height: 100%;
 }
 
 /* questions */
-
 .questions {
   font-size: larger;
 }
-
 .questions .question-title {
   margin-bottom: 5px;
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
-  /* color: var(--Navcolor); */
 } 
-
 .questions .ques-text {
   font-size: 20px;
 }
-
 .questions .question-box {
-  /* align-items: center; */
-  /* flex-direction: column; */
-  /* height: 100%; */
   padding: 25px;
 }
-
 .questions .options {
   margin-top: 10px;
 }
-
 .questions input {
   margin-right: 5px;
 }
-
 .questions .prev,
 .questions .next {
   margin-top: 20px;
@@ -993,22 +978,58 @@ color: #111;
   font-size: large;
   width: 200px;
 }
-
 .questions .prev {
   margin-right: 10px;
   background-color: var(--orange);
 }
-
 .questions .next {
   margin-left: 10px;
   background-color: #28a745;
 }
 
+/* score */
 .questions .score {
   background-color: var(--greyBackground);
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size:medium;
+}
+.questions .score h3{
+  font-size: 20px;
+  border: 1px solid var(--orange);
+  padding: 3;
+  color: white !important;
+  background-color: var(--orange);
 }
 
+.correct-answer {
+  color: green;
+  font-weight: bold;
+}
+.answered-question-row {
+  margin-bottom: 30px; /* Adjust the margin as needed */
+  font-size: 15px;
+}
+
+
+.user-answer-correct {
+  color: green;
+  font-weight: bold;
+}
+
+.user-answer-incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.correct-answer {
+  color: green;
+  font-weight: bold;
+}
+
+.incorrect-answer {
+  color: red;
+  font-weight: bold;
+}
