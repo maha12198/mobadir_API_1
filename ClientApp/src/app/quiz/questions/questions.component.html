@@ -4,6 +4,9 @@
         <h3 class="question-title">الســؤال {{i+1}}</h3>
         <h3 class="ques-text mt-5 mb-4 d-flex justify-content-center">{{question.question}}</h3>
 
+        <!-- Display the image -->
+        <img *ngIf="question.imagePath" [src]="question.imagePath" alt="Question Image" class="question-image" />
+
         <div class="options py-2" *ngFor="let option of question.options">
             <input
               type="radio"
@@ -52,6 +55,10 @@
             </p>
 
           </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mb-4">
+          <button class="btn btn-success" (click)="refreshQuiz()">إعـــادة الاختـبـــار</button>
         </div>
 
     </ng-template>

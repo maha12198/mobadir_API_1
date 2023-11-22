@@ -20,9 +20,11 @@ import { QuestionsComponent } from './quiz/questions/questions.component';
 import { AdminTestComponent } from './admin-test/admin-test.component';
 
 
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AllGradesComponent } from './all-grades/all-grades.component';
+
 
 @NgModule({
   declarations: [
@@ -38,13 +40,15 @@ import { FormsModule } from '@angular/forms';
     TimerComponent,
     QuestionsComponent,
     AdminTestComponent,
+    AllGradesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CKEditorModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

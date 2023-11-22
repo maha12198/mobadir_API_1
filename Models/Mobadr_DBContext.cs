@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using mobadir_API_1.Models;
 
 namespace Mobadir_API.Models
 {
@@ -11,7 +12,7 @@ namespace Mobadir_API.Models
         }
 
         public virtual DbSet<User> Users { get; set; } = null!;
-
+        public virtual DbSet<Article>? Articles { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

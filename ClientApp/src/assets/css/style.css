@@ -131,7 +131,7 @@ section {
   font-size: 1.8rem;
   margin-left: 2rem;
   color: var(--lightTxtColor);
-  
+
 }
 
 .header .nav a:hover {
@@ -289,7 +289,7 @@ section {
 }
 
 .home span {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--lightTxtColor);
 }
 
@@ -310,16 +310,17 @@ section {
 
 
 /* about us section */
-.about span {
+/* .about span {
   font-size: 2.5rem;
   color: var(--Navcolor);
-}
+} */
 
 .about .title {
   padding-top: 1rem;
   font-size: 3rem;
   text-transform: capitalize;
   color: #222;
+  color: var(--Navcolor);
 }
 
 .about p {
@@ -356,9 +357,13 @@ section {
 }
 
 .about .icons-container .icons h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-transform: capitalize;
   color: #222;
+}
+
+.about .p-about {
+  font-size: x-large;
 }
 
 
@@ -525,24 +530,26 @@ section {
 }
 
 .footer .logo {
-  font-size: 3rem;
+  font-size: 2.3rem;
   color: var(--Navcolor);
-  font-weight: bolder;
+  /* color: #000; */
+  font-weight: bold;
 }
 
-.footer .credit {
+/* .footer .credit {
   margin: 2rem 0;
   font-size: 2rem;
   text-transform: capitalize;
   color: #222;
-}
+} */
 
-.footer .credit span {
+/* .footer .credit span {
   text-decoration: underline !important;
-}
+} */
 
 .footer .share {
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .footer .share a {
@@ -558,6 +565,19 @@ section {
 .footer .share a:hover {
   background: var(--Navcolor);
   color: #fff;
+}
+
+.footer .foot {
+  font-size: medium;
+}
+
+.footer ul li {
+  font-size: large;
+  padding: 10px 0px;
+  border-bottom:1px solid #484646;
+}
+.footer ul li a{
+color: #111;
 }
 
 
@@ -709,18 +729,7 @@ section {
   bottom: 0px;
   transition: all 0.5s ease-in-out 0s;
 }
-/* for link colors */
-/* #team .team-block .team-content ul li a:visited {
-  color: #111 !important;
-}
 
-#team .team-block .team-content ul li a:active {
-  color: #111 !important;
-}
-
-#team .team-block .team-content ul li a {
-  color: #111 !important;
-} */
 
 
 
@@ -815,6 +824,12 @@ section {
 .mt-8 {
   margin-top:8rem;
 }
+.mb-8 {
+  margin-bottom: 8rem;
+}
+.mt-5-5 {
+  margin-top: 5.2rem;
+}
 
 
 
@@ -861,7 +876,7 @@ section {
 }
 .pg-title-info {
   /* font-size: larger; */
-  font-size: 20px;;
+  font-size: 20px;
 }
 .topic .left ul li {
   padding: 10px 0px;
@@ -889,7 +904,7 @@ color: #111;
   background-color: #DACC3E;
   color: black;
   font-size: large;
-  
+
 }
 
 
@@ -934,13 +949,26 @@ color: #111;
   margin-top: 200px;
   margin-bottom: 200px;
 }
-.quiz button {
-  padding: 12px 15px;
+.quiz .btn-quiz {
+  /* padding: 12px 15px; */
+  font-size: larger;
   background-color: var(--orange);
   color: #fff;
   border: none;
   border-radius: 0.5em;
+  padding: 1rem 2rem;
 }
+
+.quiz button {
+  padding: 12px 15px;
+  font-size: large;
+  /* background-color: var(--orange); */
+  color: #fff;
+  border: none;
+  border-radius: 0.5em;
+  /* padding: 1rem 2rem; */
+}
+
 .quiz  .quiz-questions {
   background-color: var(--greyBackground);
   height: 100%;
@@ -956,7 +984,7 @@ color: #111;
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
-} 
+}
 .questions .ques-text {
   font-size: 20px;
 }
@@ -1009,8 +1037,8 @@ color: #111;
   font-weight: bold;
 }
 .answered-question-row {
-  margin-bottom: 30px; /* Adjust the margin as needed */
-  font-size: 15px;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
 
 
@@ -1033,3 +1061,32 @@ color: #111;
   color: red;
   font-weight: bold;
 }
+
+.question-image {
+  max-width: 100%;  /* Ensure the image doesn't exceed the width of its container */
+  max-height: 200px; /* Set a maximum height to limit the image size */
+  width: auto;       /* Allow the width to adjust based on the max-width property */
+  height: auto;      /* Allow the height to adjust based on the max-height property */
+  margin-bottom: 10px;
+
+   /* Add a border to the corners */
+   border: 1px solid #000;
+   border-radius: 10px;
+}
+
+
+
+
+ /* admin test page */
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border: none !important;
+  border-color: transparent;
+}
+
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
+  border: none !important;
+}
+
+
+
+

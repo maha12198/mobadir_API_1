@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class QuizComponent {
 
   isQuizToBeStarted: boolean = false;
+  
   onStart() {
     this.isQuizToBeStarted = !this.isQuizToBeStarted;
   }

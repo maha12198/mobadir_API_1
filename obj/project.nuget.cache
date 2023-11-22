@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NCWdhEpyfIvDQPipf81Zq+ZLkM/RWf8TbEJ8njqZbV/2oLGkaJu0O+N8n2hho+gY+WzfyNnoxlFuoG+LTv0Dow==",
+  "dgSpecHash": "7QmZkGlGWV/FjHFOIUNQ6kxYI3zERNYidgxZq9irGlYvr9RrutrTeE+bAjK165fsjdmUsHrHZ7B9qqY0Avh0EQ==",
   "success": true,
   "projectFilePath": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\mobadir_API_1.csproj",
   "expectedPackageFiles": [
@@ -119,9 +119,11 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.16\\microsoft.visualstudio.web.codegeneration.6.0.16.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.16\\microsoft.visualstudio.web.codegeneration.core.6.0.16.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\6.0.16\\microsoft.visualstudio.web.codegeneration.design.6.0.16.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\6.0.16\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.6.0.16.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\6.0.16\\microsoft.visualstudio.web.codegeneration.templating.6.0.16.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\6.0.16\\microsoft.visualstudio.web.codegeneration.utils.6.0.16.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\6.0.16\\microsoft.visualstudio.web.codegenerators.mvc.6.0.16.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",

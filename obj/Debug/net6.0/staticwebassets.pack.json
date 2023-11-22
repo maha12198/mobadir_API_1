@@ -1,6 +1,1406 @@
 {
   "Files": [
     {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\0c5a730e-9ae8-4fc9-bb31-cc7367d5ef65.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\0c5a730e-9ae8-4fc9-bb31-cc7367d5ef65.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\3450013e-3cf7-41db-95f1-8a048153ef2a.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\3450013e-3cf7-41db-95f1-8a048153ef2a.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\3d883082-53d4-4e29-ab0e-1a18802027bc.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\3d883082-53d4-4e29-ab0e-1a18802027bc.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\40a84bdb-2079-458c-bbb6-7d9d3ba1b8ef.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\40a84bdb-2079-458c-bbb6-7d9d3ba1b8ef.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\427347c5-9a7c-4afb-b213-def45e5ac0e6.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\427347c5-9a7c-4afb-b213-def45e5ac0e6.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\5c01d9f8-9a6e-4121-a8a7-e91591f66e58.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\5c01d9f8-9a6e-4121-a8a7-e91591f66e58.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\ad0a4529-ea5c-4829-a56a-a1c61e50dd6e.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\ad0a4529-ea5c-4829-a56a-a1c61e50dd6e.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\d0949ff9-b62b-4b38-b629-43df774d1e47.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\d0949ff9-b62b-4b38-b629-43df774d1e47.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ArticleImages\\e20a0d19-e90f-4046-acbc-80aa534b1322.png",
+      "PackagePath": "staticwebassets\\ArticleImages\\e20a0d19-e90f-4046-acbc-80aa534b1322.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\CHANGES.md",
+      "PackagePath": "staticwebassets\\ckeditor\\CHANGES.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\LICENSE.md",
+      "PackagePath": "staticwebassets\\ckeditor\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\README.md",
+      "PackagePath": "staticwebassets\\ckeditor\\README.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\SECURITY.md",
+      "PackagePath": "staticwebassets\\ckeditor\\SECURITY.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\adapters\\jquery.js",
+      "PackagePath": "staticwebassets\\ckeditor\\adapters\\jquery.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\build-config.js",
+      "PackagePath": "staticwebassets\\ckeditor\\build-config.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\ckeditor.js",
+      "PackagePath": "staticwebassets\\ckeditor\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\config.js",
+      "PackagePath": "staticwebassets\\ckeditor\\config.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\contents.css",
+      "PackagePath": "staticwebassets\\ckeditor\\contents.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\af.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\az.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\bn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\bn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\bs.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\bs.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\da.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\de.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\el.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\en-ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\en.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\es.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\et.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\fo.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\gu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\he.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\hi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\id.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\is.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\is.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\it.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ka.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ka.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\km.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\mk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\mn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ms.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ms.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\no.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\si.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\th.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\ckeditor\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\about\\dialogs\\about.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\about\\dialogs\\about.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\kama\\balloonpanel.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\kama\\balloonpanel.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\balloonpanel.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\balloonpanel.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\images\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\images\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\images\\hidpi\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono-lisa\\images\\hidpi\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\balloonpanel.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\balloonpanel.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\images\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\images\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\images\\hidpi\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloonpanel\\skins\\moono\\images\\hidpi\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloontoolbar\\skins\\default.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloontoolbar\\skins\\default.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloontoolbar\\skins\\kama\\balloontoolbar.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloontoolbar\\skins\\kama\\balloontoolbar.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloontoolbar\\skins\\moono-lisa\\balloontoolbar.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloontoolbar\\skins\\moono-lisa\\balloontoolbar.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\balloontoolbar\\skins\\moono\\balloontoolbar.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\balloontoolbar\\skins\\moono\\balloontoolbar.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\dialog\\dialogDefinition.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\dialog\\dialogDefinition.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\dialog\\styles\\dialog.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\dialog\\styles\\dialog.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\easyimage\\dialogs\\easyimagealt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\easyimage\\dialogs\\easyimagealt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\easyimage\\styles\\easyimage.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\easyimage\\styles\\easyimage.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\icons.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\icons.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\icons_hidpi.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\image\\dialogs\\image.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\image\\dialogs\\image.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\image\\images\\noimage.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\image\\images\\noimage.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\imagebase\\styles\\imagebase.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\imagebase\\styles\\imagebase.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\link\\dialogs\\anchor.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\link\\dialogs\\anchor.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\link\\dialogs\\link.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\link\\dialogs\\link.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\link\\images\\anchor.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\link\\images\\anchor.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\magicline\\images\\icon.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\magicline\\images\\icon.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\pastefromword\\filter\\default.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\pastefromword\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\pastetools\\filter\\common.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\pastetools\\filter\\common.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\pastetools\\filter\\image.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\pastetools\\filter\\image.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\CHANGELOG.md",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\CHANGELOG.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\LICENSE.md",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\README.md",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\README.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\dialogs\\options.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\dialogs\\options.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\table\\dialogs\\table.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\table\\dialogs\\table.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\plugins\\widget\\images\\handle.png",
+      "PackagePath": "staticwebassets\\ckeditor\\plugins\\widget\\images\\handle.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\css\\samples.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\css\\samples.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\github-top.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\github-top.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\header-bg.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\header-bg.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\header-separator.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\header-separator.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\logo.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\logo.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\logo.svg",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\logo.svg"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\img\\navigation-tip.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\img\\navigation-tip.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\index.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\index.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\js\\sample.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\js\\sample.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\js\\sf.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\js\\sf.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\ajax.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\ajax.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\api.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\api.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\appendto.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\appendto.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\assets\\posteddata.php",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\assets\\posteddata.php"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\assets\\sample.jpg",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\assets\\sample.jpg"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\datafiltering.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\datafiltering.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\dialog\\dialog.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\dialog\\dialog.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\divreplace.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\divreplace.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\easyimage\\easyimage.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\easyimage\\easyimage.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\enterkey\\enterkey.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\enterkey\\enterkey.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\index.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\index.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\inlineall.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\inlineall.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\inlinebycode.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\inlinebycode.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\inlinetextarea.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\inlinetextarea.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\jquery.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\jquery.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\magicline\\magicline.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\magicline\\magicline.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\readonly.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\readonly.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\replacebyclass.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\replacebyclass.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\replacebycode.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\replacebycode.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\sample.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\sample.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\sample.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\sample.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\sample_posteddata.php",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\sample_posteddata.php"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\tabindex.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\tabindex.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\toolbar\\toolbar.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\toolbar\\toolbar.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\uicolor.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\uicolor.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\uilanguages.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\uilanguages.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\old\\xhtmlstyle.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\old\\xhtmlstyle.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\index.html",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\index.html"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\LICENSE",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js",
+      "PackagePath": "staticwebassets\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\dialog.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\dialog.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\dialog_ie.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\dialog_ie.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\editor.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\editor.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\editor_gecko.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\editor_gecko.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\editor_ie.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\editor_ie.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\editor_ie8.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\editor_ie8.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\icons.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\icons.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\arrow.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\arrow.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\lock.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\lock.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\refresh.png",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\refresh.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\skins\\moono-lisa\\readme.md",
+      "PackagePath": "staticwebassets\\ckeditor\\skins\\moono-lisa\\readme.md"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\styles.js",
+      "PackagePath": "staticwebassets\\ckeditor\\styles.js"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\ckeditor\\vendor\\promise.js",
+      "PackagePath": "staticwebassets\\ckeditor\\vendor\\promise.js"
+    },
+    {
       "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\main.1facbadfe0593862.js",
       "PackagePath": "staticwebassets\\main.1facbadfe0593862.js"
     },

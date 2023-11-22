@@ -71,7 +71,6 @@ export class QuestionsComponent {
       userAnswer: this.answer,
       isCorrect: isCorrect
     });
-
     
     console.log("Score : ", this.score);
     console.log("Answer : ", this.answer);
@@ -90,6 +89,11 @@ export class QuestionsComponent {
       radio.checked = false;
     });
     
+  }
+
+  refreshQuiz()
+  {
+    window.location.reload();
   }
 
 }
