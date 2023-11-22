@@ -10,31 +10,53 @@
     
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\3rdpartylicenses.txt" />
-    <Content Remove="wwwroot\assets\css\style.css" />
-    <Content Remove="wwwroot\assets\images\cal.jpg" />
-    <Content Remove="wwwroot\assets\images\logo2.png" />
-    <Content Remove="wwwroot\assets\images\logo3.png" />
-    <Content Remove="wwwroot\assets\images\logo4.png" />
-    <Content Remove="wwwroot\assets\images\logoSM.png" />
-    <Content Remove="wwwroot\assets\images\math-bg.jpg" />
-    <Content Remove="wwwroot\assets\images\math-bg2.jpg" />
-    <Content Remove="wwwroot\assets\images\math-bg3.jpg" />
-    <Content Remove="wwwroot\assets\images\math-bg33.jpg" />
-    <Content Remove="wwwroot\assets\images\mobadrLogo1.jpg" />
-    <Content Remove="wwwroot\assets\images\newsletter-bg.jpg" />
-    <Content Remove="wwwroot\assets\images\pic-1.png" />
-    <Content Remove="wwwroot\assets\images\pic-2.png" />
-    <Content Remove="wwwroot\assets\images\pic-3.png" />
-    <Content Remove="wwwroot\assets\js\script.js" />
-    <Content Remove="wwwroot\favicon.ico" />
-    <Content Remove="wwwroot\index.html" />
-    <Content Remove="wwwroot\main.727fa925dc417111.js" />
-    <Content Remove="wwwroot\polyfills.c850ec5f6f3f7b4b.js" />
-    <Content Remove="wwwroot\runtime.05f13811ddf6814f.js" />
-    <Content Remove="wwwroot\styles.ef46db3751d8e999.css" />
-  </ItemGroup>
+  <!--<ItemGroup>
+    <Content Remove="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\css\style.css" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\cal.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\icons\download.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\icons\pdf.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\logo2.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\logo3.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\logo4.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\logoSM.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\math-bg.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\math-bg2.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\math-bg3.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\math-bg33.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\mobadrLogo1.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\newsletter-bg.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers2\11.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers2\22.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers2\33.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers2\44.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\1.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\10_10.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\11_11.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\12_12.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\2.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\3.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\4.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\5.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\6.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\7.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\8.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\numbers3\9.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\pic-1.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\pic-2.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\pic-3.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\topic.jpg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\topicEx.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp1.jpeg" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp2.png" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\assets\js\script.js" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\favicon.ico" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\index.html" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\main.5aa24e46fbadc516.js" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\polyfills.c850ec5f6f3f7b4b.js" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\runtime.55415674df33998c.js" />
+    <Content Remove="wwwroot\mobadir-elearning-angular\styles.ef46db3751d8e999.css" />
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.24" />
@@ -54,30 +76,52 @@
     <Folder Include="ClientApp\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\3rdpartylicenses.txt" />
-    <None Include="wwwroot\assets\css\style.css" />
-    <None Include="wwwroot\assets\images\cal.jpg" />
-    <None Include="wwwroot\assets\images\logo2.png" />
-    <None Include="wwwroot\assets\images\logo3.png" />
-    <None Include="wwwroot\assets\images\logo4.png" />
-    <None Include="wwwroot\assets\images\logoSM.png" />
-    <None Include="wwwroot\assets\images\math-bg.jpg" />
-    <None Include="wwwroot\assets\images\math-bg2.jpg" />
-    <None Include="wwwroot\assets\images\math-bg3.jpg" />
-    <None Include="wwwroot\assets\images\math-bg33.jpg" />
-    <None Include="wwwroot\assets\images\mobadrLogo1.jpg" />
-    <None Include="wwwroot\assets\images\newsletter-bg.jpg" />
-    <None Include="wwwroot\assets\images\pic-1.png" />
-    <None Include="wwwroot\assets\images\pic-2.png" />
-    <None Include="wwwroot\assets\images\pic-3.png" />
-    <None Include="wwwroot\assets\js\script.js" />
-    <None Include="wwwroot\favicon.ico" />
-    <None Include="wwwroot\index.html" />
-    <None Include="wwwroot\main.727fa925dc417111.js" />
-    <None Include="wwwroot\polyfills.c850ec5f6f3f7b4b.js" />
-    <None Include="wwwroot\runtime.05f13811ddf6814f.js" />
-    <None Include="wwwroot\styles.ef46db3751d8e999.css" />
-  </ItemGroup>
+  <!--<ItemGroup>
+    <None Include="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\css\style.css" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\cal.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\icons\download.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\icons\pdf.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo2.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo3.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo4.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logoSM.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg2.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg3.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg33.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\mobadrLogo1.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\newsletter-bg.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\11.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\22.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\33.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\44.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\1.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\10_10.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\11_11.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\12_12.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\2.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\3.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\4.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\5.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\6.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\7.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\8.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\9.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-1.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-2.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-3.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topic.jpg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicEx.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp1.jpeg" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp2.png" />
+    <None Include="wwwroot\mobadir-elearning-angular\assets\js\script.js" />
+    <None Include="wwwroot\mobadir-elearning-angular\favicon.ico" />
+    <None Include="wwwroot\mobadir-elearning-angular\index.html" />
+    <None Include="wwwroot\mobadir-elearning-angular\main.5aa24e46fbadc516.js" />
+    <None Include="wwwroot\mobadir-elearning-angular\polyfills.c850ec5f6f3f7b4b.js" />
+    <None Include="wwwroot\mobadir-elearning-angular\runtime.55415674df33998c.js" />
+    <None Include="wwwroot\mobadir-elearning-angular\styles.ef46db3751d8e999.css" />
+  </ItemGroup>-->
 
 </Project>

@@ -310,10 +310,6 @@ section {
 
 
 /* about us section */
-/* .about span {
-  font-size: 2.5rem;
-  color: var(--Navcolor);
-} */
 
 .about .title {
   padding-top: 1rem;
@@ -478,7 +474,7 @@ section {
 
 
 /* newsletter section */
-.newsletter {
+/* .newsletter {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(../images/newsletter-bg.jpg) no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/newsletter-bg.jpg) no-repeat;
   background-size: cover;
@@ -519,7 +515,7 @@ section {
   font-size: 1.6rem;
 }
 
-
+ */
 
 
 
@@ -535,17 +531,6 @@ section {
   /* color: #000; */
   font-weight: bold;
 }
-
-/* .footer .credit {
-  margin: 2rem 0;
-  font-size: 2rem;
-  text-transform: capitalize;
-  color: #222;
-} */
-
-/* .footer .credit span {
-  text-decoration: underline !important;
-} */
 
 .footer .share {
   margin-top: 2rem;
@@ -594,7 +579,7 @@ color: #111;
     font-size: 4rem;
   }
   section {
-    padding: 3rem 0;
+    padding: 3rem 1rem;
   }
 }
 
@@ -610,7 +595,7 @@ color: #111;
     font-size: 1.7rem;
   }
   .header {
-    padding: 2rem 2rem;
+    padding: 1rem 0rem;
   }
   .header.active {
     padding: 1rem;
@@ -644,9 +629,15 @@ color: #111;
     margin: 1rem 2rem;
     color: #222;
   }
-  .contact .map {
-    height: 25rem;
+  .header .icons div {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
   }
+  
+  /* .contact .map {
+    height: 25rem;
+  } */
 }
 
 @media (max-width: 450px) {
@@ -999,7 +990,7 @@ color: #111;
 }
 .questions .prev,
 .questions .next {
-  margin-top: 20px;
+  margin: 20px 10px 0 10px;
   color: #fff;
   border: none;
   border-radius: 0.5em;
@@ -1007,12 +998,10 @@ color: #111;
   width: 200px;
 }
 .questions .prev {
-  margin-right: 10px;
   background-color: var(--orange);
 }
 .questions .next {
-  margin-left: 10px;
-  background-color: #28a745;
+  background-color: green;
 }
 
 /* score */

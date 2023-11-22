@@ -9,6 +9,7 @@ import { SubjectComponent } from './subject/subject.component';
 import { TopicComponent } from './topic/topic.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AdminTestComponent } from './admin-test/admin-test.component';
+import { AllGradesComponent } from './all-grades/all-grades.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'subject', component : SubjectComponent},
   {path: 'topic', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
-  {path:  'admin', component : AdminTestComponent}
+  {path:  'admin', component : AdminTestComponent},
+  {path: 'all-grades', component : AllGradesComponent}
 
 ];
 

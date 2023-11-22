@@ -7,11 +7,10 @@
                 <div class="title mt-3">
                     <h3 class="font-weight-bold">قائـمـــــة الـــدرس</h3>
                 </div>
-                <div class="">
+                <div>
                     <ul class="list-unstyled ">
                         <li><a href="#video">فيديو الدرس</a></li>
                         <li><a href="#explain">شرح الدرس</a></li>
-                        <!-- <li><a href="#questions">تمارين الدرس</a></li> -->
                         <li><a routerLink="/quiz">اختبار الدرس</a></li>
                     </ul>
                 </div>
@@ -29,11 +28,6 @@
                     </div>
                 </div>
                 
-                <!-- <p class="my-5">
-                    عزيزي الطالب يسعدنا أن نقدم لكم مجموعة من الأسئلة المتنوعة على الوحدة الثانية مادة الرياضيات المتقدمة
-                    متبوعة باختبار الكتروني عبر شبكة مبادر التعليمية
-                    تم تجميع هذه الأسئلة من اختبارات كامبريدج وترجمتها وصياغتها بشكل مبسط
-                </p> -->
                 <!-- فيديو الدرس -->
                 <div id="video" class="d-flex justify-content-center mb-2 mt-5">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/rowgchJcloc?si=hobtWqprpJiwm8F5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -48,7 +42,6 @@
                       [config]="viewerConfig"
                       [disabled] = "viewerReadonly">
                     </ckeditor>
-
 
                     <div class="row mt-5 mb-3">
                         <h3 class="file-title font-weight-bold">الملفات المرفقة</h3>
