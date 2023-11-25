@@ -11,6 +11,9 @@
 
 body {
   text-align: right;
+  /* display: flex;
+  flex-direction: column;
+  height: 100vh; */
 }
 
 * {
@@ -63,6 +66,7 @@ html::-webkit-scrollbar-thumb {
 
 section {
   padding: 5rem 1rem;
+  min-height: 60vh;
 }
 
 
@@ -473,62 +477,17 @@ section {
 
 
 
-/* newsletter section */
-/* .newsletter {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(../images/newsletter-bg.jpg) no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/newsletter-bg.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
-
-.newsletter h3 {
-  font-size: 4rem;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-
-.newsletter p {
-  padding: 1rem 0;
-  font-size: 2rem;
-  color: #fff;
-}
-
-.newsletter form {
-  margin: 1rem auto;
-  max-width: 60rem;
-  background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
-}
-
-.newsletter form .link-btn {
-  margin-top: 0;
-}
-
-.newsletter form .email {
-  width: 100%;
-  padding: 0 1.4rem;
-  font-size: 1.6rem;
-}
-
- */
-
-
 
 /* footer section */
-.footer {
+footer {
   text-align: center;
   background-color: var(--greyBackground);
+
 }
 
 .footer .logo {
   font-size: 2.3rem;
   color: var(--Navcolor);
-  /* color: #000; */
   font-weight: bold;
 }
 
@@ -721,7 +680,16 @@ color: #111;
   transition: all 0.5s ease-in-out 0s;
 }
 
+.team-footer {
+  background-color: #333; /* Background color for the footer */
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: center;
+}
 
+.footer-text {
+  color: #fff; /* Text color for the footer */
+  font-weight: bold;
+}
 
 
 

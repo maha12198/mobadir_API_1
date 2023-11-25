@@ -74,7 +74,7 @@ namespace mobadir_API_1.Controllers
             {
                 IFormFile file = HttpContext.Request.Form.Files[0];
                 string newFileName = Guid.NewGuid().ToString() + file.FileName;
-                string ftpUrl = "ftp://win5143.site4now.net/sample-1/wwwroot/uploads/" + newFileName;
+                string ftpUrl = "ftp://win5143.site4now.net/mobader/wwwroot/uploads/" + newFileName;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
                 request.Credentials = new NetworkCredential("ahamdycs2012-001", "Ahmed123#");

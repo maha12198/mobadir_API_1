@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AllGradesComponent } from './all-grades/all-grades.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AllGradesComponent } from './all-grades/all-grades.component';
     TimerComponent,
     QuestionsComponent,
     AdminTestComponent,
-    AllGradesComponent
+    AllGradesComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

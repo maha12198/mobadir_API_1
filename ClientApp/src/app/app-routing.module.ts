@@ -20,7 +20,8 @@ const routes: Routes = [
   {path: 'topic', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
   {path:  'admin', component : AdminTestComponent},
-  {path: 'all-grades', component : AllGradesComponent}
+  {path: 'all-grades', component : AllGradesComponent},
+  {path: 'home/#contact', component : HomeComponent},
 
 ];
 

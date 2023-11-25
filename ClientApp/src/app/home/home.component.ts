@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { IUser } from '../models/IUser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,6 @@ export class HomeComponent {
         error: (err)=>{ console.log(err);}               
       }
     );  
-
   }
 
 
