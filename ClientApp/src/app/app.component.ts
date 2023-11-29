@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-// import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -21,17 +23,21 @@ export class AppComponent {
      //or document.querySelector('body').scrollTo(0,0)
     }
 
-  // header: any;
+  admin;
 
-  // constructor(private router: Router) { }
+  constructor(private router: Router) { }
   
-  // ngOnInit() 
-  // {
-  //   this.router.events
-  //     .subscribe((event) => {
-  //       if (event instanceof NavigationEnd) {
-  //         this.header = ((event.url !== '/') && (event.url !== '/home'))
-  //       }
-  //     });
-  // }
+  ngOnInit() 
+  {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    )
+    .subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.admin = ((event.url !== '/admin-dash') && (event.url !== '/admin-topic') &&
+                      (event.url !== '/admin-all-topics') && (event.url !== '/admin-grades') &&
+                      (event.url !== '/admin-subjects') && (event.url !== '/admin-users'))
+      }
+    });
+  }
 }

@@ -10,6 +10,12 @@ import { TopicComponent } from './topic/topic.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AdminTestComponent } from './admin-test/admin-test.component';
 import { AllGradesComponent } from './all-grades/all-grades.component';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { AdTopicComponent } from './admin-dash/ad-topic/ad-topic.component';
+import { AdAllTopicsComponent } from './admin-dash/ad-all-topics/ad-all-topics.component';
+import { AdGradesComponent } from './admin-dash/ad-grades/ad-grades.component';
+import { AdSubjectsComponent } from './admin-dash/ad-subjects/ad-subjects.component';
+import { UsersComponent } from './admin-dash/users/users.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
@@ -19,9 +25,16 @@ const routes: Routes = [
   {path: 'subject', component : SubjectComponent},
   {path: 'topic', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
-  {path:  'admin', component : AdminTestComponent},
+  {path: 'admin-test', component : AdminTestComponent},
   {path: 'all-grades', component : AllGradesComponent},
-  {path: 'home/#contact', component : HomeComponent},
+  
+  {path: 'admin-dash', component:AdminDashComponent},
+  {path: 'admin-topic', component :AdTopicComponent},
+
+  {path: 'admin-all-topics', component :AdAllTopicsComponent},
+  {path: 'admin-grades', component :AdGradesComponent},
+  {path: 'admin-subjects', component :AdSubjectsComponent},
+  {path: 'admin-users', component :UsersComponent},
 
 ];
 

@@ -1,0 +1,127 @@
+<!-- admin Header -->
+<app-ad-header></app-ad-header>
+
+
+<!-- ------- Admin Sidebar --------- -->
+<app-ad-sidebar></app-ad-sidebar>
+
+
+
+<!-- -------------- بيانات الحساب ---------------- -->
+<main id="main" class="main">
+    <div class="row">
+      <div class="container profile">
+
+        <div class="card">
+            <div class="card-body pt-3">
+    
+                <!-- title -->
+                <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف الأول</h1> 
+
+                <input type="button" value="&#43;  إضافة مادة جديد" class="btn btn-primary btn-lg px-3 mx-3" data-toggle="modal" data-target="#add-subject-modal" >
+    
+                <!-- the table -->
+                <div class="row d-flex mt-2 mr-3" >
+                    <table class="table table-borderless table-hover ">
+                        <thead>
+                        <tr>
+                            <th>م</th>
+                            <th>المادة</th>
+                            <th class="pr-4">الحالة</th>
+                            <th class="pr-4">دروس المادة</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>الرياضيات</td>
+                                <td>
+                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                </td>
+                                <td class="fs-4">
+                                    <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>العلوم</td>
+                                <td>
+                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle2" name="toggle2">
+                                </td>
+                                <td class="fs-4">
+                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <td>اللغة العربية</td>
+                                <td>
+                                    <input type="checkbox" data-size="lg" data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle3" name="toggle3">
+                                </td>
+                                <td class="fs-4">
+                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>       
+
+                </div>
+
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+</main>
+
+
+<app-ad-footer></app-ad-footer>
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="add-subject-modal">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+  
+      <!-- Modal Header -->
+      <div class="modal-header d-flex justify-content-between mb-3">
+          <h3 class="modal-title flex-grow-1 font-weight-bold">إضافة مادة جديد</h3>
+          <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+      </div>
+  
+      <!-- Modal body -->
+      <div class="modal-body">
+          
+          <div class="row mb-4">
+              <div class="col-lg-3 col-md-4 label "> اسم المادة</div>
+              <div class="col-lg-9 col-md-8">
+                  <input type="text" name="name" id="name" class="form-control " >
+              </div>
+          </div>
+  
+          <div class="row mb-2">
+              <div class="col-lg-3 col-md-4 pt-2">
+                  
+                  <label for="toggle-add">حالة المادة</label>
+              </div>
+              <div class="col-lg-9 col-md-8">
+                  <input type="checkbox" data-size="lg" data-width="100" class="p-0"  checked data-toggle="toggle" data-on="ظاهرة" data-off="مخفية" data-onstyle="success" data-offstyle="danger" id="toggle-add" name="toggle-add" >
+              </div>
+          </div>
+  
+  
+      </div>
+  
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-between">
+          <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">إغلاق</button>
+          <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">حفظ</button>
+      </div>
+  
+      </div>
+  </div>
+  </div>
+  

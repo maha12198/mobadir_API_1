@@ -1,0 +1,203 @@
+<!-- admin Header -->
+<app-ad-header></app-ad-header>
+
+
+<!-- ------- Admin Sidebar --------- -->
+<app-ad-sidebar></app-ad-sidebar>
+
+
+
+<!-- -------------- بيانات الحساب ---------------- -->
+<main id="main" class="main">
+    <div class="row">
+      <div class="container profile">
+
+        <div class="card">
+          <div class="card-body pt-3">
+  
+            <!-- title -->
+            <h1 class="font-weight-bold py-2 mb-2 title"> بيانات الحساب </h1> 
+  
+            <!-- tabs -->
+            <ul class="nav nav-tabs" role="tablist">  
+                <!-- 1 -->
+                <li class="nav-item tab-admin">  
+                  <a class="nav-link active" data-toggle="tab" href="#profile" role="tab"> الملف الشخصي </a>  
+                </li>  
+                <!-- 2 -->
+                <!-- <li class="nav-item tab-admin">  
+                  <a class="nav-link" data-toggle="tab" href="#edit" role="tab"> تعديل بيانات الحساب </a>  
+                </li>   -->
+                <!-- 3 -->
+                <li class="nav-item tab-admin">  
+                  <a class="nav-link" data-toggle="tab" href="#changepass" role="tab"> تغيير كلمة السر </a>  
+                </li>  
+            </ul> 
+            
+            <!-- tab content -->
+            <div class="tab-content mr-3"> 
+              <!-- tab 1  -->
+              <div class="tab-pane fade show active" id="profile" role="tabpanel">  
+                <h2 class="card-title text-black mb-3 ">  تفاصيل الملف الشخصي  </h2>  
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">اسم المستخدم</div>
+                  <div class="col-lg-9 col-md-8">الاسم</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">الحالة</div>
+                  <div class="col-lg-9 col-md-8">مفعل</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">الصلاحية</div>
+                  <div class="col-lg-9 col-md-8">ادمن</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">آخر تعديل</div>
+                  <div class="col-lg-9 col-md-8">	2021-11-11 14:00:00 </div>
+                </div>
+
+              </div>  
+              <!-- tab 2  -->
+              <!-- <div class="tab-pane fade" id="edit" role="tabpanel">  
+                <h2 class="card-title text-black mb-3 ">  تعديل بيانات الحساب  </h2>  
+
+                <form>
+
+                  <div class="row mb-3">
+                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">اسم المستخدم</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="about" class="col-md-4 col-lg-3 col-form-label">الحالة</label>
+                    <div class="col-md-8 col-lg-9">
+                      <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="country" type="text" class="form-control" id="Country" value="USA">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="address" type="text" class="form-control" id="Address" value="A108 Adam Street, New York, NY 535022">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                  </div>
+                </form>
+
+              </div>   -->
+              <!-- tab 3  -->
+              <div class="tab-pane fade" id="changepass" role="tabpanel">  
+                <h2 class="card-title text-black mb-3 ">  تغيير كلمة السر  </h2>  
+                
+                <form>
+
+                  <div class="row mb-4">
+                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label label" >كلمة السر الحالية</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="password" type="password" class="form-control py-4" id="currentPassword">
+                    </div>
+                  </div>
+
+                  <div class="row mb-4">
+                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label label">كلمة السر الجديدة</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="newpassword" type="password" class="form-control py-4" id="newPassword">
+                    </div>
+                  </div>
+
+                  <!-- <div class="row mb-3">
+                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                    </div>
+                  </div> -->
+
+                  <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-admin mt-2">تغيير كلمة السر</button>
+                  </div>
+                </form>
+
+              </div> 
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</main>
+
+
+<app-ad-footer></app-ad-footer>

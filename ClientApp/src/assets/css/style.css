@@ -479,7 +479,7 @@ section {
 
 
 /* footer section */
-footer {
+.footer {
   text-align: center;
   background-color: var(--greyBackground);
 
