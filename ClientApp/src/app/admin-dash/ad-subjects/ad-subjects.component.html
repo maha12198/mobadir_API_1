@@ -21,14 +21,14 @@
                 <input type="button" value="&#43;  إضافة مادة جديد" class="btn btn-primary btn-lg px-3 mx-3" data-toggle="modal" data-target="#add-subject-modal" >
     
                 <!-- the table -->
-                <div class="row d-flex mt-2 mr-3" >
-                    <table class="table table-borderless table-hover ">
+                <div class="row d-flex mt-4 mr-3" >
+                    <table class="table table-hover table-responsive-sm">
                         <thead>
                         <tr>
                             <th>م</th>
                             <th>المادة</th>
                             <th class="pr-4">الحالة</th>
-                            <th class="pr-4">دروس المادة</th>
+                            <th class="pr-4"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,7 +36,10 @@
                                 <th>1</th>
                                 <td>الرياضيات</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
+                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
@@ -46,7 +49,10 @@
                                 <th>2</th>
                                 <td>العلوم</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle2" name="toggle2">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" checked>
+                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
@@ -56,7 +62,10 @@
                                 <th>3</th>
                                 <td>اللغة العربية</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle3" name="toggle3">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t3" class="tgl tgl-skewed">
+                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
@@ -108,7 +117,10 @@
                   <label for="toggle-add">حالة المادة</label>
               </div>
               <div class="col-lg-9 col-md-8">
-                  <input type="checkbox" data-size="lg" data-width="100" class="p-0"  checked data-toggle="toggle" data-on="ظاهرة" data-off="مخفية" data-onstyle="success" data-offstyle="danger" id="toggle-add" name="toggle-add" >
+                <div class="checkbox-wrapper-8">
+                    <input type="checkbox" id="t4" class="tgl tgl-skewed" checked>
+                    <label for="t4" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                </div>
               </div>
           </div>
   

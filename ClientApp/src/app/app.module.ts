@@ -34,6 +34,7 @@ import { AdGradesComponent } from './admin-dash/ad-grades/ad-grades.component';
 import { AdSubjectsComponent } from './admin-dash/ad-subjects/ad-subjects.component';
 import { AdAllTopicsComponent } from './admin-dash/ad-all-topics/ad-all-topics.component';
 import { UsersComponent } from './admin-dash/users/users.component';
+import { AdEditTopicComponent } from './ad-edit-topic/ad-edit-topic.component';
 
 //angular material
 // import {MatDialogModule} from '@angular/material/dialog';
@@ -63,6 +64,7 @@ import { UsersComponent } from './admin-dash/users/users.component';
     AdSubjectsComponent,
     AdAllTopicsComponent,
     UsersComponent,
+    AdEditTopicComponent,
 
   ],
   imports: [

@@ -1026,21 +1026,21 @@ color: #111;
   height: auto;      /* Allow the height to adjust based on the max-height property */
   margin-bottom: 10px;
 
-   /* Add a border to the corners */
-   border: 1px solid #000;
-   border-radius: 10px;
+  /* Add a border to the corners */
+  border: 1px solid #000;
+  border-radius: 10px;
 }
 
 
 
 
- /* admin test page */
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+ /* admin test page  ==> topic page */
+#view .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
   border: none !important;
   border-color: transparent;
 }
 
-.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
+#view .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
   border: none !important;
 }
 

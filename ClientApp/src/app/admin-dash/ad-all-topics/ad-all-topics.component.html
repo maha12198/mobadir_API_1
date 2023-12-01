@@ -13,53 +13,100 @@
       <div class="container profile">
 
         <div class="card">
-            <div class="card-body pt-3">
+            <div class="card-body pt-3 ml-4">
     
                 <!-- title -->
                 <h1 class="font-weight-bold py-2 mb-4 title mr-2"> دروس مادة الرياضيات الصف الأول</h1> 
 
-                <input type="button" value="&#43;  إضافة درس جديد" class="btn btn-primary btn-lg px-3 mx-3" >
-    
+
+                <!-- buttons to add new topic and search -->
+                <div class="d-flex align-content-center justify-content-between mt-3 px-0">
+                    <!-- right side -->
+                    <div class="flex-grow-1">
+                        <input type="button" value="&#43;  إضافة درس جديد" routerLink="/admin-topic" class="btn btn-primary btn-lg px-3 mx-3" >
+                    </div>
+                    
+                    <!-- left side -->
+                    <div class="d-flex w-25">
+                        <!-- filter -->
+                        <div class="input-group mb-2">
+                            <!-- filter input -->
+                            <input type="text" class="form-control py-3 btn_grey" style="font-size: 16px;" placeholder="بحث">
+                            <!-- search icon -->
+                            <button class="btn btn_grey_dark btn-lg mr-1" type="button" id="">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- the table -->
-                <div class="row d-flex mt-2 mr-3" >
-                    <table class="table table-borderless table-hover ">
+                <div class="row d-flex mt-4 mr-3" >
+                    <table class="table table-hover table-responsive-sm text-center">
                         <thead>
                         <tr>
                             <th>م</th>
                             <th>عنوان الدرس</th>
-                            <th class="pr-4">الحالة</th>
-                            <th class="pr-4"> آخر تعديل</th>
+                            <th>المستخدم المضيف</th>
+                            <th>الفصل الدراسي</th>
+                            <th>الحالة</th>
+                            <th> آخر تعديل</th>
+                            <th>  </th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th>1</th>
                                 <td> مثال عنوان درس</td>
+                                <td>admin</td>
+                                <td>الفصل الدراسي الأول</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
+                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     2021-11-11 14:00:00 
+                                </td>
+                                <td>
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-edit-topic" class="btn btn-warning btn-lg px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>1</th>
+                                <th>2</th>
                                 <td>مثال عنوان درس</td>
+                                <td>admin</td>
+                                <td>الفصل الدراسي الأول</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" >
+                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     2021-11-11 14:00:00 
+                                </td>
+                                <td>
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>1</th>
+                                <th>3</th>
                                 <td>مثال عنوان درس</td>
+                                <td>user2</td>
+                                <td>الفصل الدراسي الثاني</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t3" class="tgl tgl-skewed" checked>
+                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
                                 <td class="fs-4">
                                     2021-11-11 14:00:00 
+                                </td>
+                                <td>
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg px-3 mx-3" >
                                 </td>
                             </tr>
                         </tbody>

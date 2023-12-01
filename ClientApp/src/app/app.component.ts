@@ -36,7 +36,8 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         this.admin = ((event.url !== '/admin-dash') && (event.url !== '/admin-topic') &&
                       (event.url !== '/admin-all-topics') && (event.url !== '/admin-grades') &&
-                      (event.url !== '/admin-subjects') && (event.url !== '/admin-users'))
+                      (event.url !== '/admin-subjects') && (event.url !== '/admin-users') &&
+                      (event.url !== '/admin-edit-topic'))
       }
     });
   }

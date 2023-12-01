@@ -16,6 +16,7 @@ import { AdAllTopicsComponent } from './admin-dash/ad-all-topics/ad-all-topics.c
 import { AdGradesComponent } from './admin-dash/ad-grades/ad-grades.component';
 import { AdSubjectsComponent } from './admin-dash/ad-subjects/ad-subjects.component';
 import { UsersComponent } from './admin-dash/users/users.component';
+import { AdEditTopicComponent } from './ad-edit-topic/ad-edit-topic.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'admin-grades', component :AdGradesComponent},
   {path: 'admin-subjects', component :AdSubjectsComponent},
   {path: 'admin-users', component :UsersComponent},
+  {path: 'admin-edit-topic', component:AdEditTopicComponent}
 
 ];
 

@@ -21,14 +21,14 @@
                 <input type="button" value="&#43;  إضافة صف جديد" class="btn btn-primary btn-lg px-3 mx-3" data-toggle="modal" data-target="#add-grade-modal" >
 
                 <!-- the table -->
-                <div class="row d-flex mt-2 mr-3" >
-                    <table class="table table-borderless table-hover ">
+                <div class="row d-flex mt-4 mr-3" >
+                    <table class="table table-hover table-responsive-sm ">
                         <thead>
                         <tr>
                             <th>م</th>
                             <th>الصف</th>
                             <th class="pr-4">الحالة</th>
-                            <th class="pr-4">مواد الصف</th>
+                            <th class="pr-4"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,9 +36,13 @@
                                 <th>1</th>
                                 <td>الصف الأول</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1">
+                                    <!-- <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1"> -->
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
+                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
-                                <td class="fs-4">
+                                <td>
                                     <input type="button" value="مواد الصف" routerLink="/admin-subjects"  routerLinkActive="active" class="btn btn-secondary btn-lg px-3 mx-3" >
                                    
                                 </td>
@@ -46,10 +50,13 @@
                             <tr>
                                 <th>2</th>
                                 <td>الصف الثاني</td>
-                                <td>
-                                    <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle2" name="toggle2">
+                                <td> 
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" checked>
+                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
-                                <td class="fs-4">
+                                <td>
                                     <input type="button" value="مواد الصف" class="btn btn-secondary btn-lg px-3 mx-3" >
                                     <!-- <input type="button" value="تعديل" class="btn btn-danger btn-lg px-3" data-toggle="modal" data-target="#edit-grade-modal"> -->
                                     <!-- <button type="button" class="btn btn-dark btn-md mx-2 mb-2" data-toggle="modal" data-target="#addCase-modal">Add a Case</button> -->
@@ -59,9 +66,12 @@
                                 <th>3</th>
                                 <td>الصف الثالث</td>
                                 <td>
-                                    <input type="checkbox" data-size="lg" data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle3" name="toggle3">
+                                    <div class="checkbox-wrapper-8">
+                                        <input type="checkbox" id="t3" class="tgl tgl-skewed">
+                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                    </div>
                                 </td>
-                                <td class="fs-4">
+                                <td>
                                     <input type="button" value="مواد الصف" class="btn btn-secondary btn-lg px-3 mx-3" >
                                     <!-- <input type="button" value="تعديل" class="btn btn-danger btn-lg px-3" data-toggle="modal" data-target="#edit-grade-modal"> -->
                                     <!-- <button type="button" class="btn btn-dark btn-md mx-2 mb-2" data-toggle="modal" data-target="#addCase-modal">Add a Case</button> -->
@@ -112,7 +122,10 @@
                 <label for="toggle-add">حالة الصف</label>
             </div>
             <div class="col-lg-9 col-md-8">
-                <input type="checkbox" data-size="lg" data-width="100" class="p-0"  checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle-add" name="toggle-add" >
+                <div class="checkbox-wrapper-8">
+                    <input type="checkbox" id="t4" class="tgl tgl-skewed" checked>
+                    <label for="t4" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                </div>
             </div>
         </div>
 
