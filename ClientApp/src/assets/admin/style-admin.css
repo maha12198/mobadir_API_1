@@ -588,7 +588,7 @@
 
 /* change font weight of icon when hover */
 /* i:hover { -webkit-text-stroke: 1px; } */
-i { -webkit-text-stroke: 1px; }
+i { -webkit-text-stroke: 0.5px; }
 
 
 /* admin ad-topic */
@@ -674,6 +674,10 @@ i { -webkit-text-stroke: 1px; }
   opacity: 1;
   transform: translateY(0px);
   transition-duration: 0.3s;
+}
+
+#ck-add-new .ck-editor__editable_inline {
+  min-height: 200px !important;
 }
 
 

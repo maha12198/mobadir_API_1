@@ -1025,7 +1025,6 @@ color: #111;
   width: auto;       /* Allow the width to adjust based on the max-width property */
   height: auto;      /* Allow the height to adjust based on the max-height property */
   margin-bottom: 10px;
-
   /* Add a border to the corners */
   border: 1px solid #000;
   border-radius: 10px;
