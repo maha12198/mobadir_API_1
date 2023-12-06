@@ -6,11 +6,10 @@
 <app-ad-sidebar></app-ad-sidebar>
 
 
-
-<!-- -------------- بيانات الحساب ---------------- -->
+<!-- المواد----------------------------------- -->
 <main id="main" class="main">
     <div class="row">
-      <div class="container profile">
+      <div class="container regular-font-size">
 
         <div class="card">
             <div class="card-body pt-3">
@@ -18,11 +17,15 @@
                 <!-- title -->
                 <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف الأول</h1> 
 
-                <input type="button" value="&#43;  إضافة مادة جديد" class="btn btn-primary btn-lg px-3 mx-3" data-toggle="modal" data-target="#add-subject-modal" >
+                <button  class="btn btn-primary btn-lg mt-3 mb-2 px-3 mx-3 smaller-font-size" data-toggle="modal" data-target="#add-subject-modal">
+                    <i class="bi bi-journal-plus ml-2"> </i>
+                    إضافة مادة جديد
+                </button>      
+                <!-- <input type="button" value="&#43;  إضافة مادة جديد" class="btn btn-primary btn-lg mt-3 mb-2 px-3 mx-3 smaller-font-size" data-toggle="modal" data-target="#add-subject-modal" > -->
     
                 <!-- the table -->
-                <div class="row d-flex mt-4 mr-3" >
-                    <table class="table table-hover table-responsive-sm">
+                <div class="row mt-4 mr-3" >
+                    <table class="table table-hover text-center mx-4 w-100">
                         <thead>
                         <tr>
                             <th>م</th>
@@ -33,42 +36,42 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <td>الرياضيات</td>
-                                <td>
+                                <th class="align-middle">1</th>
+                                <td class="align-middle">الرياضيات</td>
+                                <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
                                         <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
-                                    <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>العلوم</td>
-                                <td>
+                                <th class="align-middle">2</th>
+                                <td class="align-middle">العلوم</td>
+                                <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t2" class="tgl tgl-skewed" checked>
                                         <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
-                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>اللغة العربية</td>
-                                <td>
+                                <th class="align-middle">3</th>
+                                <td class="align-middle">اللغة العربية</td>
+                                <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t3" class="tgl tgl-skewed">
                                         <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
-                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                         </tbody>

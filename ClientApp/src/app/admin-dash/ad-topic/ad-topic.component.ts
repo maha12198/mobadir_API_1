@@ -16,8 +16,8 @@ import { ApiService } from '../../services/api.service';
 export class AdTopicComponent {
 
   // for displaying add/edit buttons
-  edit: boolean = false;
-  add: boolean = true;
+  edit: boolean = true;
+  add: boolean = false;
 
   // -------------- variables -------------------
 

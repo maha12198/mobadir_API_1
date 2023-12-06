@@ -1,7 +1,5 @@
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+/*-----------------------------General-----------------------------*/
 :root {
     scroll-behavior: smooth;
     --Navcolor: #7D1538;
@@ -26,9 +24,7 @@
   } */
   
 
-  /*--------------------------------------------------------------
-  # Main
-  --------------------------------------------------------------*/
+  /*------------------------- Main---------------------------*/
   #main {
     margin-top: 60px;
     padding: 20px 30px;
@@ -45,98 +41,12 @@
     }
   }
 
-  
-  /*--------------------------------------------------------------
-  # Page Title
-  --------------------------------------------------------------*/
-  .pagetitle {
-    margin-bottom: 10px;
-  }
-  
-  .pagetitle h1 {
-    font-size: 24px;
-    margin-bottom: 0;
-    font-weight: 600;
-    color: #012970;
-  }
-  
-  /*--------------------------------------------------------------
-  # Back to top button
-  --------------------------------------------------------------*/
-  /* .back-to-top {
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    right: 15px;
-    bottom: 15px;
-    z-index: 99999;
-    background: #4154f1;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    transition: all 0.4s;
-  }
-  
-  .back-to-top i {
-    font-size: 24px;
-    color: #fff;
-    line-height: 0;
-  }
-  
-  .back-to-top:hover {
-    background: #6776f4;
-    color: #fff;
-  }
-  
-  .back-to-top.active {
-    visibility: visible;
-    opacity: 1;
-  }
-   */
 
 
 
-  /*--------------------------------------------------------------
-  # Override some default Bootstrap stylings
-  --------------------------------------------------------------*/
-  
-  /* Light Backgrounds */
-  .bg-primary-light {
-    background-color: #cfe2ff;
-    border-color: #cfe2ff;
-  }
-  
-  .bg-secondary-light {
-    background-color: #e2e3e5;
-    border-color: #e2e3e5;
-  }
-  
-  .bg-success-light {
-    background-color: #d1e7dd;
-    border-color: #d1e7dd;
-  }
-  
-  .bg-danger-light {
-    background-color: #f8d7da;
-    border-color: #f8d7da;
-  }
-  
-  .bg-warning-light {
-    background-color: #fff3cd;
-    border-color: #fff3cd;
-  }
-  
-  .bg-info-light {
-    background-color: #cff4fc;
-    border-color: #cff4fc;
-  }
-  
-  .bg-dark-light {
-    background-color: #d3d3d4;
-    border-color: #d3d3d4;
-  }
-  
-  /* Card */
+
+  /*-------------- Override some default Bootstrap stylings----------------------*/
+
   .card {
     margin-bottom: 30px;
     border: none;
@@ -170,26 +80,12 @@
     padding: 0 20px 20px 20px;
   }
   
-  .card-img-overlay {
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-  
-  /* Close Button */
-  .btn-close {
-    background-size: 25%;
-  }
-  
-  .btn-close:focus {
-    outline: 0;
-    box-shadow: none;
-  }
-  
+
+
 
 
   
-  /*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
+  /*--------------------------- Admin Header -------------------------*/
   .logo-admin {
     line-height: 1;
   }
@@ -233,9 +129,7 @@
 
 
   
-  /*--------------------------------------------------------------
-  # Sidebar
-  --------------------------------------------------------------*/
+  /*---------------------------Sidebar-------------------------*/
   .sidebar {
     position: fixed;
     top: 60px;
@@ -401,9 +295,7 @@
 
 
   
-  /*--------------------------------------------------------------
-  # Profie Page
-  --------------------------------------------------------------*/
+/* -----------------------admin dash page / account info -------------------- */
   .profile{
     font-size: 1.5rem;
   }
@@ -432,7 +324,7 @@
 
 
 
-/* admin grades page */
+/* -----------------------admin grades page-------------------- */
 .btn-modal-close {
   left:0;
 }
@@ -448,7 +340,6 @@
 .checkbox-wrapper-8 .tgl {
   display: none;
 }
-
 .checkbox-wrapper-8 .tgl,
   .checkbox-wrapper-8 .tgl:after,
   .checkbox-wrapper-8 .tgl:before,
@@ -458,7 +349,6 @@
   .checkbox-wrapper-8 .tgl + .tgl-btn {
   box-sizing: border-box;
 }
-
 .checkbox-wrapper-8 .tgl::-moz-selection,
   .checkbox-wrapper-8 .tgl:after::-moz-selection,
   .checkbox-wrapper-8 .tgl:before::-moz-selection,
@@ -475,7 +365,6 @@
   .checkbox-wrapper-8 .tgl + .tgl-btn::selection {
   background: none;
 }
-
 .checkbox-wrapper-8 .tgl + .tgl-btn {
   outline: 0;
   display: block;
@@ -488,7 +377,6 @@
   -ms-user-select: none;
   user-select: none;
 }
-
 .checkbox-wrapper-8 .tgl + .tgl-btn:after,
   .checkbox-wrapper-8 .tgl + .tgl-btn:before {
   position: relative;
@@ -497,19 +385,15 @@
   width: 50%;
   height: 100%;
 }
-
 .checkbox-wrapper-8 .tgl + .tgl-btn:after {
   left: 0;
 }
-
 .checkbox-wrapper-8 .tgl + .tgl-btn:before {
   display: none;
 }
-
 .checkbox-wrapper-8 .tgl:checked + .tgl-btn:after {
   left: 50%;
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn {
   overflow: hidden;
   /* transform: skew(-10deg); */
@@ -519,7 +403,6 @@
   /* font-family: sans-serif; */
   background: #dc3545;
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after,
   .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
   /* transform: skew(10deg); */
@@ -534,52 +417,45 @@
   color: #fff;
   /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after {
   left: 100%;
   content: attr(data-tg-on);
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
   left: 0;
   content: attr(data-tg-off);
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:active {
   background: #888;
 }
-
 .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:active:before {
   left: -10%;
 }
-
 .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn {
   background: #198754;
 }
-
 .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:before {
   left: -100%;
 }
-
 .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:after {
   left: 0;
 }
-
 .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:active:after {
   left: 10%;
 }
-
 @media (max-width: 991px) {
   .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after,
   .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
-    line-height: 2.5em;
-    font-size: 10px;
+    line-height: 2.2em;
+    font-size: 15px;
   }
 }
 
 
 
-/* admin all topics page */
+
+
+/* --------------------- admin all topics page ----------------*/
 
 .btn_grey_dark {
   background-color: var(--light-grey-btn);
@@ -591,9 +467,21 @@
 i { -webkit-text-stroke: 0.5px; }
 
 
-/* admin ad-topic */
+
+
+/* --------------------admin ad-topic------------------- */
 
 .ad-topic {
+  font-size: 17px;
+}
+
+/* for all but remembered at last */
+
+.font-1-5-rem{
+  font-size: 1.5rem;
+}
+
+.regular-font-size {
   font-size: 17px;
 }
 
@@ -618,6 +506,11 @@ i { -webkit-text-stroke: 0.5px; }
     width: 100% !important;
   }
 }
+
+#ck-add-new .ck-editor__editable_inline {
+  min-height: 200px !important;
+}
+
 
 /* delete button with animation */
 .delete-button {
@@ -676,132 +569,24 @@ i { -webkit-text-stroke: 0.5px; }
   transition-duration: 0.3s;
 }
 
-#ck-add-new .ck-editor__editable_inline {
-  min-height: 200px !important;
+
+
+
+
+/*-------------- Contact-------------------*/
+.blue-bold-text {
+  color: rgba(1, 41, 112, 0.6);
+  font-weight: 600;
 }
 
 
 
 
 
-  /*--------------------------------------------------------------
-  # Contact
-  --------------------------------------------------------------*/
-  .contact .info-box {
-    padding: 28px 30px;
-  }
-  
-  .contact .info-box i {
-    font-size: 38px;
-    line-height: 0;
-    color: #4154f1;
-  }
-  
-  .contact .info-box h3 {
-    font-size: 20px;
-    color: #012970;
-    font-weight: 700;
-    margin: 20px 0 10px 0;
-  }
-  
-  .contact .info-box p {
-    padding: 0;
-    line-height: 24px;
-    font-size: 14px;
-    margin-bottom: 0;
-  }
-  
-  .contact .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: left;
-    padding: 15px;
-    margin-bottom: 24px;
-    font-weight: 600;
-  }
-  
-  .contact .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 24px;
-    font-weight: 600;
-  }
-  
-  .contact .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 24px;
-  }
-  
-  .contact .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    animation: animate-loading 1s linear infinite;
-  }
-  
-  .contact .php-email-form input,
-  .contact .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    border-radius: 0;
-  }
-  
-  .contact .php-email-form input:focus,
-  .contact .php-email-form textarea:focus {
-    border-color: #4154f1;
-  }
-  
-  .contact .php-email-form input {
-    padding: 10px 15px;
-  }
-  
-  .contact .php-email-form textarea {
-    padding: 12px 15px;
-  }
-  
-  .contact .php-email-form button[type=submit] {
-    background: #4154f1;
-    border: 0;
-    padding: 10px 30px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 4px;
-  }
-  
-  .contact .php-email-form button[type=submit]:hover {
-    background: #5969f3;
-  }
-  
-  @keyframes animate-loading {
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  
 
 
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
+/*--------------- Footer --------------------*/
 .footer-admin {
   padding: 20px 0;
   font-size: 14px;

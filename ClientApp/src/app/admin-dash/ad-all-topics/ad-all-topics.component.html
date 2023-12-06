@@ -6,11 +6,10 @@
 <app-ad-sidebar></app-ad-sidebar>
 
 
-
-<!-- -------------- بيانات الحساب ---------------- -->
+<!-- الدروس ------------------------------------------------->
 <main id="main" class="main">
     <div class="row">
-      <div class="container profile">
+      <div class="container regular-font-size">
 
         <div class="card">
             <div class="card-body pt-3 ml-4">
@@ -22,18 +21,18 @@
                 <!-- buttons to add new topic and search -->
                 <div class="d-flex align-content-center justify-content-between mt-3 px-0">
                     <!-- right side -->
-                    <div class="flex-grow-1">
-                        <input type="button" value="&#43;  إضافة درس جديد" routerLink="/admin-topic" class="btn btn-primary btn-lg px-3 mx-3" >
+                    <div class="flex-grow-1 search-filter-admin-topics">
+                        <input type="button" value="&#43;  إضافة درس جديد" routerLink="/admin-topic" class="btn btn-dark btn-lg px-3 mx-3 mt-3 mb-2 smaller-font-size">
                     </div>
                     
                     <!-- left side -->
-                    <div class="d-flex w-25">
+                    <div class=" w-25 mt-3 mb-2">
                         <!-- filter -->
                         <div class="input-group mb-2">
                             <!-- filter input -->
-                            <input type="text" class="form-control py-3 btn_grey" style="font-size: 16px;" placeholder="بحث">
+                            <input type="text" class="form-control py-3 btn_grey smaller-font-size" style="font-size: 16px;" placeholder="بحث">
                             <!-- search icon -->
-                            <button class="btn btn_grey_dark btn-lg mr-1" type="button" id="">
+                            <button class="btn btn_grey_dark " type="button" id="">
                                 <i class="bi bi-search"></i>
                             </button>
                         </div>
@@ -42,7 +41,7 @@
                 
                 <!-- the table -->
                 <div class="row d-flex mt-4 mr-3" >
-                    <table class="table table-hover table-responsive-sm text-center">
+                    <table class="table table-hover table-responsive-sm text-center w-100">
                         <thead>
                         <tr>
                             <th>م</th>
@@ -56,57 +55,57 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <td> مثال عنوان درس</td>
-                                <td>admin</td>
-                                <td>الفصل الدراسي الأول</td>
-                                <td>
+                                <th class="align-middle">1</th>
+                                <td class="align-middle"> مثال عنوان درس</td>
+                                <td class="align-middle">admin</td>
+                                <td class="align-middle">الفصل الدراسي الأول</td>
+                                <td  class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
                                         <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
+                                <td class="align-middle">
                                     2021-11-11 14:00:00 
                                 </td>
-                                <td>
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-edit-topic" class="btn btn-warning btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>مثال عنوان درس</td>
-                                <td>admin</td>
-                                <td>الفصل الدراسي الأول</td>
-                                <td>
+                                <th class="align-middle">2</th>
+                                <td class="align-middle">مثال عنوان درس</td>
+                                <td class="align-middle">admin</td>
+                                <td class="align-middle">الفصل الدراسي الأول</td>
+                                <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t2" class="tgl tgl-skewed" >
                                         <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
+                                <td class="align-middle">
                                     2021-11-11 14:00:00 
                                 </td>
-                                <td>
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>مثال عنوان درس</td>
-                                <td>user2</td>
-                                <td>الفصل الدراسي الثاني</td>
-                                <td>
+                                <th class="align-middle">3</th>
+                                <td class="align-middle">مثال عنوان درس</td>
+                                <td class="align-middle">user2</td>
+                                <td class="align-middle">الفصل الدراسي الثاني</td>
+                                <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" id="t3" class="tgl tgl-skewed" checked>
                                         <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
-                                <td class="fs-4">
+                                <td class="align-middle">
                                     2021-11-11 14:00:00 
                                 </td>
-                                <td>
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg px-3 mx-3" >
+                                <td class="align-middle">
+                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                         </tbody>
@@ -124,47 +123,3 @@
 
 
 <app-ad-footer></app-ad-footer>
-
-
-
-
-<!-- The Modal -->
-<div class="modal" id="add-subject-modal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-4">
-    
-            <!-- Modal Header -->
-            <div class="modal-header d-flex justify-content-between mb-3">
-                <h3 class="modal-title flex-grow-1 font-weight-bold">إضافة مادة جديد</h3>
-                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-            </div>
-        
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="row mb-4">
-                    <div class="col-lg-3 col-md-4 label "> اسم المادة</div>
-                    <div class="col-lg-9 col-md-8">
-                        <input type="text" name="name" id="name" class="form-control " >
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg-3 col-md-4 pt-2">
-                        
-                        <label for="toggle-add">حالة المادة</label>
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <input type="checkbox" data-size="lg" data-width="100" class="p-0"  checked data-toggle="toggle" data-on="ظاهرة" data-off="مخفية" data-onstyle="success" data-offstyle="danger" id="toggle-add" name="toggle-add" >
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">إغلاق</button>
-                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">حفظ</button>
-            </div>
-    
-        </div>
-    </div>
-</div>
-  

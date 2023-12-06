@@ -6,7 +6,7 @@
 <app-ad-sidebar></app-ad-sidebar>
 
 
-
+<!-- اضافة درس------------------------------ -->
 <main id="main" class="main">
     <form class="" [formGroup]="editorForm" (ngSubmit)="confirm()">
         <div class="container ad-topic mt-3">
@@ -125,7 +125,7 @@
                                     <tbody>
                                         <tr>
                                             <th class="align-middle">1</th>
-                                            <td class="align-middle smaller-font-size"> مثال عنوان ملــــــــف</td>
+                                            <td class="align-middle"> مثال عنوان ملــــــــف</td>
                                             <td>
                                                 <!-- <button class="btn  btn-lg">
                                                     <i class="bi bi-trash-fill icon-style"></i>
@@ -139,7 +139,7 @@
                                         </tr>
                                         <tr>
                                             <th class="align-middle">2</th>
-                                            <td class="align-middle smaller-font-size"> مثال عنوان ملــــــــف</td>
+                                            <td class="align-middle"> مثال عنوان ملــــــــف</td>
                                             <td>
                                                 <button class="delete-button">
                                                     <svg class="delete-svgIcon" viewBox="0 0 448 512">
@@ -225,7 +225,7 @@
             <!-- buttons  -->
             <div class="row profile mb-5 ">
                 <div class="col d-flex justify-content-center">
-                    <button class="btn btn-warning btn-lg btn-admin" type="submit" *ngIf="edit">حفــــظ</button>
+                    <button class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="edit">حفــــــــــظ</button>
                     <button class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="add" >إضافــــة الـــــدرس</button>
                 </div>
             </div>

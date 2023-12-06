@@ -37,7 +37,7 @@ export class AppComponent {
         this.admin = ((event.url !== '/admin-dash') && (event.url !== '/admin-topic') &&
                       (event.url !== '/admin-all-topics') && (event.url !== '/admin-grades') &&
                       (event.url !== '/admin-subjects') && (event.url !== '/admin-users') &&
-                      (event.url !== '/admin-edit-topic'))
+                      (event.url !== '/admin-edit-topic')&& (event.url !== '/edit-contact'))
       }
     });
   }
