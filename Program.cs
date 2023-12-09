@@ -40,6 +40,10 @@ if (app.Environment.IsDevelopment())
 app.UseCors();
 
 app.UseHttpsRedirection();
+
+//new
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 // for the deployment

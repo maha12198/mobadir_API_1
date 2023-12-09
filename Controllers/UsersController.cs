@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using mobadir_API_1.Helpers;
 using mobadir_API_1.Models;
 
 namespace mobadir_API_1.Controllers
@@ -29,25 +30,53 @@ namespace mobadir_API_1.Controllers
             if (userObj == null)
                 return BadRequest();
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username
-                                                             && u.Password == userObj.Password);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
+
             if (user == null)
             {
-                var userByUsername = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
-                if (userByUsername != null)
-                {
-                    // Username is correct, but password is incorrect
-                    return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
-                }
-                else
-                {
-                    // Username is incorrect
-                    return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
-                }
+                // User not found
+                //return NotFound(new { message = "User not found" });
+                return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
             }
 
-            // Login successful
-            return Ok(new { message = "Login Success!" });
+            // Verify password
+            if (PasswordHasher.VerifyPassword(userObj.Password, user.Password))
+            {
+                // Password is correct
+                // Generate and return a token, set authentication cookie, etc.
+                // Example: user.Token = GenerateToken();
+                // ...
+
+                //return Ok(new { message = "Login successful", token = user.Token });
+                return Ok(new { message = "Login successful"});
+            }
+            else
+            {
+                // Password is incorrect
+                //return Unauthorized(new { message = "Incorrect password" });
+                return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
+            }
+
+            //var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username
+            //&& u.Password == userObj.Password);
+
+            //if (user == null)
+            //{
+            //    var userByUsername = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
+            //    if (userByUsername != null)
+            //    {
+            //        // Username is correct, but password is incorrect
+            //        return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
+            //    }
+            //    else
+            //    {
+            //        // Username is incorrect
+            //        return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
+            //    }
+            //}
+
+            //// Login successful
+            //return Ok(new { message = "Login Success!" });
         }
 
 
@@ -57,6 +86,16 @@ namespace mobadir_API_1.Controllers
         [Route("signup")]
         public async Task<ActionResult> PostUser([FromBody] User user)
         {
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            // encryption of password
+            user.Password = PasswordHasher.HashPassword(user.Password);
+
+            //user.Token = "";
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
