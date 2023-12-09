@@ -3,7 +3,7 @@
 :root {
     scroll-behavior: smooth;
     --Navcolor: #7D1538;
-    --lightTxtColor: #EEEBD3;
+    /* --lightTxtColor: #EEEBD3; */
     --greyBackground: #eee;
     --orange: #bc2c1a;
     --yellow: #DACC3E;

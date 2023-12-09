@@ -1,11 +1,38 @@
 <div class="login-form">
-    <form action="">
+
+   <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <!-- close/dismiss button of the form -->
       <div id="close-login-form" class="fas fa-times"></div>
-         <a href="#" class="logo mr-auto"> <p class="pb-2">شبكـة مبــادر التعليميــة</p></a>
-         <input type="email" name="" placeholder="اســم المستـــخدم" id="username" class="box rounded-pill">
-         <input type="password" name="" placeholder="كلمـــــة الســــــــر" id="password" class="box rounded-pill">
-         <input type="submit" value="دخــــــول" routerLink="/admin-dash" class="login-btn-design rounded-pill">
-         <!-- <p class="account rounded-pill">don't have an account? <a href="#">create one!</a></p> -->
-      </form>
+
+      <!-- title -->
+      <a class="logo mr-auto"> <p class="pb-2 mb-5">شبكـة مبــادر التعليميــة</p></a>
+
+      <!----------------- form fields ------------------>
+
+      <!-- Display alert message for errors in form after submitting -->
+      <div class="d-flex justify-content-start mr-1 mb-2">
+         <p class="text-danger login-error-message">
+            {{alertMessage}}
+         </p>
+      </div>
+
+      <!-- username -->
+      <input type="text" formControlName="username" placeholder="اســم المستـــخدم" id="username" class="box">
+      <div class="d-flex justify-content-start mr-4 mb-2">
+         <small class="text-danger login-validation" *ngIf="username?.invalid && username?.touched && username?.errors?.['required']"> اسم المستخدم مطلوب </small>
+      </div>
+
+      <!-- password -->
+      <input type="password" formControlName="password" [class.is-invalid]="password?.invalid && password?.touched" placeholder="كلمـــــة الســــــــر" id="password" class="box mt-4">
+      <div class="d-flex justify-content-start mr-4 mb-2" *ngIf="password?.invalid && password?.touched || password?.dirty">
+         <small class="text-danger login-validation" *ngIf="password?.errors?.['required']"> كلمة السر مطلوبة</small>
+      </div>
+
+      <!-- login button -->
+      <input type="submit" [disabled]="loginForm.invalid" value="دخــــــول" class="login-btn-design mt-5" >
+
+   </form>
+
 </div>
 

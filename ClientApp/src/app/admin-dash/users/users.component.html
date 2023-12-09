@@ -121,53 +121,59 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">إضافـــــة مستخـــــدم جديد</h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
+
             <!-- Modal body -->
-            <div class="modal-body">
+            <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
 
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">اســـم المستخــــدم</label>
+                <div class="modal-body">
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">اســـم المستخــــدم</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <input type="text" formControlName="username" class="form-control py-2 smaller-font-size">
+                        </div>
                     </div>
-                    <div class="col-md-8 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">الصلاحيـــــــــة</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <select formControlName="role" class="custom-select dropdown-font-size mb-2">
+                                <option value="1">مدير</option>
+                                <option value="2">مدرس</option>
+                            </select>
+                        </div>
                     </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class="col-form-label label" >كلمة السر </label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                          <input formControlName="password" type="password" class="form-control py-4 smaller-font-size">
+                        </div>
+                    </div>
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class="col-form-label label" >تأكيد كلمة السر </label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                          <input formControlName="confirmpass" type="password" class="form-control py-4 smaller-font-size">
+                        </div>
+                    </div>
+                    
+                    
                 </div>
 
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">الصلاحيـــــــــة</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                        <select class="custom-select dropdown-font-size mb-2">
-                            <option selected>مدير</option>
-                            <option value="1">مدرس</option>
-                        </select>
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="button" type="submit" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
                 </div>
 
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label for="Password" class="col-form-label label" >كلمة السر </label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input name="password" type="password" class="form-control py-4 smaller-font-size" id="Password">
-                    </div>
-                </div>
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label for="confirmPassword" class="col-form-label label" >تأكيد كلمة السر </label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input name="password" type="password" class="form-control py-4 smaller-font-size" id="confirmPassword">
-                    </div>
-                </div>
-
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

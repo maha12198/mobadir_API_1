@@ -150,7 +150,7 @@ export class AdTopicComponent {
   // }
 
   ngOnInit(): void {
-    // intialize login form
+    // intialize form
     this.editorForm = this.fb.group({
       body:['',[Validators.required]]
     });

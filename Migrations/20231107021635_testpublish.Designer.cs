@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Mobadir_API.Models;
+using mobadir_API_1.Models;
 
 #nullable disable
 
 namespace mobadir_API_1.Migrations
 {
-    [DbContext(typeof(Mobadr_DBContext))]
+    [DbContext(typeof(Mobadr_DbContext))]
     [Migration("20231107021635_testpublish")]
     partial class testpublish
     {

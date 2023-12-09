@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Mobadir_API.Models;
+using mobadir_API_1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 
 // dbcontext injection
 var connectionString = builder.Configuration.GetConnectionString("MobadrDB");
-builder.Services.AddDbContextPool<Mobadr_DBContext>(
+builder.Services.AddDbContextPool<Mobadr_DbContext>(
     option => option.UseSqlServer(connectionString));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

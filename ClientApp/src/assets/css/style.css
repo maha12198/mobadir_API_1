@@ -2,7 +2,7 @@
 
 :root {
   --Navcolor: #7D1538;
-  --lightTxtColor: #EEEBD3;
+  --lightTxtColor: #fffde7;
   --greyBackground: #eee;
   --orange: #bc2c1a;
   --yellow: #DACC3E;
@@ -79,32 +79,6 @@ section {
 }
 
 
-/* button styles */
-.link-btn {
-  margin-top: 1rem;
-  padding: 1rem 3rem;
-  display: inline-block;
-  border: 0.1rem solid var(--Navcolor);
-  color:var(--Navcolor);
-  background: none;
-  cursor: pointer;
-  font-size: 1.7rem;
-}
-
-.link-btn:hover {
-  background: var(--Navcolor);
-  color: var(--lightTxtColor);
-}
-
-.login-btn-design {
-  margin-top: 1rem;
-  padding: 1rem 3rem;
-  display: inline-block;
-  /* border: 0.1rem solid var(--Navcolor); */
-  color:var(--lightTxtColor);
-  background-color: var(--Navcolor);
-  font-size: 1.7rem;
-}
 
 
 
@@ -169,12 +143,14 @@ section {
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
   display: none;
+
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+
   padding: 2rem;
 }
 
@@ -187,9 +163,10 @@ section {
 .login-form form {
   width: 50rem;
   padding: 4rem;
-  background: var(--lightTxtColor);  /* #eee */
+  background: var(--greyBackground);
   text-align: center;
   position: relative;
+
   -webkit-animation: fadeIn .2s linear;
           animation: fadeIn .2s linear;
 }
@@ -225,38 +202,10 @@ section {
 .login-form form .box {
   width: 100%;
   padding: 1.2rem 1.4rem;
-  border: 0.1rem solid var(--Navcolor);
+  /* border: 0.1rem solid var(--Navcolor); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 1.6rem;
   margin: 1rem 0;
-}
-
-.login-form form .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: .5rem;
-  margin: 1rem 0;
-}
-
-.login-form form .flex label {
-  font-size: 1.5rem;
-  line-height: 2;
-  color: #666;
-  margin-bottom: 0;
-  cursor: pointer;
-}
-
-.login-form form .flex a {
-  font-size: 1.5rem;
-  color: var(--Navcolor);
-  margin-left: auto;
-}
-
-.login-form form .flex a:hover {
-  text-decoration: underline !important;
 }
 
 .login-form form .link-btn {
@@ -264,22 +213,35 @@ section {
   margin-bottom: 2rem;
 }
 
-.login-form form .account {
-  padding: 1.5rem .5rem;
-  background: #eee;
-  font-size: 1.5rem;
-  line-height: 2;
-  color: #666;
-  margin-bottom: 0;
+.login-btn-design {
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  display: inline-block;
+  /* border: 0.1rem solid var(--Navcolor); */
+  color:var(--lightTxtColor);
+  background-color: var(--Navcolor);
+  font-size: 1.7rem;
 }
 
-.login-form form .account a {
-  color:var(--Navcolor);
+.login-validation {
+  text-align: start !important;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-.login-form form .account a:hover {
-  text-decoration: underline !important;
+.login-error-message {
+  /* text-align: start !important; */
+  font-weight: 600;
+  font-size: 1.3rem;
 }
+
+.login-btn-design:disabled {
+  cursor: not-allowed;
+}
+
+
+
+
 
 
 
@@ -304,10 +266,10 @@ section {
   color: var(--lightTxtColor);
 }
 
-.home .link-btn {
+/* .home .link-btn {
   color: var(--lightTxtColor);
   border-color: var(--lightTxtColor);
-}
+} */
 
 
 
