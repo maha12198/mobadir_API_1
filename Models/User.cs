@@ -35,6 +35,9 @@ namespace mobadir_API_1.Models
         [Column("updated_at", TypeName = "date")]
         public DateTime? UpdatedAt { get; set; }
 
+        //new 
+        public string? Token { get; set; } = null!;
+
         [InverseProperty("CreatedByNavigation")]
         public virtual ICollection<Topic> Topics { get; set; }
     }

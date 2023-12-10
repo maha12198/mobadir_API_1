@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using mobadir_API_1.Helpers;
 using mobadir_API_1.Models;
 
@@ -42,13 +47,13 @@ namespace mobadir_API_1.Controllers
             // Verify password
             if (PasswordHasher.VerifyPassword(userObj.Password, user.Password))
             {
-                // Password is correct
-                // Generate and return a token, set authentication cookie, etc.
-                // Example: user.Token = GenerateToken();
-                // ...
+                // Password is correct, so Generate a token
+                var genToken = CreateJWT(user);
+                user.Token = genToken;
 
-                //return Ok(new { message = "Login successful", token = user.Token });
-                return Ok(new { message = "Login successful"});
+                // return the token value and sucess message
+                return Ok(new { token = user.Token,
+                                message = "تم تسجيل الدخول بنجاح"});
             }
             else
             {
@@ -56,27 +61,6 @@ namespace mobadir_API_1.Controllers
                 //return Unauthorized(new { message = "Incorrect password" });
                 return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
             }
-
-            //var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username
-            //&& u.Password == userObj.Password);
-
-            //if (user == null)
-            //{
-            //    var userByUsername = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
-            //    if (userByUsername != null)
-            //    {
-            //        // Username is correct, but password is incorrect
-            //        return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
-            //    }
-            //    else
-            //    {
-            //        // Username is incorrect
-            //        return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
-            //    }
-            //}
-
-            //// Login successful
-            //return Ok(new { message = "Login Success!" });
         }
 
 
@@ -94,7 +78,7 @@ namespace mobadir_API_1.Controllers
             // encryption of password
             user.Password = PasswordHasher.HashPassword(user.Password);
 
-            //user.Token = "";
+            
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
@@ -103,7 +87,43 @@ namespace mobadir_API_1.Controllers
         }
 
 
-        //       User/contact Info
+
+        // create JWT Token for Authentication
+        private string CreateJWT(User user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+            // Use a secure, randomly generated key, !!!!!!! should be changed in production phase
+            var key = Encoding.ASCII.GetBytes("your_secure_secret_key");
+
+            var identity = new ClaimsIdentity(new Claim[]
+            {
+                //new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim(ClaimTypes.Name, user.Username)
+            });
+
+            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = identity,
+                // Set an expiration time
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = credentials
+            };
+
+            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+
+            return jwtTokenHandler.WriteToken(token);
+        }
+
+
+
+        //      Get User/contact Info
         [HttpGet]
         [Route("get-user-info/{user_id}")]
         public async Task<ActionResult> GetUserInfo(int user_id)
@@ -152,6 +172,10 @@ namespace mobadir_API_1.Controllers
 
 
         // GET: api/Users
+
+        //test authorization
+        [Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {

@@ -18,10 +18,12 @@ import { AdSubjectsComponent } from './admin-dash/ad-subjects/ad-subjects.compon
 import { UsersComponent } from './admin-dash/users/users.component';
 import { EditContactComponent } from './admin-dash/edit-contact/edit-contact.component';
 
+import { authGuard } from './guards/auth.guard';
+
 const routes: Routes = [
-  {path : '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
+  {path: '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
   // {path : '**', component : HomeComponent}, //wildcard route
-  {path : 'grade-page' , component : GradeComponent},
+  {path: 'grade-page' , component : GradeComponent},
   {path: 'header', component : HeaderComponent},
   {path: 'subject', component : SubjectComponent},
   {path: 'topic', component : TopicComponent},
@@ -29,7 +31,10 @@ const routes: Routes = [
   {path: 'admin-test', component : AdminTestComponent},
   {path: 'all-grades', component : AllGradesComponent},
   
-  {path: 'admin-dash', component:AdminDashComponent},
+  // can activate auth guard => so only logged in users can access this component(the dashboard)
+  //   to test it works => delete the token from local storage and try to access the component
+  {path: 'admin-dash', component:AdminDashComponent, canActivate: [authGuard]},
+
   {path: 'admin-topic', component :AdTopicComponent},
 
   {path: 'admin-all-topics', component :AdAllTopicsComponent},

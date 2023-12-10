@@ -36,6 +36,8 @@ import { AdAllTopicsComponent } from './admin-dash/ad-all-topics/ad-all-topics.c
 import { UsersComponent } from './admin-dash/users/users.component';
 import { EditContactComponent } from './admin-dash/edit-contact/edit-contact.component';
 
+import { NgToastModule } from 'ng-angular-popup';
+
 //angular material
 // import {MatDialogModule} from '@angular/material/dialog';
 // import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
@@ -73,6 +75,7 @@ import { EditContactComponent } from './admin-dash/edit-contact/edit-contact.com
     FormsModule,
     ReactiveFormsModule,
     CKEditorModule,
+    NgToastModule
 
   ],
   providers: [],
