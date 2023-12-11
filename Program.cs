@@ -18,10 +18,9 @@ internal class Program
         builder.Services.AddDbContextPool<Mobadr_DbContext>(
             option => option.UseSqlServer(connectionString));
 
-        //Jwt configuration starts here
+        // ----------------- Jwt configuration starts here
         //var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
         //var jwtKey = builder.Configuration.GetSection("testsecretkey").Get<string>();
-
         builder.Services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -36,11 +35,13 @@ internal class Program
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secure_secret_key")),
                 ValidateAudience = false,
-                ValidateIssuer = false
+                ValidateIssuer = false,
+                // for make specific time for the authorized user
+                ClockSkew = TimeSpan.Zero 
                 //ValidateLifetime = true,
             };
         });
-        //J wt configuration ends here
+        // -------------------- Jwt configuration ends here
 
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

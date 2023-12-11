@@ -111,7 +111,7 @@ namespace mobadir_API_1.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = identity,
-                // Set an expiration time
+                // Set an expiration time for the token
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = credentials
             };
@@ -124,6 +124,8 @@ namespace mobadir_API_1.Controllers
 
 
         //      Get User/contact Info
+        //test authorization
+        [Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
         [HttpGet]
         [Route("get-user-info/{user_id}")]
         public async Task<ActionResult> GetUserInfo(int user_id)
@@ -172,10 +174,6 @@ namespace mobadir_API_1.Controllers
 
 
         // GET: api/Users
-
-        //test authorization
-        [Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {

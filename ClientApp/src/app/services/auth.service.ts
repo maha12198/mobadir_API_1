@@ -23,12 +23,6 @@ export class AuthService {
     console.log(localStorage.getItem('token'));
   }
 
-  //
-  getToken()
-  {
-    return localStorage.getItem('token');
-  }
-
   //check if user is logged in by checking if the user has token in local storage
   isloggedIn():boolean 
   {
@@ -36,17 +30,23 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
-
   signOut()
   {
     localStorage.clear();
-    // or this 
     //localStorage.removeItem('token');
     
     this.router.navigate(['/']);
 
     this.toast.info({ detail:"Info", summary: "تم تسجيل الخروج", duration: 4000, position:'topCenter'});
-
   }
+
+
+
+  // to get token information to validate in the interceptor
+  getToken()
+  {
+    return localStorage.getItem('token');
+  }
+  
 
 }

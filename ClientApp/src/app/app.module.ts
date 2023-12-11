@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 //for using http
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { GradeComponent } from './grade/grade.component';
@@ -37,6 +37,7 @@ import { UsersComponent } from './admin-dash/users/users.component';
 import { EditContactComponent } from './admin-dash/edit-contact/edit-contact.component';
 
 import { NgToastModule } from 'ng-angular-popup';
+import { TokenInterceptor } from './Interceptors/token.interceptor';
 
 //angular material
 // import {MatDialogModule} from '@angular/material/dialog';
@@ -78,7 +79,17 @@ import { NgToastModule } from 'ng-angular-popup';
     NgToastModule
 
   ],
-  providers: [],
+  
+  // define interceptor for authorization here 
+  //-- this will modify the request header to make it include the authorization header, so authorized users can access, and unauthorized users cannot access the api
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
