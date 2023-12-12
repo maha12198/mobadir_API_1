@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 //for alert message
 import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from '../services/auth.service';
+import { StoreUserService } from '../services/store-user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -22,7 +23,8 @@ export class LoginFormComponent {
               private service: ApiService,
               private router: Router,
               private toast: NgToastService,
-              private auth: AuthService) {}
+              private auth: AuthService,
+              private storeUserService: StoreUserService) {}
 
   loginForm!: FormGroup;
 
@@ -57,6 +59,12 @@ export class LoginFormComponent {
 
                         //store token
                         this.auth.storeToken(res.token);
+
+                        // decode the token and get username and role and store it (other than the auth service)
+                        // to solve the problem of refreshing the page to be able to get the user info in dashboard
+                        const tokenPayload = this.auth.decodeTokenOfUser();
+                        this.storeUserService.setNameForStore(tokenPayload.name);
+                        this.storeUserService.setRoleForStore(tokenPayload.role);
 
                         // new way to display alert message
                         this.toast.success({ detail:"sucess", summary: res.message, duration: 2000, position:'topCenter'});

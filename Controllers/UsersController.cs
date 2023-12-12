@@ -103,8 +103,9 @@ namespace mobadir_API_1.Controllers
 
             var identity = new ClaimsIdentity(new Claim[]
             {
-                //new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim(ClaimTypes.Name, user.Username)
+                // the data that we want to store in the token ( in my case: user and role)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.UserRole.ToString())
             });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
