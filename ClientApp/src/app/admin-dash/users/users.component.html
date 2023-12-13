@@ -17,7 +17,7 @@
                 <!-- title -->
                 <h1 class="font-weight-bold py-2 mb-4 title"> إدارة المستخــــــدميــن </h1> 
   
-                <!-- button -->
+                <!-- Add new user button -->
                 <div class="row mr-2">
                     <button data-toggle="modal" data-target="#add-user-modal"
                             class="btn btn-dark btn-lg smaller-font-size px-4 py-2 mx-3 mb-2 mt-3">
@@ -40,39 +40,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let usertable of users_List">
                                 <th class="align-middle">1</th>
-                                <td class="align-middle"> مثال </td>
-                                <td class="align-middle"> مدير </td>
-                                <td class="align-middle"> 2021-11-11 14:00:00  </td>
-                                <td class="align-middle"> 2021-11-11 14:00:00  </td>
+                                <td class="align-middle"> {{usertable.username}}</td>
+                                <td class="align-middle"> {{usertable.role}} </td>
+                                <td class="align-middle"> {{usertable.updatedAt}} </td>
+                                <td class="align-middle"> {{usertable.lastVisited}} </td>
                                 <td>
-                                    <!-- Edit button -->
-                                    <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-user-modal" class="btn btn-warning btn-lg px-3 mx-3" >
+                                    <!-- Edit username button -->
+                                    <input type="button" value="تعديل المستخدم" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#edit-user-modal" class="btn btn-outline-dark font-weight-bold btn-lg px-3 mx-3" >
+                                    
+                                    <!-- Edit password button -->
+                                    <input type="button" value="تغيير كلمة السر" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#edit-password-modal" class="btn btn-outline-warning font-weight-bold btn-lg px-3 mx-3" >
+                                    
                                     <!-- Delete button -->
-                                    <input type="button" value="حذف" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg px-3 mx-3" >
+                                    <input type="button" value="حذف" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg px-3 mx-3" >
                                 </td>
-                            </tr>
-
-                            <tr>
-                                <th class="align-middle">2</th>
-                                <td class="align-middle"> مثال </td>
-                                <td class="align-middle"> مشرف </td>
-                                <td class="align-middle"> 2021-11-11 14:00:00  </td>
-                                <td class="align-middle"> 2021-11-11 14:00:00  </td>
-                                <td>
-                                    <!-- Edit button -->
-                                    <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-user-modal" class="btn btn-warning btn-lg px-3 mx-3" >
-                                    <!-- Delete button -->
-                                    <input type="button" value="حذف" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg px-3 mx-3" >
-                                </td>
-                            </tr>
+                            </tr> 
                         </tbody>
                     </table>       
                 </div>
                        
-
-            
             </div>
         </div>
 
@@ -86,7 +74,7 @@
 
 
 
-<!-- -------- modals ------------- -->
+<!-- ----------- Modals Section ------------- -->
 
 <!-- Modal 1 -->
 <div class="modal" id="confirm-delete-modal">
@@ -106,7 +94,7 @@
             <!-- Modal footer -->
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
+                <button type="button" (click)="delete_user()" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
             </div>
         </div>
     </div>
@@ -126,12 +114,24 @@
             <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
 
                 <div class="modal-body">
+
+                    <!-- Display general form errors -->
+                    <!-- <div *ngIf="registerUserForm.errors" class="alert alert-danger">
+                        {{ registerUserForm.errors | json }}
+                    </div> -->
+
                     <div class="form-row mb-4">
                         <div class="col-md-4">
                             <label class=" col-form-label">اســـم المستخــــدم</label>
                         </div>
                         <div class="col-md-8 mb-2">
                             <input type="text" formControlName="username" class="form-control py-2 smaller-font-size">
+                            
+                            <!-- Display username field errors -->
+                            <div *ngIf="username?.hasError('required') && username?.touched" class="text-danger smallest-font-size mt-1">
+                                يجب إدخال اسم المستخدم
+                            </div>
+                        
                         </div>
                     </div>
     
@@ -153,6 +153,11 @@
                         </div>
                         <div class="col-md-8 mb-2">
                           <input formControlName="password" type="password" class="form-control py-4 smaller-font-size">
+
+                          <div *ngIf="password?.hasError('required') && password?.touched" class="text-danger smallest-font-size mt-1">
+                            يجب إدخال السر
+                          </div>
+
                         </div>
                     </div>
                     <div class="form-row mb-4">
@@ -161,6 +166,10 @@
                         </div>
                         <div class="col-md-8 mb-2">
                           <input formControlName="confirmpass" type="password" class="form-control py-4 smaller-font-size">
+
+                          <div *ngIf="confirmpass?.hasError('required') && confirmpass?.touched" class="text-danger smallest-font-size mt-1">
+                            يجب تأكيد كلمة السر
+                          </div>
                         </div>
                     </div>
                     
@@ -170,7 +179,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                    <button type="button" type="submit" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
+                    <button type="submit" class="btn btn-success btn-lg smaller-font-size" [disabled]="!registerUserForm.valid">إضافـــــة</button>
                 </div>
 
             </form>
@@ -188,32 +197,46 @@
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
 
+            <form [formGroup]="edit_Username_Form" (ngSubmit)="Edit_username()">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- {{usertable.id}} -->
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">اســـم المستخـدم الجــديــد</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <input type="text" formControlName="new_username" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="edit_Username_Form.invalid" class="btn btn-success btn-lg smaller-font-size" >حفــــظ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+
+<!-- Modal 4 -->
+<div class="modal" id="edit-password-modal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content p-4">
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">تغييـــر كلمــة الســـر </h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
             <!-- Modal body -->
             <div class="modal-body">
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">اســـم المستخــــدم</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <!-- <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">الصلاحيـــــــــة</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                        <select class="custom-select dropdown-font-size mb-2">
-                            <option selected>مدير</option>
-                            <option value="1">مدرس</option>
-                        </select>
-                    </div>
-                </div> -->
-
-                <div class="form-row">
+               
+                <!-- <div class="form-row">
                     <label class="col-form-label label mt-2 mb-3 font-weight-bold" style="font-size: 17px;">تغيير كلمة السر </label>
-                </div>
+                </div> -->
 
                 <div class="form-row mb-4">
                     <div class="col-md-4">

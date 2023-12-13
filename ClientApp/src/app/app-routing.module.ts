@@ -22,7 +22,7 @@ import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
-  // {path : '**', component : HomeComponent}, //wildcard route
+  // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error
   {path: 'grade-page' , component : GradeComponent},
   {path: 'header', component : HeaderComponent},
   {path: 'subject', component : SubjectComponent},
@@ -33,15 +33,13 @@ const routes: Routes = [
   
   // can activate auth guard => so only logged in users can access this component(the dashboard)
   //   to test it works => delete the token from local storage and try to access the component
-  {path: 'admin-dash', component:AdminDashComponent, canActivate: [authGuard]},
-
-  {path: 'admin-topic', component :AdTopicComponent},
-
-  {path: 'admin-all-topics', component :AdAllTopicsComponent},
-  {path: 'admin-grades', component :AdGradesComponent},
-  {path: 'admin-subjects', component :AdSubjectsComponent},
-  {path: 'admin-users', component :UsersComponent},
-  {path: 'edit-contact', component :EditContactComponent}
+  {path: 'admin-dash', component: AdminDashComponent, canActivate: [authGuard]},
+  {path: 'admin-topic', component :AdTopicComponent, canActivate: [authGuard]},
+  {path: 'admin-all-topics', component :AdAllTopicsComponent, canActivate: [authGuard]},
+  {path: 'admin-grades', component :AdGradesComponent, canActivate: [authGuard]},
+  {path: 'admin-subjects', component :AdSubjectsComponent, canActivate: [authGuard]},
+  {path: 'admin-users', component :UsersComponent, canActivate: [authGuard]},
+  {path: 'edit-contact', component :EditContactComponent, canActivate: [authGuard]}
 
 ];
 

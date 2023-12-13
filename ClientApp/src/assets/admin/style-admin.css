@@ -491,6 +491,9 @@ i { -webkit-text-stroke: 0.5px; }
 .smaller-font-size {
  font-size: 15px;
 }
+.smallest-font-size {
+  font-size: 12px;
+}
 
 .dropdown-font-size{
   font-size: 16px;

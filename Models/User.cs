@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace mobadir_API_1.Models
 {
     //map the Role property to a corresponding string representation when accessing it in your API controller
-
     public enum UserRole
     {
         مدير = 1,
@@ -25,19 +24,12 @@ namespace mobadir_API_1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        //[Column("password")]
-        //[StringLength(50)]
-        //[Unicode(false)]
         [Column(TypeName = "nvarchar(50)")]
         public string Password { get; set; } = null!;
         
-        //[Column("username")]
-        //[StringLength(50)]
-        //[Unicode(false)]
         [Column(TypeName = "nvarchar(50)")]
         public string Username { get; set; } = null!;
         
-        //[Column("role")]
         public int Role { get; set; }
 
         [NotMapped] // This property won't be mapped to the database
@@ -52,6 +44,9 @@ namespace mobadir_API_1.Models
 
         //new 
         public string? Token { get; set; } = null!;
+
+        //new
+        public DateTime? LastVisited { get; set; }
 
         [InverseProperty("CreatedByNavigation")]
         public virtual ICollection<Topic> Topics { get; set; }

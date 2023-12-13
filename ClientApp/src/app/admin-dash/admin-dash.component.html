@@ -55,7 +55,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">آخر تعديل</div>
-                  <div *ngIf="user" class="col-lg-9 col-md-8">{{user.updatedAt}}	</div>
+                  <div *ngIf="user" class="col-lg-9 col-md-8"> {{ user.updatedAt | date:'medium' }}	</div>
                 </div>
 
               </div>  

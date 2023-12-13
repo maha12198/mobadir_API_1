@@ -31,7 +31,7 @@ export class AdminDashComponent {
                         //console.log(this.user);
                         console.log('User info fetched successfully:')
                       },
-        error: (err)=>{ console.log(err.error);
+        error: (err)=>{ //console.log(err.error);
                         console.error('Error fetching user user:', err);
                       }
       }
@@ -44,17 +44,17 @@ export class AdminDashComponent {
           // htis value which is from the store service will be retrieved and displayed sucessfully
           // but when the user refresh the page it will disappear
           // that's why we need to use auth service with it (each method has its disadvantages so best way it to combine both)
-          console.log(res);
+          //console.log(res);
           
           // get it also from auth service (from decoded token) // the problem with this is that it only get fetched when user refresh the page on;y,
           // but it will be undefined BEFORE REFRESHING THE PAGE!!! (that's why we need to use get name from store service)
           let nameFromToken = this.authServiceApi.getNameFromToken();
-          console.log(nameFromToken); //this will be undefined before we refresh
+          //console.log(nameFromToken); //this will be undefined before we refresh
 
           // so this will get the value from the store service at first time and then after refreshing it can get it from the auth service form the decoded token as well
           this.username = res || nameFromToken;
           
-          console.log(this.username);
+          //console.log(this.username);
         },
         error: (err)=> {
           console.log(err.error);
@@ -66,13 +66,13 @@ export class AdminDashComponent {
     this.storeUserService.getRoleFromStore().subscribe(
       {
         next: (res)=> {
-          console.log(res);
+          //console.log(res);
           
           let roleFromToken = this.authServiceApi.getRoleFromToken();
-          console.log(roleFromToken); //this will be undefined before we refresh
+          //console.log(roleFromToken); //this will be undefined before we refresh
           
           this.role = res || roleFromToken;
-          console.log(this.role);
+          //console.log(this.role);
         },
         error: (err)=> {
           console.log(err.error);

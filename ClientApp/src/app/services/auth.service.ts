@@ -26,9 +26,8 @@ export class AuthService {
   storeToken(sentTokenValue: string)
   {
     localStorage.setItem('token', sentTokenValue);
-    
     // test
-    console.log(localStorage.getItem('token'));
+    //console.log(localStorage.getItem('token'));
   }
 
   //check if user is logged in by checking if the user has token in local storage
@@ -43,10 +42,8 @@ export class AuthService {
     // delete the user's token
     localStorage.clear();
     //localStorage.removeItem('token');
-    
     this.router.navigate(['/']);
-
-    this.toast.info({ detail:"Info", summary: "تم تسجيل الخروج", duration: 4000, position:'topCenter'});
+    this.toast.info({ detail:"success", summary: "تم تسجيل الخروج", duration: 4000, position:'topRight'});
   }
 
 
@@ -74,7 +71,7 @@ export class AuthService {
     const token = this.getToken()!;
 
     // test
-    console.log(jwtHelper.decodeToken(token)) //done
+    //console.log(jwtHelper.decodeToken(token)) //done
 
     // this will return the payload data from the token
     return jwtHelper.decodeToken(token);

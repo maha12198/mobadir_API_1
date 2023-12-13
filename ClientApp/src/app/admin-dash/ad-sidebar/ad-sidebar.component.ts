@@ -22,13 +22,13 @@ export class AdSidebarComponent {
     this.storeUserService.getRoleFromStore().subscribe(
       {
         next: (res)=> {
-          console.log(res);
+          //console.log(res);
           
           let roleFromToken = this.authServiceApi.getRoleFromToken();
-          console.log(roleFromToken); //this will be undefined before we refresh
+          //console.log(roleFromToken); //this will be undefined before we refresh
           
           this.role = res || roleFromToken;
-          console.log(this.role);
+          //console.log(this.role);
 
           if (this.role == "مدير")
           {

@@ -50,8 +50,8 @@ export class TokenInterceptor implements HttpInterceptor {
           {
             //display the error message that the token was expired
             this.toast.warning({detail:"Warning", summary:"Token is expired, Please Login again"});
-            // and redirect back to login page
-            this.router.navigate(['login'])
+            // and redirect back to login page/home page
+            this.router.navigate([''])
 
             //handle // if i will use refresh token
             //return this.handleUnAuthorizedError(request,next);

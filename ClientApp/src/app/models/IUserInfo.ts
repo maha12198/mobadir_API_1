@@ -1,8 +1,8 @@
 export interface IUserInfo
 {
-    //Id? : number;
+    id: number;
     username? :string;
-    //Password: string;
     role?: string; 
     updatedAt?: Date;
+    lastVisited?: Date;
 }
