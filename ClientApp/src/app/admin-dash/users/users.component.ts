@@ -184,16 +184,17 @@ export class UsersComponent {
   }
 
   // Define a variable to store the alert message
-  alertMessage: string | null = null;
+  //alertMessage: string | null = null;
 
-  change_Password() {
+  change_Password()
+  {
     // Access the form value
     const changePasswordRequest: ChangePasswordRequest = {
       OldPassword: this.change_Pass_Form.get('old_pass')?.value,
       NewPassword: this.change_Pass_Form.get('new_pass')?.value
     };
 
-    console.log(changePasswordRequest); //test
+    //console.log(changePasswordRequest); //test
 
     this.service.changeUserPassword(this.Pass_Selected_UserId, changePasswordRequest).subscribe(
       { 
@@ -206,8 +207,9 @@ export class UsersComponent {
         console.log('Error Changing user password:', err.error);
 
         // to make the arabic message
-        this.alertMessage = "كلمة السر السابقة غير صحيحة";
+        //this.alertMessage = "كلمة السر السابقة غير صحيحة";
         //console.log(this.alertMessage);
+        this.toast.success({ detail:"warning", summary: "كلمة السر السابقة غير صحيحة", duration: 1000, position:'topCenter'});
 
         this.change_Pass_Form.reset();
       }

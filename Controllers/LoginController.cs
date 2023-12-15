@@ -28,41 +28,53 @@ namespace mobadir_API_1.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> login([FromBody] UserLoginRequest userObj)
         {
-            if (userObj == null)
-                return BadRequest();
-
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
-
-            if (user == null)
+            try
             {
-                // User not found
-                return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
-            }
+                if (userObj == null)
+                    return BadRequest();
 
-            // Verify password
-            if (PasswordHasher.VerifyPassword(userObj.Password, user.Password))
-            {
-                // Password is correct, so Generate a token
-                var genToken = CreateJWT(user);
-                user.Token = genToken;
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
 
-                //update lastVisited value (oman time - GMT+4)
-                user.LastVisited = DateTime.UtcNow.AddHours(4); ;
-                _context.SaveChanges();
-                //Console.WriteLine($"LastVisited: {user.LastVisited}"); //test
-
-                // return the token value and sucess message
-                return Ok(new
+                if (user == null)
                 {
-                    user_id = user.Id,
-                    token = user.Token,
-                    message = "تم تسجيل الدخول بنجاح"
-                });
+                    // User not found
+                    return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
+                }
+
+                // Verify password
+                if (PasswordHasher.VerifyPassword(userObj.Password, user.Password))
+                {
+                    // Password is correct, so Generate a token
+                    var genToken = CreateJWT(user);
+                    user.Token = genToken;
+
+                    //update lastVisited value (oman time - GMT+4)
+                    user.LastVisited = DateTime.UtcNow.AddHours(4); ;
+                    _context.SaveChanges();
+                    //Console.WriteLine($"LastVisited: {user.LastVisited}"); //test
+
+                    // return the token value and sucess message
+                    return Ok(new
+                    {
+                        user_id = user.Id,
+                        token = user.Token,
+                        message = "تم تسجيل الدخول بنجاح"
+                    });
+                }
+                else
+                {
+                    // Password is incorrect
+                    return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
+                }
             }
-            else
+
+            catch (Exception ex)
             {
-                // Password is incorrect
-                return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
+                // Log the exception for debugging purposes
+                Console.WriteLine($"Exception: {ex.Message}");
+
+                // Return a custom error message
+                return StatusCode(500, "حدث خطأ أثناء معالجة الطلب في نقطة الوصول");
             }
         }
 

@@ -8,8 +8,13 @@ export class StoreUserService {
 
   // -- this service is used to deal with STATE MANAGEMENT in the application
   // we should get the data from the token by decrypting it by using (npm i) package auth0/angular-jwt
-
   // $ for observable donation
+  // Info :
+    // Observables are commonly used for handling asynchronous operations, such as making HTTP requests,
+    // handling user interactions, and managing application state. Angular's HttpClient returns Observables for HTTP requests,
+    // and Angular's forms module leverages Observables for handling form changes.
+
+
   private name$ = new BehaviorSubject<string>("");
   private role$ = new BehaviorSubject<string>("");
 
@@ -17,12 +22,9 @@ export class StoreUserService {
   private userIdSource = new BehaviorSubject<number | null>(null);
   userId$ = this.userIdSource.asObservable(); 
 
-  // Info :
-    // Observables are commonly used for handling asynchronous operations, such as making HTTP requests,
-    // handling user interactions, and managing application state. Angular's HttpClient returns Observables for HTTP requests,
-    // and Angular's forms module leverages Observables for handling form changes.
 
-  constructor() { }
+  //constructor() { }
+
 
   public getRoleFromStore ()
   {

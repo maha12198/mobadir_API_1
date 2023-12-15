@@ -89,13 +89,34 @@ export class LoginFormComponent {
                         this.router.navigate(['/admin-dash', this.user_id_to_be_passed ]);
                         
                       },
-        error: (err)=>{ console.log(err.error);
+        error: (err)=>{ console.log(err);
 
-                        this.alertMessage = err.error;
+                        if (err.name === 'HttpErrorResponse' && err.status === 0)
+                        {
+                          this.alertMessage = 'حدث خطأ أثناء معالجة الطلب في نقطة الوصول';
 
-                        // new way to display alert message
-                        this.toast.error({ detail:"error", summary: err.error, duration: 5000, position:'topCenter'});
-
+                          // Handle connection refused error
+                          this.toast.error({
+                            detail: 'error',
+                            summary: 'حدث خطأ أثناء معالجة الطلب في نقطة الوصول',
+                            duration: 5000,
+                            position: 'topCenter'
+                          });
+                        }
+                        else
+                        {
+                          // Handle other errors
+                          this.alertMessage = err.error;
+                  
+                          // new way to display alert message
+                          this.toast.error({
+                            detail: 'error',
+                            summary: err.error,
+                            duration: 5000,
+                            position: 'topCenter'
+                          });
+                        }
+                  
                         this.loginForm.reset();
                       }
       });    

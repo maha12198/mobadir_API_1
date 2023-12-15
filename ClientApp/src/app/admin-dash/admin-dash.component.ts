@@ -16,7 +16,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminDashComponent{
 
-
   constructor(private api: ApiService,
               private storeUserService: StoreUserService,
               private authServiceApi: AuthService,
@@ -84,7 +83,7 @@ export class AdminDashComponent{
     
 
     this.route.params.subscribe((params) => {
-      // Access the userId parameter from the route
+      // Access the userId parameter from the route (from login to admin-dash)
       this.Passed_user_Id = +params['userId']; // Convert to number
       console.log("Passed_user_Id = ",this.Passed_user_Id);
     });
@@ -97,15 +96,14 @@ export class AdminDashComponent{
 
 
 
-  change_Password() {
+  change_Password()
+  {
     // Access the form value
     const changePasswordRequest: ChangePasswordRequest = {
       OldPassword: this.change_Pass_Form.get('old_pass')?.value,
       NewPassword: this.change_Pass_Form.get('new_pass')?.value
     };
     //console.log(changePasswordRequest); //test
-    
-
 
     this.api.changeUserPassword( this.Passed_user_Id , changePasswordRequest).subscribe(
       { 
