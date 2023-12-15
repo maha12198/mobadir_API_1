@@ -3,7 +3,7 @@
 
 
 <!-- ------- Admin Sidebar --------- -->
-<app-ad-sidebar></app-ad-sidebar>
+<app-ad-sidebar ></app-ad-sidebar>
 
 
 
@@ -39,7 +39,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">اسم المستخدم</div>
-                  <div *ngIf="user" class="col-lg-9 col-md-8">{{username}}</div>
+                  <div class="col-lg-9 col-md-8">{{username}}</div>
                   <!-- <div *ngIf="user" class="col-lg-9 col-md-8">{{user.username}}</div> -->
                 </div>
 
@@ -50,12 +50,12 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">الصلاحية</div>
-                  <div *ngIf="user" class="col-lg-9 col-md-8">{{role}}</div>
+                  <div class="col-lg-9 col-md-8">{{role}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">آخر تعديل</div>
-                  <div *ngIf="user" class="col-lg-9 col-md-8"> {{ user.updatedAt | date:'medium' }}	</div>
+                  <!-- <div class="col-lg-9 col-md-8"> {{ user.updatedAt | date:'medium' }}	</div> -->
                 </div>
 
               </div>  
@@ -64,19 +64,19 @@
               <div class="tab-pane fade" id="changepass" role="tabpanel">  
                 <h2 class="card-title text-black mb-3 ">  تغيير كلمة السر  </h2>  
                 
-                <form>
+                <form [formGroup]="change_Pass_Form" (ngSubmit)="change_Password()">
 
                   <div class="row mb-4">
-                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label label" >كلمة السر الحالية</label>
+                    <label class="col-md-4 col-lg-3 col-form-label label" >كلمة السر الحالية</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="password" type="password" class="form-control py-4 bigger-font-size" id="currentPassword">
+                      <input formControlName="old_pass" type="password" class="form-control py-4 bigger-font-size">
                     </div>
                   </div>
 
                   <div class="row mb-4">
-                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label label">كلمة السر الجديدة</label>
+                    <label class="col-md-4 col-lg-3 col-form-label label">كلمة السر الجديدة</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="newpassword" type="password" class="form-control py-4 bigger-font-size" id="newPassword">
+                      <input formControlName="new_pass" type="password" class="form-control py-4 bigger-font-size">
                     </div>
                   </div>
 
@@ -88,7 +88,7 @@
                   </div> -->
 
                   <div class="text-center mt-3">
-                    <button type="submit" class="btn btn-primary btn-admin mt-2">تغيير كلمة السر</button>
+                    <button type="submit" [disabled]="change_Pass_Form.invalid" class="btn btn-primary btn-admin mt-2">تغيير كلمة السر</button>
                   </div>
                 </form>
 

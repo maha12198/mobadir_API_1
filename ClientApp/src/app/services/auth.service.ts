@@ -41,9 +41,10 @@ export class AuthService {
   {
     // delete the user's token
     localStorage.clear();
-    //localStorage.removeItem('token');
+    localStorage.removeItem('token');
+    
     this.router.navigate(['/']);
-    this.toast.info({ detail:"success", summary: "تم تسجيل الخروج", duration: 4000, position:'topRight'});
+    //this.toast.info({ detail:"success", summary: "تم تسجيل الخروج", duration: 4000, position:'topRight'});
   }
 
 

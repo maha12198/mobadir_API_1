@@ -1,47 +1,42 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { IUserInfo } from '../models/IUserInfo';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { StoreUserService } from '../services/store-user.service';
 import { AuthService } from '../services/auth.service';
+
+import { ChangePasswordRequest } from 'src/app/models/ChangePasswordRequest';
+import { NgToastService } from 'ng-angular-popup';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-admin-dash',
   templateUrl: './admin-dash.component.html',
   styleUrls: ['./admin-dash.component.css']
 })
-export class AdminDashComponent {
+export class AdminDashComponent{
+
 
   constructor(private api: ApiService,
               private storeUserService: StoreUserService,
-              private authServiceApi: AuthService)
+              private authServiceApi: AuthService,
+              private fb: FormBuilder,
+              private toast : NgToastService,
+              private route: ActivatedRoute)
   {}
-
-  user_id = 4;
-  user!: IUserInfo;
 
   username!: any;
   role!: any;
+  change_Pass_Form!: FormGroup;
+  Passed_user_Id!: number;
 
   ngOnInit()
   {
-    this.api.get_user_info(this.user_id).subscribe(
-      { 
-        next: (res)=> { //console.log(res);
-                        this.user = res;
-                        //console.log(this.user);
-                        console.log('User info fetched successfully:')
-                      },
-        error: (err)=>{ //console.log(err.error);
-                        console.error('Error fetching user user:', err);
-                      }
-      }
-    );
-    
     // getting (username) user info from store
     this.storeUserService.getNameFromStore().subscribe(
       {
         next: (res)=> {
-          // htis value which is from the store service will be retrieved and displayed sucessfully
+          // this value which is from the store service will be retrieved and displayed sucessfully
           // but when the user refresh the page it will disappear
           // that's why we need to use auth service with it (each method has its disadvantages so best way it to combine both)
           //console.log(res);
@@ -53,7 +48,6 @@ export class AdminDashComponent {
 
           // so this will get the value from the store service at first time and then after refreshing it can get it from the auth service form the decoded token as well
           this.username = res || nameFromToken;
-          
           //console.log(this.username);
         },
         error: (err)=> {
@@ -81,6 +75,55 @@ export class AdminDashComponent {
     );
 
 
+
+    // intialize register user form
+    this.change_Pass_Form = this.fb.group({
+      old_pass:['',[Validators.required]],
+      new_pass:['',[Validators.required]]
+    });
+    
+
+    this.route.params.subscribe((params) => {
+      // Access the userId parameter from the route
+      this.Passed_user_Id = +params['userId']; // Convert to number
+      console.log("Passed_user_Id = ",this.Passed_user_Id);
+    });
+
+    
+
   }
+
+  
+
+
+
+  change_Password() {
+    // Access the form value
+    const changePasswordRequest: ChangePasswordRequest = {
+      OldPassword: this.change_Pass_Form.get('old_pass')?.value,
+      NewPassword: this.change_Pass_Form.get('new_pass')?.value
+    };
+    //console.log(changePasswordRequest); //test
+    
+
+
+    this.api.changeUserPassword( this.Passed_user_Id , changePasswordRequest).subscribe(
+      { 
+      next: (res)=> { 
+        console.log(res.message);
+        
+        this.toast.success({ detail:"sucess", summary: "تم تغيير كلمة السر", duration: 1000, position:'topCenter'});
+      },
+      error: (err)=>{ 
+        console.log('Error Changing user password:', err.error);
+
+        this.toast.success({ detail:"warning", summary: "كلمة السر السابقة غير صحيحة", duration: 1000, position:'topCenter'});
+
+        this.change_Pass_Form.reset();
+      }
+      }
+    );
+  }
+
 
 }

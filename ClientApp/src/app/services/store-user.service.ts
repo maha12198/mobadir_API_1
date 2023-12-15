@@ -13,6 +13,10 @@ export class StoreUserService {
   private name$ = new BehaviorSubject<string>("");
   private role$ = new BehaviorSubject<string>("");
 
+  // new for user id
+  private userIdSource = new BehaviorSubject<number | null>(null);
+  userId$ = this.userIdSource.asObservable(); 
+
   // Info :
     // Observables are commonly used for handling asynchronous operations, such as making HTTP requests,
     // handling user interactions, and managing application state. Angular's HttpClient returns Observables for HTTP requests,
@@ -24,6 +28,7 @@ export class StoreUserService {
   {
     return this.role$.asObservable();
   }
+  // will be set in the loginform
   public setRoleForStore (role: string)
   {
     // to emit/send the new role to the subscribers
@@ -35,9 +40,21 @@ export class StoreUserService {
   {
     return this.name$.asObservable();
   }
+  // will be set in the loginform
   public setNameForStore (name: string)
   {
     this.name$.next(name);
+  }
+
+
+
+  //          new for user id
+  // will be set in the loginform
+  setUserId(userId: number | null): void {
+    if (userId !== null) {
+      console.log("userId in setUserId() = ", userId);
+      this.userIdSource.next(userId);
+    }
   }
 
 }

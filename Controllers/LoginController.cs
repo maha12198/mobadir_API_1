@@ -54,6 +54,7 @@ namespace mobadir_API_1.Controllers
                 // return the token value and sucess message
                 return Ok(new
                 {
+                    user_id = user.Id,
                     token = user.Token,
                     message = "تم تسجيل الدخول بنجاح"
                 });
@@ -61,7 +62,6 @@ namespace mobadir_API_1.Controllers
             else
             {
                 // Password is incorrect
-                //return Unauthorized(new { message = "Incorrect password" });
                 return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
             }
         }
@@ -82,9 +82,9 @@ namespace mobadir_API_1.Controllers
 
             var identity = new ClaimsIdentity(new Claim[]
             {
-                        // the data that we want to store in the token ( in my case: user and role)
-                        new Claim(ClaimTypes.Name, user.Username),
-                        new Claim(ClaimTypes.Role, user.UserRole.ToString())
+                // the data that we want to store in the token ( in my case: user and role)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.UserRole.ToString())
             });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);

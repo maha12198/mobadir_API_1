@@ -6,6 +6,7 @@ import { IUserLogin } from '../models/IUserLogin';
 import { IUserRegister } from '../models/IUserRegister';
 import { IUserInfo } from '../models/IUserInfo';
 import { IEditUsername } from '../models/IEditUsername';
+import { ChangePasswordRequest } from '../models/ChangePasswordRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -96,6 +97,14 @@ export class ApiService {
     const url = `${Constants.api_url}/Users/${id}`;
 
     return this.http.delete<any[]>(url);
+  }
+
+  // Method to change user password
+  changeUserPassword(userId: number, changePasswordRequest: ChangePasswordRequest)
+  {
+    const url = `${Constants.api_url}/Users/PatchUserPassword/${userId}`;
+
+    return this.http.patch<any>(url, changePasswordRequest);
   }
 
 }

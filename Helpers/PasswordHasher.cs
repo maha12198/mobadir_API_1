@@ -25,6 +25,7 @@ namespace mobadir_API_1.Helpers
             return base64Hash;
         }
 
+        // password: not encrypted (entered by user) , base64Hash: encrypted (stored in DB)
         public static bool VerifyPassword(string password, string base64Hash)
         {
             var hashBytes = Convert.FromBase64String(base64Hash);

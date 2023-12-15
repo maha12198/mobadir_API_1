@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ApiService } from '../../services/api.service';
 import { confirmedValidator } from '../../Validators/confirmPassword.validator';
 import { IUserRegister } from 'src/app/models/IUserRegister';
 import { IUserInfo } from 'src/app/models/IUserInfo';
 import { IEditUsername} from 'src/app/models/IEditUsername';
+import { ChangePasswordRequest } from 'src/app/models/ChangePasswordRequest';
+
+import { NgToastService } from 'ng-angular-popup';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -18,7 +21,8 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 export class UsersComponent {
   
   constructor(private fb: FormBuilder,
-              private service: ApiService) {}
+              private service: ApiService,
+              private toast : NgToastService) {}
 
   
   //-------------  variables
@@ -30,6 +34,7 @@ export class UsersComponent {
 
   edit_Username_Form!: FormGroup;
 
+  change_Pass_Form!: FormGroup;
 
 
   ngOnInit(): void 
@@ -50,7 +55,12 @@ export class UsersComponent {
       new_username:['',[Validators.required]]
     });
 
-
+    // intialize register user form
+    this.change_Pass_Form = this.fb.group({
+      old_pass:['',[Validators.required]],
+      new_pass:['',[Validators.required]]
+    });
+    
   }
 
 
@@ -171,6 +181,38 @@ export class UsersComponent {
         }
       }
     ); 
+  }
+
+  // Define a variable to store the alert message
+  alertMessage: string | null = null;
+
+  change_Password() {
+    // Access the form value
+    const changePasswordRequest: ChangePasswordRequest = {
+      OldPassword: this.change_Pass_Form.get('old_pass')?.value,
+      NewPassword: this.change_Pass_Form.get('new_pass')?.value
+    };
+
+    console.log(changePasswordRequest); //test
+
+    this.service.changeUserPassword(this.Pass_Selected_UserId, changePasswordRequest).subscribe(
+      { 
+      next: (res)=> { 
+        console.log(res.message);
+        $('#edit-password-modal').modal('hide');
+        this.toast.success({ detail:"sucess", summary: "تم تغيير كلمة السر", duration: 1000, position:'topCenter'});
+      },
+      error: (err)=>{ 
+        console.log('Error Changing user password:', err.error);
+
+        // to make the arabic message
+        this.alertMessage = "كلمة السر السابقة غير صحيحة";
+        //console.log(this.alertMessage);
+
+        this.change_Pass_Form.reset();
+      }
+      }
+    );
   }
 
   

@@ -42,6 +42,7 @@ export class TokenInterceptor implements HttpInterceptor {
     // then, send the request back
     // .pipe(-------) to logout the user after the token expires
     return next.handle(request).pipe(
+      
       catchError((err:any)=>
       {
         if(err instanceof HttpErrorResponse)
@@ -53,8 +54,13 @@ export class TokenInterceptor implements HttpInterceptor {
             // and redirect back to login page/home page
             this.router.navigate([''])
 
+            //return throwError(()=> new Error("some other error occured"));
             //handle // if i will use refresh token
             //return this.handleUnAuthorizedError(request,next);
+          }
+          else {
+            // Leave other types of errors untouched
+            return throwError(() => err);
           }
         }
         return throwError(()=> new Error("some other error occured"))

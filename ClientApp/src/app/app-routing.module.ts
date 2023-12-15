@@ -33,13 +33,13 @@ const routes: Routes = [
   
   // can activate auth guard => so only logged in users can access this component(the dashboard)
   //   to test it works => delete the token from local storage and try to access the component
-  {path: 'admin-dash', component: AdminDashComponent, canActivate: [authGuard]},
+  {path: 'admin-dash/:userId', component: AdminDashComponent, canActivate: [authGuard]},
   {path: 'admin-topic', component :AdTopicComponent, canActivate: [authGuard]},
   {path: 'admin-all-topics', component :AdAllTopicsComponent, canActivate: [authGuard]},
   {path: 'admin-grades', component :AdGradesComponent, canActivate: [authGuard]},
   {path: 'admin-subjects', component :AdSubjectsComponent, canActivate: [authGuard]},
   {path: 'admin-users', component :UsersComponent, canActivate: [authGuard]},
-  {path: 'edit-contact', component :EditContactComponent, canActivate: [authGuard]}
+  {path: 'admin-edit-contact', component :EditContactComponent, canActivate: [authGuard]}
 
 ];
 

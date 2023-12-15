@@ -4,7 +4,8 @@
   
       <!-- -----------1------------ -->
       <li class="nav-item">
-        <a class="nav-link active" routerLink="/admin-dash">
+
+        <a class="nav-link active" [routerLink]="['/admin-dash', user_id]">
           <i class="bi bi-person"></i>
           <span>بيانات الحساب</span>
         </a>
@@ -38,7 +39,7 @@
         </li>
     
         <li class="nav-item">
-          <a class="nav-link" routerLink="/edit-contact">
+          <a class="nav-link" routerLink="/admin-edit-contact">
             <i class="bi bi-briefcase"></i>
             <span>معلومات التواصل</span>
           </a>

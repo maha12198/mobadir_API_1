@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-//import { IUserLogin } from '../models/IUserLogin';
 
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 
 //for alert message
 import { NgToastService } from 'ng-angular-popup';
+
 import { AuthService } from '../services/auth.service';
-import { StoreUserService } from '../services/store-user.service';
+import { StoreUserService } from '../services/store-user.service'; // setting username and role from token , and setting the user id as well
 
 @Component({
   selector: 'app-login-form',
@@ -30,6 +30,10 @@ export class LoginFormComponent {
 
   // Define a variable to store the alert message
   public alertMessage: string | null = null;
+
+
+  //user id to be sent
+  user_id_to_be_passed!: number;
 
   ngOnInit(): void 
   {
@@ -56,23 +60,37 @@ export class LoginFormComponent {
       this.service.login(this.loginForm.value).subscribe(
       { 
         next: (res)=> { console.log(res.message);
+                        //console.log(res.token);
+                        //console.log(res.user_id);
 
                         //store token
                         this.auth.storeToken(res.token);
 
-                        // decode the token and get username and role and store it (other than the auth service)
+                        // decode the token and get username and role and store/setting it (other than the auth service)
                         // to solve the problem of refreshing the page to be able to get the user info in dashboard
                         const tokenPayload = this.auth.decodeTokenOfUser();
                         this.storeUserService.setNameForStore(tokenPayload.name);
                         this.storeUserService.setRoleForStore(tokenPayload.role);
 
+                        //setting the user id 
+                        this.user_id_to_be_passed = res.user_id;
+                        //console.log("user_id_to_be_passed from login to admin-dash route = ", this.user_id_to_be_passed);
+                        
+                        // settig behavoiur subject type of user id to enable sidebar navigation component to access/get user id so it can send it to admin-dash route component when clicked
+                        // Pass the user ID to the service
+                        this.storeUserService.setUserId(res.user_id);
+
                         // new way to display alert message
                         this.toast.success({ detail:"sucess", summary: res.message, duration: 2000, position:'topCenter'});
            
                         this.loginForm.reset();
-                        this.router.navigate(['/admin-dash']);
+
+                        // test sending the user id here using (URL or route parameters)-activatedroute parameter
+                        this.router.navigate(['/admin-dash', this.user_id_to_be_passed ]);
+                        
                       },
         error: (err)=>{ console.log(err.error);
+
                         this.alertMessage = err.error;
 
                         // new way to display alert message
@@ -80,8 +98,7 @@ export class LoginFormComponent {
 
                         this.loginForm.reset();
                       }
-      }
-      );    
+      });    
     }    
   }
 

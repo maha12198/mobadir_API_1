@@ -4,18 +4,20 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+//using Microsoft.IdentityModel.Tokens;
 using mobadir_API_1.Helpers;
 using mobadir_API_1.Models;
 
 namespace mobadir_API_1.Controllers
 {
-    [Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
+    //[authenticate]
+    //[Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -26,47 +28,6 @@ namespace mobadir_API_1.Controllers
         {
             _context = context;
         }
-
-
-        ////         LOGIN
-        //// POST: api/Users/login
-        //[HttpPost("login")]
-        //public async Task<ActionResult> login([FromBody] UserLoginRequest userObj)
-        //{
-        //    if (userObj == null)
-        //        return BadRequest();
-
-        //    var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userObj.Username);
-
-        //    if (user == null)
-        //    {
-        //        // User not found
-        //        return NotFound("عذراً ،اسم المستخدم الذي أدخلته غير صحيح");
-        //    }
-
-        //    // Verify password
-        //    if (PasswordHasher.VerifyPassword(userObj.Password, user.Password))
-        //    {
-        //        // Password is correct, so Generate a token
-        //        var genToken = CreateJWT(user);
-        //        user.Token = genToken;
-
-        //        //update lastVisited value (oman time - GMT+4)
-        //        user.LastVisited = DateTime.UtcNow.AddHours(4); ;
-        //        _context.SaveChanges();
-        //        //Console.WriteLine($"LastVisited: {user.LastVisited}"); //test
-
-        //        // return the token value and sucess message
-        //        return Ok(new { token = user.Token,
-        //                        message = "تم تسجيل الدخول بنجاح"});
-        //    }
-        //    else
-        //    {
-        //        // Password is incorrect
-        //        //return Unauthorized(new { message = "Incorrect password" });
-        //        return NotFound("عذراً ،كلمة السر التي أدخلتها غير صحيحة");
-        //    }
-        //}
 
 
         //        SIGNUP
@@ -92,45 +53,8 @@ namespace mobadir_API_1.Controllers
 
 
 
-                //// create JWT Token for Authentication
-                //private string CreateJWT(User user)
-                //{
-                //    if (user == null)
-                //    {
-                //        throw new ArgumentNullException(nameof(user));
-                //    }
-
-                //    var jwtTokenHandler = new JwtSecurityTokenHandler();
-
-                //    // Use a secure, randomly generated key, !!!!!!! should be changed in production phase
-                //    var key = Encoding.ASCII.GetBytes("your_secure_secret_key");
-
-                //    var identity = new ClaimsIdentity(new Claim[]
-                //    {
-                //        // the data that we want to store in the token ( in my case: user and role)
-                //        new Claim(ClaimTypes.Name, user.Username),
-                //        new Claim(ClaimTypes.Role, user.UserRole.ToString())
-                //    });
-
-                //    var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-                //    var tokenDescriptor = new SecurityTokenDescriptor
-                //    {
-                //        Subject = identity,
-                //        // Set an expiration time for the token
-                //        Expires = DateTime.UtcNow.AddHours(4),
-                //        SigningCredentials = credentials
-                //    };
-
-                //    var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-
-                //    return jwtTokenHandler.WriteToken(token);
-                //}
-
-
-
-        //      Get User/contact Info
-        //test authorization -- done
-        //[Authorize] // if not user is not auhtorized, error 401 (unauthorized access) 
+               
+        // --------------- Get User/contact Info page -------------------
         [HttpGet]
         [Route("get-user-info/{user_id}")]
         public async Task<ActionResult> GetUserInfo(int user_id)
@@ -223,6 +147,66 @@ namespace mobadir_API_1.Controllers
         }
 
 
+        // "Change Password" **checks the old password**
+        // PATCH: api/Users/PatchUserPassword/{userId:---}
+        [HttpPatch("PatchUserPassword/{userId}")]
+        public IActionResult PatchUserPassword(int userId, [FromBody] ChangePasswordRequest changePasswordRequest)
+        {
+            // Check if the user ID is valid
+            if (!UserExists(userId))
+            {
+                return BadRequest("Invalid user ID.");
+            }
+
+            // Get the user from the database
+            var user = _context.Users.Where(u => u.Id == userId).FirstOrDefault();
+
+            // Check if the old password is correct
+            if (!IsCorrectPassword(user!, changePasswordRequest.OldPassword))
+            {
+                return BadRequest("The old password is incorrect.");
+            }
+
+            // Change the user's password to the new one
+            //user!.Password = changePasswordRequest.NewPassword;
+            // encryption of password
+            user!.Password = PasswordHasher.HashPassword(changePasswordRequest.NewPassword);
+
+            // Update the user in the data source
+            //_context.Entry(user).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            // Return a success response
+            return Ok(new { message = "Password changed successfully."});
+            }
+
+        // checks if the old password entered by user is correct or not
+        private bool IsCorrectPassword(User user, string oldPassword)
+        {
+            if ((user == null) || (oldPassword == null))
+            {
+                return false;
+            }
+            else
+            {
+                // password: not encrypted (entered by user) , base64Hash: encrypted (stored in DB)
+                if (PasswordHasher.VerifyPassword(oldPassword, user.Password))
+                {
+                    //return Ok("the old password is correct"); 
+                    Console.WriteLine("the old passowrd correct"); //test
+                    return true;
+                }
+
+                Console.WriteLine("the old passowrd incorrect"); //test
+                return false;
+            }
+        }
+
+        // checks if user exists
+        private bool UserExists(int id)
+        {
+            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
 
 
 
@@ -237,29 +221,8 @@ namespace mobadir_API_1.Controllers
 
 
 
-        //-------------------- general CRUD -----------------------
 
-        // GET: api/Users/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<User>> GetUser(int id)
-        //{
-        //  if (_context.Users == null)
-        //  {
-        //      return NotFound();
-        //  }
-        //    var user = await _context.Users.FindAsync(id);
 
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return user;
-        //}    
-        //private bool UserExists(int id)
-        //{
-        //    return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
-        //}
     }
 
 
@@ -299,19 +262,19 @@ namespace mobadir_API_1.Controllers
 
     
 
-
+    
     //-- define a custom request object called "ChangePasswordRequest"
-    //public class ChangePasswordRequest
-    //{
-    //    public ChangePasswordRequest(string oldPassword, string newPassword)
-    //    {
-    //        OldPassword = oldPassword;
-    //        NewPassword = newPassword;
-    //    }
+    public class ChangePasswordRequest
+    {
+        public ChangePasswordRequest(string oldPassword, string newPassword)
+        {
+            OldPassword = oldPassword;
+            NewPassword = newPassword;
+        }
 
-    //    public string OldPassword { get; set; }
-    //    public string NewPassword { get; set; }
-    //}
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
+    }
 
 
 }

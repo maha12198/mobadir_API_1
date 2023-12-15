@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Router, NavigationEnd } from '@angular/router';
 
-import { filter } from 'rxjs/operators';
+// import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -23,22 +23,29 @@ export class AppComponent {
      //or document.querySelector('body').scrollTo(0,0)
     }
 
-  admin;
+  //admin;
+  // currentUserId: number | null = null;
 
-  constructor(private router: Router) { }
+  // onUserIdChanged(userId: number | null) {
+  //   this.currentUserId = userId;
+  // }
   
-  ngOnInit() 
-  {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    )
-    .subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.admin = ((event.url !== '/admin-dash') && (event.url !== '/admin-topic') &&
-                      (event.url !== '/admin-all-topics') && (event.url !== '/admin-grades') &&
-                      (event.url !== '/admin-subjects') && (event.url !== '/admin-users') &&
-                      (event.url !== '/admin-edit-topic')&& (event.url !== '/edit-contact'))
-      }
-    });
-  }
+  constructor(public router: Router) { }
+  
+  // ngOnInit() 
+  // {
+  //   this.router.events.pipe(
+  //     filter(event => event instanceof NavigationEnd)
+  //   )
+  //   .subscribe((event) => {
+  //     if (event instanceof NavigationEnd) {
+  //       this.admin = ((event.url !== '/admin-dash') && (event.url !== '/admin-topic') &&
+  //                     (event.url !== '/admin-all-topics') && (event.url !== '/admin-grades') &&
+  //                     (event.url !== '/admin-subjects') && (event.url !== '/admin-users') &&
+  //                     (event.url !== '/admin-edit-topic')&& (event.url !== '/edit-contact'))
+
+                      
+  //     }
+  //   });
+  // }
 }
