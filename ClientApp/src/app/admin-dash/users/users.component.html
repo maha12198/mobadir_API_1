@@ -31,7 +31,7 @@
                     <table class="table table-hover text-center table-responsive-sm mx-4 w-100">
                         <thead>
                         <tr>
-                            <th>م</th>
+                            <!-- <th>م</th> -->
                             <th>اسم المستخدم</th>
                             <th>الصلاحية</th>
                             <th>اخر تعديل</th>
@@ -41,8 +41,8 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let usertable of users_List">
-                                <th class="align-middle">1</th>
-                                <td class="align-middle"> {{usertable.username}}--{{usertable.id}}</td>
+                                <!-- <th class="align-middle">1</th> -->
+                                <td class="align-middle"> {{usertable.username}}</td>
                                 <td class="align-middle"> {{usertable.role}} </td>
                                 <td class="align-middle"> {{usertable.updatedAt}} </td>
                                 <td class="align-middle"> {{usertable.lastVisited}} </td>

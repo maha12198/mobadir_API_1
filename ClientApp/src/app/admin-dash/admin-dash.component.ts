@@ -82,10 +82,12 @@ export class AdminDashComponent{
     });
     
 
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params) => 
+    {
       // Access the userId parameter from the route (from login to admin-dash)
       this.Passed_user_Id = +params['userId']; // Convert to number
-      console.log("Passed_user_Id = ",this.Passed_user_Id);
+
+      console.log("Passed_user_Id = ",this.Passed_user_Id); //test
     });
 
     

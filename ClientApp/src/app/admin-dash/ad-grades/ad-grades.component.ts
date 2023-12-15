@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { ManagementService } from 'src/app/services/management.service';
+
+// Define an interface to represent the data structure
+interface IGrades {
+  id: number;
+  isVisible?: boolean;
+  name?: string;
+}
 
 
 @Component({
@@ -7,31 +15,54 @@ import { Component } from '@angular/core';
   styleUrls: ['./ad-grades.component.css']
 })
 
-
 export class AdGradesComponent {
 
+  Grades_List!: IGrades[];
+
+  constructor(private api_service: ManagementService) {}
+
+  ngOnInit()
+  {
+    this.Get_All_Grades();    
+
+  }
+
+  Get_All_Grades()
+  {
+    this.api_service.Get_all_grades().subscribe(
+      {
+        next: (res) => 
+        {
+          //console.log(res);
+          this.Grades_List = res;
+          //console.log(this.Grades_List);
+        },
+        error: (err) => 
+        {
+          console.log(err);
+        }
+      }
+    );
+  }
 
 
-  constructor() {}
+  onCheckboxChange(event: any, gradeId: number): void 
+  {
+    const isVisible = event.target.checked;
+    console.log(isVisible); //test // if true or false
 
+    // Call the service method to update the isVisible value
+    this.api_service.updateGradeVisibility(gradeId, isVisible).subscribe(
+      {
+        next: () => {
+          console.log('Visibility updated successfully.');
+        },
+        error: (err) => {
+          console.error('Error updating visibility:', err);
+        }
+      }
+    );
+  }
 
-
-  // ngOnInit(): void {
-  //   // Load your external JS file dynamically with a delay
-  //   setTimeout(() => {
-  //     const script = document.createElement('script');
-  //     script.src = 'https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js';
-  
-  //     // script.onload = () => {
-  //     //   // The script has successfully loaded
-  //     //   // Now, you can safely interact with your checkboxes or other elements
-  //     // };
-  
-  //     document.body.appendChild(script);
-  //   }, 1000); // Adjust the delay as needed
-  // }
-  
-
-  
 
 }

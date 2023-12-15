@@ -37,6 +37,10 @@ namespace mobadir_API_1.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // new
+            base.OnModelCreating(modelBuilder);
+            new DbInitializer(modelBuilder).Seed();
+
             modelBuilder.Entity<File>(entity =>
             {
                 entity.HasOne(d => d.Topic)
@@ -92,7 +96,8 @@ namespace mobadir_API_1.Models
                 //    .HasConstraintName("FK__Topics__term__4AB81AF0");
             });
 
-            OnModelCreatingPartial(modelBuilder);
+
+            //OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -17,8 +17,6 @@
                 <!-- title -->
                 <h1 class="font-weight-bold py-2 mb-4 mr-2"> المراحل الدراسية</h1> 
                 
-                <!-- <input type="button" value="&#43;  إضافة صف جديد" class="btn btn-primary btn-lg px-3 mx-3 mt-3 mb-2 smaller-font-size" data-toggle="modal" data-target="#add-grade-modal" > -->
-
                 <!-- the table -->
                 <div class="row mt-4 mr-3" >
                     <table class="table table-hover text-center mx-4 w-100">
@@ -31,51 +29,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th  class="align-middle">1</th>
-                                <td  class="align-middle">الصف الأول</td>
+                            <tr *ngFor="let grade of Grades_List">
+                                <th  class="align-middle">{{grade.id}}</th>
+                                
+                                <td  class="align-middle"> {{grade.name}} </td>
+
+                                <!-- الحالة -->
                                 <td class="align-middle d-flex justify-content-center">
-                                    <!-- <input type="checkbox" data-size="lg" checked data-toggle="toggle" data-on="ظاهر" data-off="مخفي" data-onstyle="success" data-offstyle="danger" id="toggle1" name="toggle1"> -->
                                     <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
-                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                        <input type="checkbox" [id]="'checkbox' + grade.id" class="tgl tgl-skewed" [checked]="grade.isVisible"  (change)="onCheckboxChange($event, grade.id)">
+                                        <label [for]="'checkbox' + grade.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
+
                                 <td  class="align-middle">
-                                    <input type="button" value="مواد الصف" routerLink="/admin-subjects"  routerLinkActive="active" class="btn btn-secondary btn-lg px-3 mx-3 smaller-font-size" >
-                                   
+                                    <input type="button" value="مواد الصف" [routerLink]="['/admin-subjects', grade.id]"  routerLinkActive="active" class="btn btn-secondary btn-lg px-3 mx-3 smaller-font-size" >
                                 </td>
                             </tr>
-                            <tr>
-                                <th  class="align-middle">2</th>
-                                <td  class="align-middle">الصف الثاني</td>
-                                <td class="align-middle d-flex justify-content-center"> 
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" checked>
-                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <input type="button" value="مواد الصف" class="btn btn-secondary btn-lg px-3 mx-3 smaller-font-size" >
-                                    <!-- <input type="button" value="تعديل" class="btn btn-danger btn-lg px-3" data-toggle="modal" data-target="#edit-grade-modal"> -->
-                                    <!-- <button type="button" class="btn btn-dark btn-md mx-2 mb-2" data-toggle="modal" data-target="#addCase-modal">Add a Case</button> -->
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="align-middle">3</th>
-                                <td class="align-middle">الصف الثالث</td>
-                                <td class="align-middle d-flex justify-content-center">
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t3" class="tgl tgl-skewed">
-                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <input type="button" value="مواد الصف" class="btn btn-secondary btn-lg px-3 mx-3 smaller-font-size" >
-                                    <!-- <input type="button" value="تعديل" class="btn btn-danger btn-lg px-3" data-toggle="modal" data-target="#edit-grade-modal"> -->
-                                    <!-- <button type="button" class="btn btn-dark btn-md mx-2 mb-2" data-toggle="modal" data-target="#addCase-modal">Add a Case</button> -->
-                                </td>
-                            </tr>
+
                         </tbody>
                     </table>       
 
@@ -92,51 +63,3 @@
 
 <app-ad-footer></app-ad-footer>
 
-
-
-<!-- The Modal -->
-<div class="modal" id="add-grade-modal">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4">
-
-    <!-- Modal Header -->
-    <div class="modal-header d-flex justify-content-between mb-3">
-        <h3 class="modal-title flex-grow-1 font-weight-bold">إضافة صف جديد</h3>
-        <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-    </div>
-
-    <!-- Modal body -->
-    <div class="modal-body">
-        
-        <div class="row mb-4">
-            <div class="col-lg-3 col-md-4 label "> اسم الصف</div>
-            <div class="col-lg-9 col-md-8">
-                <input type="text" name="name" id="name" class="form-control " >
-            </div>
-        </div>
-
-        <div class="row mb-2">
-            <div class="col-lg-3 col-md-4 pt-2">
-                
-                <label for="toggle-add">حالة الصف</label>
-            </div>
-            <div class="col-lg-9 col-md-8">
-                <div class="checkbox-wrapper-8">
-                    <input type="checkbox" id="t4" class="tgl tgl-skewed" checked>
-                    <label for="t4" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-    <!-- Modal footer -->
-    <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">إغلاق</button>
-        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">حفظ</button>
-    </div>
-
-    </div>
-</div>
-</div>
