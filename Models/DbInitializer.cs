@@ -28,6 +28,25 @@ namespace mobadir_API_1.Models
                 new Grade { Id = 11, IsVisible = true, Name = "الصف الحادي عشر" },
                 new Grade { Id = 12, IsVisible = true, Name = "الصف الثاني عشر" }
             );
+
+            // seeding data to subject table
+            modelBuilder.Entity<Subject>().HasData(
+                new Subject { Id = 1, Name = "مادة الرياضيات", IsVisible = true, GradeId = 1  },
+                new Subject { Id = 2, Name = "مادة العلوم", IsVisible = true, GradeId = 1 },
+                new Subject { Id = 3, Name = "مادة اللغة العربية", IsVisible = true, GradeId = 1 },
+
+                new Subject { Id = 4, Name = "مادة الرياضيات", IsVisible = true, GradeId = 2 },
+                new Subject { Id = 5, Name = "مادة اللغة الانجليزية", IsVisible = true, GradeId = 2 },
+
+                new Subject { Id = 6, Name = "مادة اللغة العربية", IsVisible = true, GradeId = 3 },
+
+                new Subject { Id = 7, Name = "مادة الرياضيات", IsVisible = true, GradeId = 4 },
+
+                new Subject { Id = 8, Name = "مادة العلوم", IsVisible = true, GradeId = 5 },
+
+                new Subject { Id = 9, Name = "مادة اللغة الانجليزية", IsVisible = true, GradeId = 6 },
+                new Subject { Id = 10, Name = "مادة الرياضيات", IsVisible = true, GradeId = 6 }
+            );
         }
     }
 }

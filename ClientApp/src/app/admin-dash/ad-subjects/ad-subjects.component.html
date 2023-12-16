@@ -6,7 +6,7 @@
 <app-ad-sidebar></app-ad-sidebar>
 
 
-<!-- المواد----------------------------------- -->
+<!-- ------------------------المواد----------------------------------- -->
 <main id="main" class="main">
     <div class="row">
       <div class="container regular-font-size">
@@ -15,65 +15,42 @@
             <div class="card-body pt-3">
     
                 <!-- title -->
-                <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف الأول</h1> 
+                <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف {{ currentGradeTitle }}</h1> 
 
                 <button  class="btn btn-primary btn-lg mt-3 mb-2 px-3 mx-3 smaller-font-size" data-toggle="modal" data-target="#add-subject-modal">
                     <i class="bi bi-journal-plus ml-2"> </i>
                     إضافة مادة جديد
                 </button>      
-                <!-- <input type="button" value="&#43;  إضافة مادة جديد" class="btn btn-primary btn-lg mt-3 mb-2 px-3 mx-3 smaller-font-size" data-toggle="modal" data-target="#add-subject-modal" > -->
     
                 <!-- the table -->
                 <div class="row mt-4 mr-3" >
                     <table class="table table-hover text-center mx-4 w-100">
                         <thead>
                         <tr>
-                            <th>م</th>
+                            <!-- <th>م</th> -->
                             <th>المادة</th>
                             <th class="pr-4">الحالة</th>
                             <th class="pr-4"></th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th class="align-middle">1</th>
-                                <td class="align-middle">الرياضيات</td>
+                            <tr *ngFor=" let subject of Subject_List">
+                                <!-- <th class="align-middle">1</th> -->
+                                <td class="align-middle"> {{subject.name}} </td>
+
                                 <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
-                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                        <input type="checkbox" [id]="'checkbox' + subject.id" class="tgl tgl-skewed" [checked]="subject.isVisible"  (change)="onCheckboxChange($event, subject.id)">
+                                        <label [for]="'checkbox' + subject.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
+
                                 <td class="align-middle">
                                     <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
+
                             </tr>
-                            <tr>
-                                <th class="align-middle">2</th>
-                                <td class="align-middle">العلوم</td>
-                                <td class="align-middle d-flex justify-content-center">
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" checked>
-                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="align-middle">3</th>
-                                <td class="align-middle">اللغة العربية</td>
-                                <td class="align-middle d-flex justify-content-center">
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t3" class="tgl tgl-skewed">
-                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <input type="button" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>       
 
@@ -93,50 +70,52 @@
 
 
 
-<!-- The Modal -->
+
+
+<!-- ------------ add subject modal ------------ -->
 <div class="modal" id="add-subject-modal">
-  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
-  
-      <!-- Modal Header -->
-      <div class="modal-header d-flex justify-content-between mb-3">
-          <h3 class="modal-title flex-grow-1 font-weight-bold">إضافة مادة جديد</h3>
-          <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-      </div>
-  
-      <!-- Modal body -->
-      <div class="modal-body">
-          
-          <div class="row mb-4">
-              <div class="col-lg-3 col-md-4 label "> اسم المادة</div>
-              <div class="col-lg-9 col-md-8">
-                  <input type="text" name="name" id="name" class="form-control " >
-              </div>
-          </div>
-  
-          <div class="row mb-2">
-              <div class="col-lg-3 col-md-4 pt-2">
-                  
-                  <label for="toggle-add">حالة المادة</label>
-              </div>
-              <div class="col-lg-9 col-md-8">
-                <div class="checkbox-wrapper-8">
-                    <input type="checkbox" id="t4" class="tgl tgl-skewed" checked>
-                    <label for="t4" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">إضافة مادة جديد</h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form [formGroup]="Add_Subject_Form" (ngSubmit)="Add_new_subject()">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-4 label "> اسم المادة</div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" formControlName="name" class="form-control smaller-font-size " >
+                        </div>
+                    </div>
+            
+                    <div class="row mb-2">
+                        <div class="col-lg-3 col-md-4 pt-2">
+                            <label for="toggle-add">حالة المادة</label>
+                        </div>
+    
+                        <div class="col-lg-9 col-md-8">
+                            <div class="checkbox-wrapper-8">
+                                <input type="checkbox" formControlName="is_Visible" id="add_sub_checkbox" class="tgl tgl-skewed">
+                                <label for="add_sub_checkbox" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                            </div>
+                        </div>
+    
+                    </div>
+            
                 </div>
-              </div>
-          </div>
-  
-  
+            
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-danger smaller-font-size btn-lg" data-dismiss="modal">إغلاق</button>
+                    <button type="submit" [disabled]="Add_Subject_Form.invalid" class="btn btn-primary smaller-font-size btn-lg">حفظ</button>
+                </div>
+            </form>
       </div>
-  
-      <!-- Modal footer -->
-      <div class="modal-footer d-flex justify-content-between">
-          <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">إغلاق</button>
-          <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">حفظ</button>
-      </div>
-  
-      </div>
-  </div>
-  </div>
+    </div>
+</div>
   

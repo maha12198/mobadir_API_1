@@ -69,12 +69,12 @@ export class ApiService {
   
   
   // Get Contact/User Info
-  get_user_info (user_id: number)
-  {
-    const url = `${Constants.api_url}/Users/get-user-info/${user_id}`;
+  // get_user_info (user_id: number)
+  // {
+  //   const url = `${Constants.api_url}/Users/get-user-info/${user_id}`;
 
-    return this.http.get<IUserInfo>(url);
-  }
+  //   return this.http.get<IUserInfo>(url);
+  // }
 
 
   // ------------------------ USERS page --------------------

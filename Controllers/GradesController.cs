@@ -20,6 +20,8 @@ namespace mobadir_API_1.Controllers
             _context = context;
         }
 
+
+
         // GET: api/Grades
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Grade>>> GetGrades()
@@ -30,6 +32,8 @@ namespace mobadir_API_1.Controllers
           }
             return await _context.Grades.ToListAsync();
         }
+
+
 
         // PATCH: api/Grades/{id}
         [HttpPatch("{id}")]
@@ -72,36 +76,6 @@ namespace mobadir_API_1.Controllers
         {
             return _context.Grades.Any(e => e.Id == id);
         }
-
-
-
-
-
-
-
-
-
-
-        // GET: api/Grades/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Grade>> GetGrade(int id)
-        //{
-        //  if (_context.Grades == null)
-        //  {
-        //      return NotFound();
-        //  }
-        //    var grade = await _context.Grades.FindAsync(id);
-
-        //    if (grade == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return grade;
-        //}
-
-
-
 
     }
 
