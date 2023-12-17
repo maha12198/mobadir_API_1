@@ -27,15 +27,24 @@
                     
                     <!-- left side -->
                     <div class=" w-25 mt-3 mb-2">
-                        <!-- filter -->
+                        <!-------------------------------- filter ------------------->
                         <div class="input-group mb-2">
-                            <!-- filter input -->
-                            <input type="text" class="form-control py-3 btn_grey smaller-font-size" style="font-size: 16px;" placeholder="بحث">
+                            <!-- x icon to delete text (show if there is text only)-->
+                            <div class="input-group-append">
+                                <span class="input-group-text" *ngIf="searchText" (click)="clearSearch()">
+                                    <i class="bi bi-x"></i>
+                                </span>
+                            </div>
+                            <!-- filter input in the middle -->
+                            <input type="text" [(ngModel)]="searchText" class="form-control py-3 btn_grey smaller-font-size" style="font-size: 16px;" placeholder="بحث">
                             <!-- search icon -->
-                            <button class="btn btn_grey_dark " type="button" id="">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
                                 <i class="bi bi-search"></i>
-                            </button>
-                        </div>
+                            </span>
+                            </div>
+                          </div>
+                          
                     </div>
                 </div>
                 
@@ -44,65 +53,34 @@
                     <table class="table table-hover table-responsive-sm text-center w-100">
                         <thead>
                         <tr>
-                            <th>م</th>
+                            <!-- <th>م</th> -->
                             <th>عنوان الدرس</th>
                             <th>المستخدم المضيف</th>
                             <th>الفصل الدراسي</th>
                             <th>الحالة</th>
+                            <th> تاريخ الاضافة</th>
                             <th> آخر تعديل</th>
                             <th>  </th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th class="align-middle">1</th>
-                                <td class="align-middle"> مثال عنوان درس</td>
-                                <td class="align-middle">admin</td>
-                                <td class="align-middle">الفصل الدراسي الأول</td>
+                            <!-- added cutom search pipe for the table  -->
+                            <tr *ngFor="let topic of TopicsList1 | search: searchText">
+                                <!-- <th class="align-middle">1</th> -->
+                                <td class="align-middle"> {{ topic.title}} </td>
+                                <td class="align-middle"> {{ topic.username}} </td>
+                                 <td class="align-middle">  {{topic.term}}</td>
                                 <td  class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t1" class="tgl tgl-skewed" checked>
-                                        <label for="t1" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
+                                        <input type="checkbox" [id]="'checkbox' + topic.id" class="tgl tgl-skewed" [checked]="topic.isVisible">
+                                        <label [for]="'checkbox' + topic.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    2021-11-11 14:00:00 
+                                    {{ topic.createdAt  | date:'medium'  }}
                                 </td>
                                 <td class="align-middle">
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="align-middle">2</th>
-                                <td class="align-middle">مثال عنوان درس</td>
-                                <td class="align-middle">admin</td>
-                                <td class="align-middle">الفصل الدراسي الأول</td>
-                                <td class="align-middle d-flex justify-content-center">
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t2" class="tgl tgl-skewed" >
-                                        <label for="t2" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    2021-11-11 14:00:00 
-                                </td>
-                                <td class="align-middle">
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="align-middle">3</th>
-                                <td class="align-middle">مثال عنوان درس</td>
-                                <td class="align-middle">user2</td>
-                                <td class="align-middle">الفصل الدراسي الثاني</td>
-                                <td class="align-middle d-flex justify-content-center">
-                                    <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" id="t3" class="tgl tgl-skewed" checked>
-                                        <label for="t3" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    2021-11-11 14:00:00 
+                                    {{ topic.updatedAt }}
                                 </td>
                                 <td class="align-middle">
                                     <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >

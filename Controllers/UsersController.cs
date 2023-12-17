@@ -54,30 +54,30 @@ namespace mobadir_API_1.Controllers
 
 
                
-        // --------------- Get User/contact Info page -------------------
-        [HttpGet]
-        [Route("get-user-info/{user_id}")]
-        public async Task<ActionResult> GetUserInfo(int user_id)
-        {
-            var user_info = await (_context.Users
-                                .Where(x => x.Id == user_id)
-                                .Join(_context.LookupValues,
-                                        x => x.Role,
-                                        lval => lval.Id,
-                                        (x, lval) => new
-                                        {
-                                            username = x.Username,
-                                            role = lval.LookupValueName,
-                                            updatedAt = x.UpdatedAt,
-                                            lastVisited = x.LastVisited
-                                        })
-                                        .FirstOrDefaultAsync());
-            if (user_info == null)
-            {
-                NotFound("no user found");
-            }
-            return Ok(user_info);
-        }
+        //// --------------- Get User/contact Info page -------------------
+        //[HttpGet]
+        //[Route("get-user-info/{user_id}")]
+        //public async Task<ActionResult> GetUserInfo(int user_id)
+        //{
+        //    var user_info = await (_context.Users
+        //                        .Where(x => x.Id == user_id)
+        //                        .Join(_context.LookupValues,
+        //                                x => x.Role,
+        //                                lval => lval.Id,
+        //                                (x, lval) => new
+        //                                {
+        //                                    username = x.Username,
+        //                                    role = lval.LookupValueName,
+        //                                    updatedAt = x.UpdatedAt,
+        //                                    lastVisited = x.LastVisited
+        //                                })
+        //                                .FirstOrDefaultAsync());
+        //    if (user_info == null)
+        //    {
+        //        NotFound("no user found");
+        //    }
+        //    return Ok(user_info);
+        //}
 
 
         // ------------------------ Users Page -----------------------

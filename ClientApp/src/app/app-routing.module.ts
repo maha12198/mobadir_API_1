@@ -39,7 +39,7 @@ const routes: Routes = [
   
   {path: 'admin-grades', component :AdGradesComponent, canActivate: [authGuard]},
   {path: 'admin-subjects/:gradeId', component :AdSubjectsComponent, canActivate: [authGuard]},
-  {path: 'admin-all-topics', component :AdAllTopicsComponent, canActivate: [authGuard]},
+  {path: 'admin-all-topics/:subjectId', component :AdAllTopicsComponent, canActivate: [authGuard]},
   {path: 'admin-topic', component :AdTopicComponent, canActivate: [authGuard]}
 
 ];

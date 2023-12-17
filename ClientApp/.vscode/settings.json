@@ -1,1 +1,7 @@
-{}
+{
+    "explorer.openEditors.minVisible": 7,
+    "explorer.openEditors.visible": 7,
+    "explorer.openEditors.sortOrder": "fullPath",
+    "workbench.editor.limit.value": 30,
+    "workbench.editor.limit.enabled": true
+}

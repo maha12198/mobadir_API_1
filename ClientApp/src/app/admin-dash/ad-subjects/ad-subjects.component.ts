@@ -78,7 +78,7 @@ export class AdSubjectsComponent {
       this.Passed_isVisible = value;
     });
 
-    console.log("vis value", this.Passed_isVisible);
+    //console.log("vis value", this.Passed_isVisible); //test
     
   }
 

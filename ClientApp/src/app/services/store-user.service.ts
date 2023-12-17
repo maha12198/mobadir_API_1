@@ -20,12 +20,13 @@ export class StoreUserService {
 
   // new for user id
   private userIdSource = new BehaviorSubject<number | null>(null);
-  userId$ = this.userIdSource.asObservable(); 
+  userId$ = this.userIdSource.asObservable(); // the getter for the user id
 
 
   //constructor() { }
 
 
+  // -------- user Role -----------
   public getRoleFromStore ()
   {
     return this.role$.asObservable();
@@ -38,6 +39,7 @@ export class StoreUserService {
   }
 
 
+  // --------- username -----------
   public getNameFromStore ()
   {
     return this.name$.asObservable();
@@ -50,13 +52,16 @@ export class StoreUserService {
 
 
 
-  //          new for user id
+  // ---------- new for user id -----------
   // will be set in the loginform
-  setUserId(userId: number | null): void {
-    if (userId !== null) {
-      console.log("userId in setUserId() = ", userId);
+  setUserId(userId: number | null): void 
+  {
+    if (userId !== null) 
+    {
+      console.log("userId in setUserId() = ", userId); // test
       this.userIdSource.next(userId);
     }
   }
+  // the getter is a variable already declared above 
 
 }

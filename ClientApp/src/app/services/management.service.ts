@@ -58,6 +58,15 @@ export class ManagementService {
   }
 
 
+  // ------------------------ All Topics Page ------------------------
+
+  //api/Topics1/GetAllTopics/1
+  Get_topics_by_subject(subject_id: number)
+  {
+    const url = `${Constants.api_url}/Topics1/GetAllTopics/${subject_id}`;
+
+    return this.http.get<any>(url);
+  }
 
   
 }

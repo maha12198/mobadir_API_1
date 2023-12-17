@@ -40,13 +40,13 @@
 
                                 <td class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" [id]="'checkbox' + subject.id" class="tgl tgl-skewed" [checked]="subject.isVisible"  (change)="onCheckboxChange($event, subject.id)">
+                                        <input type="checkbox" [id]="'checkbox' + subject.id" class="tgl tgl-skewed" [checked]="subject.isVisible" (change)="onCheckboxChange($event, subject.id)">
                                         <label [for]="'checkbox' + subject.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>
 
                                 <td class="align-middle">
-                                    <input type="button" routerLink="/admin-all-topics" value="دروس المادة" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
+                                    <input type="button" value="دروس المادة" [routerLink]="['/admin-all-topics', subject.id]" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
 
                             </tr>

@@ -38,6 +38,7 @@ import { EditContactComponent } from './admin-dash/edit-contact/edit-contact.com
 
 import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
+import { SearchPipe } from './pipes/search.pipe';
 
 //angular material
 // import {MatDialogModule} from '@angular/material/dialog';
@@ -67,7 +68,8 @@ import { TokenInterceptor } from './Interceptors/token.interceptor';
     AdSubjectsComponent,
     AdAllTopicsComponent,
     UsersComponent,
-    EditContactComponent
+    EditContactComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

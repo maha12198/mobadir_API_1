@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mobadir_API_1.Models;
 
@@ -11,9 +12,10 @@ using mobadir_API_1.Models;
 namespace mobadir_API_1.Migrations
 {
     [DbContext(typeof(Mobadr_DbContext))]
-    partial class Mobadr_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231217003732_seeding_data_to_Topic_TopicContent_Table")]
+    partial class seeding_data_to_Topic_TopicContent_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

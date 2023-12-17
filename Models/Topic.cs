@@ -2,25 +2,34 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace mobadir_API_1.Models
 {
+    //map the Term property to a corresponding string representation when accessing it in your API controller
+    public enum TopicTerm
+    {
+        الأول = 1,
+        الثاني = 2
+    }
+
     public partial class Topic
     {
         public Topic()
         {
             Files = new HashSet<File>();
             Questions = new HashSet<Question>();
+
+            // new
+            CreatedAt = DateTime.UtcNow.AddHours(4);
         }
+
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        //[Column("title")]
-        //[StringLength(100)]
-        //[Unicode(false)]
         [Column(TypeName = "nvarchar(100)")]
         public string Title { get; set; } = null!;
         
@@ -33,14 +42,19 @@ namespace mobadir_API_1.Models
         [Column("created_at", TypeName = "date")]
         public DateTime? CreatedAt { get; set; }
         
-        //[Column("video_url")]
         [StringLength(200)]
-        //[Unicode(false)]
         public string? VideoUrl { get; set; }
-        
-        //[Column("term")]
+
         public int? Term { get; set; }
-        
+        // This property won't be mapped to the database
+        // access it using => user.TopicTerm.ToString();
+        [NotMapped] 
+        public TopicTerm TopicTerm
+        {
+            get => (TopicTerm) Term;
+            set => Term = (int)value;
+        } 
+
         [Column("subject_id")]
         public int? SubjectId { get; set; }
         
@@ -49,6 +63,9 @@ namespace mobadir_API_1.Models
         
         [Column("content_id")]
         public int? ContentId { get; set; }
+
+
+
 
         [ForeignKey("ContentId")]
         [InverseProperty("Topics")]
@@ -62,14 +79,20 @@ namespace mobadir_API_1.Models
         [InverseProperty("Topics")]
         public virtual Subject? Subject { get; set; }
         
-        //[ForeignKey("Term")]
-        //[InverseProperty("Topics")]
-        //public virtual LookupValue? TermNavigation { get; set; }
         
+
+
         [InverseProperty("Topic")]
         public virtual ICollection<File> Files { get; set; }
         
         [InverseProperty("Topic")]
         public virtual ICollection<Question> Questions { get; set; }
+        
+        
+        
+        
+        //[ForeignKey("Term")]
+        //[InverseProperty("Topics")]
+        //public virtual LookupValue? TermNavigation { get; set; }
     }
 }
