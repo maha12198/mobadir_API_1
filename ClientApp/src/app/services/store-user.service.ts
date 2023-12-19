@@ -30,6 +30,10 @@ export class StoreUserService {
     if (storedUserId) {
       this.userIdSource.next(+storedUserId);
     }
+    else
+    {
+      console.log("userId is null");
+    }
   }
 
 
@@ -70,6 +74,10 @@ export class StoreUserService {
       // Update BehaviorSubject and store in localStorage
       this.userIdSource.next(userId);
       localStorage.setItem('userId', userId.toString()); // this will help in avoiding the userId change to null when refreshing the page
+    }
+    else
+    {
+      console.log("userId is null");
     }
   }
   // the getter is a variable already declared above 

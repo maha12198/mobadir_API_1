@@ -98,5 +98,15 @@ export class ManagementService {
 
     return this.http.post<any>(url, newTopic);
   }
-    
+
+
+  AddContentForTopic(topic_id: number, new_content: string)
+  {
+          // POST: api/Topics1
+    const url = `${Constants.api_url}/Topics1/AddContent/${topic_id}`;
+
+    // note: the {} is important!!
+    return this.http.post<any>(url, {new_content});
+  }    
+
 }

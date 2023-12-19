@@ -22,7 +22,7 @@ namespace mobadir_API_1.Models
             Questions = new HashSet<Question>();
 
             // new
-            //CreatedAt = DateTime.UtcNow.AddHours(4);
+            CreatedAt = DateTime.Now;
         }
 
 
@@ -36,10 +36,10 @@ namespace mobadir_API_1.Models
         [Column("is_visible")]
         public bool? IsVisible { get; set; }
         
-        [Column("updated_at", TypeName = "date")]
+        [Column("updated_at", TypeName = "datetime2")]
         public DateTime? UpdatedAt { get; set; }
         
-        [Column("created_at", TypeName = "date")]
+        [Column("created_at", TypeName = "datetime2")]
         public DateTime? CreatedAt { get; set; }
         
         [StringLength(200)]

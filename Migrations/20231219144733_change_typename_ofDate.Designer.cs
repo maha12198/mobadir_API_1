@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mobadir_API_1.Models;
 
@@ -11,9 +12,10 @@ using mobadir_API_1.Models;
 namespace mobadir_API_1.Migrations
 {
     [DbContext(typeof(Mobadr_DbContext))]
-    partial class Mobadr_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231219144733_change_typename_ofDate")]
+    partial class change_typename_ofDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

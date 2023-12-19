@@ -89,7 +89,7 @@ export class AdTopicComponent {
         title: ['',[Validators.required] ],
         videoUrl: ['',[Validators.required] ],
        
-        body:[''],
+        body:['',[Validators.required]],
 
       }
     );
@@ -240,6 +240,7 @@ export class AdTopicComponent {
   }
 
   newTopic!: INewTopic;
+  topic_id!:number;
   AddTopicMainData()
   {
     this.newTopic = 
@@ -251,18 +252,43 @@ export class AdTopicComponent {
       createdBy: this.user_id
     };
     console.log("newTopic = ", this.newTopic);
-    
 
     this.management_api_service.AddMainDataForTopic(this.newTopic).subscribe(
      {
        next: (res) => {
-          console.log(res.message);
+          //console.log(res.message);
+          console.log(res);
+          this.topic_id = res;
+          console.log("Topic Added!");
+
+          console.log("test: ",this.topic_id);
+          this.AddTopicContent(this.topic_id);
        },
        error: (err) => {
          console.error('Error in adding Topic Main Data:', err);
        }
      }
    );
+  }
+
+
+  new_content!: string; 
+  AddTopicContent(topic_id: number)
+  {
+    this.new_content = this.editorForm?.get('body')?.value;
+    console.log(this.new_content); // test
+    
+    this.management_api_service.AddContentForTopic( topic_id, this.new_content).subscribe(
+      {
+        next: (res) => {
+          console.log(res.message);
+          console.log("Topic Content Added!");
+        },
+        error: (err) => {
+          console.error('Error in adding Content of Topic:', err);
+        }
+      }
+    );
   }
 
 
@@ -288,6 +314,7 @@ export class AdTopicComponent {
     this.AddTopicMainData();
     
     // 2- add content (Body- CKEditor) => another table (topicContent)
+    // test calling it inside the prev function(next part)
 
     // 3- add Files (Many) => another table (File)
 

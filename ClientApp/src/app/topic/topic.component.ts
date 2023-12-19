@@ -16,7 +16,7 @@ export class TopicComponent {
 
   public Editor = classicEditor;
 
-  public articleBody :string = '';
+  //public articleBody :string = '';
 
   viewArticle: IArticle | any ={} ;
   

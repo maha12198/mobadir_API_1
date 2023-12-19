@@ -138,6 +138,8 @@ namespace mobadir_API_1.Controllers
             return Ok(infoToAddTopic);
         }
 
+
+
         // POST: api/Topics1
         [HttpPost]
         public async Task<ActionResult<Topic>> PostTopic([FromBody] Topic topic)
@@ -145,17 +147,39 @@ namespace mobadir_API_1.Controllers
             // Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
 
             topic.IsVisible = true;
-            topic.CreatedAt = DateTime.UtcNow.AddHours(4);
-
-            //Console.WriteLine("test new topic here: ", topic);
 
             _context.Topics.Add(topic);
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "Topic Added Sucessfully" });
-            
+            return Ok(topic.Id);
         }
 
+
+        // POST: api/Topics1/AddContent/{topic_id}
+        [HttpPost]
+        [Route("AddContent/{topic_id}")]
+        public async Task<ActionResult<Topic>> PostTopicContent(int? topic_id, [FromBody] NewContentModel new_content_model)
+        {
+            if ( topic_id == null)
+            {
+                return BadRequest("topic id is null");
+            }
+
+            if (new_content_model == null)
+            {
+                return BadRequest("new content is null");
+            }
+
+            TopicContent newTopicContent = new TopicContent {
+                Content = new_content_model.new_content,
+                TopicId = topic_id
+            };
+
+            _context.TopicContents.Add(newTopicContent);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "TopicContent Added Sucessfully" });
+        }
 
 
 
@@ -223,4 +247,10 @@ namespace mobadir_API_1.Controllers
     {
         public bool IsVisible { get; set; }
     }
+
+    public class NewContentModel
+    {
+        public string? new_content { get; set; }
+    }
+
 }
