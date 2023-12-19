@@ -14,6 +14,11 @@ import { ManagementService } from 'src/app/services/management.service';
 import { IGrades } from 'src/app/models/IGrades';
 import { ISubject } from 'src/app/models/ISubject';
 import { INewTopic } from 'src/app/models/INewTopic';
+import { IFile } from 'src/app/models/IFile';
+import { NgToastService } from 'ng-angular-popup';
+
+
+declare var $: any; // Declare jQuery to avoid TypeScript errors
 
 
 interface ITopicDataToAdd
@@ -33,7 +38,8 @@ export class AdTopicComponent {
               private service: ApiService,
               private storeUserService : StoreUserService,
               private route: ActivatedRoute,
-              private management_api_service: ManagementService)
+              private management_api_service: ManagementService,
+              private toast: NgToastService)
   {}
 
 
@@ -98,6 +104,15 @@ export class AdTopicComponent {
     this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
       console.log('Selected Term Value:', value);
     });
+
+
+    // intialize Files form
+    this.FilesForm = this.fb.group(
+      {
+        FileName: ['',[Validators.required] ],
+        AttachFile: ['',[Validators.required] ] ,
+      }
+    );
 
 
   }
@@ -260,9 +275,13 @@ export class AdTopicComponent {
           console.log(res);
           this.topic_id = res;
           console.log("Topic Added!");
-
-          console.log("test: ",this.topic_id);
+          
+          // call add topic content function
           this.AddTopicContent(this.topic_id);
+
+          // call add files function
+          console.log("test topic id and files passed successfully: ",this.topic_id, this.Files ); // test
+          this.addMultipleFiles(this.topic_id, this.Files )
        },
        error: (err) => {
          console.error('Error in adding Topic Main Data:', err);
@@ -292,15 +311,88 @@ export class AdTopicComponent {
   }
 
 
+  Files: IFile[] =[];
+  FilesForm!: FormGroup;
+
+  // Add new file in Files List
+  addFileInMemory()
+  {
+    //console.log("test id: ",this.topic_id);
+
+    const newFile: IFile = 
+    {
+      name: this.FilesForm?.get('FileName')?.value,
+      fileUrl: this.FilesForm?.get('AttachFile')?.value ,
+      // topicId: this.topic_id
+    };
+    //log("new file: ", newFile);
+  
+    this.Files.push(newFile);
+
+    console.log("files list", this.Files);
+
+    this.FilesForm.reset();
+  
+    $('#add-file-browse-modal').modal('hide');
+
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});
+  }
+
+  // Delete file from memory
+  Pass_Selected_file!: IFile;
+  SendFileToBeDeleted(file: IFile) // used to pass the file from the row to the modal
+  {
+    this.Pass_Selected_file = file;
+    console.log("1", this.Pass_Selected_file); //test
+  }
+  deleteFileInMemory()
+  {
+    console.log("2", this.Pass_Selected_file); //test
+
+    const index = this.Files.findIndex((f) => f === this.Pass_Selected_file);
+
+    if (index !== -1) 
+    {
+      this.Files.splice(index, 1);
+
+      console.log('File deleted successfully');
+
+      $('#confirm-delete-modal').modal('hide');
+    }
+  }
+
+  
+
+  // add files to the db/api
+  addMultipleFiles(topic_id: number, FilesToPass: IFile[]) 
+  {
+    this.management_api_service.AddFiles(topic_id, FilesToPass).subscribe(
+      {
+        next: (res) => {
+          console.log(res.message);
+          console.log("Files Added to api!");
+        },
+        error: (err) => {
+          console.error('Error in adding Files to api:', err);
+        }
+      }
+    );
+  }
+
+
+
+
+
+
+
+
 
 
 
   
 
-  // confirm(): is the submit form function (previously made for the ckeditor)
-  public articleBody :string = '';   //Try this: public articleBody  = this.editorForm?.get('body')?.value;
-  newArticle: IArticle | undefined;
-  confirm()
+  // confirm(): is the MAIN submit form function in this page
+  confirm ()
   {
     if( this.editorForm.invalid)
     {
@@ -314,33 +406,14 @@ export class AdTopicComponent {
     this.AddTopicMainData();
     
     // 2- add content (Body- CKEditor) => another table (topicContent)
-    // test calling it inside the prev function(next part)
+    // called it inside the prev function to ensure that the function is called after the one before
 
     // 3- add Files (Many) => another table (File)
 
-    // 1- add Questions (Many) => another table (Question)
+
+    // 4- add Questions (Many) => another table (Question)
 
 
-
-    // Access the selected term value
-    //const selectedTermValue = this.editorForm?.get('selectedTerm')?.value;
-    // Do something with the selected term value
-    //console.log('Selected Term Value:', selectedTermValue);
-    
-    
-    //////////////////// add body/content //////////////////
-    //console.log(this.articleBody); //test
-    
-    // this.newArticle = {
-    //   Body : this.editorForm?.get('body')?.value
-    // };
-    
-    // adding article to the DB
-    // this.service.AddArticle(this.newArticle).subscribe({
-    //   next: (res)  => { console.log('article created successfully:')
-    //                   },
-    //   error: (err) => { console.error('Error creating article:', err)}
-    // });
 
   }
 }

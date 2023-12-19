@@ -4,6 +4,7 @@ import { Constants } from '../config/constants';
 import { Observable } from 'rxjs';
 import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
+import { IFile } from '../models/IFile';
 
 
 @Injectable({
@@ -102,11 +103,19 @@ export class ManagementService {
 
   AddContentForTopic(topic_id: number, new_content: string)
   {
-          // POST: api/Topics1
     const url = `${Constants.api_url}/Topics1/AddContent/${topic_id}`;
 
     // note: the {} is important!!
     return this.http.post<any>(url, {new_content});
-  }    
+  }
+  
+  
+  // Add multiple files
+  AddFiles(topic_id: number, files: IFile[]) 
+  {
+    const url = `${Constants.api_url}/Topics1/AddFiles/${topic_id}`;
+
+    return this.http.post<any>(url, {files});
+  }
 
 }

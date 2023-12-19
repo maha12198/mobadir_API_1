@@ -147,6 +147,14 @@ namespace mobadir_API_1.Controllers
             // Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
 
             topic.IsVisible = true;
+            Models.File f = new Models.File();
+            f.Name = "File 1";
+            Models.File f1 = new Models.File();
+            f.Name = "File 2";
+            topic.Files = new List<Models.File>();
+
+            topic.Files.Add(f);
+            topic.Files.Add(f1);
 
             _context.Topics.Add(topic);
             await _context.SaveChangesAsync();
@@ -170,7 +178,8 @@ namespace mobadir_API_1.Controllers
                 return BadRequest("new content is null");
             }
 
-            TopicContent newTopicContent = new TopicContent {
+            TopicContent newTopicContent = new TopicContent 
+            {
                 Content = new_content_model.new_content,
                 TopicId = topic_id
             };
@@ -179,6 +188,46 @@ namespace mobadir_API_1.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "TopicContent Added Sucessfully" });
+        }
+
+
+
+
+        // POST: api/Topics1/
+        [HttpPost]
+        [Route("AddFiles/{topic_id}")]
+        public async Task<ActionResult<IEnumerable<Models.File>>> AddMultipleFiles(int? topic_id, [FromBody] NewFilesModel files)
+        {
+            if (topic_id == null)
+            {
+                return BadRequest("topic id is null");
+            }
+
+            if (files == null)
+            {
+                return BadRequest("files passed is null");
+            }
+
+            // iterate over the 'files' collection and add each file to the database
+            try
+            {
+                foreach (var file in files.files)
+                {
+                    file.TopicId = topic_id;
+
+                    _context.Files.Add(file);
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Files Added Sucessfully" });
+            }
+            catch (DbUpdateException)
+            {
+                // Handle database update exception
+                return StatusCode(500, "Error saving to the database");
+            }
+
         }
 
 
@@ -253,4 +302,8 @@ namespace mobadir_API_1.Controllers
         public string? new_content { get; set; }
     }
 
+    public class NewFilesModel
+    {
+        public IEnumerable<Models.File>? files { get; set; }
+    }
 }

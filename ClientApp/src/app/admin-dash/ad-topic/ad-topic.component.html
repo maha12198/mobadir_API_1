@@ -104,35 +104,21 @@
                             </div>
                 
                             <!-- the table -->
-                            <div class="row mt-3 mr-1" >
+                            <div *ngIf="Files && Files.length > 0" class="row mt-3 mr-1" >
                                 <table class="table table-hover text-center mx-4 w-100">
                                     <thead>
                                     <tr>
-                                        <th>م</th>
+                                        <!-- <th>م</th> -->
                                         <th>اســــم المــــلف</th>
                                         <th>  </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th class="align-middle">1</th>
-                                            <td class="align-middle"> مثال عنوان ملــــــــف</td>
+                                        <tr *ngFor="let file of Files">
+                                            <!-- <th class="align-middle">1</th> -->
+                                            <td class="align-middle"> {{file.name}} </td>
                                             <td>
-                                                <!-- <button class="btn  btn-lg">
-                                                    <i class="bi bi-trash-fill icon-style"></i>
-                                                </button> -->
-                                                <button class="delete-button" data-toggle="modal" data-target="#confirm-delete-modal">
-                                                    <svg class="delete-svgIcon" viewBox="0 0 448 512">
-                                                        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
-                                                    </svg>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="align-middle">2</th>
-                                            <td class="align-middle"> مثال عنوان ملــــــــف</td>
-                                            <td>
-                                                <button class="delete-button">
+                                                <button class="delete-button" type="button" (click)="SendFileToBeDeleted(file)" data-toggle="modal" data-target="#confirm-delete-modal">
                                                     <svg class="delete-svgIcon" viewBox="0 0 448 512">
                                                         <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
                                                     </svg>
@@ -231,32 +217,11 @@
 
 
 
+
+
+
+
 <!-- Modal 1 -->
-<div class="modal" id="confirm-delete-modal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-4">
-            <!-- Modal Header -->
-            <div class="modal-header d-flex justify-content-between mb-3">
-                <h3 class="modal-title flex-grow-1 font-weight-bold">حـــــذف ملـــــــف</h3>
-                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="row mb-4">
-                    <label class=" label mr-3">هــل أنت متأكد من أنك تريـــد حذف الملف ؟</label>
-                </div>  
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal 2 -->
 <div class="modal" id="add-file-browse-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content p-4">
@@ -266,36 +231,40 @@
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body">
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">اســــــم الــملف</label>
+            <form [formGroup]="FilesForm" (ngSubmit)="addFileInMemory()">
+                <div class="modal-body">
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">اســــــم الــملف</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <input type="text" formControlName="FileName" class="form-control py-3 smaller-font-size">
+                        </div>
                     </div>
-                    <div class="col-md-8 mb-2">
-                        <input type="text" class="form-control py-3 smaller-font-size">
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">إرفــــــاق الــملف</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="file" formControlName="AttachFile" class="form-control-file" id="exampleFormControlFile1">
+                            
+                            <!-- <label for="exampleFormControlFile1" class = "btn btn-outline-dark btn-lg smaller-font-size">إختيـــار الملـف</label> -->
+                            <!-- <input type="file" style = "visibility: hidden;" class="form-control-file" id="exampleFormControlFile1"> -->
+                        </div>
                     </div>
                 </div>
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">إرفــــــاق الــملف</label>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="exampleFormControlFile1" class = "btn btn-outline-dark btn-lg smaller-font-size">إختيـــار الملـف</label>
-                        <input type="file" style = "visibility: hidden;" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
 
-<!-- Modal 3 -->
+<!-- Modal 2 -->
 <div class="modal" id="add-file-link-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content p-4">
@@ -331,6 +300,32 @@
         </div>
     </div>
 </div>
+
+<!-- Modal 3 -->
+<div class="modal" id="confirm-delete-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">حـــــذف ملـــــــف</h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row mb-4">
+                    <label class=" label mr-3">هــل أنت متأكد من أنك تريـــد حذف الملف ؟</label>
+                </div>  
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                <button type="button" (click)="deleteFileInMemory()"  class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <!-- Modal 4 -->
