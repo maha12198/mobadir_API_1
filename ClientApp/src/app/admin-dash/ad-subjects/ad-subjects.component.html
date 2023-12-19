@@ -15,7 +15,7 @@
             <div class="card-body pt-3">
     
                 <!-- title -->
-                <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف {{ currentGradeTitle }}</h1> 
+                <h1 class="font-weight-bold py-2 mb-4 title mr-2"> مواد الصف {{ currentGradeTitle }} </h1> 
 
                 <button  class="btn btn-primary btn-lg mt-3 mb-2 px-3 mx-3 smaller-font-size" data-toggle="modal" data-target="#add-subject-modal">
                     <i class="bi bi-journal-plus ml-2"> </i>
@@ -46,7 +46,7 @@
                                 </td>
 
                                 <td class="align-middle">
-                                    <input type="button" value="دروس المادة" [routerLink]="['/admin-all-topics', subject.id]" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
+                                    <input type="button" value="دروس المادة" [routerLink]="['/admin-all-topics', Passed_grade_Id, subject.id]" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
 
                             </tr>

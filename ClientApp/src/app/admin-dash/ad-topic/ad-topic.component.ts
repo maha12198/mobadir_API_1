@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import classicEditor from '@ckeditor/ckeditor5-build-classic'
@@ -8,6 +7,19 @@ import {MyUploadAdapter} from '../../models/my-upload-adapter'
 import { IArticle } from '../../models/IArticle';
 import { ApiService } from '../../services/api.service';
 
+import { StoreUserService } from 'src/app/services/store-user.service';
+
+import { ActivatedRoute } from '@angular/router';
+import { ManagementService } from 'src/app/services/management.service';
+import { IGrades } from 'src/app/models/IGrades';
+import { ISubject } from 'src/app/models/ISubject';
+
+interface ITopicDataToAdd
+{
+  gradeName?: string;
+  subjectName?: string;
+}
+
 @Component({
   selector: 'app-ad-topic',
   templateUrl: './ad-topic.component.html',
@@ -15,108 +27,153 @@ import { ApiService } from '../../services/api.service';
 })
 export class AdTopicComponent {
 
+  constructor(private fb: FormBuilder,
+              private service: ApiService,
+              private storeUserService : StoreUserService,
+              private route: ActivatedRoute,
+              private management_api_service: ManagementService)
+  {}
+
+
+  user_id: number | null | undefined;
+  passed_grade_id!:number;
+  passed_subject_id!:number;
+
+  // the main form in this page
+  editorForm!: FormGroup;
+  
+  ngOnInit()
+  {
+    
+    // Subscribe to the userId$ observable to get the user id 
+    this.storeUserService.userId$.subscribe((userId) => 
+    {
+      this.user_id = userId;
+      console.log("Passed user id = ", this.user_id);
+    });
+
+
+    // get the subjectId and gradeId from route parameters (from grade page)
+    this.route.params.subscribe((params) => 
+    {
+      this.passed_grade_id = +params['gradeId'];
+      this.passed_subject_id = +params['subjectId'];
+      
+      console.log("Passed_grade_Id = ",this.passed_grade_id); //test
+      console.log("Passed_subject_Id = ",this.passed_subject_id); //test
+    });
+
+
+    // get all grades to populate the grade dropdown
+    this.Get_All_Grades();
+
+    // get all grades to populate the subject dropdown with respect to the grade
+    this.get_subjects_of_the_grade(this.passed_grade_id);
+
+    // get the gradeName and subjectName from api by the subject id
+    //  =>  to auto select gradename and subjectname and make the dropdown of grade and subject disbled
+    this.GetDataToAddTopic(this.passed_subject_id);
+    
+
+
+    // intialize form
+    this.editorForm = this.fb.group(
+      {
+        selectedGrade: [{value: '' , disabled: false } ,[Validators.required]],
+        selectedSubject: [{value: '', disabled: false } ,[Validators.required]],
+        selectedTerm: [ 1 ,[Validators.required]],
+        body:['',[Validators.required]]
+      }
+    );
+
+    // no need
+    this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
+      console.log('Selected Term Value:', value);
+    });
+
+
+  }
+
+
+
+
   // for displaying add/edit buttons
   edit: boolean = true;
   add: boolean = false;
 
-  // -------------- variables -------------------
 
+  // -------------------------- CKeditor -----------------------
+  //some variables needed forfor CKeditor
   private _value: string = '';
-
   public Editor = classicEditor;
-
-  editorForm!: FormGroup;
-
-  public articleBody :string = '';
-
-  newArticle: IArticle | undefined;
-
-  //viewArticle: IArticle | any ={} ;
-  
-  //public viewerReadonly = true;
-
   public editorConfig = {
-    toolbar: [
+    toolbar: 
+    { 
+      items: [
+        'undo', 'redo', '|',
         'heading', '|',
-        'fontfamily', 'fontsize',
-        'alignment',
-        'fontColor', 'fontBackgroundColor', '|',
-        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+        'bold', 'italic', '|',
         'link', '|',
         'outdent', 'indent', '|',
-        'bulletedList', '-', 'numberedList', 'todoList', '|',
-        'code', 'codeBlock', '|',
+        'bulletedList', '-', 'numberedList', '|',
+         '|',
         'insertTable', '|',
-        'imageUpload', 'blockQuote', '|',
-        'todoList',
-        'undo', 'redo',
-        'MathType'
+        'imageUpload', 'blockQuote'
       ],
-    shouldNotGroupWhenFull: true,
-
+    shouldNotGroupWhenFull: true
+  },
     //new for rtl support
     language: {
       ui: 'ar',
       content: 'ar'
     }
   };
-  
-  // public viewerConfig = {
-  //   toolbar: [ ],
-  //   language: {
-  //     ui: 'ar',
-  //     content: 'ar'
-  //   }
-  // };
-
-
-
-
-  
-  // --------------- functions ----------------
-
-  get value() {
+  //some functions used for CK Editor
+  get value() 
+  {
     return this._value;
   }
-
-  set value(v: string) {
+  set value(v: string) 
+  {
     if (v !== this._value) {
       this._value = v;
       this.onChange(v);
     }
   }
-
-  constructor(private fb: FormBuilder,
-              private service: ApiService) {}
-
-
-  onChange(_) {
-  }
-
+  onChange(_) { }
   onTouch() { }
-
-  writeValue(obj: any): void {
+  writeValue(obj: any): void 
+  {
     this._value = obj;
   }
-
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: any): void 
+  {
     this.onChange = fn;
   }
-
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: any): void 
+  {
     this.onTouch = fn;
   }
-  
-  onReady(editor) {
+  onReady(editor) 
+  {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => 
     {
       return new MyUploadAdapter( loader );
     };
   }
+  // -------------------------- CKeditor -----------------------
 
+
+
+
+
+
+  // confirm(): is the submit form function (previously made for the ckeditor)
+  public articleBody :string = '';   //Try this: public articleBody  = this.editorForm?.get('body')?.value;
+  newArticle: IArticle | undefined;
   confirm()
   {
-    console.log(this.articleBody);
+    console.log(this.articleBody); //test
 
     if( this.editorForm.invalid)
     {
@@ -132,32 +189,83 @@ export class AdTopicComponent {
       next: (res)  => { console.log('article created successfully:')
                       },
       error: (err) => { console.error('Error creating article:', err)}
-    })
-  }
-
-
-  // ViewArticleById() 
-  // {
-  //   const idTest: number = 13;
-  //   this.service.GetArticleById(idTest).subscribe({
-  //     next: (res) => {  console.log('test ViewArticleById')
-  //                       console.log(res);
-  //                       this.viewArticle = res;
-  //                       console.log(this.viewArticle); 
-  //                     },
-  //     error: (err) => { console.log(err);}
-  //   });
-  // }
-
-  ngOnInit(): void {
-    // intialize form
-    this.editorForm = this.fb.group({
-      body:['',[Validators.required]]
     });
 
-    //this.ViewArticleById();
+    // Access the selected term value
+    //const selectedTermValue = this.editorForm?.get('selectedTerm')?.value;
+    // Do something with the selected term value
+    //console.log('Selected Term Value:', selectedTermValue);
   }
+
+
+  Grades_List!: IGrades[];
+  Get_All_Grades()
+  {
+    this.management_api_service.Get_all_grades().subscribe(
+      {
+        next: (res) => 
+        {
+          //console.log(res);
+          this.Grades_List = res;
+          //console.log(this.Grades_List);
+        },
+        error: (err) => 
+        {
+          console.log(err);
+        }
+      }
+    );
+  }
+
+  Subject_List!: ISubject[];
+  get_subjects_of_the_grade(grade_Id)
+  {
+    this.management_api_service.Get_subjects_by_gradeId(grade_Id).subscribe(
+      {
+        next: (res)=> {
+          //console.log(res);
+          this.Subject_List = res;
+          console.log(this.Subject_List);
+        },
+        error: (err)=> {
+          console.log(err);
+        } 
+      }
+    );
+  }
+
   
+  topicDataToAdd!: ITopicDataToAdd;
+  GetDataToAddTopic(passed_subject_id)
+  {
+    // get subject and grade name and make them selected and cannot be changed
+    this.management_api_service.GetDataToAddTopic(passed_subject_id).subscribe(
+     {
+       next: (res) => {
+          // test
+          this.topicDataToAdd = res;
+          console.log(this.topicDataToAdd.gradeName);
+          console.log(this.topicDataToAdd.subjectName);
+ 
+          //select the gradename value on the dropdownlist
+          this.editorForm?.get('selectedGrade')?.disable();
+          this.editorForm?.get('selectedGrade')?.setValue(this.topicDataToAdd.gradeName, {onlySelf: true});
+          
+          //select the subjectname value on the dropdownlist
+          this.editorForm?.get('selectedSubject')?.disable();
+          this.editorForm?.get('selectedSubject')?.setValue(this.topicDataToAdd.subjectName, {onlySelf: true});
+       },
+       error: (err) => {
+         console.error('Error getting data of Grade and Subject Names:', err);
+       }
+     }
+   );
+  }
+
+
+
+
+
 
 
 

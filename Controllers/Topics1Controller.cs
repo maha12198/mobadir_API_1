@@ -20,17 +20,9 @@ namespace mobadir_API_1.Controllers
             _context = context;
         }
 
-        // GET: api/Topics1
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
-        //{
-        //  if (_context.Topics == null)
-        //  {
-        //      return NotFound();
-        //  }
-        //    return await _context.Topics.ToListAsync();
-        //}
 
+
+        // -------------------------- Get All Topics of the selected Subject ---------------------
         // GET: api/Topics1/GetAllTopics/{subject_id}
         [HttpGet]
         [Route("GetAllTopics/{subject_id}")]
@@ -41,7 +33,7 @@ namespace mobadir_API_1.Controllers
                 return BadRequest("passed subject id is null!");
             }
 
-            var topics = await _context.Topics.Where(t => t.SubjectId == subject_id).Include(u=>u.CreatedByNavigation).ToListAsync();
+            var topics = await _context.Topics.Where(t => t.SubjectId == subject_id).Include(u=>u.CreatedByNavigation).Include(u=>u.Subject).ToListAsync();
 
             if (topics == null || !topics.Any())
             {
@@ -69,6 +61,94 @@ namespace mobadir_API_1.Controllers
 
             return Ok(topicsWithTermString);
         }
+
+
+
+        // -------------------------- change visibility of subject ---------------------
+        // PATCH: api/Topics1/{id}
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateSubjectVisibility(int id, [FromBody] TopicUpdateModel topicUpdateModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var topic = await _context.Topics.FindAsync(id);
+
+            if (topic == null)
+            {
+                return NotFound();
+            }
+
+            topic.IsVisible = topicUpdateModel.IsVisible;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TopicExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
+        }
+
+        private bool TopicExists(int id)
+        {
+            return (_context.Topics?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+
+
+        // -------------------------- Get subject name and grade name by subject id ---------------------
+        // GET: api/Topics1/GetAddTopicData/{subject_id}
+        [HttpGet]
+        [Route("GetAddTopicData/{subject_id}")]
+        public async Task<ActionResult> GetAddTopicData(int? subject_id)
+        {
+            if (subject_id == null)
+            {
+                return BadRequest("passed subject id is null!");
+            }
+
+            var infoToAddTopic = await _context.Subjects
+                                      .Where(t => t.Id == subject_id)
+                                      .Include(u => u.Grade)
+                                      .Select(subject => new
+                                      {
+                                          SubjectName = subject.Name,
+                                          GradeName = subject.Grade.Name
+                                      })
+                                      .FirstOrDefaultAsync();
+
+            if (infoToAddTopic == null)
+            {
+                NotFound("no data was found");
+            }
+
+            return Ok(infoToAddTopic);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // GET: api/Topics1/5
@@ -155,9 +235,11 @@ namespace mobadir_API_1.Controllers
             return NoContent();
         }
 
-        private bool TopicExists(int id)
-        {
-            return (_context.Topics?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+
+    }
+
+    public class TopicUpdateModel
+    {
+        public bool IsVisible { get; set; }
     }
 }

@@ -60,7 +60,7 @@ export class ManagementService {
 
   // ------------------------ All Topics Page ------------------------
 
-  //api/Topics1/GetAllTopics/1
+  // get all topics of the subject
   Get_topics_by_subject(subject_id: number)
   {
     const url = `${Constants.api_url}/Topics1/GetAllTopics/${subject_id}`;
@@ -68,5 +68,21 @@ export class ManagementService {
     return this.http.get<any>(url);
   }
 
+  
+  // update grade visibility
+  UpdateTopicVisibility(topicId: number, isVisible: boolean): Observable<any>
+  {
+    const url = `${Constants.api_url}/Topics1/${topicId}`;
+
+    return this.http.patch(url, { isVisible }); 
+  }
+
+  // get data needed to add topic from inside the all topics page ( grade and subject should be known and selected )
+  GetDataToAddTopic(subject_id: number)
+  {
+    const url = `${Constants.api_url}/Topics1/GetAddTopicData/${subject_id}`;
+
+    return this.http.get<any>(url);
+  }
   
 }

@@ -17,12 +17,12 @@
                 <!-- title -->
                 <h1 class="font-weight-bold py-2 mb-4 title mr-2"> دروس مادة الرياضيات الصف الأول</h1> 
 
-
                 <!-- buttons to add new topic and search -->
                 <div class="d-flex align-content-center justify-content-between mt-3 px-0">
                     <!-- right side -->
                     <div class="flex-grow-1 search-filter-admin-topics">
-                        <input type="button" value="&#43;  إضافة درس جديد" routerLink="/admin-topic" class="btn btn-dark btn-lg px-3 mx-3 mt-3 mb-2 smaller-font-size">
+                                            <!-- add new topic button -->
+                        <input type="button" value="&#43;  إضافة درس جديد" [routerLink]="['/admin-add-topic', passed_grade_id, passed_subject_id]" class="btn btn-dark btn-lg px-3 mx-3 mt-3 mb-2 smaller-font-size">
                     </div>
                     
                     <!-- left side -->
@@ -72,7 +72,7 @@
                                  <td class="align-middle">  {{topic.term}}</td>
                                 <td  class="align-middle d-flex justify-content-center">
                                     <div class="checkbox-wrapper-8">
-                                        <input type="checkbox" [id]="'checkbox' + topic.id" class="tgl tgl-skewed" [checked]="topic.isVisible">
+                                        <input type="checkbox" [id]="'checkbox' + topic.id" class="tgl tgl-skewed" [checked]="topic.isVisible" (change)="onCheckboxChange($event, topic.id)">
                                         <label [for]="'checkbox' + topic.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
                                 </td>

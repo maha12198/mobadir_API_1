@@ -21,29 +21,24 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3">الصف الدراسي</label>
-                                    <select class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option selected>الصف الأول</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select formControlName="selectedGrade" class="custom-select dropdown-font-size w-75 mb-2">
+                                        <option *ngFor="let grade of Grades_List"> {{grade.name}} </option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3"> المادة الدراسية</label>
-                                    <select class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option selected>الصف الأول</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select formControlName="selectedSubject"  class="custom-select dropdown-font-size w-75 mb-2">
+                                        <option *ngFor="let subject of Subject_List"> {{subject.name}} </option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3">الفصل الدراسي</label>
-                                    <select class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option selected>الفصل الدراسي الأول</option>
-                                        <option value="1">الفصل الدراسي الثاني</option>
+                                    <select formControlName="selectedTerm"  class="custom-select dropdown-font-size w-75 mb-2">
+                                      
+                                        <option value="1">الفصل الدراسي الأول</option>
+                                        <option value="2">الفصل الدراسي الثاني</option>
                                     </select>
                                 </div>
 

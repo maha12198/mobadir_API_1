@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ITopic } from 'src/app/models/ITopic';
-//import { StoreUserService } from 'src/app/services/store-user.service';
 import { ManagementService } from 'src/app/services/management.service';
 import { SearchPipe } from '../../pipes/search.pipe';
 
@@ -15,67 +14,89 @@ import { SearchPipe } from '../../pipes/search.pipe';
 export class AdAllTopicsComponent {
 
   constructor(private route: ActivatedRoute,
-              //private storeUserService : StoreUserService
               private api_service: ManagementService)
   {}
 
-  passed_subject_id!: number;  
-  //user_id: number | null | undefined;
+  passed_grade_id!: number;
+  passed_subject_id!: number;
 
   ngOnInit()
   {
-    // get the subject id from route parameters (from grade page)
+    // get the subjectId and gradeId from route parameters (from grade page)
     this.route.params.subscribe((params) => 
     {
-      this.passed_subject_id = +params['subjectId']; // Convert to number + (get the passed subject id from the route params)
+      this.passed_grade_id = +params['gradeId']; 
+      this.passed_subject_id = +params['subjectId'];
       
+      console.log("Passed_grade_Id = ",this.passed_grade_id); //test
       console.log("Passed_subject_Id = ",this.passed_subject_id); //test
     });
 
-
-    // Subscribe to the userId$ observable to get the user id 
-    // this.storeUserService.userId$.subscribe((userId) => {
-    //   this.user_id = userId;
-    //   console.log("Passed user id = ", this.user_id);
-    // });
-
+    // call function to populate the topics table
     this.GetTopicsBySubject(this.passed_subject_id);
+
   }
 
-  TopicsList1!: ITopic[];
-  termText: string = "الفصل الدراسي ";
 
-  GetTopicsBySubject(subject_id : number)
+
+
+  TopicsList1!: ITopic[];
+  // get all topics of the passed/selected subject
+  GetTopicsBySubject(subject_id)
   {
     this.api_service.Get_topics_by_subject(subject_id).subscribe(
       {
         next: (res)=> {
           //console.log(res);
           this.TopicsList1 = res;
-          //console.log(this.TopicsList1);
-          // new to update the term text in the table as one text to enable it to be found ny search filter pipe in the table
+          console.log(this.TopicsList1);
+
+          // new : to update the term text in the table as one text to enable it to be found ny search filter pipe in the table
           if (this.TopicsList1.length > 0) 
           {
             // Update the isVisible property for all objects in TopicsList1
             this.TopicsList1.forEach(topic => {
-              topic.term = this.termText + topic.term;
+              const termText = "الفصل الدراسي ";
+              topic.term = termText + topic.term;
             });
-            // Print the updated array
-            //console.log(this.TopicsList1); //done
           }
+        
         },
         error: (err)=> {
-          console.log(err);
+          console.log("Error in Fetching Topics: ",err);
         }
       }
     );
   }
 
+  
+  // change Visibility of the topic
+  onCheckboxChange(event: any, topicId: number): void 
+  {
+    const isVisible = event.target.checked;
+    console.log(isVisible); //test // if true or false
+
+    // Call the service method to update the isVisible value
+    this.api_service.UpdateTopicVisibility(topicId, isVisible).subscribe(
+      {
+        next: () => {
+          console.log('Visibility updated successfully.');
+        },
+        error: (err) => {
+          console.error('Error updating visibility:', err);
+        }
+      }
+    );
+  }
+
+
+  // Search Functionality
   searchText!: string;
 
   clearSearch() 
   {
     this.searchText = '';
   }
+
 
 }

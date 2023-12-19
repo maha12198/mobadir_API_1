@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { ManagementService } from 'src/app/services/management.service';
-
-// Define an interface to represent the data structure
-interface IGrades {
-  id: number;
-  isVisible?: boolean;
-  name?: string;
-}
+import { IGrades } from 'src/app/models/IGrades';
 
 
 @Component({
