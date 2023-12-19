@@ -9,10 +9,6 @@ namespace mobadir_API_1.Models
     [Table("topic_content")]
     public partial class TopicContent
     {
-        public TopicContent()
-        {
-            Topics = new HashSet<Topic>();
-        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,7 +17,14 @@ namespace mobadir_API_1.Models
         [Column("content", TypeName = "text")]
         public string? Content { get; set; }
 
-        [InverseProperty("Content")]
-        public virtual ICollection<Topic> Topics { get; set; }
+        // changed
+        [Column("topic_id")]
+        public int? TopicId { get; set; }
+
+        // changed
+        [ForeignKey("TopicId")]
+        //[InverseProperty("Content")]
+        public virtual Topic? Topic { get; set; }
+
     }
 }

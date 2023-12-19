@@ -75,10 +75,10 @@ namespace mobadir_API_1.Models
 
             modelBuilder.Entity<Topic>(entity =>
             {
-                entity.HasOne(d => d.Content)
-                    .WithMany(p => p.Topics)
-                    .HasForeignKey(d => d.ContentId)
-                    .HasConstraintName("FK__Topics__content___4D94879B");
+                //entity.HasOne(d => d.Content)
+                //    .WithMany(p => p.Topics)
+                //    .HasForeignKey(d => d.ContentId)
+                //    .HasConstraintName("FK__Topics__content___4D94879B");
 
                 entity.HasOne(d => d.CreatedByNavigation)
                     .WithMany(p => p.Topics)

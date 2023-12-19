@@ -14,6 +14,7 @@ export class StoreUserService {
     // handling user interactions, and managing application state. Angular's HttpClient returns Observables for HTTP requests,
     // and Angular's forms module leverages Observables for handling form changes.
 
+  
 
   private name$ = new BehaviorSubject<string>("");
   private role$ = new BehaviorSubject<string>("");
@@ -23,7 +24,13 @@ export class StoreUserService {
   userId$ = this.userIdSource.asObservable(); // the getter for the user id
 
 
-  //constructor() { }
+  constructor() {
+    // Retrieve user ID from localStorage on service initialization ( to avoid getting it as NULL when the page refrshes)
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      this.userIdSource.next(+storedUserId);
+    }
+  }
 
 
   // -------- user Role -----------
@@ -59,7 +66,10 @@ export class StoreUserService {
     if (userId !== null) 
     {
       console.log("userId in setUserId() = ", userId); // test
+      
+      // Update BehaviorSubject and store in localStorage
       this.userIdSource.next(userId);
+      localStorage.setItem('userId', userId.toString()); // this will help in avoiding the userId change to null when refreshing the page
     }
   }
   // the getter is a variable already declared above 

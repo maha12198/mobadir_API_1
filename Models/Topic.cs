@@ -22,7 +22,7 @@ namespace mobadir_API_1.Models
             Questions = new HashSet<Question>();
 
             // new
-            CreatedAt = DateTime.UtcNow.AddHours(4);
+            //CreatedAt = DateTime.UtcNow.AddHours(4);
         }
 
 
@@ -61,16 +61,16 @@ namespace mobadir_API_1.Models
         [Column("created_by")]
         public int? CreatedBy { get; set; }
         
-        [Column("content_id")]
-        public int? ContentId { get; set; }
-
-
-
-
-        [ForeignKey("ContentId")]
-        [InverseProperty("Topics")]
-        public virtual TopicContent? Content { get; set; }
+        //[Column("content_id")]
+        //public int? ContentId { get; set; }
+        //[ForeignKey("ContentId")]
+        //[InverseProperty("Topics")]
+        //public virtual TopicContent? Content { get; set; }
         
+
+
+
+
         [ForeignKey("CreatedBy")]
         [InverseProperty("Topics")]
         public virtual User? CreatedByNavigation { get; set; }

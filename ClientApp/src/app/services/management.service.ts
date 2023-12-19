@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { Observable } from 'rxjs';
 import { ISubject } from '../models/ISubject';
+import { INewTopic } from '../models/INewTopic';
+
 
 @Injectable({
   providedIn: 'root'
@@ -77,6 +79,9 @@ export class ManagementService {
     return this.http.patch(url, { isVisible }); 
   }
 
+  
+  
+  // ------------------------ All Topics Page ------------------------
   // get data needed to add topic from inside the all topics page ( grade and subject should be known and selected )
   GetDataToAddTopic(subject_id: number)
   {
@@ -85,4 +90,13 @@ export class ManagementService {
     return this.http.get<any>(url);
   }
   
+
+  AddMainDataForTopic(newTopic: INewTopic)
+  {
+          // POST: api/Topics1
+    const url = `${Constants.api_url}/Topics1`;
+
+    return this.http.post<any>(url, newTopic);
+  }
+    
 }

@@ -54,7 +54,7 @@ namespace mobadir_API_1.Controllers
                     Term = topic.TopicTerm.ToString(), // Get the string representation of Term
                     topic.SubjectId,
                     Username = topic.CreatedByNavigation?.Username,
-                    topic.ContentId
+                    //topic.ContentId
                 };
                 return topicDto;
             });
@@ -138,6 +138,25 @@ namespace mobadir_API_1.Controllers
             return Ok(infoToAddTopic);
         }
 
+        // POST: api/Topics1
+        [HttpPost]
+        public async Task<ActionResult<Topic>> PostTopic([FromBody] Topic topic)
+        {
+            // Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
+
+            topic.IsVisible = true;
+            topic.CreatedAt = DateTime.UtcNow.AddHours(4);
+
+            //Console.WriteLine("test new topic here: ", topic);
+
+            _context.Topics.Add(topic);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Topic Added Sucessfully" });
+            
+        }
+
+
 
 
 
@@ -152,90 +171,52 @@ namespace mobadir_API_1.Controllers
 
 
         // GET: api/Topics1/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Topic>> GetTopic(int id)
-        {
-          if (_context.Topics == null)
-          {
-              return NotFound();
-          }
-            var topic = await _context.Topics.FindAsync(id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Topic>> GetTopic(int id)
+        //{
+        //  if (_context.Topics == null)
+        //  {
+        //      return NotFound();
+        //  }
+        //    var topic = await _context.Topics.FindAsync(id);
 
-            if (topic == null)
-            {
-                return NotFound();
-            }
+        //    if (topic == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return topic;
-        }
+        //    return topic;
+        //}
 
         // PUT: api/Topics1/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTopic(int id, Topic topic)
-        {
-            if (id != topic.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutTopic(int id, Topic topic)
+        //{
+        //    if (id != topic.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(topic).State = EntityState.Modified;
+        //    _context.Entry(topic).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TopicExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!TopicExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
-
-        // POST: api/Topics1
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Topic>> PostTopic(Topic topic)
-        {
-          if (_context.Topics == null)
-          {
-              return Problem("Entity set 'Mobadr_DbContext.Topics'  is null.");
-          }
-            _context.Topics.Add(topic);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTopic", new { id = topic.Id }, topic);
-        }
-
-        // DELETE: api/Topics1/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTopic(int id)
-        {
-            if (_context.Topics == null)
-            {
-                return NotFound();
-            }
-            var topic = await _context.Topics.FindAsync(id);
-            if (topic == null)
-            {
-                return NotFound();
-            }
-
-            _context.Topics.Remove(topic);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-
+        //    return NoContent();
+        //}
     }
 
     public class TopicUpdateModel

@@ -13,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ManagementService } from 'src/app/services/management.service';
 import { IGrades } from 'src/app/models/IGrades';
 import { ISubject } from 'src/app/models/ISubject';
+import { INewTopic } from 'src/app/models/INewTopic';
+
 
 interface ITopicDataToAdd
 {
@@ -35,7 +37,7 @@ export class AdTopicComponent {
   {}
 
 
-  user_id: number | null | undefined;
+  user_id: number | undefined;
   passed_grade_id!:number;
   passed_subject_id!:number;
 
@@ -48,8 +50,10 @@ export class AdTopicComponent {
     // Subscribe to the userId$ observable to get the user id 
     this.storeUserService.userId$.subscribe((userId) => 
     {
-      this.user_id = userId;
-      console.log("Passed user id = ", this.user_id);
+      if (userId !== null) {
+        this.user_id = userId;
+        console.log("Passed user id = ", this.user_id);
+      }
     });
 
 
@@ -82,11 +86,15 @@ export class AdTopicComponent {
         selectedGrade: [{value: '' , disabled: false } ,[Validators.required]],
         selectedSubject: [{value: '', disabled: false } ,[Validators.required]],
         selectedTerm: [ 1 ,[Validators.required]],
-        body:['',[Validators.required]]
+        title: ['',[Validators.required] ],
+        videoUrl: ['',[Validators.required] ],
+       
+        body:[''],
+
       }
     );
 
-    // no need
+    // test data value selected in term dropdownlist
     this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
       console.log('Selected Term Value:', value);
     });
@@ -98,8 +106,8 @@ export class AdTopicComponent {
 
 
   // for displaying add/edit buttons
-  edit: boolean = true;
-  add: boolean = false;
+  edit: boolean = false;
+  add: boolean = true;
 
 
   // -------------------------- CKeditor -----------------------
@@ -115,8 +123,7 @@ export class AdTopicComponent {
         'bold', 'italic', '|',
         'link', '|',
         'outdent', 'indent', '|',
-        'bulletedList', '-', 'numberedList', '|',
-         '|',
+        'bulletedList', 'numberedList', '|',
         'insertTable', '|',
         'imageUpload', 'blockQuote'
       ],
@@ -168,36 +175,7 @@ export class AdTopicComponent {
 
 
 
-  // confirm(): is the submit form function (previously made for the ckeditor)
-  public articleBody :string = '';   //Try this: public articleBody  = this.editorForm?.get('body')?.value;
-  newArticle: IArticle | undefined;
-  confirm()
-  {
-    console.log(this.articleBody); //test
-
-    if( this.editorForm.invalid)
-    {
-      return;
-    }
-    
-    this.newArticle = {
-      Body : this.editorForm?.get('body')?.value
-    };
-    
-    // adding article to the DB
-    this.service.AddArticle(this.newArticle).subscribe({
-      next: (res)  => { console.log('article created successfully:')
-                      },
-      error: (err) => { console.error('Error creating article:', err)}
-    });
-
-    // Access the selected term value
-    //const selectedTermValue = this.editorForm?.get('selectedTerm')?.value;
-    // Do something with the selected term value
-    //console.log('Selected Term Value:', selectedTermValue);
-  }
-
-
+  // -------------------------------- FUNCTIONS --------------------------------
   Grades_List!: IGrades[];
   Get_All_Grades()
   {
@@ -233,7 +211,6 @@ export class AdTopicComponent {
       }
     );
   }
-
   
   topicDataToAdd!: ITopicDataToAdd;
   GetDataToAddTopic(passed_subject_id)
@@ -262,11 +239,81 @@ export class AdTopicComponent {
    );
   }
 
+  newTopic!: INewTopic;
+  AddTopicMainData()
+  {
+    this.newTopic = 
+    {
+      title: this.editorForm?.get('title')?.value,
+      videoUrl: this.editorForm?.get('videoUrl')?.value,
+      term: this.editorForm?.get('selectedTerm')?.value,
+      subjectId: this.passed_subject_id ,
+      createdBy: this.user_id
+    };
+    console.log("newTopic = ", this.newTopic);
+    
+
+    this.management_api_service.AddMainDataForTopic(this.newTopic).subscribe(
+     {
+       next: (res) => {
+          console.log(res.message);
+       },
+       error: (err) => {
+         console.error('Error in adding Topic Main Data:', err);
+       }
+     }
+   );
+  }
 
 
 
 
 
+  
+
+  // confirm(): is the submit form function (previously made for the ckeditor)
+  public articleBody :string = '';   //Try this: public articleBody  = this.editorForm?.get('body')?.value;
+  newArticle: IArticle | undefined;
+  confirm()
+  {
+    if( this.editorForm.invalid)
+    {
+      console.log("invalid FORM DATA");
+      return;
+    }
 
 
+    //                        call adding functions one by one
+    // 1- add topic (Basic Main Data) => Term - title - VideoUrl - SubjectId - CreatedBy - isVisible - CreatedAt 
+    this.AddTopicMainData();
+    
+    // 2- add content (Body- CKEditor) => another table (topicContent)
+
+    // 3- add Files (Many) => another table (File)
+
+    // 1- add Questions (Many) => another table (Question)
+
+
+
+    // Access the selected term value
+    //const selectedTermValue = this.editorForm?.get('selectedTerm')?.value;
+    // Do something with the selected term value
+    //console.log('Selected Term Value:', selectedTermValue);
+    
+    
+    //////////////////// add body/content //////////////////
+    //console.log(this.articleBody); //test
+    
+    // this.newArticle = {
+    //   Body : this.editorForm?.get('body')?.value
+    // };
+    
+    // adding article to the DB
+    // this.service.AddArticle(this.newArticle).subscribe({
+    //   next: (res)  => { console.log('article created successfully:')
+    //                   },
+    //   error: (err) => { console.error('Error creating article:', err)}
+    // });
+
+  }
 }

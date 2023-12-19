@@ -50,19 +50,19 @@ namespace mobadir_API_1.Models
 
             // seeding data to topic table
             modelBuilder.Entity<Topic>().HasData(
-                new Topic { Id = 1, Title = "درس1", IsVisible = true, Term = 1,SubjectId = 1, ContentId = 1 , CreatedBy = 4  },
-                new Topic { Id = 2, Title = "دررس", IsVisible = true, Term = 2,SubjectId = 1, ContentId = 2 , CreatedBy = 4  },
+                new Topic { Id = 1, Title = "درس1", IsVisible = true, Term = 1,SubjectId = 1 , CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) },
+                new Topic { Id = 2, Title = "دررس", IsVisible = true, Term = 2,SubjectId = 1, CreatedBy = 4 , CreatedAt = DateTime.UtcNow.AddHours(4) },
 
-                new Topic { Id = 3, Title = "درس2", IsVisible = true, Term = 1, SubjectId = 6, ContentId = 3, CreatedBy = 4 },
-                new Topic { Id = 4, Title = "درس3", IsVisible = true, Term = 2, SubjectId = 6, ContentId = 4, CreatedBy = 4 }
+                new Topic { Id = 3, Title = "درس2", IsVisible = true, Term = 1, SubjectId = 6, CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) },
+                new Topic { Id = 4, Title = "درس3", IsVisible = true, Term = 2, SubjectId = 6, CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) }
             );
 
             // seeding data to content table
             modelBuilder.Entity<TopicContent>().HasData(
-                new TopicContent { Id = 1, Content = "kjknjknjknjnjnk" },
-                new TopicContent { Id = 2, Content = "nkjnkoiuutdrf" },
-                new TopicContent { Id = 3, Content = "sdaer4er" },
-                new TopicContent { Id = 4, Content = "dser4xs" }
+                new TopicContent { Id = 1, Content = "kjknjknjknjnjnk", TopicId = 1},
+                new TopicContent { Id = 2, Content = "nkjnkoiuutdrf", TopicId = 2 },
+                new TopicContent { Id = 3, Content = "sdaer4er", TopicId = 3 },
+                new TopicContent { Id = 4, Content = "dser4xs", TopicId = 4 }
             );
         }
     }

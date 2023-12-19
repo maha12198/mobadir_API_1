@@ -11,5 +11,5 @@ export interface ITopic {
 
     subjectId?: number;
     username?: string;
-    contentId?: number;
+    //contentId?: number;
 }
