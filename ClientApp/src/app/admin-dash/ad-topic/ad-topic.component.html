@@ -246,12 +246,34 @@
                             <label class=" col-form-label">إرفــــــاق الــملف</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="file" formControlName="AttachFile" class="form-control-file" id="exampleFormControlFile1">
+                            <input type="file" formControlName="AttachFile" class="form-control-file" id="customFile" (change)="handleFileInput($any($event.target).files)" >
                             
+                            <!-- <label class="" for="customFile">{{ uploadFileLabel }}</label> -->
+                            <button type="button" class="btn btn-outline-primary" ngbTooltip="Upload" (click)="upload()">
+                                Upload
+                            </button>
+                            <br>
+                            <button
+                                class="btn btn-primary"
+                            
+                                (click)="download()">download</button>
                             <!-- <label for="exampleFormControlFile1" class = "btn btn-outline-dark btn-lg smaller-font-size">إختيـــار الملـف</label> -->
                             <!-- <input type="file" style = "visibility: hidden;" class="form-control-file" id="exampleFormControlFile1"> -->
                         </div>
                     </div>
+                    
+                    <!-- <div class="row mt-3">
+                        <div class="col">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploadProgress + '%' }" [attr.aria-valuenow]="uploadProgress" aria-valuemin="0" aria-valuemax="100">{{ uploadProgress }}%</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-3" *ngIf="uploadUrl?.length">
+                        <div class="col">
+                          <img [src]="uploadUrl" alt="preview" class="rounded shadow w-100">
+                        </div>
+                      </div> -->
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer d-flex justify-content-between">

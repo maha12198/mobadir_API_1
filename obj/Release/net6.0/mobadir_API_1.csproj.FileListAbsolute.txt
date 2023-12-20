@@ -261,3 +261,4 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\ClientApp\dist\mobadir-elearning-angular\assets\admin\vendor\bootstrap-icons\bootstrap-icons.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\ClientApp\src\assets\admin\vendor\bootstrap-icons\bootstrap-icons.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\MimeTypesMap.dll

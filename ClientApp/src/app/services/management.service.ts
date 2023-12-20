@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ISubject } from '../models/ISubject';
@@ -110,21 +110,32 @@ export class ManagementService {
   }
 
 
-  // AddContentForTopic(topic_id: number, new_content: string)
-  // {
-  //   const url = `${Constants.api_url}/Topics1/AddContent/${topic_id}`;
+  UploadFile(formData)
+  {
+    const url = `${Constants.api_url}/Upload`;
 
-  //   // note: the {} is important!!
-  //   return this.http.post<any>(url, {new_content});
-  // }
-  
-  
-  // // Add multiple files
-  // AddFiles(topic_id: number, files: IFile[]) 
-  // {
-  //   const url = `${Constants.api_url}/Topics1/AddFiles/${topic_id}`;
+    return this.http.post<any>(url, formData,  { reportProgress: true,});
+  }
 
-  //   return this.http.post<any>(url, {files});
-  // }
+  downloadFile(file: string|undefined): Observable<HttpEvent<Blob>> 
+  {
+    //const url = `${Constants.api_url}/download?file=${file}`;
+
+    // return this.http.get<any>(url, {
+    //   reportProgress: true,
+    //   responseType: 'blob'
+    // });
+
+    return this.http.request(new HttpRequest(
+      'GET',
+      `${Constants.api_url}/Upload/download?file=${file}`,
+      null,
+      {
+        reportProgress: true,
+        responseType: 'blob'
+      }));
+  }
+
+
 
 }
