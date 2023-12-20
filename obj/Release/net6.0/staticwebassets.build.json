@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sJcfDZuBMM37cFhpPXEJ0lRE22jiATF34WSZP8KlgZQ=",
+  "Hash": "vYeD90ea0RKtN4Wphii+G/aYcCglCQ4vZrYroatrLGo=",
   "Source": "mobadir_API_1",
   "BasePath": "_content/mobadir_API_1",
   "Mode": "Default",
@@ -986,6 +986,23 @@
       "OriginalItemSpec": "wwwroot\\styles.ef46db3751d8e999.css"
     },
     {
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\MHH124715_MODULE_HAND_BOOK_2018_19_SemB.pdf",
+      "SourceId": "mobadir_API_1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "RelativePath": "uploads/MHH124715_MODULE_HAND_BOOK_2018_19_SemB.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\MHH124715_MODULE_HAND_BOOK_2018_19_SemB.pdf"
+    },
+    {
       "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\RM Proposal.pdf",
       "SourceId": "mobadir_API_1",
       "SourceType": "Discovered",
@@ -1001,6 +1018,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\RM Proposal.pdf"
+    },
+    {
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Scan May 22, 2019.doc",
+      "SourceId": "mobadir_API_1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "RelativePath": "uploads/Scan May 22, 2019.doc",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Scan May 22, 2019.doc"
     },
     {
       "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Screenshot 2023-03-10 031841.png",
@@ -1071,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Screenshot 2023-03-23 130745.png"
     },
     {
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Screenshot 2023-11-30 214430.png",
+      "SourceId": "mobadir_API_1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "RelativePath": "uploads/Screenshot 2023-11-30 214430.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Screenshot 2023-11-30 214430.png"
+    },
+    {
       "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\test.png",
       "SourceId": "mobadir_API_1",
       "SourceType": "Discovered",
@@ -1086,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\test.png"
+    },
+    {
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Turnitin-Mahmoud_150792_RMCW2.pdf",
+      "SourceId": "mobadir_API_1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
+      "BasePath": "_content/mobadir_API_1",
+      "RelativePath": "uploads/Turnitin-Mahmoud_150792_RMCW2.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Turnitin-Mahmoud_150792_RMCW2.pdf"
     }
   ]
 }

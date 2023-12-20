@@ -26,7 +26,9 @@ namespace mobadir_API_1.Controllers
             {
                 IFormFile file = HttpContext.Request.Form.Files[0];
                 string folderPath = "wwwroot/ArticleImages/";
+
                 var baseUrl = Path.Combine(_webHostEnvironment.ContentRootPath,  folderPath);
+                
                 int total;
                 try
                 {
@@ -73,12 +75,17 @@ namespace mobadir_API_1.Controllers
             try
             {
                 IFormFile file = HttpContext.Request.Form.Files[0];
+
                 string newFileName = Guid.NewGuid().ToString() + file.FileName;
+
                 string ftpUrl = "ftp://win5143.site4now.net/mobader/wwwroot/uploads/" + newFileName;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+
                 request.Credentials = new NetworkCredential("ahamdycs2012-001", "Ahmed123#");
+
                 request.Method = WebRequestMethods.Ftp.UploadFile;
+                
                 request.UsePassive = true;
 
                 using (Stream ftpStream = request.GetRequestStream())
@@ -86,14 +93,20 @@ namespace mobadir_API_1.Controllers
                     await file.CopyToAsync(ftpStream);
                     ftpStream.Close();
                 }
+
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                
                 string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
+                
+
+
                 return await Task.FromResult(new { url = imageUrl });
                 
             }
             catch (WebException ex)
             {
                 String status = ((FtpWebResponse)ex.Response).StatusDescription;
+                
                 // Log the exception or handle it in an appropriate way
                 return BadRequest(new { Message = "Image upload failed", Error = ex.Message });
             }

@@ -91,15 +91,15 @@ internal class Program
                     //   ),
                     //    RequestPath = "/StaticFiles"
                     //});
-        string uploadsDir = Path.Combine(builder.Environment.ContentRootPath, "uploads");
-        if (!Directory.Exists(uploadsDir))
-            Directory.CreateDirectory(uploadsDir);
+        //string uploadsDir = Path.Combine(builder.Environment.ContentRootPath, "uploads");
+        //if (!Directory.Exists(uploadsDir))
+        //    Directory.CreateDirectory(uploadsDir);
 
-        app.UseStaticFiles(new StaticFileOptions()
-        {
-            RequestPath = "/images",
-            FileProvider = new PhysicalFileProvider(uploadsDir)
-        });
+        //app.UseStaticFiles(new StaticFileOptions()
+        //{
+        //    RequestPath = "/images",
+        //    FileProvider = new PhysicalFileProvider(uploadsDir)
+        //});
 
 
         //new -- moved down

@@ -53,12 +53,12 @@ export class AdTopicComponent {
 
   // the main form in this page
   editorForm!: FormGroup;
-  
+
   ngOnInit()
   {
-    
-    // Subscribe to the userId$ observable to get the user id 
-    this.storeUserService.userId$.subscribe((userId) => 
+
+    // Subscribe to the userId$ observable to get the user id
+    this.storeUserService.userId$.subscribe((userId) =>
     {
       if (userId !== null) {
         this.user_id = userId;
@@ -68,11 +68,11 @@ export class AdTopicComponent {
 
 
     // get the subjectId and gradeId from route parameters (from grade page)
-    this.route.params.subscribe((params) => 
+    this.route.params.subscribe((params) =>
     {
       this.passed_grade_id = +params['gradeId'];
       this.passed_subject_id = +params['subjectId'];
-      
+
       console.log("Passed_grade_Id = ",this.passed_grade_id); //test
       console.log("Passed_subject_Id = ",this.passed_subject_id); //test
     });
@@ -87,7 +87,7 @@ export class AdTopicComponent {
     // get the gradeName and subjectName from api by the subject id
     //  =>  to auto select gradename and subjectname and make the dropdown of grade and subject disbled
     this.GetDataToAddTopic(this.passed_subject_id);
-    
+
 
 
     // intialize form
@@ -98,7 +98,7 @@ export class AdTopicComponent {
         selectedTerm: [ 1 ,[Validators.required]],
         title: ['',[Validators.required] ],
         videoUrl: ['',[Validators.required] ],
-       
+
         body:['',[Validators.required]],
 
       }
@@ -134,8 +134,8 @@ export class AdTopicComponent {
   private _value: string = '';
   public Editor = classicEditor;
   public editorConfig = {
-    toolbar: 
-    { 
+    toolbar:
+    {
       items: [
         'undo', 'redo', '|',
         'heading', '|',
@@ -155,11 +155,11 @@ export class AdTopicComponent {
     }
   };
   //some functions used for CK Editor
-  get value() 
+  get value()
   {
     return this._value;
   }
-  set value(v: string) 
+  set value(v: string)
   {
     if (v !== this._value) {
       this._value = v;
@@ -168,21 +168,21 @@ export class AdTopicComponent {
   }
   onChange(_) { }
   onTouch() { }
-  writeValue(obj: any): void 
+  writeValue(obj: any): void
   {
     this._value = obj;
   }
-  registerOnChange(fn: any): void 
+  registerOnChange(fn: any): void
   {
     this.onChange = fn;
   }
-  registerOnTouched(fn: any): void 
+  registerOnTouched(fn: any): void
   {
     this.onTouch = fn;
   }
-  onReady(editor) 
+  onReady(editor)
   {
-    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => 
+    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) =>
     {
       return new MyUploadAdapter( loader );
     };
@@ -200,13 +200,13 @@ export class AdTopicComponent {
   {
     this.management_api_service.Get_all_grades().subscribe(
       {
-        next: (res) => 
+        next: (res) =>
         {
           //console.log(res);
           this.Grades_List = res;
           //console.log(this.Grades_List);
         },
-        error: (err) => 
+        error: (err) =>
         {
           console.log(err);
         }
@@ -226,11 +226,11 @@ export class AdTopicComponent {
         },
         error: (err)=> {
           console.log(err);
-        } 
+        }
       }
     );
   }
-  
+
   topicDataToAdd!: ITopicDataToAdd;
   GetDataToAddTopic(passed_subject_id)
   {
@@ -242,11 +242,11 @@ export class AdTopicComponent {
           this.topicDataToAdd = res;
           console.log(this.topicDataToAdd.gradeName);
           console.log(this.topicDataToAdd.subjectName);
- 
+
           //select the gradename value on the dropdownlist
           this.editorForm?.get('selectedGrade')?.disable();
           this.editorForm?.get('selectedGrade')?.setValue(this.topicDataToAdd.gradeName, {onlySelf: true});
-          
+
           //select the subjectname value on the dropdownlist
           this.editorForm?.get('selectedSubject')?.disable();
           this.editorForm?.get('selectedSubject')?.setValue(this.topicDataToAdd.subjectName, {onlySelf: true});
@@ -261,10 +261,10 @@ export class AdTopicComponent {
   // ---------------- Add new Topic (Submit button) ------------------
   newTopic!: INewTopic;
   topic_id!:number;
-  new_content!: string; 
+  new_content!: string;
   AddTopicMainData()
   {
-    this.newTopic = 
+    this.newTopic =
     {
       title: this.editorForm?.get('title')?.value,
       videoUrl: this.editorForm?.get('videoUrl')?.value,
@@ -273,7 +273,7 @@ export class AdTopicComponent {
       createdBy: this.user_id,
     };
     console.log("newTopic = ", this.newTopic);
-    
+
     this.new_content = this.editorForm?.get('body')?.value
     console.log("newContent = ", this.new_content);
 
@@ -282,7 +282,7 @@ export class AdTopicComponent {
     this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files).subscribe(
      {
        next: (res) => {
-        
+
           console.log("Topic Added!");
        },
        error: (err) => {
@@ -292,7 +292,7 @@ export class AdTopicComponent {
    );
 
 
-   
+
   }
 
 
@@ -304,7 +304,7 @@ export class AdTopicComponent {
   addFileInMemory()
   {
     //console.log("test id: ",this.topic_id);
-    const newFile: IFile = 
+    const newFile: IFile =
     {
       name: this.FilesForm?.get('FileName')?.value,
       fileUrl: this.FilesForm?.get('AttachFile')?.value ,
@@ -331,7 +331,7 @@ export class AdTopicComponent {
 
     const index = this.Files.findIndex((f) => f === this.Pass_Selected_file);
 
-    if (index !== -1) 
+    if (index !== -1)
     {
       this.Files.splice(index, 1);
 
@@ -351,20 +351,20 @@ export class AdTopicComponent {
   //uploadUrl!: string;
   uploadFile!: File | null;
 
-  handleFileInput(files: FileList) 
+  handleFileInput(files: FileList)
   {
-    if (files.length > 0) 
+    if (files.length > 0)
     {
-      this.uploadFile = files.item(0); 
+      this.uploadFile = files.item(0);
       //this.uploadFileLabel = this.uploadFile?.name;
     }
   }
 
-  upload() 
+  upload()
   {
     console.log('entered upload function');
 
-    if (!this.uploadFile) 
+    if (!this.uploadFile)
     {
       alert('Choose a file to upload first');
       return;
@@ -379,12 +379,12 @@ export class AdTopicComponent {
 
     this.management_api_service.UploadFile(formData).subscribe(
       { next: (event) => {
-          // if (event.type === HttpEventType.UploadProgress) 
+          // if (event.type === HttpEventType.UploadProgress)
           // {
           //   this.uploadProgress = Math.round((100 * event.loaded) / event.total);
           //   console.log(this.uploadProgress);
           // }
-          // else if (event.type === HttpEventType.Response) 
+          // else if (event.type === HttpEventType.Response)
           // {
           //   this.uploadUrl = event.body.url;
           //   console.log(this.uploadUrl);
@@ -398,11 +398,11 @@ export class AdTopicComponent {
         }
       });
   }
-  
+
   fileName!: string | undefined;
   public download() {
     //this.downloadStatus.emit( {status: ProgressStatusEnum.START});
-    
+
     //this.fileName = this.FilesForm?.get('AttachFile')?.value; // wrong
     //console.log(this.fileName); //wrong
 
@@ -417,12 +417,12 @@ export class AdTopicComponent {
             break;
           case HttpEventType.Response:
             console.log('Response');
-            if ((data.body !== null) && (data.type !== null)) 
+            if ((data.body !== null) && (data.type !== null))
             {
               //const contentType = data.headers.get('content-type');
               const downloadedFile = new Blob([data.body], { type: data.body.type  });
-              
-             
+
+
               console.log(downloadedFile);
 
               saveAs(data, this.fileName);
@@ -435,8 +435,8 @@ export class AdTopicComponent {
               // document.body.appendChild(a);
               // a.click();
               // document.body.removeChild(a);
-            } 
-            else 
+            }
+            else
             {
               console.error('Error: Response body is null.');
               // Handle the error appropriately
@@ -468,8 +468,67 @@ export class AdTopicComponent {
 
 
 
+  File_Url;
+  new_upload()
+  {
+    console.log('entered upload function');
 
-  
+    if (!this.uploadFile)
+    {
+      alert('Choose a file to upload first');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append(this.uploadFile.name, this.uploadFile);
+
+    console.log("form data: ", this.uploadFile.name, this.uploadFile); //test
+
+
+    this.management_api_service.upload_new_file(formData).subscribe(
+      { next: (res) => {
+          console.log('File uploaded successfully:', res.url);
+          this.File_Url = res.url;
+        },
+        error: (err) => {
+          console.error('File upload failed:',err);
+        }
+      });
+  }
+
+
+  new_download()
+  {
+    console.log('entered download function');
+
+    console.log('test printing the fileURL: ', this.File_Url);
+
+    this.management_api_service.download_new_File(this.File_Url).subscribe({
+      next: (data) => {
+        const blob = new Blob([data], { type: 'application/octet-stream' });
+
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        //link.download = 'filename.extension'; // Set a default filename or extract it from the response headers
+        if ( this.uploadFile != null)
+        {
+          link.download = this.uploadFile.name;
+        }
+        else
+        {
+          console.log('Upload file is null');
+        }
+        link.click();
+      },
+      error: (error) => {
+        console.error('File download failed:', error);
+      }
+  });
+  }
+
+
+
+
 
   // confirm(): is the MAIN submit form function in this page
   confirm ()

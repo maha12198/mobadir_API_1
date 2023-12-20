@@ -110,22 +110,19 @@ export class ManagementService {
   }
 
 
+
+
+
   UploadFile(formData)
   {
     const url = `${Constants.api_url}/Upload`;
 
-    return this.http.post<any>(url, formData,  { reportProgress: true,});
+    return this.http.post<any>(url, formData,  { reportProgress: true});
   }
+
 
   downloadFile(file: string|undefined): Observable<HttpEvent<Blob>> 
   {
-    //const url = `${Constants.api_url}/download?file=${file}`;
-
-    // return this.http.get<any>(url, {
-    //   reportProgress: true,
-    //   responseType: 'blob'
-    // });
-
     return this.http.request(new HttpRequest(
       'GET',
       `${Constants.api_url}/Upload/download?file=${file}`,
@@ -137,5 +134,20 @@ export class ManagementService {
   }
 
 
+
+
+  upload_new_file(formData)
+  { 
+    const url = `${Constants.api_url}/RichEditor/ImageUpload_1`;
+
+    return this.http.post<any>(url, formData);
+
+  }
+
+    
+  download_new_File(fileUrl: string): Observable<Blob> 
+  {
+    return this.http.get(fileUrl, { responseType: 'blob' });
+  }
 
 }

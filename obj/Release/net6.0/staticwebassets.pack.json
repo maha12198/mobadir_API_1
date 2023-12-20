@@ -229,8 +229,16 @@
       "PackagePath": "staticwebassets\\styles.ef46db3751d8e999.css"
     },
     {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\MHH124715_MODULE_HAND_BOOK_2018_19_SemB.pdf",
+      "PackagePath": "staticwebassets\\uploads\\MHH124715_MODULE_HAND_BOOK_2018_19_SemB.pdf"
+    },
+    {
       "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\RM Proposal.pdf",
       "PackagePath": "staticwebassets\\uploads\\RM Proposal.pdf"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Scan May 22, 2019.doc",
+      "PackagePath": "staticwebassets\\uploads\\Scan May 22, 2019.doc"
     },
     {
       "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Screenshot 2023-03-10 031841.png",
@@ -247,6 +255,14 @@
     {
       "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Screenshot 2023-03-23 130745.png",
       "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-03-23 130745.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Screenshot 2023-11-30 214430.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-11-30 214430.png"
+    },
+    {
+      "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\Turnitin-Mahmoud_150792_RMCW2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\Turnitin-Mahmoud_150792_RMCW2.pdf"
     },
     {
       "Id": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\test.png",
