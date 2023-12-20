@@ -140,87 +140,51 @@ namespace mobadir_API_1.Controllers
 
 
 
-        // POST: api/Topics1
+        // POST: api/Topics1/AddTopic
         [HttpPost]
-        public async Task<ActionResult<Topic>> PostTopic([FromBody] Topic topic)
+        [Route("AddTopic")]
+        public async Task<ActionResult<Topic>> PostTopic([FromBody] AddTopicModel? topicModel)
         {
-            // Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
+            // Main first Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
 
-            topic.IsVisible = true;
-            Models.File f = new Models.File();
-            f.Name = "File 1";
-            Models.File f1 = new Models.File();
-            f.Name = "File 2";
-            topic.Files = new List<Models.File>();
+            //Models.File f = new Models.File();
+            //f.Name = "File 1";
+            //Models.File f1 = new Models.File();
+            //f1.Name = "File 2";
+            //topic.Files = new List<Models.File>();
+            //topic.Files.Add(f);
+            //topic.Files.Add(f1);
 
-            topic.Files.Add(f);
-            topic.Files.Add(f1);
-
-            _context.Topics.Add(topic);
-            await _context.SaveChangesAsync();
-
-            return Ok(topic.Id);
-        }
-
-
-        // POST: api/Topics1/AddContent/{topic_id}
-        [HttpPost]
-        [Route("AddContent/{topic_id}")]
-        public async Task<ActionResult<Topic>> PostTopicContent(int? topic_id, [FromBody] NewContentModel new_content_model)
-        {
-            if ( topic_id == null)
-            {
-                return BadRequest("topic id is null");
+            if (topicModel == null) { 
+                return BadRequest("f"); 
             }
 
-            if (new_content_model == null)
-            {
-                return BadRequest("new content is null");
-            }
+            topicModel.new_topic.IsVisible = true;
 
-            TopicContent newTopicContent = new TopicContent 
+           
+            // -----  Add new content
+            var topicContent = new TopicContent
             {
-                Content = new_content_model.new_content,
-                TopicId = topic_id
+                Content = topicModel.new_content,
             };
-
-            _context.TopicContents.Add(newTopicContent);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "TopicContent Added Sucessfully" });
-        }
+            // Associate content with the topic
+            topicModel.new_topic.Content = topicContent;
 
 
-
-
-        // POST: api/Topics1/
-        [HttpPost]
-        [Route("AddFiles/{topic_id}")]
-        public async Task<ActionResult<IEnumerable<Models.File>>> AddMultipleFiles(int? topic_id, [FromBody] NewFilesModel files)
-        {
-            if (topic_id == null)
-            {
-                return BadRequest("topic id is null");
-            }
-
-            if (files == null)
-            {
-                return BadRequest("files passed is null");
-            }
-
+            // ----- Add Files
             // iterate over the 'files' collection and add each file to the database
+
+            topicModel.new_topic.Files = new List<Models.File>();
+
+            foreach (var file in topicModel.passed_files)
+            {
+                topicModel.new_topic.Files.Add(file);
+            }
+
             try
             {
-                foreach (var file in files.files)
-                {
-                    file.TopicId = topic_id;
-
-                    _context.Files.Add(file);
-                }
-
+                _context.Topics.Add(topicModel.new_topic);
                 await _context.SaveChangesAsync();
-
-                return Ok(new { message = "Files Added Sucessfully" });
             }
             catch (DbUpdateException)
             {
@@ -228,7 +192,76 @@ namespace mobadir_API_1.Controllers
                 return StatusCode(500, "Error saving to the database");
             }
 
+            return Ok();
         }
+
+
+        // POST: api/Topics1/AddContent/{topic_id}
+        //[HttpPost]
+        //[Route("AddContent/{topic_id}")]
+        //public async Task<ActionResult<Topic>> PostTopicContent(int? topic_id, [FromBody] NewContentModel new_content_model)
+        //{
+        //    if ( topic_id == null)
+        //    {
+        //        return BadRequest("topic id is null");
+        //    }
+
+        //    if (new_content_model == null)
+        //    {
+        //        return BadRequest("new content is null");
+        //    }
+
+        //    TopicContent newTopicContent = new TopicContent 
+        //    {
+        //        Content = new_content_model.new_content,
+        //        TopicId = topic_id
+        //    };
+
+        //    _context.TopicContents.Add(newTopicContent);
+        //    await _context.SaveChangesAsync();
+
+        //    return Ok(new { message = "TopicContent Added Sucessfully" });
+        //}
+
+
+
+
+        // POST: api/Topics1/
+        //[HttpPost]
+        //[Route("AddFiles/{topic_id}")]
+        //public async Task<ActionResult<IEnumerable<Models.File>>> AddMultipleFiles(int? topic_id, [FromBody] NewFilesModel files)
+        //{
+        //    if (topic_id == null)
+        //    {
+        //        return BadRequest("topic id is null");
+        //    }
+
+        //    if (files == null)
+        //    {
+        //        return BadRequest("files passed is null");
+        //    }
+
+        //    // iterate over the 'files' collection and add each file to the database
+        //    try
+        //    {
+        //        foreach (var file in files.files)
+        //        {
+        //            file.TopicId = topic_id;
+
+        //            _context.Files.Add(file);
+        //        }
+
+        //        await _context.SaveChangesAsync();
+
+        //        return Ok(new { message = "Files Added Sucessfully" });
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        // Handle database update exception
+        //        return StatusCode(500, "Error saving to the database");
+        //    }
+
+        //}
 
 
 
@@ -297,13 +330,29 @@ namespace mobadir_API_1.Controllers
         public bool IsVisible { get; set; }
     }
 
-    public class NewContentModel
+    //public class NewContentModel
+    //{
+    //    public string? new_content { get; set; }
+    //}
+
+    //public class NewFilesModel
+    //{
+    //    public IEnumerable<Models.File>? files { get; set; }
+    //}
+
+    public class AddTopicModel
     {
+        public AddTopicModel(Topic New_topic, string New_content)
+        {
+            new_topic = New_topic;
+            new_content = New_content;
+        }
+
+        public Topic? new_topic { get; set; }
         public string? new_content { get; set; }
+        public Models.File[] passed_files { get; set; }
     }
 
-    public class NewFilesModel
-    {
-        public IEnumerable<Models.File>? files { get; set; }
-    }
+
+    
 }

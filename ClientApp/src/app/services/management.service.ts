@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../config/constants';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
@@ -90,32 +90,41 @@ export class ManagementService {
 
     return this.http.get<any>(url);
   }
+
+  
   
 
-  AddMainDataForTopic(newTopic: INewTopic)
+  AddMainDataForTopic(newTopic: INewTopic, newContent: string, files: IFile[])
   {
-          // POST: api/Topics1
-    const url = `${Constants.api_url}/Topics1`;
+    let input = 
+    {
+      //  attention: case sensitive to what is delcared in the api side
+      new_topic: newTopic,
+      new_content: newContent,
+      passed_files: files
+    }
+  
+    const url = `${Constants.api_url}/Topics1/AddTopic`;
 
-    return this.http.post<any>(url, newTopic);
+    return this.http.post<any>(url, input).pipe();
   }
 
 
-  AddContentForTopic(topic_id: number, new_content: string)
-  {
-    const url = `${Constants.api_url}/Topics1/AddContent/${topic_id}`;
+  // AddContentForTopic(topic_id: number, new_content: string)
+  // {
+  //   const url = `${Constants.api_url}/Topics1/AddContent/${topic_id}`;
 
-    // note: the {} is important!!
-    return this.http.post<any>(url, {new_content});
-  }
+  //   // note: the {} is important!!
+  //   return this.http.post<any>(url, {new_content});
+  // }
   
   
-  // Add multiple files
-  AddFiles(topic_id: number, files: IFile[]) 
-  {
-    const url = `${Constants.api_url}/Topics1/AddFiles/${topic_id}`;
+  // // Add multiple files
+  // AddFiles(topic_id: number, files: IFile[]) 
+  // {
+  //   const url = `${Constants.api_url}/Topics1/AddFiles/${topic_id}`;
 
-    return this.http.post<any>(url, {files});
-  }
+  //   return this.http.post<any>(url, {files});
+  // }
 
 }

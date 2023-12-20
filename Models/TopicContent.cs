@@ -23,7 +23,7 @@ namespace mobadir_API_1.Models
 
         // changed
         [ForeignKey("TopicId")]
-        //[InverseProperty("Content")]
+        [InverseProperty("Content")]
         public virtual Topic? Topic { get; set; }
 
     }

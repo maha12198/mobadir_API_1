@@ -256,6 +256,7 @@ export class AdTopicComponent {
 
   newTopic!: INewTopic;
   topic_id!:number;
+  new_content!: string; 
   AddTopicMainData()
   {
     this.newTopic = 
@@ -264,24 +265,20 @@ export class AdTopicComponent {
       videoUrl: this.editorForm?.get('videoUrl')?.value,
       term: this.editorForm?.get('selectedTerm')?.value,
       subjectId: this.passed_subject_id ,
-      createdBy: this.user_id
+      createdBy: this.user_id,
     };
     console.log("newTopic = ", this.newTopic);
+    
+    this.new_content = this.editorForm?.get('body')?.value
+    console.log("newContent = ", this.new_content);
 
-    this.management_api_service.AddMainDataForTopic(this.newTopic).subscribe(
+    console.log("test files passed: ", this.Files);
+
+    this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files).subscribe(
      {
        next: (res) => {
-          //console.log(res.message);
-          console.log(res);
-          this.topic_id = res;
+        
           console.log("Topic Added!");
-          
-          // call add topic content function
-          this.AddTopicContent(this.topic_id);
-
-          // call add files function
-          console.log("test topic id and files passed successfully: ",this.topic_id, this.Files ); // test
-          this.addMultipleFiles(this.topic_id, this.Files )
        },
        error: (err) => {
          console.error('Error in adding Topic Main Data:', err);
@@ -291,24 +288,24 @@ export class AdTopicComponent {
   }
 
 
-  new_content!: string; 
-  AddTopicContent(topic_id: number)
-  {
-    this.new_content = this.editorForm?.get('body')?.value;
-    console.log(this.new_content); // test
+  // new_content!: string; 
+  // AddTopicContent(topic_id: number)
+  // {
+  //   this.new_content = this.editorForm?.get('body')?.value;
+  //   console.log(this.new_content); // test
     
-    this.management_api_service.AddContentForTopic( topic_id, this.new_content).subscribe(
-      {
-        next: (res) => {
-          console.log(res.message);
-          console.log("Topic Content Added!");
-        },
-        error: (err) => {
-          console.error('Error in adding Content of Topic:', err);
-        }
-      }
-    );
-  }
+  //   this.management_api_service.AddContentForTopic( topic_id, this.new_content).subscribe(
+  //     {
+  //       next: (res) => {
+  //         console.log(res.message);
+  //         console.log("Topic Content Added!");
+  //       },
+  //       error: (err) => {
+  //         console.error('Error in adding Content of Topic:', err);
+  //       }
+  //     }
+  //   );
+  // }
 
 
   Files: IFile[] =[];
@@ -318,7 +315,6 @@ export class AdTopicComponent {
   addFileInMemory()
   {
     //console.log("test id: ",this.topic_id);
-
     const newFile: IFile = 
     {
       name: this.FilesForm?.get('FileName')?.value,
@@ -326,15 +322,10 @@ export class AdTopicComponent {
       // topicId: this.topic_id
     };
     //log("new file: ", newFile);
-  
     this.Files.push(newFile);
-
     console.log("files list", this.Files);
-
     this.FilesForm.reset();
-  
     $('#add-file-browse-modal').modal('hide');
-
     this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});
   }
 
@@ -361,23 +352,23 @@ export class AdTopicComponent {
     }
   }
 
-  
+
 
   // add files to the db/api
-  addMultipleFiles(topic_id: number, FilesToPass: IFile[]) 
-  {
-    this.management_api_service.AddFiles(topic_id, FilesToPass).subscribe(
-      {
-        next: (res) => {
-          console.log(res.message);
-          console.log("Files Added to api!");
-        },
-        error: (err) => {
-          console.error('Error in adding Files to api:', err);
-        }
-      }
-    );
-  }
+  // addMultipleFiles(topic_id: number, FilesToPass: IFile[]) 
+  // {
+  //   this.management_api_service.AddFiles(topic_id, FilesToPass).subscribe(
+  //     {
+  //       next: (res) => {
+  //         console.log(res.message);
+  //         console.log("Files Added to api!");
+  //       },
+  //       error: (err) => {
+  //         console.error('Error in adding Files to api:', err);
+  //       }
+  //     }
+  //   );
+  // }
 
 
 

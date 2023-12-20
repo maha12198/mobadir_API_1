@@ -60,13 +60,14 @@ namespace mobadir_API_1.Models
         
         [Column("created_by")]
         public int? CreatedBy { get; set; }
-        
+
         //[Column("content_id")]
         //public int? ContentId { get; set; }
+
         //[ForeignKey("ContentId")]
-        //[InverseProperty("Topics")]
-        //public virtual TopicContent? Content { get; set; }
-        
+        [InverseProperty("Topic")]
+        public virtual TopicContent? Content { get; set; }
+
 
 
 

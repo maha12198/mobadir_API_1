@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using mobadir_API_1.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 internal class Program
 {
@@ -12,6 +13,8 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+        //.AddJsonOptions(x =>
+                //x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
 
         // dbcontext injection
         var connectionString = builder.Configuration.GetConnectionString("MobadrDB");

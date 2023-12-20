@@ -5,4 +5,6 @@ export interface INewTopic
     term?: number;
     subjectId?: number;
     createdBy?: number;
+
+    //content?: string;
 }
