@@ -16,10 +16,11 @@ import { INewTopic } from 'src/app/models/INewTopic';
 import { IFile } from 'src/app/models/IFile';
 import { NgToastService } from 'ng-angular-popup';
 
-import { HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpRequest } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { saveAs } from 'file-saver';
+import { Constants } from 'src/app/config/constants';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -43,13 +44,15 @@ export class AdTopicComponent {
               private route: ActivatedRoute,
               private management_api_service: ManagementService,
               private toast: NgToastService,
-              private sanitizer: DomSanitizer)
+              private sanitizer: DomSanitizer,
+              private http: HttpClient)
   {}
 
 
   user_id: number | undefined;
   passed_grade_id!:number;
   passed_subject_id!:number;
+
 
   // the main form in this page
   editorForm!: FormGroup;
@@ -345,10 +348,72 @@ export class AdTopicComponent {
 
 
 
-  //working = false;
-  //uploadFileLabel: string | undefined = 'Choose an image to upload';
-  //uploadProgress!: number;
-  //uploadUrl!: string;
+
+  // upload()
+  // {
+  //   console.log('entered upload function');
+
+  //   if (!this.uploadFile)
+  //   {
+  //     alert('Choose a file to upload first');
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   formData.append(this.uploadFile.name, this.uploadFile);
+
+  //   this.management_api_service.UploadFile(formData).subscribe(
+  //     { next: (event) => {
+  //         console.log(event);
+  //         console.log(event.url);
+  //         console.log(event.message);
+  //       },
+  //       error: (error) => {
+  //         console.error(error);
+  //       }
+  //     });
+  // }
+
+  // fileName!: string | undefined;
+  // public download() {
+  //   this.fileName = this.uploadFile?.name;
+
+  //   this.management_api_service.downloadFile(this.fileName).subscribe({
+  //     next : (data) =>  {
+  //       switch (data.type) {
+  //         case HttpEventType.DownloadProgress:
+  //           console.log('DownloadProg');
+  //           // this.downloadStatus.emit( {status: ProgressStatusEnum.IN_PROGRESS, percentage: Math.round((data.loaded / data.total) * 100)});
+  //           break;
+  //         case HttpEventType.Response:
+  //           console.log('Response');
+  //           if ((data.body !== null) && (data.type !== null))
+  //           {
+  //             //const contentType = data.headers.get('content-type');
+  //             const downloadedFile = new Blob([data.body], { type: data.body.type  });
+
+
+  //             console.log(downloadedFile);
+
+  //             saveAs(data, this.fileName);
+  //           }
+  //           else
+  //           {
+  //             console.error('Error: Response body is null.');
+  //             // Handle the error appropriately
+  //           }
+  //           break;
+  //       }
+  //     },
+  //     error:
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //     });
+  // }
+
+
+
   uploadFile!: File | null;
 
   handleFileInput(files: FileList)
@@ -356,119 +421,13 @@ export class AdTopicComponent {
     if (files.length > 0)
     {
       this.uploadFile = files.item(0);
-      //this.uploadFileLabel = this.uploadFile?.name;
     }
   }
-
-  upload()
-  {
-    console.log('entered upload function');
-
-    if (!this.uploadFile)
-    {
-      alert('Choose a file to upload first');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append(this.uploadFile.name, this.uploadFile);
-
-    //this.uploadUrl = '';
-    //this.uploadProgress = 0;
-    //this.working = true;
-
-    this.management_api_service.UploadFile(formData).subscribe(
-      { next: (event) => {
-          // if (event.type === HttpEventType.UploadProgress)
-          // {
-          //   this.uploadProgress = Math.round((100 * event.loaded) / event.total);
-          //   console.log(this.uploadProgress);
-          // }
-          // else if (event.type === HttpEventType.Response)
-          // {
-          //   this.uploadUrl = event.body.url;
-          //   console.log(this.uploadUrl);
-          // }
-          console.log(event);
-          console.log(event.url);
-          console.log(event.message);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
-  }
-
-  fileName!: string | undefined;
-  public download() {
-    //this.downloadStatus.emit( {status: ProgressStatusEnum.START});
-
-    //this.fileName = this.FilesForm?.get('AttachFile')?.value; // wrong
-    //console.log(this.fileName); //wrong
-
-    this.fileName = this.uploadFile?.name;
-
-    this.management_api_service.downloadFile(this.fileName).subscribe({
-      next : (data) =>  {
-        switch (data.type) {
-          case HttpEventType.DownloadProgress:
-            console.log('DownloadProg');
-            // this.downloadStatus.emit( {status: ProgressStatusEnum.IN_PROGRESS, percentage: Math.round((data.loaded / data.total) * 100)});
-            break;
-          case HttpEventType.Response:
-            console.log('Response');
-            if ((data.body !== null) && (data.type !== null))
-            {
-              //const contentType = data.headers.get('content-type');
-              const downloadedFile = new Blob([data.body], { type: data.body.type  });
-
-
-              console.log(downloadedFile);
-
-              saveAs(data, this.fileName);
-
-              // Create a link and trigger a download
-              // const a = document.createElement('a');
-              // a.href = URL.createObjectURL(downloadedFile);
-              // a.download = this.fileName;
-              // a.target = '_blank';
-              // document.body.appendChild(a);
-              // a.click();
-              // document.body.removeChild(a);
-            }
-            else
-            {
-              console.error('Error: Response body is null.');
-              // Handle the error appropriately
-            }
-            break;
-          //   // this.downloadStatus.emit( {status: ProgressStatusEnum.COMPLETE});
-          //   const contentType = data.headers.get('content-type');
-          // const blob = new Blob([data.body], { type: contentType });
-          //   const downloadedFile = new Blob([data.body], { type: data.body.type });
-          //   const a = document.createElement('a');
-          //   a.setAttribute('style', 'display:none;');
-          //   document.body.appendChild(a);
-          //   a.download = this.fileName;
-          //   a.href = URL.createObjectURL(downloadedFile);
-          //   a.target = '_blank';
-          //   a.click();
-          //   document.body.removeChild(a);
-          //   break;
-        }
-      },
-      error:
-      (error) => {
-        // this.downloadStatus.emit( {status: ProgressStatusEnum.ERROR});
-        console.log(error);
-      }
-      });
-  }
-
-
 
 
   File_Url;
+  working = false;
+  uploadProgress?: number;
   new_upload()
   {
     console.log('entered upload function');
@@ -484,17 +443,33 @@ export class AdTopicComponent {
 
     console.log("form data: ", this.uploadFile.name, this.uploadFile); //test
 
+    this.uploadProgress = 0;
+    this.working = true;
 
     this.management_api_service.upload_new_file(formData).subscribe(
       { next: (res) => {
-          console.log('File uploaded successfully:', res.url);
-          this.File_Url = res.url;
+          // console.log('File uploaded successfully:', res.url);
+          // this.File_Url = res.url;
+          if (res.type === HttpEventType.UploadProgress) 
+          {
+            console.log(res.loaded + '/' + res.total);
+            this.uploadProgress = Math.round((100 * res.loaded) / res.total);
+          } 
+          else if (res.type === HttpEventType.Response) 
+          {
+            console.log('File uploaded successfully:', res.body.url);
+          }
         },
         error: (err) => {
           console.error('File upload failed:',err);
+        },
+        complete: () => {
+          this.working = false;
         }
       });
   }
+
+
 
 
   new_download()

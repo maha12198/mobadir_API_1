@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using NuGet.Common;
 using NuGet.ProjectModel;
+using System.IO;
 using System.Net;
 using System.Text;
 using static System.Net.WebRequestMethods;
@@ -87,6 +89,9 @@ namespace mobadir_API_1.Controllers
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 
                 request.UsePassive = true;
+
+                var totalBytes = file.Length;
+                var uploadedBytes = 0L;
 
                 using (Stream ftpStream = request.GetRequestStream())
                 {

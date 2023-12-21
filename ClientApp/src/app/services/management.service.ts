@@ -140,7 +140,9 @@ export class ManagementService {
   { 
     const url = `${Constants.api_url}/RichEditor/ImageUpload_1`;
 
-    return this.http.post<any>(url, formData);
+    return this.http.post<any>(url, formData, {
+      reportProgress: true,
+    });
 
   }
 
