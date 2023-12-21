@@ -114,6 +114,12 @@ export class AdTopicComponent {
       }
     );
 
+    this.FileLinkForm = this.fb.group(
+      {
+        FileLinkName: ['',[Validators.required]],
+        LinkUrl: ['',[Validators.required]]
+      }
+    );
 
   }
 
@@ -300,6 +306,7 @@ export class AdTopicComponent {
   Files: IFile[] =[];
   FilesForm!: FormGroup;
 
+  // 1- add file
   // Add new file in Files List
   addFileInMemory()
   {
@@ -330,6 +337,28 @@ export class AdTopicComponent {
     // Reset the flag for subsequent form submissions
     this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
     this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+  }
+
+  FileLinkForm!: FormGroup;
+  // 2 -- Add Link
+  addFileLinkInMemory()
+  {
+    const newFile: IFile =
+    {
+      name: this.FileLinkForm?.get('FileLinkName')?.value,
+      fileUrl: this.FileLinkForm?.get('LinkUrl')?.value
+    };
+    console.log("new file: ", newFile);
+
+    this.Files.push(newFile);
+    console.log("files list", this.Files);
+
+    this.FilesForm.reset();
+
+    $('#add-file-link-modal').modal('hide');
+
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة الرابط", duration: 2000, position:'topCenter'});
+    
   }
 
 

@@ -8,7 +8,7 @@
 
 <!-- اضافة درس------------------------------ -->
 <main id="main" class="main">
-    <form class="" [formGroup]="editorForm" (ngSubmit)="confirm()">
+    <form [formGroup]="editorForm" (ngSubmit)="confirm()">
         <div class="container ad-topic mt-3">
 
             <!-- card 1 -->
@@ -279,30 +279,36 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">إضافـــــة رابـــــــط</h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">اســــــم الــملف</label>
+
+            <form [formGroup]="FileLinkForm" (ngSubmit)="addFileLinkInMemory()">
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">اســــــم الــملف</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <input type="text" formControlName="FileLinkName" class="form-control py-2 smaller-font-size">
+                        </div>
                     </div>
-                    <div class="col-md-8 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class=" col-form-label">رابط الــملف</label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                            <input type="text" formControlName="LinkUrl" class="form-control py-2 smaller-font-size" >
+                        </div>
                     </div>
                 </div>
-                <div class="form-row mb-4">
-                    <div class="col-md-4">
-                        <label class=" col-form-label">رابط الــملف</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size" >
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="FileLinkForm.invalid" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
-            </div>
+
+            </form>
+
         </div>
     </div>
 </div>
