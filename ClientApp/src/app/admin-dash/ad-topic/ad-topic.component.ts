@@ -16,11 +16,7 @@ import { INewTopic } from 'src/app/models/INewTopic';
 import { IFile } from 'src/app/models/IFile';
 import { NgToastService } from 'ng-angular-popup';
 
-import { HttpClient, HttpEventType, HttpRequest } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
 
-import { saveAs } from 'file-saver';
-import { Constants } from 'src/app/config/constants';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -39,13 +35,10 @@ interface ITopicDataToAdd
 export class AdTopicComponent {
 
   constructor(private fb: FormBuilder,
-              private service: ApiService,
               private storeUserService : StoreUserService,
               private route: ActivatedRoute,
               private management_api_service: ManagementService,
-              private toast: NgToastService,
-              private sanitizer: DomSanitizer,
-              private http: HttpClient)
+              private toast: NgToastService)
   {}
 
 
@@ -124,7 +117,11 @@ export class AdTopicComponent {
 
   }
 
-
+  // getter method for this control to do a validation
+  get FileName() 
+  {
+    return this.FilesForm.get('FileName');
+  }
 
 
   // for displaying add/edit buttons
@@ -306,19 +303,32 @@ export class AdTopicComponent {
   // Add new file in Files List
   addFileInMemory()
   {
-    //console.log("test id: ",this.topic_id);
+    // Ensure that the "Upload" button was clicked before allowing form submission
+    if (!this.uploadButtonClicked) {
+      //alert('Please click the "Upload" button before submitting the form.');
+      alert('الرجاء رفع الملف أولا');
+      
+      return;
+    }
+
     const newFile: IFile =
     {
       name: this.FilesForm?.get('FileName')?.value,
-      fileUrl: this.FilesForm?.get('AttachFile')?.value ,
-      // topicId: this.topic_id
+      fileUrl: this.FilesForm?.get('AttachFile')?.value
     };
+
     //log("new file: ", newFile);
     this.Files.push(newFile);
     console.log("files list", this.Files);
     this.FilesForm.reset();
     $('#add-file-browse-modal').modal('hide');
     this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});
+    
+    
+    // Reset the flag for subsequent form submissions
+    this.uploadButtonClicked = false;
+
+    this.OneTimeUploadbuttonClicked = false;
   }
 
   // Delete file from memory
@@ -415,7 +425,6 @@ export class AdTopicComponent {
 
 
   uploadFile!: File | null;
-
   handleFileInput(files: FileList)
   {
     if (files.length > 0)
@@ -424,18 +433,27 @@ export class AdTopicComponent {
     }
   }
 
-
   File_Url;
-  working = false;
-  uploadProgress?: number;
+  uploadButtonClicked: boolean  = false;
+  OneTimeUploadbuttonClicked: boolean = false; // to make the button clicked only one time
   new_upload()
   {
     console.log('entered upload function');
 
+    // ensure the user seleceted a a file
     if (!this.uploadFile)
     {
-      alert('Choose a file to upload first');
+      //alert('Choose a file to upload first');
+      alert('الرجاء اختيار ملف اولا !');
       return;
+    }
+
+    if (!this.OneTimeUploadbuttonClicked) {
+      // Perform your button click logic here
+      console.log('Button clicked!');
+      
+      // Set the flag to true to disable the button
+      this.OneTimeUploadbuttonClicked = true;
     }
 
     const formData = new FormData();
@@ -443,28 +461,25 @@ export class AdTopicComponent {
 
     console.log("form data: ", this.uploadFile.name, this.uploadFile); //test
 
-    this.uploadProgress = 0;
-    this.working = true;
+    this.toast.warning({ detail:"Info", summary: " الرجاء انتظار رسالة تأكيد رفع الملف الخاص بكم", duration: 6000, position:'topCenter'});
 
     this.management_api_service.upload_new_file(formData).subscribe(
       { next: (res) => {
-          // console.log('File uploaded successfully:', res.url);
-          // this.File_Url = res.url;
-          if (res.type === HttpEventType.UploadProgress) 
-          {
-            console.log(res.loaded + '/' + res.total);
-            this.uploadProgress = Math.round((100 * res.loaded) / res.total);
-          } 
-          else if (res.type === HttpEventType.Response) 
-          {
-            console.log('File uploaded successfully:', res.body.url);
-          }
+          console.log('File uploaded successfully:', res.url);
+          this.File_Url = res.url;
+          
+          this.uploadButtonClicked = true; // Set the flag to true when the uplaod button is clicked
+
+
         },
         error: (err) => {
           console.error('File upload failed:',err);
         },
         complete: () => {
-          this.working = false;
+          console.log('Entred Complete');
+
+          this.toast.success({ detail:"sucess", summary: "تم رفع الملف", duration: 2000, position:'topCenter'});
+
         }
       });
   }
@@ -516,6 +531,7 @@ export class AdTopicComponent {
 
     this.AddTopicMainData();
 
-
   }
+
+  
 }

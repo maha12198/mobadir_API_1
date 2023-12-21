@@ -40,6 +40,8 @@ import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { SearchPipe } from './pipes/search.pipe';
 
+import { NgProgressModule } from 'ngx-progressbar';
+
 //angular material
 // import {MatDialogModule} from '@angular/material/dialog';
 // import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
@@ -78,7 +80,8 @@ import { SearchPipe } from './pipes/search.pipe';
     FormsModule,
     ReactiveFormsModule,
     CKEditorModule,
-    NgToastModule
+    NgToastModule,
+    NgProgressModule
 
   ],
   
