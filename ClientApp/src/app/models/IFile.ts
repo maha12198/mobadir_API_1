@@ -4,5 +4,5 @@ export interface IFile
     name: string;
     fileUrl: string;
 
-    topicId?: number;
+    // topicId?: number;
 }

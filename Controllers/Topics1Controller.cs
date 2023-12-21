@@ -139,29 +139,16 @@ namespace mobadir_API_1.Controllers
         }
 
 
-
+        // -------------------------- Add NEW TOPIC with all relevant data  ---------------------
         // POST: api/Topics1/AddTopic
         [HttpPost]
         [Route("AddTopic")]
         public async Task<ActionResult<Topic>> PostTopic([FromBody] AddTopicModel? topicModel)
         {
-            // Main first Data needed: title - isVisible - CreatedAt - VideoUrl - Term - SubjectId - CreatedBy
-
-            //Models.File f = new Models.File();
-            //f.Name = "File 1";
-            //Models.File f1 = new Models.File();
-            //f1.Name = "File 2";
-            //topic.Files = new List<Models.File>();
-            //topic.Files.Add(f);
-            //topic.Files.Add(f1);
-
             if (topicModel == null) { 
-                return BadRequest("f"); 
+                return BadRequest("passed topic model is null"); 
             }
 
-            topicModel.new_topic.IsVisible = true;
-
-           
             // -----  Add new content
             var topicContent = new TopicContent
             {
@@ -196,72 +183,12 @@ namespace mobadir_API_1.Controllers
         }
 
 
-        // POST: api/Topics1/AddContent/{topic_id}
-        //[HttpPost]
-        //[Route("AddContent/{topic_id}")]
-        //public async Task<ActionResult<Topic>> PostTopicContent(int? topic_id, [FromBody] NewContentModel new_content_model)
-        //{
-        //    if ( topic_id == null)
-        //    {
-        //        return BadRequest("topic id is null");
-        //    }
-
-        //    if (new_content_model == null)
-        //    {
-        //        return BadRequest("new content is null");
-        //    }
-
-        //    TopicContent newTopicContent = new TopicContent 
-        //    {
-        //        Content = new_content_model.new_content,
-        //        TopicId = topic_id
-        //    };
-
-        //    _context.TopicContents.Add(newTopicContent);
-        //    await _context.SaveChangesAsync();
-
-        //    return Ok(new { message = "TopicContent Added Sucessfully" });
-        //}
+        
 
 
 
 
-        // POST: api/Topics1/
-        //[HttpPost]
-        //[Route("AddFiles/{topic_id}")]
-        //public async Task<ActionResult<IEnumerable<Models.File>>> AddMultipleFiles(int? topic_id, [FromBody] NewFilesModel files)
-        //{
-        //    if (topic_id == null)
-        //    {
-        //        return BadRequest("topic id is null");
-        //    }
-
-        //    if (files == null)
-        //    {
-        //        return BadRequest("files passed is null");
-        //    }
-
-        //    // iterate over the 'files' collection and add each file to the database
-        //    try
-        //    {
-        //        foreach (var file in files.files)
-        //        {
-        //            file.TopicId = topic_id;
-
-        //            _context.Files.Add(file);
-        //        }
-
-        //        await _context.SaveChangesAsync();
-
-        //        return Ok(new { message = "Files Added Sucessfully" });
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        // Handle database update exception
-        //        return StatusCode(500, "Error saving to the database");
-        //    }
-
-        //}
+      
 
 
 
@@ -276,53 +203,7 @@ namespace mobadir_API_1.Controllers
 
 
 
-        // GET: api/Topics1/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Topic>> GetTopic(int id)
-        //{
-        //  if (_context.Topics == null)
-        //  {
-        //      return NotFound();
-        //  }
-        //    var topic = await _context.Topics.FindAsync(id);
-
-        //    if (topic == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return topic;
-        //}
-
-        // PUT: api/Topics1/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutTopic(int id, Topic topic)
-        //{
-        //    if (id != topic.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _context.Entry(topic).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!TopicExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
+      
     }
 
     public class TopicUpdateModel
@@ -330,15 +211,6 @@ namespace mobadir_API_1.Controllers
         public bool IsVisible { get; set; }
     }
 
-    //public class NewContentModel
-    //{
-    //    public string? new_content { get; set; }
-    //}
-
-    //public class NewFilesModel
-    //{
-    //    public IEnumerable<Models.File>? files { get; set; }
-    //}
 
     public class AddTopicModel
     {

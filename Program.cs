@@ -82,24 +82,6 @@ internal class Program
 
         // for the deployment
         app.UseStaticFiles(); // for the wwwroot folder
-        // new for file upload ( registering a physical file providers for serving static files)
-        // for the wwwroot/uploads folder
-                    //app.UseStaticFiles(new StaticFileOptions
-                    //{
-                    //    FileProvider = new PhysicalFileProvider(
-                    //   Path.Combine(builder.Environment.ContentRootPath, "MyStaticFiles")
-                    //   ),
-                    //    RequestPath = "/StaticFiles"
-                    //});
-        //string uploadsDir = Path.Combine(builder.Environment.ContentRootPath, "uploads");
-        //if (!Directory.Exists(uploadsDir))
-        //    Directory.CreateDirectory(uploadsDir);
-
-        //app.UseStaticFiles(new StaticFileOptions()
-        //{
-        //    RequestPath = "/images",
-        //    FileProvider = new PhysicalFileProvider(uploadsDir)
-        //});
 
 
         //new -- moved down

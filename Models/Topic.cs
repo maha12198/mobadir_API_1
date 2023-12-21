@@ -23,6 +23,8 @@ namespace mobadir_API_1.Models
 
             // new
             CreatedAt = DateTime.Now;
+
+            IsVisible = true;
         }
 
 

@@ -304,36 +304,38 @@ export class AdTopicComponent {
   addFileInMemory()
   {
     // Ensure that the "Upload" button was clicked before allowing form submission
-    if (!this.uploadButtonClicked) {
-      //alert('Please click the "Upload" button before submitting the form.');
-      alert('الرجاء رفع الملف أولا');
-      
+    if (!this.uploadButtonClicked) 
+    {
+      alert('الرجاء رفع الملف أولا'); 
       return;
     }
 
     const newFile: IFile =
     {
       name: this.FilesForm?.get('FileName')?.value,
-      fileUrl: this.FilesForm?.get('AttachFile')?.value
+      fileUrl: this.File_Url
     };
+    console.log("new file: ", newFile);
 
-    //log("new file: ", newFile);
     this.Files.push(newFile);
     console.log("files list", this.Files);
+
     this.FilesForm.reset();
+
     $('#add-file-browse-modal').modal('hide');
+
     this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});
     
     
     // Reset the flag for subsequent form submissions
-    this.uploadButtonClicked = false;
-
-    this.OneTimeUploadbuttonClicked = false;
+    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
+    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
   }
+
 
   // Delete file from memory
   Pass_Selected_file!: IFile;
-  SendFileToBeDeleted(file: IFile) // used to pass the file from the row to the modal
+  SendFileToBeDeleted(file: IFile) // used to pass the file selected from the row of Files table  to the modal popup
   {
     this.Pass_Selected_file = file;
     console.log("1", this.Pass_Selected_file); //test
@@ -359,70 +361,6 @@ export class AdTopicComponent {
 
 
 
-  // upload()
-  // {
-  //   console.log('entered upload function');
-
-  //   if (!this.uploadFile)
-  //   {
-  //     alert('Choose a file to upload first');
-  //     return;
-  //   }
-
-  //   const formData = new FormData();
-  //   formData.append(this.uploadFile.name, this.uploadFile);
-
-  //   this.management_api_service.UploadFile(formData).subscribe(
-  //     { next: (event) => {
-  //         console.log(event);
-  //         console.log(event.url);
-  //         console.log(event.message);
-  //       },
-  //       error: (error) => {
-  //         console.error(error);
-  //       }
-  //     });
-  // }
-
-  // fileName!: string | undefined;
-  // public download() {
-  //   this.fileName = this.uploadFile?.name;
-
-  //   this.management_api_service.downloadFile(this.fileName).subscribe({
-  //     next : (data) =>  {
-  //       switch (data.type) {
-  //         case HttpEventType.DownloadProgress:
-  //           console.log('DownloadProg');
-  //           // this.downloadStatus.emit( {status: ProgressStatusEnum.IN_PROGRESS, percentage: Math.round((data.loaded / data.total) * 100)});
-  //           break;
-  //         case HttpEventType.Response:
-  //           console.log('Response');
-  //           if ((data.body !== null) && (data.type !== null))
-  //           {
-  //             //const contentType = data.headers.get('content-type');
-  //             const downloadedFile = new Blob([data.body], { type: data.body.type  });
-
-
-  //             console.log(downloadedFile);
-
-  //             saveAs(data, this.fileName);
-  //           }
-  //           else
-  //           {
-  //             console.error('Error: Response body is null.');
-  //             // Handle the error appropriately
-  //           }
-  //           break;
-  //       }
-  //     },
-  //     error:
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //     });
-  // }
-
-
 
   uploadFile!: File | null;
   handleFileInput(files: FileList)
@@ -443,7 +381,6 @@ export class AdTopicComponent {
     // ensure the user seleceted a a file
     if (!this.uploadFile)
     {
-      //alert('Choose a file to upload first');
       alert('الرجاء اختيار ملف اولا !');
       return;
     }
@@ -486,7 +423,6 @@ export class AdTopicComponent {
 
 
 
-
   new_download()
   {
     console.log('entered download function');
@@ -513,9 +449,12 @@ export class AdTopicComponent {
       error: (error) => {
         console.error('File download failed:', error);
       }
-  });
+    });
+  
   }
 
+
+  
 
 
 
