@@ -154,40 +154,35 @@
                             <div class="row mt-3 mr-2" >
                                 <table class="table table-hover text-center table-responsive-sm mx-4 w-100">
                                     <thead>
-                                    <tr>
-                                        <th>م</th>
-                                        <th>نص الســؤال</th>
-                                        <th>صورة</th>
-                                        <th>اختيـــار 1</th>
-                                        <th>اختيـــار 2</th>
-                                        <th>اختيـــار 3</th>
-                                        <th>اختيـــار 4</th>
-                                        <th>الإجــابـــة</th>
-                                        <th>  </th>
-                                    </tr>
+                                        <tr>
+                                            <!-- <th>م</th> -->
+                                            <th>نص الســؤال</th>
+                                            <th>صورة</th>
+                                            <th>اختيـــار 1</th>
+                                            <th>اختيـــار 2</th>
+                                            <th>اختيـــار 3</th>
+                                            <th>اختيـــار 4</th>
+                                            <th>الإجــابـــة</th>
+                                            <th>  </th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th class="align-middle">1</th>
-                                            <td class="align-middle smaller-font-size"> مثال نص ســـــؤال</td>
+                                            <!-- <th class="align-middle">1</th> -->
+                                            <td class="align-middle smaller-font-size"> {{question.QuestionText}} </td>
                                             <td class="align-middle smaller-font-size">
                                                 <img src="../../../assets/images/logoSM.png" alt="" height="40px" width="40px">
                                             </td>
-                                            <td class="align-middle smaller-font-size">مثال اجابة اول</td>
-                                            <td class="align-middle smaller-font-size">مثال اجابة ثاني</td>
-                                            <td class="align-middle smaller-font-size">مثال اجابة ثالث</td>
-                                            <td class="align-middle smaller-font-size">مثال اجابة رابع</td>
-                                            <td class="align-middle smaller-font-size">اختيار 1</td>
+                                            <td class="align-middle smaller-font-size"> {{question.Choice1}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.Choice2}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.Choice3}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.Choice4}}  </td>
+                                            <td class="align-middle smaller-font-size"> {{question.Answer}} </td>
                                             <td>
                                                 <!-- Edit button -->
                                                 <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-ques-modal" class="btn btn-warning btn-lg px-3 mx-3" >
                                                 <!-- Delete button -->
-                                                <input type="button" value="حذف" data-toggle="modal" data-target="#confirm-delete-ques-modal" class="btn btn-danger btn-lg px-3 mx-3" >
+                                                <input type="button" value="حذف" (click)="SendQuestion_ToBeDeleted(question)" data-toggle="modal" data-target="#confirm-delete-ques-modal" class="btn btn-danger btn-lg px-3 mx-3" >
                                             </td>
-                                        </tr>
-
-                                        <tr>
-                                           
                                         </tr>
                                     </tbody>
                                 </table>       
@@ -203,7 +198,7 @@
             <div class="row profile mb-5 ">
                 <div class="col d-flex justify-content-center">
                     <button class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="edit">حفــــــــــظ</button>
-                    <button class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="add" >إضافــــة الـــــدرس</button>
+                    <button [disabled]="editorForm.invalid" class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="add" >إضافــــة الـــــدرس</button>
                 </div>
             </div>
 
@@ -340,32 +335,8 @@
 
 
 
+
 <!-- Modal 4 -->
-<div class="modal" id="confirm-delete-ques-modal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-4">
-            <!-- Modal Header -->
-            <div class="modal-header d-flex justify-content-between mb-3">
-                <h3 class="modal-title flex-grow-1 font-weight-bold">حـــــذف ملـــــــف</h3>
-                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="row mb-4">
-                    <label class=" label mr-3">هــل أنت متأكد من أنك تريـــد حذف الملف ؟</label>
-                </div>  
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal 5 -->
 <div class="modal" id="add-ques-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content p-4">
@@ -374,93 +345,97 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">إضافـــــة سؤال جديد</h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
 
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">نــص الســؤال</label>
+            <form [formGroup]="QuestionsForm" (ngSubmit)="add_Question_InMemory()">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">نــص الســؤال</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <textarea formControlName="questionText" class="form-control smaller-font-size" rows="3"></textarea>
+                        </div>
                     </div>
-                    <div class="col-md-10 mb-2">
-                        <textarea class="form-control smaller-font-size" rows="3"></textarea>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 1</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input type="text" formControlName="choice1" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 2</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input type="text" formControlName="choice2" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 3</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input type="text" formControlName="choice3" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 4</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input type="text" formControlName="choice4" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">الإجــابـــة</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <select formControlName="answer" class="custom-select dropdown-font-size mb-2">
+                                <option value="1" class="text-center" selected>اختيـــار 1</option>
+                                <option value="2" class="text-center">اختيـــار 2</option>
+                                <option value="3" class="text-center">اختيـــار 3</option>
+                                <option value="4" class="text-center">اختيـــار 4</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">صورة</label>
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <input type="file" formControlName="attach_questions_image" class="form-control-file" (change)="handleFileInput($any($event.target).files)">
+                        </div>
+                        <div class="col-md-5">
+                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(AttachQuestionImage?.value)" class="btn btn-dark smaller-font-size" (click)="new_upload()">
+                                رفـع ملـف الصورة
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 1</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="QuestionsForm.invalid" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
                 </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 2</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 3</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 4</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">الإجــابـــة</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <select class="custom-select dropdown-font-size mb-2">
-                            <option selected>اختيـــار 1</option>
-                            <option value="1">اختيـــار 2</option>
-                            <option value="2">اختيـــار 3</option>
-                            <option value="3">اختيـــار 4</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">صورة</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <label for="exampleFormControlFile2" class="btn btn-outline-dark btn-lg smaller-font-size">
-                            <i class="bi bi-card-image ml-2"></i>
-                            إختيـــار الصورة
-                        </label>
-                        <input type="file" style="visibility: hidden;" class="form-control-file" id="exampleFormControlFile2">
-                    </div>
-                </div>
-
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">إضافـــــة</button>
-            </div>
+            
+            </form>
         </div>
     </div>
 </div>
 
 
-<!-- Modal 6 -->
+<!-- Modal 5 -->
 <div class="modal" id="edit-ques-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content p-4">
@@ -559,6 +534,33 @@
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
                 <button type="button" class="btn btn-success btn-lg smaller-font-size">حفــــظ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal 6 -->
+<div class="modal" id="confirm-delete-ques-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">حـــــذف سؤال</h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row mb-4">
+                    <label class=" label mr-3">هــل أنت متأكد من أنك تريـــد حذف السؤال ؟</label>
+                </div>  
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                <button type="button" (click)="deleteQuestion_InMemory()" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
             </div>
         </div>
     </div>

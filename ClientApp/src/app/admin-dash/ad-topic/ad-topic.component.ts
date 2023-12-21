@@ -15,6 +15,7 @@ import { ISubject } from 'src/app/models/ISubject';
 import { INewTopic } from 'src/app/models/INewTopic';
 import { IFile } from 'src/app/models/IFile';
 import { NgToastService } from 'ng-angular-popup';
+import { IQuestionModel } from 'src/app/models/IQuestionModel';
 
 
 
@@ -50,6 +51,8 @@ export class AdTopicComponent {
   // the main form in this page
   editorForm!: FormGroup;
 
+  answerToView!: string;
+
   ngOnInit()
   {
 
@@ -73,20 +76,17 @@ export class AdTopicComponent {
       console.log("Passed_subject_Id = ",this.passed_subject_id); //test
     });
 
-
     // get all grades to populate the grade dropdown
     this.Get_All_Grades();
-
     // get all grades to populate the subject dropdown with respect to the grade
     this.get_subjects_of_the_grade(this.passed_grade_id);
-
     // get the gradeName and subjectName from api by the subject id
     //  =>  to auto select gradename and subjectname and make the dropdown of grade and subject disbled
     this.GetDataToAddTopic(this.passed_subject_id);
 
 
 
-    // intialize form
+    // intialize main form
     this.editorForm = this.fb.group(
       {
         selectedGrade: [{value: '' , disabled: false } ,[Validators.required]],
@@ -95,18 +95,17 @@ export class AdTopicComponent {
         title: ['',[Validators.required] ],
         videoUrl: ['',[Validators.required] ],
 
-        body:['',[Validators.required]],
-
+        body:['',[Validators.required]]
       }
     );
 
-    // test data value selected in term dropdownlist
-    this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
-      console.log('Selected Term Value:', value);
-    });
+        // test value selected in term dropdownlist
+        this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
+          console.log('Selected Term Value:', value);
+        });
 
 
-    // intialize Files form
+    // intialize Files Form
     this.FilesForm = this.fb.group(
       {
         FileName: ['',[Validators.required] ],
@@ -114,6 +113,7 @@ export class AdTopicComponent {
       }
     );
 
+    //Intialize File Links Form
     this.FileLinkForm = this.fb.group(
       {
         FileLinkName: ['',[Validators.required]],
@@ -121,12 +121,36 @@ export class AdTopicComponent {
       }
     );
 
+    // Intialize Questions Form
+    this.QuestionsForm = this.fb.group(
+      {
+        questionText: ['',[Validators.required]],
+
+        choice1: ['',[Validators.required]],
+        choice2: ['',[Validators.required]],
+        choice3: ['',[Validators.required]],
+        choice4: ['',[Validators.required]],
+
+        answer: ['',[Validators.required]],
+
+        attach_questions_image: ['']
+      }
+    );
+
+
+
+
   }
 
   // getter method for this control to do a validation
   get FileName() 
   {
     return this.FilesForm.get('FileName');
+  }
+  // getter method for this control to do a validation
+  get AttachQuestionImage() 
+  {
+    return this.QuestionsForm.get('attach_questions_image');
   }
 
 
@@ -298,10 +322,15 @@ export class AdTopicComponent {
    );
 
 
-
   }
 
 
+
+
+
+
+
+  // --------------------------------------------- FILES part --------------------------------------------
 
   Files: IFile[] =[];
   FilesForm!: FormGroup;
@@ -337,10 +366,14 @@ export class AdTopicComponent {
     // Reset the flag for subsequent form submissions
     this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
     this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+
+    this.File_Url='';
+
   }
 
-  FileLinkForm!: FormGroup;
+
   // 2 -- Add Link
+  FileLinkForm!: FormGroup;
   addFileLinkInMemory()
   {
     const newFile: IFile =
@@ -391,6 +424,9 @@ export class AdTopicComponent {
 
 
 
+
+
+  // ------------------------------------------ UPLOAD FILE
   uploadFile!: File | null;
   handleFileInput(files: FileList)
   {
@@ -427,16 +463,15 @@ export class AdTopicComponent {
 
     console.log("form data: ", this.uploadFile.name, this.uploadFile); //test
 
-    this.toast.warning({ detail:"Info", summary: " الرجاء انتظار رسالة تأكيد رفع الملف الخاص بكم", duration: 6000, position:'topCenter'});
+    this.toast.warning({ detail:"Info", summary: " الرجاء انتظار رسالة تأكيد رفع الملف الخاص بكم", sticky: true , position:'topCenter'});
 
     this.management_api_service.upload_new_file(formData).subscribe(
       { next: (res) => {
           console.log('File uploaded successfully:', res.url);
+          
           this.File_Url = res.url;
           
           this.uploadButtonClicked = true; // Set the flag to true when the uplaod button is clicked
-
-
         },
         error: (err) => {
           console.error('File upload failed:',err);
@@ -445,13 +480,12 @@ export class AdTopicComponent {
           console.log('Entred Complete');
 
           this.toast.success({ detail:"sucess", summary: "تم رفع الملف", duration: 2000, position:'topCenter'});
-
         }
       });
   }
 
 
-
+  // ------------------------------------------ DOWNLOAD FILE
   new_download()
   {
     console.log('entered download function');
@@ -483,7 +517,97 @@ export class AdTopicComponent {
   }
 
 
+
+
+
+
+
   
+  // ------------------------------------------- QUESTIONS Part -----------------------------------------
+
+  Questions: IQuestionModel[] =[];
+  QuestionsForm!: FormGroup;
+
+  // Add new Question in Questions List
+  add_Question_InMemory()
+  {
+
+    // if the user attached a file and did not upload it 
+    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
+    {
+      alert('الرجاء رفع ملف الصورة أولا'); 
+      return;
+    }
+    
+    const newQuestion: IQuestionModel =
+    {
+      QuestionText: this.QuestionsForm?.get('questionText')?.value,
+      Choice1: this.QuestionsForm?.get('choice1')?.value,
+      Choice2: this.QuestionsForm?.get('choice2')?.value,
+      Choice3: this.QuestionsForm?.get('choice3')?.value,
+      Choice4: this.QuestionsForm?.get('choice4')?.value,
+      Answer: this.QuestionsForm?.get('answer')?.value,
+
+      ImageUrl: this.File_Url
+    };
+    console.log("new Question: ", newQuestion);
+
+    this.Questions.push(newQuestion);
+    console.log("Questions list Length = ", this.Questions.length);
+
+    this.QuestionsForm.reset();
+
+    $('#add-ques-modal').modal('hide');
+
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة السؤال", duration: 2000, position:'topCenter'});
+    
+    
+    // Reset the flag for subsequent form submissions
+    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
+    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+    
+    this.File_Url='';
+
+  }
+
+  
+  // Delete Questions from memory
+  Pass_Selected_Question!: IQuestionModel;
+  SendQuestion_ToBeDeleted(question: IQuestionModel) // used to pass the file selected from the row of Files table  to the modal popup
+  {
+    this.Pass_Selected_Question = question;
+    console.log("1", this.Pass_Selected_Question); //test
+  }
+  deleteQuestion_InMemory()
+  {
+    console.log("2", this.Pass_Selected_Question); //test
+
+    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
+
+    if (index !== -1)
+    {
+      this.Questions.splice(index, 1);
+
+      console.log('Question deleted successfully');
+
+      $('#confirm-delete-ques-modal').modal('hide');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
