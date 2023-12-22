@@ -137,10 +137,29 @@ export class AdTopicComponent {
       }
     );
 
+    this.UpdateQuestionsForm = this.fb.group(
+      {
+        QuesText_update: ['',[Validators.required]],
+
+        Choice1_update: ['',[Validators.required]],
+        Choice2_update: ['',[Validators.required]],
+        Choice3_update: ['',[Validators.required]],
+        Choice4_update: ['',[Validators.required]],
+
+        Answer_update: ['',[Validators.required]],
+
+        //question_image_update: [''],
+
+        attach_questions_image_update: ['']
+      }
+    );
+
 
 
 
   }
+
+
 
   // getter method for this control to do a validation
   get FileName() 
@@ -152,6 +171,12 @@ export class AdTopicComponent {
   {
     return this.QuestionsForm.get('attach_questions_image');
   }
+  // getter method for this control to do a validation
+  get attach_questions_image_update() 
+  {
+    return this.UpdateQuestionsForm.get('attach_questions_image_update');
+  }
+
 
 
   // for displaying add/edit buttons
@@ -308,8 +333,9 @@ export class AdTopicComponent {
     console.log("newContent = ", this.new_content);
 
     console.log("test files passed: ", this.Files);
+    console.log("test questions passed: ", this.Questions)
 
-    this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files).subscribe(
+    this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files, this.Questions).subscribe(
      {
        next: (res) => {
 
@@ -386,12 +412,13 @@ export class AdTopicComponent {
     this.Files.push(newFile);
     console.log("files list", this.Files);
 
-    this.FilesForm.reset();
+    this.FileLinkForm.reset();
 
     $('#add-file-link-modal').modal('hide');
 
     this.toast.success({ detail:"sucess", summary: "تمت إضافة الرابط", duration: 2000, position:'topCenter'});
-    
+   
+    this.File_Url='';
   }
 
 
@@ -573,11 +600,30 @@ export class AdTopicComponent {
   
   // Delete Questions from memory
   Pass_Selected_Question!: IQuestionModel;
-  SendQuestion_ToBeDeleted(question: IQuestionModel) // used to pass the file selected from the row of Files table  to the modal popup
+  UpdateQuestionsForm!: FormGroup;
+  SendQuestion_ToModal(question: IQuestionModel) // used to pass the file selected from the row of Files table  to the modal popup
   {
     this.Pass_Selected_Question = question;
-    console.log("1", this.Pass_Selected_Question); //test
+
+    // Patch the form values with the selected question
+    this.UpdateQuestionsForm.patchValue({
+      QuesText_update: question.QuestionText,
+
+      Choice1_update: question.Choice1,
+      Choice3_update: question.Choice2,
+      Choice2_update: question.Choice3,
+      Choice4_update: question.Choice4,
+
+      Answer_update: question.Answer,
+
+      //question_image_update: question.ImageUrl    //check this
+    });
+
+    //test
+    console.log("1", this.Pass_Selected_Question); 
+
   }
+
   deleteQuestion_InMemory()
   {
     console.log("2", this.Pass_Selected_Question); //test
@@ -592,6 +638,58 @@ export class AdTopicComponent {
 
       $('#confirm-delete-ques-modal').modal('hide');
     }
+  }
+
+
+  getQuestionImageUrl(): any {
+    // Assuming this.Pass_Selected_Question is the current question
+    return this.Pass_Selected_Question ? this.Pass_Selected_Question.ImageUrl : '';
+  }
+  Update_Question_InMemory()
+  {
+    // if the user attached a file and did not upload it 
+    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
+    {
+      alert('الرجاء رفع ملف الصورة أولا'); 
+      return;
+    }
+
+    // Update the question properties with the form values
+    const updatedQuestion: IQuestionModel =
+    {
+      QuestionText: this.UpdateQuestionsForm?.get('QuesText_update')?.value,
+      Choice1: this.UpdateQuestionsForm?.get('Choice1_update')?.value,
+      Choice2: this.UpdateQuestionsForm?.get('Choice2_update')?.value,
+      Choice3: this.UpdateQuestionsForm?.get('Choice3_update')?.value,
+      Choice4: this.UpdateQuestionsForm?.get('Choice4_update')?.value,
+      Answer: this.UpdateQuestionsForm?.get('Answer_update')?.value,
+
+      ImageUrl: this.File_Url
+    };
+
+    // Find the index of the selected question in the array
+    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
+
+    if (index !== -1) {
+      // Update the question in the array
+      this.Questions[index] = updatedQuestion;
+
+      // Close the modal
+      $('#edit-ques-modal').modal('hide');
+    }
+
+    // Reset the form
+    this.UpdateQuestionsForm.reset();
+
+    this.toast.success({ detail:"sucess", summary: "تم تعديل السؤال", duration: 2000, position:'topCenter'});
+    
+    
+    // Reset the flag for subsequent form submissions
+    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
+    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+    
+    this.File_Url='';
+
   }
 
 
@@ -615,6 +713,8 @@ export class AdTopicComponent {
   // confirm(): is the MAIN submit form function in this page
   confirm ()
   {
+    console.log("confirm mehtod entered!");
+
     if( this.editorForm.invalid)
     {
       console.log("invalid FORM DATA");

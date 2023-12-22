@@ -168,6 +168,16 @@ namespace mobadir_API_1.Controllers
                 topicModel.new_topic.Files.Add(file);
             }
 
+            // ----- Add Questions
+            // iterate over the 'questions' collection and add each question to the database
+
+            topicModel.new_topic.Questions = new List<Models.Question>();
+
+            foreach (var ques in topicModel.passed_questions)
+            {
+                topicModel.new_topic.Questions.Add(ques);
+            }
+
             try
             {
                 _context.Topics.Add(topicModel.new_topic);
@@ -223,6 +233,7 @@ namespace mobadir_API_1.Controllers
         public Topic? new_topic { get; set; }
         public string? new_content { get; set; }
         public Models.File[] passed_files { get; set; }
+        public Question[] passed_questions { get; set; }
     }
 
 

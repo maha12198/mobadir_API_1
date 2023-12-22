@@ -16,12 +16,8 @@ namespace mobadir_API_1.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //[Column("id")]
         public int Id { get; set; }
         
-        //[Column("lookup_name")]
-        //[StringLength(100)]
-        //[Unicode(false)]
         [Column(TypeName = "nvarchar(50)")]
         public string? LookupName { get; set; }
 

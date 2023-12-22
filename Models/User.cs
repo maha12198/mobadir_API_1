@@ -39,14 +39,15 @@ namespace mobadir_API_1.Models
             set => Role = (int)value;
         } // access it using => user.UserRole.ToString();
 
-        [Column("updated_at", TypeName = "date")]
+        [Column("updated_at", TypeName = "datetime2")]
         public DateTime? UpdatedAt { get; set; }
 
-        //new 
         public string? Token { get; set; } = null!;
 
-        //new
         public DateTime? LastVisited { get; set; }
+
+
+
 
         [InverseProperty("CreatedByNavigation")]
         public virtual ICollection<Topic> Topics { get; set; }

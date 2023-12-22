@@ -5,6 +5,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
+import { IQuestionModel } from '../models/IQuestionModel';
 
 
 @Injectable({
@@ -94,14 +95,15 @@ export class ManagementService {
   
   
 
-  AddMainDataForTopic(newTopic: INewTopic, newContent: string, files: IFile[])
+  AddMainDataForTopic(newTopic: INewTopic, newContent: string, files: IFile[], questions: IQuestionModel[])
   {
     let input = 
     {
       //  attention: case sensitive to what is delcared in the api side
       new_topic: newTopic,
       new_content: newContent,
-      passed_files: files
+      passed_files: files,
+      passed_questions: questions
     }
   
     const url = `${Constants.api_url}/Topics1/AddTopic`;

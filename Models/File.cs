@@ -17,7 +17,8 @@ namespace mobadir_API_1.Models
         public string? Name { get; set; }
 
 
-        [Column(TypeName = "nvarchar(100)")]
+        //[Column(TypeName = "text")]
+        [Column(TypeName = "nvarchar(max)")]
         public string? FileUrl { get; set; }
         
         [Column("topic_id")]

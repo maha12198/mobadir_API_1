@@ -11,17 +11,14 @@ namespace mobadir_API_1.Models
     {
         public LookupValue()
         {
-            //Topics = new HashSet<Topic>();
+            
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //[Column("id")]
         public int Id { get; set; }
 
-        //[Column("lookup_value_name")]
-        //[StringLength(100)]
-        //[Unicode(false)]
+
         [Column(TypeName = "nvarchar(100)")]
         public string? LookupValueName { get; set; }
         
@@ -32,7 +29,6 @@ namespace mobadir_API_1.Models
         [InverseProperty("LookupValues")]
         public virtual Lookup? Lookup { get; set; }
         
-        //[InverseProperty("TermNavigation")]
-        //public virtual ICollection<Topic> Topics { get; set; }
+
     }
 }

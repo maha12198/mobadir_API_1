@@ -21,9 +21,7 @@ namespace mobadir_API_1.Models
             Files = new HashSet<File>();
             Questions = new HashSet<Question>();
 
-            // new
             CreatedAt = DateTime.Now;
-
             IsVisible = true;
         }
 
@@ -32,7 +30,7 @@ namespace mobadir_API_1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Column(TypeName = "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(max)")]
         public string Title { get; set; } = null!;
         
         [Column("is_visible")]
@@ -44,10 +42,12 @@ namespace mobadir_API_1.Models
         [Column("created_at", TypeName = "datetime2")]
         public DateTime? CreatedAt { get; set; }
         
-        [StringLength(200)]
+
+        [Column(TypeName = "nvarchar(max)")]
         public string? VideoUrl { get; set; }
 
         public int? Term { get; set; }
+
         // This property won't be mapped to the database
         // access it using => user.TopicTerm.ToString();
         [NotMapped] 
@@ -63,13 +63,8 @@ namespace mobadir_API_1.Models
         [Column("created_by")]
         public int? CreatedBy { get; set; }
 
-        //[Column("content_id")]
-        //public int? ContentId { get; set; }
-
-        //[ForeignKey("ContentId")]
         [InverseProperty("Topic")]
         public virtual TopicContent? Content { get; set; }
-
 
 
 
@@ -93,9 +88,5 @@ namespace mobadir_API_1.Models
         
         
         
-        
-        //[ForeignKey("Term")]
-        //[InverseProperty("Topics")]
-        //public virtual LookupValue? TermNavigation { get; set; }
     }
 }

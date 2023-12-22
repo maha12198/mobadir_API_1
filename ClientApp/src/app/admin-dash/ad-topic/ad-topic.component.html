@@ -171,7 +171,7 @@
                                             <!-- <th class="align-middle">1</th> -->
                                             <td class="align-middle smaller-font-size"> {{question.QuestionText}} </td>
                                             <td class="align-middle smaller-font-size">
-                                                <img src="../../../assets/images/logoSM.png" alt="" height="40px" width="40px">
+                                                <img *ngIf="question.ImageUrl" [src]=question.ImageUrl alt="question Image" height="40px" width="40px">
                                             </td>
                                             <td class="align-middle smaller-font-size"> {{question.Choice1}} </td>
                                             <td class="align-middle smaller-font-size"> {{question.Choice2}} </td>
@@ -180,9 +180,9 @@
                                             <td class="align-middle smaller-font-size"> {{question.Answer}} </td>
                                             <td>
                                                 <!-- Edit button -->
-                                                <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-ques-modal" class="btn btn-warning btn-lg px-3 mx-3" >
+                                                <input type="button" value="تعديل"  (click)="SendQuestion_ToModal(question)" data-toggle="modal" data-target="#edit-ques-modal" class="btn btn-warning btn-lg px-3 mx-3" >
                                                 <!-- Delete button -->
-                                                <input type="button" value="حذف" (click)="SendQuestion_ToBeDeleted(question)" data-toggle="modal" data-target="#confirm-delete-ques-modal" class="btn btn-danger btn-lg px-3 mx-3" >
+                                                <input type="button" value="حذف" (click)="SendQuestion_ToModal(question)" data-toggle="modal" data-target="#confirm-delete-ques-modal" class="btn btn-danger btn-lg px-3 mx-3" >
                                             </td>
                                         </tr>
                                     </tbody>
@@ -445,97 +445,101 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">تعديــــل الســــؤال </h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
+            <form [formGroup]="UpdateQuestionsForm" (ngSubmit)="Update_Question_InMemory()">
+                <!-- Modal body -->
+                <div class="modal-body">
 
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">نــص الســؤال</label>
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">نــص الســؤال</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <textarea formControlName="QuesText_update" class="form-control smaller-font-size" rows="3"></textarea>
+                        </div>
                     </div>
-                    <div class="col-md-10 mb-2">
-                        <textarea class="form-control smaller-font-size" rows="3"></textarea>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 1</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input formControlName="Choice1_update" type="text" class="form-control py-2 smaller-font-size">
+                        </div>
                     </div>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 2</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input formControlName="Choice2_update" type="text" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 3</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input formControlName="Choice3_update" type="text" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">اختيـــار 4</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <input formControlName="Choice4_update" type="text" class="form-control py-2 smaller-font-size">
+                        </div>
+                    </div>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">الإجــابـــة</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <select formControlName="Answer_update" class="custom-select dropdown-font-size mb-2">
+                                <option value="1" selected>اختيـــار 1</option>
+                                <option value="2">اختيـــار 2</option>
+                                <option value="3">اختيـــار 3</option>
+                                <option value="4">اختيـــار 4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label *ngIf="getQuestionImageUrl()" class="col-form-label">الصورة</label>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <img *ngIf="getQuestionImageUrl()" [src]="getQuestionImageUrl()" alt="question image in update"  class="question-image">
+                            
+                        </div>
+                    </div>
+                        
+                    <div class="form-row mb-4">
+                        <div class="col-md-2">
+                            <label class=" col-form-label">تغيير الصــورة</label>
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <input type="file" formControlName="attach_questions_image_update" class="form-control-file" (change)="handleFileInput($any($event.target).files)">
+                        </div>
+                        <div class="col-md-5">
+                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(attach_questions_image_update?.value)" class="btn btn-dark smaller-font-size" (click)="new_upload()">
+                                رفـع ملـف الصورة
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 1</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="UpdateQuestionsForm.invalid" class="btn btn-success btn-lg smaller-font-size">حفــــظ</button>
                 </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 2</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 3</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">اختيـــار 4</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">الإجــابـــة</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <select class="custom-select dropdown-font-size mb-2">
-                            <option selected>اختيـــار 1</option>
-                            <option value="1">اختيـــار 2</option>
-                            <option value="2">اختيـــار 3</option>
-                            <option value="3">اختيـــار 4</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                        <label class=" col-form-label">صورة</label>
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <img src="../../../assets/images/logoSM.png" alt=""  class="question-image">
-                         
-                    </div>
-                </div>
-                    
-                <div class="form-row mb-4">
-                    <div class="col-md-2">
-                    </div>
-                    <div class="col-md-10 mb-2">
-                        <label for="exampleFormControlFile2" class="btn btn-outline-dark btn-lg smaller-font-size">
-                            <i class="bi bi-card-image ml-2"></i>
-                            إختيـــار صورة جديدة
-                        </label>
-                        <input type="file" style="visibility: hidden;" class="form-control-file" id="exampleFormControlFile2">
-                    </div>
-                </div>
-
-
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">حفــــظ</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -14,14 +14,14 @@ namespace mobadir_API_1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         
-        [Column("content", TypeName = "text")]
+        [Column("content", TypeName = "nvarchar(max)")]
         public string? Content { get; set; }
 
-        // changed
         [Column("topic_id")]
         public int? TopicId { get; set; }
 
-        // changed
+
+
         [ForeignKey("TopicId")]
         [InverseProperty("Content")]
         public virtual Topic? Topic { get; set; }

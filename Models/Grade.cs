@@ -17,12 +17,8 @@ namespace mobadir_API_1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         
-        //[Column("is_visible")]
         public bool? IsVisible { get; set; }
 
-        //[Column("name")]
-        //[StringLength(50)]
-        //[Unicode(false)]
         [Column(TypeName = "nvarchar(50)")]
         public string Name { get; set; } = null!;
 

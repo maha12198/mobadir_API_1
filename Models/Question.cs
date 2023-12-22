@@ -12,27 +12,27 @@ namespace mobadir_API_1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Column(TypeName = "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(max)")]
         public string? QuestionText { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Choice1 { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Choice2 { get; set; }
         
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Choice3 { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Choice4 { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
         public string? Answer { get; set; }
 
 
-        [Column("image_url", TypeName = "nvarchar(100)")]
+        [Column("image_url", TypeName = "nvarchar(max)")]
         public string? ImageUrl { get; set; }
         
 

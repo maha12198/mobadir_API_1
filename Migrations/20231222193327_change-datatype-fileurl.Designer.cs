@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mobadir_API_1.Models;
 
@@ -11,9 +12,10 @@ using mobadir_API_1.Models;
 namespace mobadir_API_1.Migrations
 {
     [DbContext(typeof(Mobadr_DbContext))]
-    partial class Mobadr_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231222193327_change-datatype-fileurl")]
+    partial class changedatatypefileurl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace mobadir_API_1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("FileUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)");
@@ -202,23 +204,23 @@ namespace mobadir_API_1.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Choice1")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Choice2")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Choice3")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Choice4")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("nvarchar(100)")
                         .HasColumnName("image_url");
 
                     b.Property<string>("QuestionText")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("TopicId")
                         .HasColumnType("int")
@@ -358,14 +360,15 @@ namespace mobadir_API_1.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
 
                     b.Property<string>("VideoUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -379,7 +382,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 23, 0, 55, 30, 671, DateTimeKind.Utc).AddTicks(5936),
+                            CreatedAt = new DateTime(2023, 12, 22, 23, 33, 26, 715, DateTimeKind.Utc).AddTicks(6767),
                             CreatedBy = 4,
                             IsVisible = true,
                             SubjectId = 1,
@@ -389,7 +392,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 12, 23, 0, 55, 30, 671, DateTimeKind.Utc).AddTicks(5948),
+                            CreatedAt = new DateTime(2023, 12, 22, 23, 33, 26, 715, DateTimeKind.Utc).AddTicks(6936),
                             CreatedBy = 4,
                             IsVisible = true,
                             SubjectId = 1,
@@ -399,7 +402,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 12, 23, 0, 55, 30, 671, DateTimeKind.Utc).AddTicks(5960),
+                            CreatedAt = new DateTime(2023, 12, 22, 23, 33, 26, 715, DateTimeKind.Utc).AddTicks(6949),
                             CreatedBy = 4,
                             IsVisible = true,
                             SubjectId = 6,
@@ -409,7 +412,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 12, 23, 0, 55, 30, 671, DateTimeKind.Utc).AddTicks(5972),
+                            CreatedAt = new DateTime(2023, 12, 22, 23, 33, 26, 715, DateTimeKind.Utc).AddTicks(6961),
                             CreatedBy = 4,
                             IsVisible = true,
                             SubjectId = 6,
@@ -427,7 +430,7 @@ namespace mobadir_API_1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("text")
                         .HasColumnName("content");
 
                     b.Property<int?>("TopicId")
@@ -491,7 +494,7 @@ namespace mobadir_API_1.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("date")
                         .HasColumnName("updated_at");
 
                     b.Property<string>("Username")
