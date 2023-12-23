@@ -21,15 +21,15 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3">الصف الدراسي</label>
-                                    <select formControlName="selectedGrade" class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option *ngFor="let grade of Grades_List"> {{grade.name}} </option>
+                                    <select formControlName="selectedGrade" (change)="onSelectGradeChange()" class="custom-select dropdown-font-size w-75 mb-2">
+                                        <option *ngFor="let grade of Grades_List" [value]="grade.id"> {{grade.name}} </option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3"> المادة الدراسية</label>
                                     <select formControlName="selectedSubject"  class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option *ngFor="let subject of Subject_List"> {{subject.name}} </option>
+                                        <option *ngFor="let subject of Subject_List" [value]="subject.id"> {{subject.name}} </option>
                                     </select>
                                 </div>
 

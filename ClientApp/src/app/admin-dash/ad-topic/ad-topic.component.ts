@@ -4,8 +4,6 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import classicEditor from '@ckeditor/ckeditor5-build-classic'
 import {MyUploadAdapter} from '../../models/my-upload-adapter'
 
-import { ApiService } from '../../services/api.service';
-
 import { StoreUserService } from 'src/app/services/store-user.service';
 
 import { ActivatedRoute } from '@angular/router';
@@ -17,6 +15,7 @@ import { IFile } from 'src/app/models/IFile';
 import { NgToastService } from 'ng-angular-popup';
 import { IQuestionModel } from 'src/app/models/IQuestionModel';
 
+import { Router } from '@angular/router';
 
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
@@ -39,7 +38,8 @@ export class AdTopicComponent {
               private storeUserService : StoreUserService,
               private route: ActivatedRoute,
               private management_api_service: ManagementService,
-              private toast: NgToastService)
+              private toast: NgToastService,
+              private router: Router)
   {}
 
 
@@ -53,8 +53,12 @@ export class AdTopicComponent {
 
   answerToView!: string;
 
+  selectedGrade!: string;
+  Have_params: boolean = true; 
+
   ngOnInit()
   {
+    
 
     // Subscribe to the userId$ observable to get the user id
     this.storeUserService.userId$.subscribe((userId) =>
@@ -66,43 +70,81 @@ export class AdTopicComponent {
     });
 
 
+
+
     // get the subjectId and gradeId from route parameters (from grade page)
     this.route.params.subscribe((params) =>
     {
-      this.passed_grade_id = +params['gradeId'];
-      this.passed_subject_id = +params['subjectId'];
+      if (Object.keys(params).length > 0) 
+      {
+        this.Have_params = true;
+        console.log('this.Have_params =', this.Have_params);
 
-      console.log("Passed_grade_Id = ",this.passed_grade_id); //test
-      console.log("Passed_subject_Id = ",this.passed_subject_id); //test
+        this.passed_grade_id = +params['gradeId'];
+        this.passed_subject_id = +params['subjectId'];
+  
+        console.log("Passed_grade_Id = ",this.passed_grade_id); //test
+        console.log("Passed_subject_Id = ",this.passed_subject_id); //test
+
+
+        // -------------- do the data ppoulation for the dropdownlists
+        // get all grades to populate the grade dropdown
+        this.Get_All_Grades();
+        
+        // get all grades to populate the subject dropdown with respect to the grade
+        this.get_subjects_of_the_grade(this.passed_grade_id);
+        
+        // get the gradeName and subjectName from api by the subject id
+        //  =>  to auto select gradename and subjectname and make the dropdown of grade and subject disbled
+        this.GetDataToAddTopic(this.passed_subject_id);
+
+      }
+      else
+      {
+        console.log('Route does not have parameters.');
+
+        this.Have_params = false; 
+        console.log('this.Have_params =', this.Have_params);
+
+        // get all grades to populate the grade dropdown
+        this.Get_All_Grades();
+        this.get_subjects_of_the_grade(1);
+
+        // get subjects of the slected grade on chnage of grade dropdown with function
+
+      }
     });
 
-    // get all grades to populate the grade dropdown
-    this.Get_All_Grades();
-    // get all grades to populate the subject dropdown with respect to the grade
-    this.get_subjects_of_the_grade(this.passed_grade_id);
-    // get the gradeName and subjectName from api by the subject id
-    //  =>  to auto select gradename and subjectname and make the dropdown of grade and subject disbled
-    this.GetDataToAddTopic(this.passed_subject_id);
 
 
 
     // intialize main form
     this.editorForm = this.fb.group(
       {
-        selectedGrade: [{value: '' , disabled: false } ,[Validators.required]],
-        selectedSubject: [{value: '', disabled: false } ,[Validators.required]],
+        selectedGrade: [{value: 1 , disabled: false } ,[Validators.required]],
+        selectedSubject: [{value: 1, disabled: false } ,[Validators.required]],
         selectedTerm: [ 1 ,[Validators.required]],
         title: ['',[Validators.required] ],
         videoUrl: ['',[Validators.required] ],
 
-        body:['',[Validators.required]]
+        body:['']
       }
     );
 
-        // test value selected in term dropdownlist
-        this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => {
-          console.log('Selected Term Value:', value);
-        });
+          // get the value selected in grade dropdownlist
+          this.editorForm?.get('selectedGrade')?.valueChanges.subscribe((value) => 
+          {
+            console.log('Selected Grade Value:', value);
+
+            this.selectedGrade = this.editorForm?.get('selectedGrade')?.value;
+          });
+
+
+          // test value selected in term dropdownlist
+          this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => 
+          {
+            console.log('Selected Term Value:', value);
+          });
 
 
     // intialize Files Form
@@ -147,8 +189,6 @@ export class AdTopicComponent {
         Choice4_update: ['',[Validators.required]],
 
         Answer_update: ['',[Validators.required]],
-
-        //question_image_update: [''],
 
         attach_questions_image_update: ['']
       }
@@ -259,7 +299,7 @@ export class AdTopicComponent {
         {
           //console.log(res);
           this.Grades_List = res;
-          //console.log(this.Grades_List);
+          console.log(this.Grades_List);
         },
         error: (err) =>
         {
@@ -268,6 +308,18 @@ export class AdTopicComponent {
       }
     );
   }
+
+  onSelectGradeChange()
+  {
+    console.log('entered onSelectGrade function');
+
+    if (this.Have_params == false)
+    {
+      console.log("call subject by grade selected:");
+      this.get_subjects_of_the_grade(this.selectedGrade);
+    }
+  }
+
 
   Subject_List!: ISubject[];
   get_subjects_of_the_grade(grade_Id)
@@ -319,14 +371,30 @@ export class AdTopicComponent {
   new_content!: string;
   AddTopicMainData()
   {
-    this.newTopic =
+    if (this.Have_params == true)
     {
-      title: this.editorForm?.get('title')?.value,
-      videoUrl: this.editorForm?.get('videoUrl')?.value,
-      term: this.editorForm?.get('selectedTerm')?.value,
-      subjectId: this.passed_subject_id ,
-      createdBy: this.user_id,
-    };
+      this.newTopic =
+      {
+        title: this.editorForm?.get('title')?.value,
+        videoUrl: this.editorForm?.get('videoUrl')?.value,
+        term: this.editorForm?.get('selectedTerm')?.value,
+        subjectId: this.passed_subject_id ,
+        createdBy: this.user_id,
+      };
+    }
+
+    if (this.Have_params == false)
+    {
+      this.newTopic =
+      {
+        title: this.editorForm?.get('title')?.value,
+        videoUrl: this.editorForm?.get('videoUrl')?.value,
+        term: this.editorForm?.get('selectedTerm')?.value,
+        subjectId: this.editorForm?.get('selectedSubject')?.value, // should get it 
+        createdBy: this.user_id,
+      };
+    }
+    
     console.log("newTopic = ", this.newTopic);
 
     this.new_content = this.editorForm?.get('body')?.value
@@ -346,7 +414,6 @@ export class AdTopicComponent {
        }
      }
    );
-
 
   }
 
@@ -701,27 +768,36 @@ export class AdTopicComponent {
 
 
 
-
-
-
-
-
-
-
-
-
   // confirm(): is the MAIN submit form function in this page
   confirm ()
   {
-    console.log("confirm mehtod entered!");
+    console.log("confirm method entered!");
 
     if( this.editorForm.invalid)
     {
       console.log("invalid FORM DATA");
+    
+      this.toast.error({ detail:"Error", summary: "الرجاء ادخال بيانات الدرس", duration: 3000, position:'topCenter'});
+
       return;
     }
 
     this.AddTopicMainData();
+
+
+    this.editorForm.reset();
+
+    // navigate to the prev page
+    if (this.Have_params == true)
+    {
+      this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id]);
+    }
+    else if(this.Have_params == false)
+    {
+      this.router.navigate(['/admin-dash', this.user_id]);
+    }
+
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة الدرس", duration: 3000, position:'topCenter'});
 
   }
 
