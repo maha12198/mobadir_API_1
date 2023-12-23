@@ -83,7 +83,7 @@
                                     {{ topic.updatedAt }}
                                 </td>
                                 <td class="align-middle">
-                                    <input type="button" value="تعديل الدرس" routerLink="/admin-topic" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
+                                    <input type="button" value="تعديل الدرس" [routerLink]="['/admin-edit-topic', passed_grade_id, passed_subject_id, topic.id]" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
                             </tr>
                         </tbody>

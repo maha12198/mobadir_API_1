@@ -56,10 +56,16 @@ export class AdTopicComponent {
   selectedGrade!: string;
   Have_params: boolean = true; 
 
-  ngOnInit()
-  {
-    
+  
+  // for displaying add/edit buttons
+  edit: boolean = false;
+  add: boolean = true;
 
+  passed_topic_id!: number;
+
+  ngOnInit()
+  {  
+    
     // Subscribe to the userId$ observable to get the user id
     this.storeUserService.userId$.subscribe((userId) =>
     {
@@ -68,7 +74,6 @@ export class AdTopicComponent {
         console.log("Passed user id = ", this.user_id);
       }
     });
-
 
 
 
@@ -82,9 +87,24 @@ export class AdTopicComponent {
 
         this.passed_grade_id = +params['gradeId'];
         this.passed_subject_id = +params['subjectId'];
-  
+        this.passed_topic_id = +params['topicId'];
+
         console.log("Passed_grade_Id = ",this.passed_grade_id); //test
         console.log("Passed_subject_Id = ",this.passed_subject_id); //test
+        console.log("Passed_topic_Id = ",this.passed_topic_id); //test
+
+        // intialize main form
+        this.editorForm = this.fb.group(
+          {
+            selectedGrade: [{value: '' , disabled: false } ,[Validators.required]],
+            selectedSubject: [{value: '', disabled: false } ,[Validators.required]],
+            selectedTerm: [ 1 ,[Validators.required]],
+            title: ['',[Validators.required] ],
+            videoUrl: [''],
+    
+            body:['']
+          }
+        );
 
 
         // -------------- do the data ppoulation for the dropdownlists
@@ -106,45 +126,66 @@ export class AdTopicComponent {
         this.Have_params = false; 
         console.log('this.Have_params =', this.Have_params);
 
+        // intialize main form
+        this.editorForm = this.fb.group(
+          {
+            selectedGrade: [{value: 1 , disabled: false } ,[Validators.required]],
+            selectedSubject: [{value: 1, disabled: false } ,[Validators.required]],
+            selectedTerm: [ 1 ,[Validators.required]],
+            title: ['',[Validators.required] ],
+            videoUrl: [''],
+    
+            body:['']
+          }
+        );
+  
+            // get the value selected in grade dropdownlist
+            this.editorForm?.get('selectedGrade')?.valueChanges.subscribe((value) => 
+            {
+              console.log('Selected Grade Value:', value);
+  
+              this.selectedGrade = this.editorForm?.get('selectedGrade')?.value;
+            });
+      
+
         // get all grades to populate the grade dropdown
         this.Get_All_Grades();
-        this.get_subjects_of_the_grade(1);
+        // onSelectGradeChange - call this function on the chnage of grade and the get_subjects_of_the_grade is called inside it 
+        this.get_subjects_of_the_grade(1); // default value at first intialization only
 
-        // get subjects of the slected grade on chnage of grade dropdown with function
 
       }
     });
 
 
-
-
-    // intialize main form
-    this.editorForm = this.fb.group(
-      {
-        selectedGrade: [{value: 1 , disabled: false } ,[Validators.required]],
-        selectedSubject: [{value: 1, disabled: false } ,[Validators.required]],
-        selectedTerm: [ 1 ,[Validators.required]],
-        title: ['',[Validators.required] ],
-        videoUrl: ['',[Validators.required] ],
-
-        body:['']
-      }
-    );
-
-          // get the value selected in grade dropdownlist
-          this.editorForm?.get('selectedGrade')?.valueChanges.subscribe((value) => 
-          {
-            console.log('Selected Grade Value:', value);
-
-            this.selectedGrade = this.editorForm?.get('selectedGrade')?.value;
-          });
-
-
           // test value selected in term dropdownlist
-          this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => 
-          {
-            console.log('Selected Term Value:', value);
-          });
+          // this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => 
+          // {
+          //   console.log('Selected Term Value:', value);
+          // });
+
+
+
+    // ---------------------- populate data of topic in editor form (EDIT) ---------------------
+    // Access the route snapshot to get the current path
+    const currentPath = this.route.snapshot.routeConfig?.path;
+    //console.log(currentPath); // test
+
+    // Check if the current path is 'admin-edit-topic'
+    if (currentPath == 'admin-edit-topic/:gradeId/:subjectId/:topicId') 
+    {
+      console.log('Edit topic');
+      this.edit = true;
+      this.add = false;
+      console.log('edit', this.edit, 'add', this.add);
+
+      // call function to get topic id data and populate the form with the data
+      this.GetDataOfTopicToEdit(this.passed_topic_id);
+    }
+
+
+   
+ 
 
 
     // intialize Files Form
@@ -196,7 +237,6 @@ export class AdTopicComponent {
 
 
 
-
   }
 
 
@@ -219,9 +259,6 @@ export class AdTopicComponent {
 
 
 
-  // for displaying add/edit buttons
-  edit: boolean = false;
-  add: boolean = true;
 
 
   // -------------------------- CKeditor -----------------------
@@ -309,6 +346,7 @@ export class AdTopicComponent {
     );
   }
 
+  // In Add new Topic form Sidebar, change subject list based on the grade selected
   onSelectGradeChange()
   {
     console.log('entered onSelectGrade function');
@@ -365,57 +403,8 @@ export class AdTopicComponent {
    );
   }
 
-  // ---------------- Add new Topic (Submit button) ------------------
-  newTopic!: INewTopic;
-  topic_id!:number;
-  new_content!: string;
-  AddTopicMainData()
-  {
-    if (this.Have_params == true)
-    {
-      this.newTopic =
-      {
-        title: this.editorForm?.get('title')?.value,
-        videoUrl: this.editorForm?.get('videoUrl')?.value,
-        term: this.editorForm?.get('selectedTerm')?.value,
-        subjectId: this.passed_subject_id ,
-        createdBy: this.user_id,
-      };
-    }
 
-    if (this.Have_params == false)
-    {
-      this.newTopic =
-      {
-        title: this.editorForm?.get('title')?.value,
-        videoUrl: this.editorForm?.get('videoUrl')?.value,
-        term: this.editorForm?.get('selectedTerm')?.value,
-        subjectId: this.editorForm?.get('selectedSubject')?.value, // should get it 
-        createdBy: this.user_id,
-      };
-    }
-    
-    console.log("newTopic = ", this.newTopic);
 
-    this.new_content = this.editorForm?.get('body')?.value
-    console.log("newContent = ", this.new_content);
-
-    console.log("test files passed: ", this.Files);
-    console.log("test questions passed: ", this.Questions)
-
-    this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files, this.Questions).subscribe(
-     {
-       next: (res) => {
-
-          console.log("Topic Added!");
-       },
-       error: (err) => {
-         console.error('Error in adding Topic Main Data:', err);
-       }
-     }
-   );
-
-  }
 
 
 
@@ -635,14 +624,14 @@ export class AdTopicComponent {
     
     const newQuestion: IQuestionModel =
     {
-      QuestionText: this.QuestionsForm?.get('questionText')?.value,
-      Choice1: this.QuestionsForm?.get('choice1')?.value,
-      Choice2: this.QuestionsForm?.get('choice2')?.value,
-      Choice3: this.QuestionsForm?.get('choice3')?.value,
-      Choice4: this.QuestionsForm?.get('choice4')?.value,
-      Answer: this.QuestionsForm?.get('answer')?.value,
+      questionText: this.QuestionsForm?.get('questionText')?.value,
+      choice1: this.QuestionsForm?.get('choice1')?.value,
+      choice2: this.QuestionsForm?.get('choice2')?.value,
+      choice3: this.QuestionsForm?.get('choice3')?.value,
+      choice4: this.QuestionsForm?.get('choice4')?.value,
+      answer: this.QuestionsForm?.get('answer')?.value,
 
-      ImageUrl: this.File_Url
+      imageUrl: this.File_Url
     };
     console.log("new Question: ", newQuestion);
 
@@ -674,14 +663,14 @@ export class AdTopicComponent {
 
     // Patch the form values with the selected question
     this.UpdateQuestionsForm.patchValue({
-      QuesText_update: question.QuestionText,
+      QuesText_update: question.questionText,
 
-      Choice1_update: question.Choice1,
-      Choice3_update: question.Choice2,
-      Choice2_update: question.Choice3,
-      Choice4_update: question.Choice4,
+      Choice1_update: question.choice1,
+      Choice3_update: question.choice2,
+      Choice2_update: question.choice3,
+      Choice4_update: question.choice4,
 
-      Answer_update: question.Answer,
+      Answer_update: question.answer,
 
       //question_image_update: question.ImageUrl    //check this
     });
@@ -710,7 +699,7 @@ export class AdTopicComponent {
 
   getQuestionImageUrl(): any {
     // Assuming this.Pass_Selected_Question is the current question
-    return this.Pass_Selected_Question ? this.Pass_Selected_Question.ImageUrl : '';
+    return this.Pass_Selected_Question ? this.Pass_Selected_Question.imageUrl : '';
   }
   Update_Question_InMemory()
   {
@@ -724,14 +713,14 @@ export class AdTopicComponent {
     // Update the question properties with the form values
     const updatedQuestion: IQuestionModel =
     {
-      QuestionText: this.UpdateQuestionsForm?.get('QuesText_update')?.value,
-      Choice1: this.UpdateQuestionsForm?.get('Choice1_update')?.value,
-      Choice2: this.UpdateQuestionsForm?.get('Choice2_update')?.value,
-      Choice3: this.UpdateQuestionsForm?.get('Choice3_update')?.value,
-      Choice4: this.UpdateQuestionsForm?.get('Choice4_update')?.value,
-      Answer: this.UpdateQuestionsForm?.get('Answer_update')?.value,
+      questionText: this.UpdateQuestionsForm?.get('QuesText_update')?.value,
+      choice1: this.UpdateQuestionsForm?.get('Choice1_update')?.value,
+      choice2: this.UpdateQuestionsForm?.get('Choice2_update')?.value,
+      choice3: this.UpdateQuestionsForm?.get('Choice3_update')?.value,
+      choice4: this.UpdateQuestionsForm?.get('Choice4_update')?.value,
+      answer: this.UpdateQuestionsForm?.get('Answer_update')?.value,
 
-      ImageUrl: this.File_Url
+      imageUrl: this.File_Url
     };
 
     // Find the index of the selected question in the array
@@ -764,6 +753,147 @@ export class AdTopicComponent {
 
 
 
+  
+  // ---------------- Add new Topic (Submit button) ------------------
+  newTopic!: INewTopic;
+  //topic_id!:number;
+  new_content!: string;
+  AddTopicMainData()
+  {
+    if (this.Have_params == true)
+    {
+      this.newTopic =
+      {
+        title: this.editorForm?.get('title')?.value,
+        videoUrl: this.editorForm?.get('videoUrl')?.value,
+        term: this.editorForm?.get('selectedTerm')?.value,
+        subjectId: this.passed_subject_id ,
+        createdBy: this.user_id,
+      };
+    }
+
+    if (this.Have_params == false)
+    {
+      this.newTopic =
+      {
+        title: this.editorForm?.get('title')?.value,
+        videoUrl: this.editorForm?.get('videoUrl')?.value,
+        term: this.editorForm?.get('selectedTerm')?.value,
+        subjectId: this.editorForm?.get('selectedSubject')?.value, // should get it 
+        createdBy: this.user_id,
+      };
+    }
+    
+    console.log("newTopic = ", this.newTopic);
+
+    this.new_content = this.editorForm?.get('body')?.value
+    console.log("newContent = ", this.new_content);
+
+    console.log("test files passed: ", this.Files);
+    console.log("test questions passed: ", this.Questions)
+
+    this.management_api_service.AddMainDataForTopic(this.newTopic, this.new_content, this.Files, this.Questions).subscribe(
+     {
+       next: (res) => {
+          console.log("Topic Added!");
+          this.toast.success({ detail:"sucess", summary: "تمت إضافة الدرس", duration: 3000, position:'topCenter'});
+       },
+       error: (err) => {
+         console.error('Error in adding Topic Main Data:', err);
+       }
+     }
+   );
+
+  }
+
+
+
+
+
+
+
+  // ----------------------------------------- Edit Topic ----------------------------------------
+
+  Fetchedtopic;
+  GetDataOfTopicToEdit(topic_id)
+  {
+    console.log('Entered GetDataOfTopicToEdit to get Edit Topic Data, Topic_id passed to the method = ', topic_id);
+
+    this.management_api_service.GetDataToEditTopic(topic_id).subscribe(
+      { next: (res) => {
+          console.log('Data of Topic Fetched successfully:', res);
+          
+          this.Fetchedtopic = res;
+          console.log('Topic fetched: ', this.Fetchedtopic);
+
+          this.Files = res.files;
+          this.Questions = res.questions;
+          
+          
+          console.log('Patch Editor Form Values is here')
+          // Patch the form values with the topic data
+          this.editorForm.patchValue({
+            selectedTerm: this.Fetchedtopic.term,
+            title: this.Fetchedtopic.title,
+            videoUrl: this.Fetchedtopic.videoUrl,
+            
+            body: this.Fetchedtopic.content.content,
+          });
+          
+        },
+        error: (err) => {
+          console.error('Error in fetching topic data:',err);
+        }
+      });
+  }
+
+
+
+
+
+  //editTopic!: IEditTopic;
+  //editTopic!: INewTopic;
+  editTopic;
+  editContent!: string;
+  EditTopic()
+  {
+    console.log('Entered EditTopic function, Topic_id passed to the method = ', this.passed_topic_id);
+
+    this.editTopic = this.Fetchedtopic;
+    console.log('this.editTopic = ',this.editTopic);
+    //console.log('this.fetchedTopic = ',this.Fetchedtopic);
+
+
+    this.editTopic.title = this.editorForm?.get('title')?.value;
+    this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value;
+    this.editTopic.term = this.editorForm?.get('selectedTerm')?.value;
+    this.editTopic.content.content = this.editorForm?.get('body')?.value;
+    this.editTopic.files = this.Files;
+    this.editTopic.questions = this.Questions;
+
+    console.log("editTopic = ", this.editTopic);
+
+    this.management_api_service.EditTopic(this.passed_topic_id, this.editTopic).subscribe(
+     {
+       next: (res) => {
+          console.log(res.message);
+          console.log("Topic Edited!");
+          this.toast.success({ detail:"sucess", summary: "تم تعديل الدرس", duration: 3000, position:'topCenter'});
+       },
+       error: (err) => {
+         console.error('Error in editting Topic Main Data:', err);
+       }
+     }
+   );
+   
+
+  }
+
+
+
+
+
+
 
 
 
@@ -782,22 +912,38 @@ export class AdTopicComponent {
       return;
     }
 
-    this.AddTopicMainData();
 
-
-    this.editorForm.reset();
-
-    // navigate to the prev page
-    if (this.Have_params == true)
+    if (this.add == true)
     {
-      this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id]);
+      // -------- Add -------------
+      this.AddTopicMainData();
+  
+      this.editorForm.reset();
+  
+      // navigate to the prev page
+      if (this.Have_params == true)
+      {
+        this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id]);
+      }
+      else if(this.Have_params == false)
+      {
+        this.router.navigate(['/admin-dash', this.user_id]);
+      }
+  
     }
-    else if(this.Have_params == false)
+    else if ( this.edit == true )
     {
-      this.router.navigate(['/admin-dash', this.user_id]);
+      // -------- Edit -------------
+      
+      this.EditTopic();
+  
+      this.editorForm.reset();
+  
+      // navigate to the prev page
+      this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id], { skipLocationChange: true });
+    
     }
 
-    this.toast.success({ detail:"sucess", summary: "تمت إضافة الدرس", duration: 3000, position:'topCenter'});
 
   }
 

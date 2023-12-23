@@ -6,6 +6,8 @@ import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
 import { IQuestionModel } from '../models/IQuestionModel';
+import { ITopic } from '../models/ITopic';
+import { IEditTopic } from '../models/IEditTopic';
 
 
 @Injectable({
@@ -83,7 +85,7 @@ export class ManagementService {
 
   
   
-  // ------------------------ All Topics Page ------------------------
+  // ------------------------ Add Topic Page ------------------------
   // get data needed to add topic from inside the all topics page ( grade and subject should be known and selected )
   GetDataToAddTopic(subject_id: number)
   {
@@ -151,5 +153,28 @@ export class ManagementService {
   {
     return this.http.get(fileUrl, { responseType: 'blob' });
   }
+
+
+
+  // ------------------ Edit Topic Page -----------------------
+  GetDataToEditTopic(topic_id: number)
+  {
+    const url = `${Constants.api_url}/Topics1/Get_EditTopic_Data/${topic_id}`;
+
+    return this.http.get<any>(url);
+  }
+
+
+  EditTopic(topic_id: number, topic_data)
+  {
+    const url = `${Constants.api_url}/Topics1/${topic_id}`;
+
+    return this.http.put<any>(url, topic_data);
+  }
+
+ 
+
+
+
 
 }

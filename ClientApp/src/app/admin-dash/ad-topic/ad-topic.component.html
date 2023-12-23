@@ -20,16 +20,28 @@
                             <div class="form-row mb-3">
 
                                 <div class="col-md-4 mb-3">
+
                                     <label class=" blue-text ml-3">الصف الدراسي</label>
                                     <select formControlName="selectedGrade" (change)="onSelectGradeChange()" class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option *ngFor="let grade of Grades_List" [value]="grade.id"> {{grade.name}} </option>
+                                        <ng-container *ngIf="Have_params">
+                                            <option *ngFor="let grade of Grades_List" > {{grade.name}} </option>
+                                        </ng-container>
+                                        <ng-container *ngIf="!Have_params">
+                                            <option *ngFor="let grade of Grades_List" [value]="grade.id"> {{grade.name}} </option>
+                                        </ng-container>                                        
                                     </select>
+                    
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class=" blue-text ml-3"> المادة الدراسية</label>
                                     <select formControlName="selectedSubject"  class="custom-select dropdown-font-size w-75 mb-2">
-                                        <option *ngFor="let subject of Subject_List" [value]="subject.id"> {{subject.name}} </option>
+                                        <ng-container *ngIf="Have_params">
+                                            <option *ngFor="let subject of Subject_List" > {{subject.name}} </option>
+                                        </ng-container>
+                                        <ng-container *ngIf="!Have_params">
+                                            <option *ngFor="let subject of Subject_List" [value]="subject.id" > {{subject.name}} </option>
+                                        </ng-container>
                                     </select>
                                 </div>
 
@@ -80,7 +92,7 @@
                                     [editor]="Editor"
                                     [config]="editorConfig"
                                     (ready)="onReady($event)">
-                                </ckeditor>
+                                 </ckeditor>
                             </div>
                         </div>
                     </div>
@@ -170,15 +182,15 @@
                                     <tbody>
                                         <tr *ngFor="let question of Questions">
                                             <!-- <th class="align-middle">1</th> -->
-                                            <td class="align-middle smaller-font-size"> {{question.QuestionText}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.questionText}} </td>
                                             <td class="align-middle smaller-font-size">
-                                                <img *ngIf="question.ImageUrl" [src]=question.ImageUrl alt="question Image" height="40px" width="40px">
+                                                <img *ngIf="question.imageUrl" [src]=question.imageUrl alt="question Image" height="40px" width="40px">
                                             </td>
-                                            <td class="align-middle smaller-font-size"> {{question.Choice1}} </td>
-                                            <td class="align-middle smaller-font-size"> {{question.Choice2}} </td>
-                                            <td class="align-middle smaller-font-size"> {{question.Choice3}} </td>
-                                            <td class="align-middle smaller-font-size"> {{question.Choice4}}  </td>
-                                            <td class="align-middle smaller-font-size"> {{question.Answer}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.choice1}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.choice2}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.choice3}} </td>
+                                            <td class="align-middle smaller-font-size"> {{question.choice4}}  </td>
+                                            <td class="align-middle smaller-font-size"> {{question.answer}} </td>
                                             <td>
                                                 <!-- Edit button -->
                                                 <input type="button" value="تعديل"  (click)="SendQuestion_ToModal(question)" data-toggle="modal" data-target="#edit-ques-modal" class="btn btn-warning btn-lg px-3 mx-3" >
@@ -199,7 +211,7 @@
             <!-- buttons  -->
             <div class="row profile mb-5 ">
                 <div class="col d-flex justify-content-center">
-                    <button class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="edit">حفــــــــــظ</button>
+                    <button [disabled]="editorForm.invalid" class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="edit">حفــــــــــظ</button>
                     <button [disabled]="editorForm.invalid" class="btn btn-primary btn-lg btn-admin" type="submit" *ngIf="add" >إضافــــة الـــــدرس</button>
                 </div>
             </div>

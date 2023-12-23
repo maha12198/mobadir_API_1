@@ -14,9 +14,9 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddControllers();
-        //.AddJsonOptions(x =>
-                //x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+        builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+       
 
         // dbcontext injection
         var connectionString = builder.Configuration.GetConnectionString("MobadrDB");

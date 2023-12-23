@@ -193,12 +193,121 @@ namespace mobadir_API_1.Controllers
         }
 
 
+        // ------------------------------------- Edit Topic -----------------------------
+        // ------------------------------ Get Topic Data
+        // GET: api/Topics1/Get_EditTopic_Data/{id}
+        [HttpGet("Get_EditTopic_Data/{topic_id}")]
+        public async Task<ActionResult<EditTopicDataModel>> GetEditDataForTopic(int topic_id)
+        {
+            var topic = await _context.Topics.Where(t=>t.Id == topic_id).Include(t=>t.Content).Include(t=>t.Files).Include(t=>t.Questions).FirstOrDefaultAsync();
+
+            if (topic == null)
+            {
+                return NotFound("No topic found with this topic id");
+            }
+
+            return Ok(topic);
+        }
+
+
+
+
+        // PUT: api/Topics/{topic_id}
+        [HttpPut("{topic_id}")]
+        public async Task<IActionResult> PutTopic(int topic_id, [FromBody] Topic topic)
+        {
+            if (topic_id != topic.Id)
+            {
+                return BadRequest("topic_id does not match the topic id to be updated");
+            }
+
+            // Update the topic in the database
+            //_context.Entry(topic).State = EntityState.Modified;
+
+            // Retrieve the existing topic including related entities
+            var existingTopic = await _context.Topics
+                .Include(t=>t.Content)
+                .Include(t => t.Files)
+                .Include(t => t.Questions)
+                .FirstOrDefaultAsync(t => t.Id == topic_id);
+
+            if (existingTopic == null)
+            {
+                return NotFound("No topic was found with this id");
+            }
+
+            // Update the properties of the existing topic
+            _context.Entry(existingTopic).CurrentValues.SetValues(topic);
+
+            // Update related entities
+           
+            // Update Files
+            foreach (var existingFile in existingTopic.Files.ToList())
+            {
+                var updatedFile = topic.Files.FirstOrDefault(f => f.Id == existingFile.Id);
+                if (updatedFile != null)
+                {
+                    _context.Entry(existingFile).CurrentValues.SetValues(updatedFile);
+                }
+                else
+                {
+                    // File has been removed in the updated topic, so remove it
+                    _context.Files.Remove(existingFile);
+                }
+            }
+            // Add new Files
+            foreach (var newFile in topic.Files.Where(f => f.Id == 0))
+            {
+                existingTopic.Files.Add(newFile);
+            }
+
+            // Update Questions
+            foreach (var existingQuestion in existingTopic.Questions.ToList())
+            {
+                var updatedQuestion = topic.Questions.FirstOrDefault(f => f.Id == existingQuestion.Id);
+                if (updatedQuestion != null)
+                {
+                    _context.Entry(existingQuestion).CurrentValues.SetValues(updatedQuestion);
+                }
+                else
+                {
+                    // File has been removed in the updated topic, so remove it
+                    _context.Questions.Remove(existingQuestion);
+                }
+            }
+            // Add new Files
+            foreach (var newQuestion in topic.Questions.Where(f => f.Id == 0))
+            {
+                existingTopic.Questions.Add(newQuestion);
+            }
+
+
+
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TopicExists(topic_id))
+                {
+                    return NotFound("No topic was found with this id");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(new { message = "Topic Updated Sucessfully!" });
+        }
+
         
 
 
 
 
-      
 
 
 
@@ -213,7 +322,10 @@ namespace mobadir_API_1.Controllers
 
 
 
-      
+
+
+
+
     }
 
     public class TopicUpdateModel
@@ -236,6 +348,31 @@ namespace mobadir_API_1.Controllers
         public Question[] passed_questions { get; set; }
     }
 
+    public class EditTopicDataModel
+    {
+        //public int Term { get; set; }
+        //public string Title { get; set; }
+        //public string VideoUrl { get; set; }
+        public Topic Topic { get; set; }
 
-    
+        public TopicContent Content { get; set; }
+        
+        public List<Models.File> Files { get; set; }
+        public List<Question> Questions { get; set; }
+    }
+
+
+    //public class EditTopicModel
+    //{
+    //    public EditTopicModel(int id, string new_Username)
+    //    {
+    //        Id = id;
+    //        //New_Username = new_Username;
+    //    }
+
+    //    public int Id { get; set; }
+    //    public string New_Username { get; set; }
+    //}
+
+
 }

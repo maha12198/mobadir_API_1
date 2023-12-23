@@ -1,13 +1,13 @@
 export interface IQuestionModel 
 {
-    QuestionText?: string;
+    questionText?: string;
 
-    Choice1?: string; 
-    Choice2?: string; 
-    Choice3?: string; 
-    Choice4?: string; 
+    choice1?: string; 
+    choice2?: string; 
+    choice3?: string; 
+    choice4?: string; 
 
-    Answer?: string; 
+    answer?: string; 
     
-    ImageUrl?: string;
+    imageUrl?: string;
 }
