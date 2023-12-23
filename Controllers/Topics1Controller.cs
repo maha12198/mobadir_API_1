@@ -21,7 +21,6 @@ namespace mobadir_API_1.Controllers
         }
 
 
-
         // -------------------------- Get All Topics of the selected Subject ---------------------
         // GET: api/Topics1/GetAllTopics/{subject_id}
         [HttpGet]
@@ -98,7 +97,6 @@ namespace mobadir_API_1.Controllers
                     throw;
                 }
             }
-
             return Ok();
         }
 
@@ -119,7 +117,6 @@ namespace mobadir_API_1.Controllers
             {
                 return BadRequest("passed subject id is null!");
             }
-
             var infoToAddTopic = await _context.Subjects
                                       .Where(t => t.Id == subject_id)
                                       .Include(u => u.Grade)
@@ -129,12 +126,10 @@ namespace mobadir_API_1.Controllers
                                           GradeName = subject.Grade.Name
                                       })
                                       .FirstOrDefaultAsync();
-
             if (infoToAddTopic == null)
             {
                 NotFound("no data was found");
             }
-
             return Ok(infoToAddTopic);
         }
 
@@ -157,12 +152,9 @@ namespace mobadir_API_1.Controllers
             // Associate content with the topic
             topicModel.new_topic.Content = topicContent;
 
-
             // ----- Add Files
             // iterate over the 'files' collection and add each file to the database
-
             topicModel.new_topic.Files = new List<Models.File>();
-
             foreach (var file in topicModel.passed_files)
             {
                 topicModel.new_topic.Files.Add(file);
@@ -170,14 +162,11 @@ namespace mobadir_API_1.Controllers
 
             // ----- Add Questions
             // iterate over the 'questions' collection and add each question to the database
-
             topicModel.new_topic.Questions = new List<Models.Question>();
-
             foreach (var ques in topicModel.passed_questions)
             {
                 topicModel.new_topic.Questions.Add(ques);
             }
-
             try
             {
                 _context.Topics.Add(topicModel.new_topic);
@@ -200,12 +189,10 @@ namespace mobadir_API_1.Controllers
         public async Task<ActionResult<EditTopicDataModel>> GetEditDataForTopic(int topic_id)
         {
             var topic = await _context.Topics.Where(t=>t.Id == topic_id).Include(t=>t.Content).Include(t=>t.Files).Include(t=>t.Questions).FirstOrDefaultAsync();
-
             if (topic == null)
             {
                 return NotFound("No topic found with this topic id");
             }
-
             return Ok(topic);
         }
 
@@ -221,16 +208,12 @@ namespace mobadir_API_1.Controllers
                 return BadRequest("topic_id does not match the topic id to be updated");
             }
 
-            // Update the topic in the database
-            //_context.Entry(topic).State = EntityState.Modified;
-
             // Retrieve the existing topic including related entities
             var existingTopic = await _context.Topics
                 .Include(t=>t.Content)
                 .Include(t => t.Files)
                 .Include(t => t.Questions)
                 .FirstOrDefaultAsync(t => t.Id == topic_id);
-
             if (existingTopic == null)
             {
                 return NotFound("No topic was found with this id");
@@ -240,7 +223,6 @@ namespace mobadir_API_1.Controllers
             _context.Entry(existingTopic).CurrentValues.SetValues(topic);
 
             // Update related entities
-           
             // Update Files
             foreach (var existingFile in existingTopic.Files.ToList())
             {
@@ -260,7 +242,6 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Files.Add(newFile);
             }
-
             // Update Questions
             foreach (var existingQuestion in existingTopic.Questions.ToList())
             {
@@ -280,7 +261,6 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Questions.Add(newQuestion);
             }
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -296,17 +276,10 @@ namespace mobadir_API_1.Controllers
                     throw;
                 }
             }
-
             return Ok(new { message = "Topic Updated Sucessfully!" });
         }
 
         
-
-
-
-
-
-
 
 
 
@@ -347,29 +320,13 @@ namespace mobadir_API_1.Controllers
 
     public class EditTopicDataModel
     {
-        //public int Term { get; set; }
-        //public string Title { get; set; }
-        //public string VideoUrl { get; set; }
         public Topic Topic { get; set; }
-
         public TopicContent Content { get; set; }
-        
         public List<Models.File> Files { get; set; }
         public List<Question> Questions { get; set; }
     }
 
 
-    //public class EditTopicModel
-    //{
-    //    public EditTopicModel(int id, string new_Username)
-    //    {
-    //        Id = id;
-    //        //New_Username = new_Username;
-    //    }
-
-    //    public int Id { get; set; }
-    //    public string New_Username { get; set; }
-    //}
 
 
 }

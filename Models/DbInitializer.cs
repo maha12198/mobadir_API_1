@@ -50,20 +50,53 @@ namespace mobadir_API_1.Models
 
             // seeding data to topic table
             modelBuilder.Entity<Topic>().HasData(
-                new Topic { Id = 1, Title = "درس1", IsVisible = true, Term = 1,SubjectId = 1 , CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) },
-                new Topic { Id = 2, Title = "دررس", IsVisible = true, Term = 2,SubjectId = 1, CreatedBy = 4 , CreatedAt = DateTime.UtcNow.AddHours(4) },
+                new Topic { Id = 1, Title = "درس1", IsVisible = true, Term = 1,SubjectId = 1 , CreatedBy = 1 },
+                new Topic { Id = 2, Title = "درس2", IsVisible = true, Term = 2,SubjectId = 1, CreatedBy = 1 },
 
-                new Topic { Id = 3, Title = "درس2", IsVisible = true, Term = 1, SubjectId = 6, CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) },
-                new Topic { Id = 4, Title = "درس3", IsVisible = true, Term = 2, SubjectId = 6, CreatedBy = 4, CreatedAt = DateTime.UtcNow.AddHours(4) }
+                new Topic { Id = 3, Title = "درس3", IsVisible = true, Term = 1, SubjectId = 6, CreatedBy = 1 },
+                new Topic { Id = 4, Title = "درس4", IsVisible = true, Term = 2, SubjectId = 6, CreatedBy = 1 }
             );
 
             // seeding data to content table
             modelBuilder.Entity<TopicContent>().HasData(
-                new TopicContent { Id = 1, Content = "kjknjknjknjnjnk", TopicId = 1},
-                new TopicContent { Id = 2, Content = "nkjnkoiuutdrf", TopicId = 2 },
-                new TopicContent { Id = 3, Content = "sdaer4er", TopicId = 3 },
-                new TopicContent { Id = 4, Content = "dser4xs", TopicId = 4 }
+                new TopicContent { Id = 1, Content = "content ex 1", TopicId = 1},
+                new TopicContent { Id = 2, Content = "content ex 2", TopicId = 2 },
+                new TopicContent { Id = 3, Content = "content ex 3", TopicId = 3 },
+                new TopicContent { Id = 4, Content = "content ex 4", TopicId = 4 }
             );
+
+
+            // seeding data to users table
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = 1, Password = "2fgaPCZ6OmgiQLFYSSpLRAX+5byS3U/ryK6eXSBmtQHYAnu6", 
+                            Username = "admin", Role = 1 }
+                //new User { Id = 2, Content = "nkjnkoiuutdrf", TopicId = 2 },
+                //new User { Id = 3, Content = "sdaer4er", TopicId = 3 }
+            );
+
+
+            // seeding data to contact info table
+            modelBuilder.Entity<ContactInfo>().HasData(
+                new ContactInfo
+                {
+                    Id = 1,
+                    PhoneNo = 0100020000,
+                    Email = "admin@gmail.com",
+                }
+            );
+
+
+            // seeding data to Lookup table
+            modelBuilder.Entity<Lookup>().HasData(
+                new Lookup { Id = 1, LookupName = "user_role"}
+            );
+
+            // seeding data to LookupValues table
+            modelBuilder.Entity<LookupValue>().HasData(
+                new LookupValue { Id = 1, LookupValueName = "مدير", LookupId = 1 },
+                new LookupValue { Id = 2, LookupValueName = "مشرف", LookupId = 1 }
+            );
+
         }
     }
 }
