@@ -281,9 +281,6 @@ namespace mobadir_API_1.Controllers
                 existingTopic.Questions.Add(newQuestion);
             }
 
-
-
-
             try
             {
                 await _context.SaveChangesAsync();

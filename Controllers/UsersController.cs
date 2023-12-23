@@ -213,6 +213,56 @@ namespace mobadir_API_1.Controllers
 
 
 
+        //------------------------------------- Contact Info -----------------------------
+        // GET: api/Users/GetContactInfo
+        [HttpGet]
+        [Route("GetContactInfo")]
+        public ActionResult<ContactInfo> GetContactInfo()
+        {
+            var contactInfo = _context.ContactInfos.FirstOrDefault();
+
+            if (contactInfo == null)
+            {
+                return NotFound("No contact information found");
+            }
+
+            return Ok(contactInfo);
+        }
+
+        // PUT: api/Users/phone/{phoneNo}
+        [HttpPut("phone/{phoneNo}")]
+        public IActionResult SetPhoneNo(int phoneNo)
+        {
+            var contactInfo = _context.ContactInfos.FirstOrDefault() ?? new ContactInfo();
+            contactInfo.PhoneNo = phoneNo;
+
+            if (contactInfo.Id == 0)
+            {
+                _context.ContactInfos.Add(contactInfo);
+            }
+
+            _context.SaveChanges();
+
+            return Ok(new { message = "Phone number set successfully" });
+        }
+
+        // PUT: api/Users/email/{email}
+        [HttpPut("email/{email}")]
+        public IActionResult SetEmail(string email)
+        {
+            var contactInfo = _context.ContactInfos.FirstOrDefault() ?? new ContactInfo();
+            contactInfo.Email = email;
+
+            if (contactInfo.Id == 0)
+            {
+                _context.ContactInfos.Add(contactInfo);
+            }
+
+            _context.SaveChanges();
+
+            return Ok(new { message = "Email set successfully" });
+        }
+
 
 
 

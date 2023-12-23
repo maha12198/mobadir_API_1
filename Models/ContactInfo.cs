@@ -6,16 +6,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace mobadir_API_1.Models
 {
-    [Keyless]
+    //[Keyless]
     [Table("contact_info")]
     public partial class ContactInfo
     {
-        //[Column("phone_no")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         public int? PhoneNo { get; set; }
 
-        //[Column("email")]
-        //[StringLength(50)]
-        //[Unicode(false)]
         public string? Email { get; set; }
     }
 }

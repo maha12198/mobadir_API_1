@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import classicEditor from '@ckeditor/ckeditor5-build-classic'
 import {MyUploadAdapter} from '../../models/my-upload-adapter'

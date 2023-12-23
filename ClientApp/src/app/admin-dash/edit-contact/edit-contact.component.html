@@ -27,7 +27,7 @@
                                     <label class="col-form-label label blue-bold-text" > هاتــــف </label>
                                 </th>
                                 <td class="align-middle"> 
-                                    <label class="col-form-label label" > 000000000 </label>
+                                    <label class="col-form-label label" > {{phoneNo}} </label>
                                 </td>
                                 <td>
                                     <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-phone-modal" class="btn btn-warning btn-lg px-3 mr-5" >
@@ -39,7 +39,7 @@
                                     <label class="col-form-label label blue-bold-text" > بريد الكتروني </label>
                                 </th>
                                 <td class="align-middle"> 
-                                    <label class="col-form-label label" > aaaaa@gmail.com </label>
+                                    <label class="col-form-label label" > {{email}} </label>
                                 </td>
                                 <td>
                                     <input type="button" value="تعديل" data-toggle="modal" data-target="#edit-email-modal" class="btn btn-warning btn-lg px-3 mr-5" >
@@ -74,24 +74,26 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">تعديــــل رقم الهاتـــف </h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-
-                <div class="form-row mb-4">
-                    <div class="col-md-5">
-                        <label class=" col-form-label">رقـم الهاتـــف الجديـــد</label>
+            <form [formGroup]="PhoneForm" (ngSubmit)="UpdatePhone()">
+                <!-- Modal body -->
+                <div class="modal-body">
+    
+                    <div class="form-row mb-4">
+                        <div class="col-md-5">
+                            <label class=" col-form-label">رقـم الهاتـــف الجديـــد</label>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <input type="text" formControlName="NewPhoneNo" class="form-control py-2 smaller-font-size">
+                        </div>
                     </div>
-                    <div class="col-md-7 mb-2">
-                        <input type="text" class="form-control py-2 smaller-font-size">
-                    </div>
+                     
                 </div>
-                 
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">حفـــــــظ</button>
-            </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="PhoneForm.invalid" class="btn btn-success btn-lg smaller-font-size">حفـــــــظ</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -105,24 +107,27 @@
                 <h3 class="modal-title flex-grow-1 font-weight-bold">تعديــــل البريد الاكتروني </h3>
                 <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
+            <form [formGroup]="EmailForm" (ngSubmit)="UpdateEmail()">
+                <!-- Modal body -->
+                <div class="modal-body">
 
-                <div class="form-row mb-4">
-                    <div class="col-md-5">
-                        <label class=" col-form-label"> البريد الاكتروني الجديـــد</label>
+                    <div class="form-row mb-4">
+                        <div class="col-md-5">
+                            <label class=" col-form-label"> البريد الاكتروني الجديـــد</label>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <input type="email" formControlName="NewEmail" class="form-control py-2 smaller-font-size">
+                        </div>
                     </div>
-                    <div class="col-md-7 mb-2">
-                        <input type="email" class="form-control py-2 smaller-font-size">
-                    </div>
+                    
                 </div>
-                 
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
-                <button type="button" class="btn btn-success btn-lg smaller-font-size">حفـــــــظ</button>
-            </div>
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                    <button type="submit" [disabled]="EmailForm.invalid" class="btn btn-success btn-lg smaller-font-size">حفـــــــظ</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

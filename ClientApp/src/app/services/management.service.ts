@@ -6,8 +6,7 @@ import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
 import { IQuestionModel } from '../models/IQuestionModel';
-import { ITopic } from '../models/ITopic';
-import { IEditTopic } from '../models/IEditTopic';
+
 
 
 @Injectable({
@@ -172,6 +171,29 @@ export class ManagementService {
     return this.http.put<any>(url, topic_data);
   }
 
+
+
+
+
+
+  // --------------------------- Contact Information of the website ------------------------
+  getContactInfo() 
+  {
+    const url = `${Constants.api_url}/Users/GetContactInfo`;
+    return this.http.get<any>(url);
+  }
+
+  setPhoneNo(phoneNo: number)
+  {   
+    const url = `${Constants.api_url}/Users/phone/${phoneNo}`;
+    return this.http.put<any>(url, {});
+  }
+
+  setEmail(email: string)
+  {
+    const url = `${Constants.api_url}/Users/email/${email}`;
+    return this.http.put<any>(url, {});
+  }
  
 
 
