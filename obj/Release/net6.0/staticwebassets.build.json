@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FBaOA0xv2eXrheC9Qkk+Oih9fNhbmd0w9jkUhOqOavc=",
+  "Hash": "PuZLd6Z3zxJ/vyMfDWh0UWzL3pcupsjyNG8B0BQJHyw=",
   "Source": "mobadir_API_1",
   "BasePath": "_content/mobadir_API_1",
   "Mode": "Default",
@@ -984,40 +984,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\styles.ef46db3751d8e999.css"
-    },
-    {
-      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\AdminLTE-3.2.0.zip",
-      "SourceId": "mobadir_API_1",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
-      "BasePath": "_content/mobadir_API_1",
-      "RelativePath": "uploads/AdminLTE-3.2.0.zip",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\AdminLTE-3.2.0.zip"
-    },
-    {
-      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\AdminLTE-master.zip",
-      "SourceId": "mobadir_API_1",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
-      "BasePath": "_content/mobadir_API_1",
-      "RelativePath": "uploads/AdminLTE-master.zip",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\AdminLTE-master.zip"
     },
     {
       "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\uploads\\ahmed protocol.pdf",

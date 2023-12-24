@@ -44,8 +44,8 @@
                                 <!-- <th class="align-middle">1</th> -->
                                 <td class="align-middle"> {{usertable.username}}</td>
                                 <td class="align-middle"> {{usertable.role}} </td>
-                                <td class="align-middle"> {{usertable.updatedAt}} </td>
-                                <td class="align-middle"> {{usertable.lastVisited}} </td>
+                                <td class="align-middle"> {{usertable.updatedAt | date:'medium'}} </td>
+                                <td class="align-middle"> {{usertable.lastVisited  | date:'medium'}} </td>
                                 <td>
                                     <!-- Edit username button -->
                                     <input type="button" value="تعديل المستخدم" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#edit-user-modal" class="btn btn-outline-dark font-weight-bold btn-lg px-3 mx-3" >
@@ -54,7 +54,7 @@
                                     <input type="button" value="تغيير كلمة السر" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#edit-password-modal" class="btn btn-warning font-weight-bold btn-lg px-3 mx-3" >
                                     
                                     <!-- Delete button -->
-                                    <input type="button" value="حذف" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg px-3 mx-3" >
+                                    <!-- <input type="button" value="حذف" (click)="setEditUserId(usertable.id)" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg px-3 mx-3" > -->
                                 </td>
                             </tr> 
                         </tbody>
@@ -134,7 +134,7 @@
                         <div class="col-md-8 mb-2">
                             <select formControlName="role" class="custom-select dropdown-font-size mb-2">
                                 <option value="1">مدير</option>
-                                <option value="2">مدرس</option>
+                                <option value="2">مشرف</option>
                             </select>
                         </div>
                     </div>

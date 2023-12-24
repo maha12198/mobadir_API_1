@@ -9,11 +9,7 @@ namespace mobadir_API_1.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "LastVisited", "Password", "Role", "Token", "updated_at", "Username" },
-                values: new object[] { 1, null, "2fgaPCZ6OmgiQLFYSSpLRAX+5byS3U/ryK6eXSBmtQHYAnu6", 1, null, null, "admin" });
-
+            
             migrationBuilder.InsertData(
                 table: "contact_info",
                 columns: new[] { "Id", "Email", "PhoneNo" },
@@ -92,11 +88,6 @@ namespace mobadir_API_1.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Users",
-                keyColumn: "Id",
-                keyValue: 1);
-
             migrationBuilder.DeleteData(
                 table: "contact_info",
                 keyColumn: "Id",

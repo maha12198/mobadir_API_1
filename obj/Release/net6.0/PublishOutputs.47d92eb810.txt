@@ -3,9 +3,11 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\appsettings.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\appsettings.Production.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\angular.json
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\dist\mobadir-elearning-angular\assets\admin\vendor\bootstrap-icons\bootstrap-icons.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\package-lock.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\package.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\src\app\models\questions.json
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\src\assets\admin\vendor\bootstrap-icons\bootstrap-icons.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\tsconfig.app.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\tsconfig.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\ClientApp\tsconfig.spec.json
@@ -16,6 +18,7 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SpaServices.Extensions.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
@@ -56,6 +59,7 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\MimeTypesMap.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\NuGet.Common.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\PubTmp\Out\NuGet.Configuration.dll

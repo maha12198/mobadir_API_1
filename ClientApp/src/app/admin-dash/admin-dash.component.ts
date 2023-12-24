@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import { ChangePasswordRequest } from 'src/app/models/ChangePasswordRequest';
 import { NgToastService } from 'ng-angular-popup';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-dash',
@@ -21,7 +22,8 @@ export class AdminDashComponent{
               private authServiceApi: AuthService,
               private fb: FormBuilder,
               private toast : NgToastService,
-              private route: ActivatedRoute)
+              private route: ActivatedRoute,
+              private location: Location)
   {}
 
   username!: any;
@@ -113,6 +115,8 @@ export class AdminDashComponent{
         console.log(res.message);
         
         this.toast.success({ detail:"sucess", summary: "تم تغيير كلمة السر", duration: 1000, position:'topCenter'});
+        
+        this.change_Pass_Form.reset();
       },
       error: (err)=>{ 
         console.log('Error Changing user password:', err.error);

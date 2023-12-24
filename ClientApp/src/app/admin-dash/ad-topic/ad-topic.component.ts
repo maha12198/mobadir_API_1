@@ -940,7 +940,7 @@ export class AdTopicComponent {
       this.editorForm.reset();
   
       // navigate to the prev page
-      this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id], { skipLocationChange: true });
+      this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id], { skipLocationChange: true }); //fix this error
     
     }
 

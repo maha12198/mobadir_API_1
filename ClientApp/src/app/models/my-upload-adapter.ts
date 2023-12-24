@@ -1,3 +1,5 @@
+import { Constants } from '../config/constants';
+
 export class MyUploadAdapter {
     loader: any;
     xhr: any;
@@ -28,7 +30,9 @@ export class MyUploadAdapter {
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
         // ImageUpload_1 in the richetexteditpr controller in api
-        xhr.open( 'POST', 'https://localhost:7199/api/RichEditor/ImageUpload_1', true ); // TODO change the URL
+        let url = Constants.api_url +'/RichEditor/ImageUpload_1';
+        xhr.open( 'POST', url, true ); // TODO change the URL
+        // xhr.open( 'POST', 'https://localhost:7199/api/RichEditor/ImageUpload_1', true ); // TODO change the URL
         xhr.responseType = 'json';
     xhr.setRequestHeader("Accept", "application/json");
     }

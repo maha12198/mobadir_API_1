@@ -10,6 +10,11 @@
     
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\uploads\AdminLTE-3.2.0.zip" />
+    <Content Remove="wwwroot\uploads\AdminLTE-master.zip" />
+  </ItemGroup>
+
   <!--<ItemGroup>
     <Content Remove="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
     <Content Remove="wwwroot\mobadir-elearning-angular\assets\css\style.css" />
@@ -77,6 +82,8 @@
   <ItemGroup>
     <Folder Include="ClientApp\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://json.schemastore.org/azure-devops-extension-manifest-1.0.json" /></VisualStudio></ProjectExtensions>
 
   <!--<ItemGroup>
     <None Include="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
