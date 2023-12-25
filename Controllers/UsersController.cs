@@ -188,6 +188,34 @@ namespace mobadir_API_1.Controllers
 
 
 
+        // "Change Password" ** No check for the old password {to admin}**
+        // PATCH: api/Users/PatchUserPasswordAdmin/{userId:---}
+        [HttpPatch("PatchUserPasswordAdmin/{userId}")]
+        public IActionResult PatchUserPasswordAdmin(int userId, [FromBody] ChangePasswordAdminModel changePasswordAdminModel)
+        {
+            // Check if the user ID is valid
+            if (!UserExists(userId))
+            {
+                return BadRequest("Invalid user ID.");
+            }
+
+            // Get the user from the database
+            var user = _context.Users.Where(u => u.Id == userId).FirstOrDefault();
+
+            // Change the user's password to the new one
+            user!.Password = PasswordHasher.HashPassword(changePasswordAdminModel.new_password);
+            user.UpdatedAt = DateTime.Now;
+
+            // Update the user in the data source
+            _context.SaveChanges();
+
+            // Return a success response
+            return Ok(new { message = "Password changed successfully." });
+        }
+
+
+
+
 
 
 
@@ -305,6 +333,12 @@ namespace mobadir_API_1.Controllers
 
         public string OldPassword { get; set; }
         public string NewPassword { get; set; }
+    }
+
+
+    public class ChangePasswordAdminModel
+    {
+        public string new_password { get; set; }
     }
 
 

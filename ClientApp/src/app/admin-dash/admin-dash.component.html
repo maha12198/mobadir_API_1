@@ -76,16 +76,17 @@
                   <div class="row mb-4">
                     <label class="col-md-4 col-lg-3 col-form-label label">كلمة السر الجديدة</label>
                     <div class="col-md-8 col-lg-9">
-                      <input formControlName="new_pass" type="password" class="form-control py-4 bigger-font-size">
+                      <input formControlName="password" type="password" class="form-control py-4 bigger-font-size">
                     </div>
                   </div>
 
-                  <!-- <div class="row mb-3">
-                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                  <div class="row mb-3">
+                    <label class="col-md-4 col-lg-3 col-form-label label">تأكيد كلمة السر الجديدة </label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                      <input formControlName="confirmPassword" type="password" class="form-control py-4 bigger-font-size">
+                      <small class="text-danger smallest-font-size mt-1" *ngIf="confirmPassword?.touched &&  change_Pass_Form.errors?.['passwordMatch']"> تأكيد كلمة السر لا تطابق كلمة السر  </small>
                     </div>
-                  </div> -->
+                  </div>
 
                   <div class="text-center mt-3">
                     <button type="submit" [disabled]="change_Pass_Form.invalid" class="btn btn-primary btn-admin mt-2">تغيير كلمة السر</button>

@@ -147,7 +147,7 @@
                           <input formControlName="password" type="password" class="form-control py-4 smaller-font-size">
 
                           <div *ngIf="password?.hasError('required') && password?.touched" class="text-danger smallest-font-size mt-1">
-                            يجب إدخال السر
+                            يجب إدخال كلمة الســـر
                           </div>
 
                         </div>
@@ -157,11 +157,13 @@
                             <label class="col-form-label label" >تأكيد كلمة السر </label>
                         </div>
                         <div class="col-md-8 mb-2">
-                          <input formControlName="confirmpass" type="password" class="form-control py-4 smaller-font-size">
+                          <input formControlName="confirmPassword" type="password" class="form-control py-4 smaller-font-size">
 
-                          <div *ngIf="confirmpass?.hasError('required') && confirmpass?.touched" class="text-danger smallest-font-size mt-1">
+                          <div *ngIf="confirmPassword?.hasError('required') && confirmPassword?.touched" class="text-danger smallest-font-size mt-1">
                             يجب تأكيد كلمة السر
                           </div>
+                          <small class="text-danger smallest-font-size mt-1" *ngIf="confirmPassword?.touched &&  registerUserForm.errors?.['passwordMatch']"> تأكيد كلمة السر لا تطابق كلمة السر  </small>
+
                         </div>
                     </div> 
                 </div>
@@ -216,39 +218,33 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
 
         <div class="modal-content p-4">
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">تغييـــر كلمــة الســـر </h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
             <form [formGroup]="change_Pass_Form" (ngSubmit)="change_Password()">
-                <!-- Modal Header -->
-                <div class="modal-header d-flex justify-content-between mb-3">
-                    <h3 class="modal-title flex-grow-1 font-weight-bold">تغييـــر كلمــة الســـر </h3>
-                    <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <!-- Display alert message for errors in form after submitting -->
-                    <!-- <div class="d-flex justify-content-start mr-1 mb-2">
-                        <p class="text-danger login-error-message">
-                            {{alertMessage}}
-                        </p>
-                    </div> -->
-                    <div class="form-row mb-4">
-                        <div class="col-md-4">
-                            <label class="col-form-label label"> كلمة السر السابقة </label>
-                        </div>
-                        <div class="col-md-8 mb-2">
-                        <input formControlName="old_pass" type="password" class="form-control py-4 smaller-font-size">
-                        </div>
-                    </div>
                     <div class="form-row mb-4">
                         <div class="col-md-4">
                             <label class="col-form-label label"> كلمة السر الجديدة </label>
                         </div>
                         <div class="col-md-8 mb-2">
-                        <input formControlName="new_pass" type="password" class="form-control py-4 smaller-font-size">
+                            <input formControlName="password" type="password" class="form-control py-4 smaller-font-size">
                         </div>
                     </div>
+                    <div class="form-row mb-4">
+                        <div class="col-md-4">
+                            <label class="col-form-label label" >تأكيد كلمة السر </label>
+                        </div>
+                        <div class="col-md-8 mb-2">
+                          <input formControlName="confirmPassword" type="password" class="form-control py-4 smaller-font-size">
+                          <small class="text-danger smallest-font-size mt-1" *ngIf="change_Pass_Form.errors?.['passwordMatch']"> تأكيد كلمة السر لا تطابق كلمة السر الجديدة </small>
+                        </div>
+                    </div> 
                 </div>
-
                 <!-- Modal footer -->
                 <div class="modal-footer d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>

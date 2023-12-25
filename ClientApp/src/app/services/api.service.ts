@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { IArticle } from '../models/IArticle';
 import { IUserLogin } from '../models/IUserLogin';
@@ -7,6 +7,7 @@ import { IUserRegister } from '../models/IUserRegister';
 import { IUserInfo } from '../models/IUserInfo';
 import { IEditUsername } from '../models/IEditUsername';
 import { ChangePasswordRequest } from '../models/ChangePasswordRequest';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -105,6 +106,15 @@ export class ApiService {
     const url = `${Constants.api_url}/Users/PatchUserPassword/${userId}`;
 
     return this.http.patch<any>(url, changePasswordRequest);
+  }
+
+  
+  // Method to change user password
+  changeUserPassword_ForAdmin(userId: number, new_password: string )
+  {
+    const url = `${Constants.api_url}/Users/PatchUserPasswordAdmin/${userId}`;
+
+    return this.http.patch<any>(url, {new_password});
   }
 
   

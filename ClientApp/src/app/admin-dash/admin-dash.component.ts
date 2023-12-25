@@ -8,7 +8,8 @@ import { AuthService } from '../services/auth.service';
 import { ChangePasswordRequest } from 'src/app/models/ChangePasswordRequest';
 import { NgToastService } from 'ng-angular-popup';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { confirmedValidator } from '../Validators/confirmPassword.validator';
+
 
 @Component({
   selector: 'app-admin-dash',
@@ -23,7 +24,7 @@ export class AdminDashComponent{
               private fb: FormBuilder,
               private toast : NgToastService,
               private route: ActivatedRoute,
-              private location: Location)
+              )
   {}
 
   username!: any;
@@ -76,13 +77,14 @@ export class AdminDashComponent{
     );
 
 
-
     // intialize register user form
     this.change_Pass_Form = this.fb.group({
       old_pass:['',[Validators.required]],
-      new_pass:['',[Validators.required]]
-    });
+      password:['',[Validators.required]],
+      confirmPassword:['',[Validators.required]]
+    }, { validator: confirmedValidator});
     
+
 
     this.route.params.subscribe((params) => 
     {
@@ -92,11 +94,17 @@ export class AdminDashComponent{
       console.log("Passed_user_Id = ",this.Passed_user_Id); //test
     });
 
-    
-
   }
 
+  get password() {
+    return this.change_Pass_Form.get('password');
+  }
+  get confirmPassword() {
+    return this.change_Pass_Form.get('confirmPassword');
+  }
   
+
+
 
 
 
@@ -105,7 +113,7 @@ export class AdminDashComponent{
     // Access the form value
     const changePasswordRequest: ChangePasswordRequest = {
       OldPassword: this.change_Pass_Form.get('old_pass')?.value,
-      NewPassword: this.change_Pass_Form.get('new_pass')?.value
+      NewPassword: this.change_Pass_Form.get('password')?.value
     };
     //console.log(changePasswordRequest); //test
 
@@ -121,7 +129,7 @@ export class AdminDashComponent{
       error: (err)=>{ 
         console.log('Error Changing user password:', err.error);
 
-        this.toast.success({ detail:"warning", summary: "كلمة السر السابقة غير صحيحة", duration: 1000, position:'topCenter'});
+        this.toast.error({ detail:"warning", summary: "كلمة السر السابقة غير صحيحة", duration: 1000, position:'topCenter'});
 
         this.change_Pass_Form.reset();
       }
