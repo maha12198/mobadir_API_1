@@ -9,10 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { LoginFormComponent } from './login-form/login-form.component';
-import { GradeComponent } from './grade/grade.component';
+import { SubjectsComponent } from './subjects/subjects.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { SubjectComponent } from './subject/subject.component';
+import { AllTopicsOfSubjectComponent } from './all-topics-of-subject/all-topics-of-subject.component';
 import { TopicComponent } from './topic/topic.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { TimerComponent } from './quiz/timer/timer.component';
@@ -50,10 +50,10 @@ import { SearchPipe } from './pipes/search.pipe';
     AppComponent,
     HomeComponent,
     LoginFormComponent,
-    GradeComponent,
+    SubjectsComponent,
     HeaderComponent,
     FooterComponent,
-    SubjectComponent,
+    AllTopicsOfSubjectComponent,
     TopicComponent,
     QuizComponent,
     TimerComponent,

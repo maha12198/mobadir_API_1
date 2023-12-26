@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 // importing the components needed for the routes/navigation
 import { HomeComponent } from './home/home.component';
-import { GradeComponent } from './grade/grade.component';
+import { SubjectsComponent } from './subjects/subjects.component';
 import { HeaderComponent } from './header/header.component';
-import { SubjectComponent } from './subject/subject.component';
+import { AllTopicsOfSubjectComponent } from './all-topics-of-subject/all-topics-of-subject.component';
 import { TopicComponent } from './topic/topic.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AdminTestComponent } from './admin-test/admin-test.component';
@@ -22,14 +22,15 @@ import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
-  // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error
-  {path: 'grade-page' , component : GradeComponent},
-  {path: 'header', component : HeaderComponent},
-  {path: 'subject', component : SubjectComponent},
+  {path: 'all-grades', component : AllGradesComponent},
+  {path: 'subjects' , component : SubjectsComponent},
+  {path: 'all-topics-of-subject', component : AllTopicsOfSubjectComponent},
   {path: 'topic', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
-  {path: 'admin-test', component : AdminTestComponent},
-  {path: 'all-grades', component : AllGradesComponent},
+  
+      // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error
+      // {path: 'header', component : HeaderComponent},
+      {path: 'admin-test', component : AdminTestComponent},
   
   // can activate auth guard => so only logged in users can access this component(the dashboard)
   //   to test if it works => delete the token from local storage and try to access the component
