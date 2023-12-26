@@ -69,7 +69,7 @@ namespace mobadir_API_1.Models
             // seeding data to users table
             modelBuilder.Entity<User>().HasData(
                 new User { Id = 1, Password = "2fgaPCZ6OmgiQLFYSSpLRAX+5byS3U/ryK6eXSBmtQHYAnu6", 
-                            Username = "admin", Role = 1 }
+                            Username = "admin", Role = 1 } // 12345
                 //new User { Id = 2, Content = "nkjnkoiuutdrf", TopicId = 2 },
                 //new User { Id = 3, Content = "sdaer4er", TopicId = 3 }
             );

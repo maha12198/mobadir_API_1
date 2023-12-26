@@ -7,7 +7,6 @@ import { IUserRegister } from '../models/IUserRegister';
 import { IUserInfo } from '../models/IUserInfo';
 import { IEditUsername } from '../models/IEditUsername';
 import { ChangePasswordRequest } from '../models/ChangePasswordRequest';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -19,37 +18,23 @@ export class ApiService {
   constructor( private http: HttpClient) 
   { }
 
-  // Decalre function to call api to get users from the server
-  GetUsers ()
-  {
-    const url = `${Constants.api_url}/users`;
-    return this.http.get<any>(url);
-  }
-
 
   // to add article
   AddArticle(articleObj: IArticle)
   {
     const url = `${Constants.api_url}/Articles/addarticle`;
-    console.log(url);
     return this.http.post<any>(url, articleObj);
-    // const body = {
-    //   Id: articleId,
-    //   Body: articleBody
-    // }
   }
 
   GetArticleById(articleId: number)
   {
     const url = `${Constants.api_url}/Articles/${articleId}`;
-    
-    //error
-    //const url = `${Constants.api_url}/Articles?id=${articleId}`;
+    //error //const url = `${Constants.api_url}/Articles?id=${articleId}`;
 
     return this.http.get<any>(url);
   }
 
-  // ----------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------------
 
   // LOGIN  // POST: api/Login/login
   login (userObj : IUserLogin)
@@ -68,14 +53,6 @@ export class ApiService {
   }
   
   
-  
-  // Get Contact/User Info
-  // get_user_info (user_id: number)
-  // {
-  //   const url = `${Constants.api_url}/Users/get-user-info/${user_id}`;
-
-  //   return this.http.get<IUserInfo>(url);
-  // }
 
 
   // ------------------------ USERS page --------------------
@@ -93,12 +70,6 @@ export class ApiService {
     return this.http.put<any[]>(url, edit_username_Obj);
   }
 
-  delete_user(id: number)
-  {
-    const url = `${Constants.api_url}/Users/${id}`;
-
-    return this.http.delete<any[]>(url);
-  }
 
   // Method to change user password
   changeUserPassword(userId: number, changePasswordRequest: ChangePasswordRequest)
@@ -108,7 +79,7 @@ export class ApiService {
     return this.http.patch<any>(url, changePasswordRequest);
   }
 
-  
+
   // Method to change user password
   changeUserPassword_ForAdmin(userId: number, new_password: string )
   {

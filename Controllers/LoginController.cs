@@ -48,10 +48,9 @@ namespace mobadir_API_1.Controllers
                     var genToken = CreateJWT(user);
                     user.Token = genToken;
 
-                    //update lastVisited value (oman time - GMT+4)
-                    user.LastVisited = DateTime.UtcNow.AddHours(4); ;
+                    //update lastVisited value
+                    user.LastVisited = DateTime.Now;
                     _context.SaveChanges();
-                    //Console.WriteLine($"LastVisited: {user.LastVisited}"); //test
 
                     // return the token value and sucess message
                     return Ok(new
@@ -103,7 +102,7 @@ namespace mobadir_API_1.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = identity,
-                // Set an expiration time for the token
+                // Set an expiration time for the token - 4 hours
                 Expires = DateTime.UtcNow.AddHours(4),
                 SigningCredentials = credentials
             };

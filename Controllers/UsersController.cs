@@ -43,7 +43,7 @@ namespace mobadir_API_1.Controllers
 
             // encryption of password
             user.Password = PasswordHasher.HashPassword(user.Password);
-            user.UpdatedAt = DateTime.UtcNow.AddHours(4);
+            //user.UpdatedAt = DateTime.UtcNow.AddHours(4);
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
@@ -98,7 +98,6 @@ namespace mobadir_API_1.Controllers
             
             user!.Username = edit_user_obj.New_Username;
             user.UpdatedAt = DateTime.Now;
-            //user.UpdatedAt = DateTime.UtcNow.AddHours(4);  //update updatedAt value (oman time : GMT+4)
 
             await _context.SaveChangesAsync();
             
@@ -144,11 +143,9 @@ namespace mobadir_API_1.Controllers
                 return BadRequest("The old password is incorrect.");
             }
 
-            // Change the user's password to the new one
-            //user!.Password = changePasswordRequest.NewPassword;
-            // encryption of password
+            // Change the user's password to the new one + encryption of password
             user!.Password = PasswordHasher.HashPassword(changePasswordRequest.NewPassword);
-            user.UpdatedAt = DateTime.Now;  //update updatedAt value (oman time : GMT+4)
+            user.UpdatedAt = DateTime.Now;
 
             // Update the user in the data source
             //_context.Entry(user).State = EntityState.Modified;
@@ -156,7 +153,8 @@ namespace mobadir_API_1.Controllers
 
             // Return a success response
             return Ok(new { message = "Password changed successfully."});
-            }
+        }
+
 
         // checks if the old password entered by user is correct or not
         private bool IsCorrectPassword(User user, string oldPassword)
@@ -282,15 +280,6 @@ namespace mobadir_API_1.Controllers
     }
 
 
-
-
-
-
-
-
-
-
-
     //-- define a custom request object called "UserLoginRequest"
     public class UserLoginRequest
     {
@@ -299,12 +288,9 @@ namespace mobadir_API_1.Controllers
             Username = username;
             Password = password;
         }
-
         public string Username { get; set; }
         public string Password { get; set; }
     }
-
-
 
 
     public class Edit_user_obj
@@ -314,12 +300,9 @@ namespace mobadir_API_1.Controllers
             Id = id;
             New_Username = new_Username;
         }
-
         public int Id { get; set; }
         public string New_Username { get; set; }
     }
-
-    
 
     
     //-- define a custom request object called "ChangePasswordRequest"
@@ -330,7 +313,6 @@ namespace mobadir_API_1.Controllers
             OldPassword = oldPassword;
             NewPassword = newPassword;
         }
-
         public string OldPassword { get; set; }
         public string NewPassword { get; set; }
     }

@@ -1,6 +1,4 @@
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\appsettings.Development.json
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\appsettings.json
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\appsettings.Production.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\ClientApp\angular.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\ClientApp\package-lock.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\ClientApp\package.json

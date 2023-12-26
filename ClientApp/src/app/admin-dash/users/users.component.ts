@@ -169,20 +169,20 @@ export class UsersComponent {
     ); 
   }
 
-  delete_user()
-  {
-    this.service.delete_user(this.Pass_Selected_UserId).subscribe(
-      { next: (res)=> { 
-          console.log(res);
-          this.GetAllUsers();
-          $('#confirm-delete-modal').modal('hide');
-        },
-        error: (err)=>{ 
-          console.log('Error deleting user:', err);
-        }
-      }
-    ); 
-  }
+  // delete_user()
+  // {
+  //   this.service.delete_user(this.Pass_Selected_UserId).subscribe(
+  //     { next: (res)=> { 
+  //         console.log(res);
+  //         this.GetAllUsers();
+  //         $('#confirm-delete-modal').modal('hide');
+  //       },
+  //       error: (err)=>{ 
+  //         console.log('Error deleting user:', err);
+  //       }
+  //     }
+  //   ); 
+  // }
 
   NewPassword: string = '';
   change_Password()
