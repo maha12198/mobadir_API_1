@@ -22,6 +22,9 @@ namespace mobadir_API_1.Models
         [Column(TypeName = "nvarchar(50)")]
         public string Name { get; set; } = null!;
 
+        //new for the frontend
+        public string? image_url { get; set; }
+
         [InverseProperty("Grade")]
         public virtual ICollection<Subject> Subjects { get; set; }
     }

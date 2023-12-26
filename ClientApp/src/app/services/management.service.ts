@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Constants } from '../config/constants';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';

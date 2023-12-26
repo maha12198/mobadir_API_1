@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mobadir_API_1.Models;
 
@@ -11,9 +12,10 @@ using mobadir_API_1.Models;
 namespace mobadir_API_1.Migrations
 {
     [DbContext(typeof(Mobadr_DbContext))]
-    partial class Mobadr_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231226221040_addImageToGrade")]
+    partial class addImageToGrade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,85 +103,73 @@ namespace mobadir_API_1.Migrations
                         {
                             Id = 1,
                             IsVisible = true,
-                            Name = "الصف الأول",
-                            image_url = "numbers/1.jpg"
+                            Name = "الصف الأول"
                         },
                         new
                         {
                             Id = 2,
                             IsVisible = true,
-                            Name = "الصف الثاني",
-                            image_url = "numbers/2.jpg"
+                            Name = "الصف الثاني"
                         },
                         new
                         {
                             Id = 3,
                             IsVisible = true,
-                            Name = "الصف الثالث",
-                            image_url = "numbers/3.jpg"
+                            Name = "الصف الثالث"
                         },
                         new
                         {
                             Id = 4,
                             IsVisible = true,
-                            Name = "الصف الرابع",
-                            image_url = "numbers/4.jpg"
+                            Name = "الصف الرابع"
                         },
                         new
                         {
                             Id = 5,
                             IsVisible = true,
-                            Name = "الصف الخامس",
-                            image_url = "numbers/5.jpg"
+                            Name = "الصف الخامس"
                         },
                         new
                         {
                             Id = 6,
                             IsVisible = true,
-                            Name = "الصف السادس",
-                            image_url = "numbers/6.jpg"
+                            Name = "الصف السادس"
                         },
                         new
                         {
                             Id = 7,
                             IsVisible = true,
-                            Name = "الصف السابع",
-                            image_url = "numbers/7.jpg"
+                            Name = "الصف السابع"
                         },
                         new
                         {
                             Id = 8,
                             IsVisible = true,
-                            Name = "الصف الثامن",
-                            image_url = "numbers/8.jpg"
+                            Name = "الصف الثامن"
                         },
                         new
                         {
                             Id = 9,
                             IsVisible = true,
-                            Name = "الصف التاسع",
-                            image_url = "numbers/9.jpg"
+                            Name = "الصف التاسع"
                         },
                         new
                         {
                             Id = 10,
                             IsVisible = true,
-                            Name = "الصف العاشر",
-                            image_url = "numbers/10.jpg"
+                            Name = "الصف العاشر"
                         },
                         new
                         {
                             Id = 11,
                             IsVisible = true,
-                            Name = "الصف الحادي عشر",
-                            image_url = "numbers/11.jpg"
+                            Name = "الصف الحادي عشر"
                         },
                         new
                         {
                             Id = 12,
                             IsVisible = true,
-                            Name = "الصف الثاني عشر",
-                            image_url = "numbers/12.jpg"
+                            Name = "الصف الثاني عشر"
                         });
                 });
 
@@ -431,7 +421,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 27, 0, 14, 3, 647, DateTimeKind.Local).AddTicks(7834),
+                            CreatedAt = new DateTime(2023, 12, 27, 0, 10, 39, 112, DateTimeKind.Local).AddTicks(9091),
                             CreatedBy = 1,
                             IsVisible = true,
                             SubjectId = 1,
@@ -441,7 +431,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 12, 27, 0, 14, 3, 647, DateTimeKind.Local).AddTicks(7877),
+                            CreatedAt = new DateTime(2023, 12, 27, 0, 10, 39, 112, DateTimeKind.Local).AddTicks(9227),
                             CreatedBy = 1,
                             IsVisible = true,
                             SubjectId = 1,
@@ -451,7 +441,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 12, 27, 0, 14, 3, 647, DateTimeKind.Local).AddTicks(7881),
+                            CreatedAt = new DateTime(2023, 12, 27, 0, 10, 39, 112, DateTimeKind.Local).AddTicks(9234),
                             CreatedBy = 1,
                             IsVisible = true,
                             SubjectId = 6,
@@ -461,7 +451,7 @@ namespace mobadir_API_1.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 12, 27, 0, 14, 3, 647, DateTimeKind.Local).AddTicks(7885),
+                            CreatedAt = new DateTime(2023, 12, 27, 0, 10, 39, 112, DateTimeKind.Local).AddTicks(9240),
                             CreatedBy = 1,
                             IsVisible = true,
                             SubjectId = 6,
