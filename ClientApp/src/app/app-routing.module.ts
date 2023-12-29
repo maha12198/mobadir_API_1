@@ -23,9 +23,10 @@ import { authGuard } from './guards/auth.guard';
 const routes: Routes = [
   {path: '' , component : HomeComponent}, // Redirect route // to Dashboard Page as it is the main page
   {path: 'all-grades', component : AllGradesComponent},
-  {path: 'subjects' , component : SubjectsComponent},
-  {path: 'all-topics-of-subject', component : AllTopicsOfSubjectComponent},
-  {path: 'topic', component : TopicComponent},
+  {path: 'subjects/:gradeId' , component : SubjectsComponent},
+  {path: 'all-topics-of-subject/:subjectId', component : AllTopicsOfSubjectComponent},
+  // {path: 'all-topics-of-subject/:gradeId/:subjectId', component : AllTopicsOfSubjectComponent},
+  {path: 'topic/:topicId', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
   
       // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error

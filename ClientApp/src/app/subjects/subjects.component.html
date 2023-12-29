@@ -2,43 +2,25 @@
 <section id="services" class="services mt-8 mb-5">
    <div class="container">
 
-      <div class="mt-1" data-aos="fade-up">
-         <h1 class="heading font-weight-bold">الصف الأول</h1>
+      <div class="mt-1 mb-5">
+         <h1 class="heading font-weight-bold">الصف {{ currentGradeTitle }}</h1>
       </div>
 
-      <div class="row">
-         <!-- subject 1 -->
-         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-         <div class="icon-box">
-            <!-- here i can add icon for subject if needed -->
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4 class="title"><a routerLink="/all-topics-of-subject" >الرياضيات</a></h4>
-         </div>
-         </div>
-         <!-- subject 2 -->
-         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-         <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title"><a href="">اللغة العربية</a></h4>
-         </div>
-         </div>
-         <!-- subject 3 -->
-         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-         <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4 class="title"><a href="">العلوم</a></h4>
-         </div>
-         </div>
-         <!-- subject 4 -->
-         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-         <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4 class="title"><a href="">اللغة الانجليزية</a></h4>
-         </div>
-         </div>
-      </div>
+      <div class="row mt-5">
 
+         <h4 class="title mt-2" *ngIf="no_Subject" > نعتذر لكم، سيتم اضافة مواد هذا الصف قريباً </h4>
+
+         <!-- subject -->
+         <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" *ngFor="let subject of subjects_list">
+            <div class="icon-box" style="height: 100%;">
+               <div class="icon"><i class="bx bxs-category-alt"></i></div>
+               <h4 class="title">
+                  <a [routerLink]="['/all-topics-of-subject', subject.id]" > {{subject.name}} </a>
+                  <!-- <a [routerLink]="['/all-topics-of-subject', passed_grade_Id, subject.id]" > {{subject.name}} </a> -->
+               </h4>
+            </div>
+         </div>
+
+      </div>
    </div>
 </section>
-
-<!-- End Services Section -->

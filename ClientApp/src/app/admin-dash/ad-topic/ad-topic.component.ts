@@ -100,9 +100,9 @@ export class AdTopicComponent {
             selectedSubject: [{value: '', disabled: false } ,[Validators.required]],
             selectedTerm: [ 1 ,[Validators.required]],
             title: ['',[Validators.required] ],
-            videoUrl: [''],
+            videoUrl: [null],
     
-            body:['']
+            body:[null]
           }
         );
 
@@ -133,9 +133,9 @@ export class AdTopicComponent {
             selectedSubject: [{value: 1, disabled: false } ,[Validators.required]],
             selectedTerm: [ 1 ,[Validators.required]],
             title: ['',[Validators.required] ],
-            videoUrl: [''],
+            videoUrl: [null],
     
-            body:['']
+            body:[null]
           }
         );
   
@@ -146,13 +146,11 @@ export class AdTopicComponent {
   
               this.selectedGrade = this.editorForm?.get('selectedGrade')?.value;
             });
-      
 
         // get all grades to populate the grade dropdown
         this.Get_All_Grades();
         // onSelectGradeChange - call this function on the chnage of grade and the get_subjects_of_the_grade is called inside it 
         this.get_subjects_of_the_grade(1); // default value at first intialization only
-
 
       }
     });
@@ -163,7 +161,6 @@ export class AdTopicComponent {
           // {
           //   console.log('Selected Term Value:', value);
           // });
-
 
 
     // ---------------------- populate data of topic in editor form (EDIT) ---------------------

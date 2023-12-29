@@ -2,168 +2,51 @@
 
 <section id="services" class="services mt-8">
     <div class="container">
-        <h1 class="heading font-weight-bold pb-0 mt-1">الرياضيات</h1>
+       
+        <!-- <h1 class="heading font-weight-bold pb-0 mt-1 mb-0">الرياضيات</h1> -->
+
+        <!-- title -->
+        <div class="nine">
+            <h1> {{subjectName}} <span class="text-black-50"> {{gradeName}} </span> </h1>
+        </div>
+        
         <!-- filter section -->
         <div class="row d-flex justify-content-center">
             <div class="portfolio-menu mb-4">
                 <ul>
-                   <li class="active" data-filter="*">الكل</li>
-                   <li>|</li>
-                   <li class="" data-filter="">الفصل الدراسي الأول</li>
-                   <li>|</li>
-                   <li class="" data-filter="">الفصل الدراسي الثاني</li>
+                    <li (click)="setFilter('الأول')" >الفصل الدراسي الأول</li>
+                    <li>|</li>
+                    <li (click)="setFilter('all')" >الكل</li>
+                    <li>|</li>
+                    <li (click)="setFilter('الثاني')" >الفصل الدراسي الثاني</li>
                 </ul>
              </div>
         </div>
-        <div class="row">
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="/topic" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
+        
+        <!-- topic -->
+        <div class="card my-4" *ngFor="let topic of filteredTopics">
+            <div class="card-body d-flex align-items-center justify-content-between py-3 mx-4">
+                <!-- Title on the right side -->
+                <a [routerLink]="['/topic', topic.id]" class="text-dark flex-grow-1">
+                    <h4 class="topic-title-style mb-0"> {{topic.title}} </h4>
+                </a>
+                       
+                <!-- Icons on the left side (visible on larger screens) -->
+                <div class="mt-2 icon-topic-style d-none d-lg-flex">
+                    <i class="bx bx-book-content mx-3" [ngClass]="{'black-icon': topic.has_content}" data-toggle="tooltip" title="شرح"></i>
+                    <i class="bx bx-movie-play mx-3" [ngClass]="{'black-icon': topic.has_videoUrl}" data-toggle="tooltip" title="فيديو"></i>
+                    <i class="bx bx-file mx-3" [ngClass]="{'black-icon': topic.has_files}" data-toggle="tooltip" title="ملفات مرفقة"></i>
+                    <i class="bx bx-edit mx-3" [ngClass]="{'black-icon': topic.has_questions}" data-toggle="tooltip" title="اختبار"></i>
                 </div>
             </div>
-            <!-- end:foreach item -->
-            
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
         </div>
+        
+        <!-- <i class="bx bxs-select-multiple mx-2"></i> -->
+        <!-- <i class="bx bxs-spreadsheet mx-2"></i> -->
+        <!-- <i class="bx bxs-caret-right-square mx-2"></i> -->
+        <!-- <i class="bx bxs-movie-play mx-2"></i>-->
+        <!-- <i class="bx bxs-videos mx-2"></i> -->
 
-        <!-- row2 -->
-        <div class="row">
-          
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-             
-        </div>
-
-
-        <!-- row3 -->
-        <div class="row">
-           
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-
-            <!-- foreach item -->
-            <div class="col-12 col-md-4   mb-5">
-                <div class="d-flex flex-column card h-100 pb-3">
-                    <a routerLink="" class="text-dark">
-                        <div class="position-relative text-center border-black border-1">
-                            <img src="assets/images/topicEx.png" height="100%" width="100%" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="mb-2">عنوان الدرس</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end:foreach item -->
-             
-        </div>
     </div>
 </section>
 

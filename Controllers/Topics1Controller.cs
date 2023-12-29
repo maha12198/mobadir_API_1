@@ -144,13 +144,16 @@ namespace mobadir_API_1.Controllers
                 return BadRequest("passed topic model is null"); 
             }
 
-            // -----  Add new content
-            var topicContent = new TopicContent
+            if (topicModel.new_content != null)
             {
-                Content = topicModel.new_content,
-            };
-            // Associate content with the topic
-            topicModel.new_topic.Content = topicContent;
+                // -----  Add new content
+                var topicContent = new TopicContent
+                {
+                    Content = topicModel.new_content,
+                };
+                // Associate content with the topic
+                topicModel.new_topic.Content = topicContent;
+            }
 
             // ----- Add Files
             // iterate over the 'files' collection and add each file to the database

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { Observable } from 'rxjs';
 import { ISubject } from '../models/ISubject';
@@ -116,25 +116,25 @@ export class ManagementService {
 
 
 
-  UploadFile(formData)
-  {
-    const url = `${Constants.api_url}/Upload`;
+  // UploadFile(formData)
+  // {
+  //   const url = `${Constants.api_url}/Upload`;
 
-    return this.http.post<any>(url, formData,  { reportProgress: true});
-  }
+  //   return this.http.post<any>(url, formData,  { reportProgress: true});
+  // }
 
 
-  downloadFile(file: string|undefined): Observable<HttpEvent<Blob>> 
-  {
-    return this.http.request(new HttpRequest(
-      'GET',
-      `${Constants.api_url}/Upload/download?file=${file}`,
-      null,
-      {
-        reportProgress: true,
-        responseType: 'blob'
-      }));
-  }
+  // downloadFile(file: string|undefined): Observable<HttpEvent<Blob>> 
+  // {
+  //   return this.http.request(new HttpRequest(
+  //     'GET',
+  //     `${Constants.api_url}/Upload/download?file=${file}`,
+  //     null,
+  //     {
+  //       reportProgress: true,
+  //       responseType: 'blob'
+  //     }));
+  // }
 
 
 
@@ -156,6 +156,7 @@ export class ManagementService {
 
 
   // ------------------ Edit Topic Page -----------------------
+  
   GetDataToEditTopic(topic_id: number)
   {
     const url = `${Constants.api_url}/Topics1/Get_EditTopic_Data/${topic_id}`;
