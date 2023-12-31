@@ -102,10 +102,12 @@ namespace mobadir_API_1.Controllers
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 
                 string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
-                
 
+                // new : fot the file type 
+                // Extract file extension from the uploaded file name
+                string fileExtension = Path.GetExtension(file.FileName).ToLower();
 
-                return await Task.FromResult(new { url = imageUrl });
+                return await Task.FromResult(new { url = imageUrl, extension = fileExtension });
                 
             }
             catch (WebException ex)

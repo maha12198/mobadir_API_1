@@ -4,5 +4,8 @@ export interface IFile
     name: string;
     fileUrl: string;
 
+    // new : for file type
+    fileExtension?: string;
+
     // topicId?: number;
 }

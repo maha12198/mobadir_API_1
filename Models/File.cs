@@ -20,7 +20,11 @@ namespace mobadir_API_1.Models
         //[Column(TypeName = "text")]
         [Column(TypeName = "nvarchar(max)")]
         public string? FileUrl { get; set; }
-        
+
+        // new : for file type
+        public string? FileExtension { get; set; }
+
+
         [Column("topic_id")]
         public int? TopicId { get; set; }
 

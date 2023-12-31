@@ -2,59 +2,64 @@
     <div class="container">
         <div class="row">
 
-            <!-- left side -->
+            <!-- right side -->
             <div class="left col-lg-3 col-sm-12 pl-5 mb-5">
                 <div class="title mt-3">
                     <h3 class="font-weight-bold">قائـمـــــة الـــدرس</h3>
                 </div>
                 <div>
                     <ul class="list-unstyled ">
-                        <li><a href="#video">فيديو الدرس</a></li>
-                        <li><a href="#explain">شرح الدرس</a></li>
-                        <li><a routerLink="/quiz">اختبار الدرس</a></li>
+                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="video">فيديو الدرس</a></li>
+                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="explain">شرح الدرس</a></li>
+                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="files">الملفات المرفقة</a></li>
+                        <li><a [routerLink]="['/quiz']"> اختبار الدرس </a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- right side -->
+            <!-- left side -->
             <div class="right col-lg-9 col-sm-12 pr-5">
+                <!-- العنوان -->
                 <div class="row d-flex">
                     <div class="flex-grow-1">
-                        <h1 class="font-weight-bold"> الدرس: الدوال الهندسية</h1>
-                        <small class="pg-title-info text-muted">الصف الأول • مادة الرياضيات</small>
+                        <h1 class="font-weight-bold"> الدرس: {{title}} </h1>
+                        <small class="pg-title-info text-muted">{{gradeName}} • {{subjectName}}</small>
                     </div>
                     <div class=" w-25">
-                        <button class="btn exam-btn" routerLink="/quiz">اختبار الدرس</button>
+                        <button class="btn exam-btn" [routerLink]="['/quiz']"> اختبار الدرس</button>
                     </div>
                 </div>
                 
                 <!-- فيديو الدرس -->
                 <div id="video" class="d-flex justify-content-center mb-2 mt-5">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rowgchJcloc?si=hobtWqprpJiwm8F5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe *ngIf="video_url" [src]="video_url" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
+
                 <!-- شرح الدرس -->
                 <div id="explain"></div>
-                <div id="view">
-
+                <div id="view" class="mt-5" *ngIf="articleData">
                     <ckeditor
                       [editor]="Editor"
                       [(ngModel)]="articleData"
                       [config]="viewerConfig"
                       [disabled] = "viewerReadonly">
                     </ckeditor>
-
-                    <div class="row mt-5 mb-3">
-                        <h3 class="file-title font-weight-bold">الملفات المرفقة</h3>
-                    </div>
-                    <div class="row mb-5 ">
-                        <img src="assets/images/icons/pdf.png" height="40px" width="40px" alt="ملف pdf" >
-                        <p class="pdf-link pt-3 pr-2 text-muted text-decoration-underline"> نموذج ملف</p>
-                        <a class="" href="">
-                            <img class="pt-3 mr-5" src="assets/images/icons/download.png" height="30px" width="25px" alt="تنزيل الملف" >
-                        </a>
-                    </div>
-                    
                 </div>
+
+                <!-- الملفات -->
+                <div id="files"></div>
+                <div *ngIf="files && files.length > 0" class="row mt-5 mb-2">
+                    <h3 class="file-title font-weight-bold">الملفات المرفقة</h3>
+                </div>
+                <div class="row" *ngFor="let file of files">
+                    <i *ngIf="file.fileExtension != null" class="bx bx-file mt-3 pt-1" style="font-size: 25px;"></i>
+                    <i *ngIf="file.fileExtension == null" class="bx bx-link mt-3 pt-1" style="font-size: 25px;"></i>
+                    <a class="text-dark mt-3 mr-2 d-flex align-items-center" role='button' (click)="download_file(file.fileUrl, file.name, file.fileExtension)" style="font-size: 20px;">
+                        <p class="pdf-link text-muted text-decoration-underline"> {{file.name}}  </p>
+                        <!-- <i *ngIf="file.fileExtension != null" class="bx bx-download mr-2 pt-0 pb-3"></i> -->
+                    </a>
+                </div>
+                    
             </div>
 
             

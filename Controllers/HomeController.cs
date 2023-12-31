@@ -87,7 +87,6 @@ namespace mobadir_API_1.Controllers
             }
 
             var topics = await _context.Topics.Where(t => t.SubjectId == subject_id && t.IsVisible == true)
-                                              .Include(u => u.CreatedByNavigation)
                                               .Include(t => t.Content)
                                               .Include(t => t.Files)
                                               .Include(t => t.Questions)
@@ -98,7 +97,6 @@ namespace mobadir_API_1.Controllers
                 return NotFound("No topics were found for this subject");
             }
 
-            // Map the integer Term property to the string representation using TopicTerm property
             var topicsWithTermString = topics.Select(topic =>
             {
                 var topicDto = new
@@ -124,10 +122,10 @@ namespace mobadir_API_1.Controllers
         }
 
         // -------------------------- Get subject name and grade name by subject id ---------------------
-        // GET: api/Home/GetTopicData/{subject_id}
+        // GET: api/Home/GetSubjectGradeName/{subject_id}
         [HttpGet]
-        [Route("GetTopicData/{subject_id}")]
-        public async Task<ActionResult> GetTopicData(int? subject_id)
+        [Route("GetSubjectGradeName/{subject_id}")]
+        public async Task<ActionResult> GetSubjectGradeName(int? subject_id)
         {
             if (subject_id == null)
             {
@@ -147,6 +145,40 @@ namespace mobadir_API_1.Controllers
                 NotFound("no data was found");
             }
             return Ok(infoToAddTopic);
+        }
+
+
+
+        // -------------------------- Get Topic Data in topic page ---------------------
+        // GET: api/Home/GetTopic/{topic_id}
+        [HttpGet]
+        [Route("GetTopic/{topic_id}")]
+        public async Task<ActionResult<IEnumerable<Topic>>> GetTopic(int? topic_id)
+        {
+            if (topic_id == null)
+            {
+                return BadRequest("passed topic id is null!");
+            }
+
+            var topic = await _context.Topics.Where(t => t.Id == topic_id)
+                                              .Include(t => t.Content)
+                                              .Include(t => t.Files)
+                                              .Include(t => t.Questions)
+                                              .Select(t=> new 
+                                                  { id = t.Id,
+                                                    title = t.Title,
+                                                    content = t.Content,
+                                                    videoUrl = t.VideoUrl,
+                                                    //questions = t.Questions,
+                                                    files = t.Files })
+                                              .FirstOrDefaultAsync();
+
+            if (topic == null)
+            {
+                return NotFound("No topic was found");
+            }
+
+            return Ok(topic);
         }
 
 

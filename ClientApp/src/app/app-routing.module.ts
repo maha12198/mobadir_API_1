@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'subjects/:gradeId' , component : SubjectsComponent},
   {path: 'all-topics-of-subject/:subjectId', component : AllTopicsOfSubjectComponent},
   // {path: 'all-topics-of-subject/:gradeId/:subjectId', component : AllTopicsOfSubjectComponent},
-  {path: 'topic/:topicId', component : TopicComponent},
+  {path: 'topic/:subjectId/:topicId', component : TopicComponent},
   {path: 'quiz', component : QuizComponent},
   
       // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error

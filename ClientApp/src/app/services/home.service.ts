@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../config/constants';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -42,8 +43,20 @@ export class HomeService {
   // get subject name and grade name by subject id
   GetTopicData(subject_id: number)
   {
-    const url = `${Constants.api_url}/Home/GetTopicData/${subject_id}`;
+    const url = `${Constants.api_url}/Home/GetSubjectGradeName/${subject_id}`;
     return this.http.get<any>(url);
   }
 
+  // get topic bt id
+  GetTopic(topic_id: number)
+  {
+    const url = `${Constants.api_url}/Home/GetTopic/${topic_id}`;
+    return this.http.get<any>(url);
+  }
+
+  download_new_File(fileUrl: string): Observable<Blob> 
+  {
+    return this.http.get(fileUrl, { responseType: 'blob' });
+  }
+  
 }

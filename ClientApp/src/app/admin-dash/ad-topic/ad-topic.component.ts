@@ -428,7 +428,8 @@ export class AdTopicComponent {
     const newFile: IFile =
     {
       name: this.FilesForm?.get('FileName')?.value,
-      fileUrl: this.File_Url
+      fileUrl: this.File_Url,
+      fileExtension: this.File_Extension // new
     };
     console.log("new file: ", newFile);
 
@@ -513,10 +514,12 @@ export class AdTopicComponent {
     if (files.length > 0)
     {
       this.uploadFile = files.item(0);
+      console.log('Upload file:', this.uploadFile);
     }
   }
 
   File_Url;
+  File_Extension; //new
   uploadButtonClicked: boolean  = false;
   OneTimeUploadbuttonClicked: boolean = false; // to make the button clicked only one time
   new_upload()
@@ -550,6 +553,7 @@ export class AdTopicComponent {
           console.log('File uploaded successfully:', res.url);
           
           this.File_Url = res.url;
+          this.File_Extension = res.extension; // new: for file type
           
           this.uploadButtonClicked = true; // Set the flag to true when the uplaod button is clicked
         },
@@ -566,35 +570,35 @@ export class AdTopicComponent {
 
 
   // ------------------------------------------ DOWNLOAD FILE
-  new_download()
-  {
-    console.log('entered download function');
+  // new_download()
+  // {
+  //   console.log('entered download function');
 
-    console.log('test printing the fileURL: ', this.File_Url);
+  //   console.log('test printing the fileURL: ', this.File_Url);
 
-    this.management_api_service.download_new_File(this.File_Url).subscribe({
-      next: (data) => {
-        const blob = new Blob([data], { type: 'application/octet-stream' });
+  //   this.management_api_service.download_new_File(this.File_Url).subscribe({
+  //     next: (data) => {
+  //       const blob = new Blob([data], { type: 'application/octet-stream' });
 
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        //link.download = 'filename.extension'; // Set a default filename or extract it from the response headers
-        if ( this.uploadFile != null)
-        {
-          link.download = this.uploadFile.name;
-        }
-        else
-        {
-          console.log('Upload file is null');
-        }
-        link.click();
-      },
-      error: (error) => {
-        console.error('File download failed:', error);
-      }
-    });
+  //       const link = document.createElement('a');
+  //       link.href = window.URL.createObjectURL(blob);
+  //       //link.download = 'filename.extension'; // Set a default filename or extract it from the response headers
+  //       if ( this.uploadFile != null)
+  //       {
+  //         link.download = this.uploadFile.name;
+  //       }
+  //       else
+  //       {
+  //         console.log('Upload file is null');
+  //       }
+  //       link.click();
+  //     },
+  //     error: (error) => {
+  //       console.error('File download failed:', error);
+  //     }
+  //   });
   
-  }
+  // }
 
 
 

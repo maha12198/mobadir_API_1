@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-//for using http
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -40,10 +39,6 @@ import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { SearchPipe } from './pipes/search.pipe';
 
-
-//angular material
-// import {MatDialogModule} from '@angular/material/dialog';
-// import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +75,6 @@ import { SearchPipe } from './pipes/search.pipe';
     ReactiveFormsModule,
     CKEditorModule,
     NgToastModule
-
   ],
   
   // define interceptor for authorization here 

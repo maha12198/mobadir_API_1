@@ -225,7 +225,7 @@ namespace mobadir_API_1.Controllers
             // Update the properties of the existing topic
             _context.Entry(existingTopic).CurrentValues.SetValues(topic);
 
-            // Update related entities
+            // ---------------- Update related entities
             // Update Files
             foreach (var existingFile in existingTopic.Files.ToList())
             {
@@ -264,6 +264,7 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Questions.Add(newQuestion);
             }
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -279,6 +280,7 @@ namespace mobadir_API_1.Controllers
                     throw;
                 }
             }
+
             return Ok(new { message = "Topic Updated Sucessfully!" });
         }
 
