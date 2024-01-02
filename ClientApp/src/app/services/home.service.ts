@@ -47,16 +47,37 @@ export class HomeService {
     return this.http.get<any>(url);
   }
 
-  // get topic bt id
+  // get topic by id
   GetTopic(topic_id: number)
   {
     const url = `${Constants.api_url}/Home/GetTopic/${topic_id}`;
     return this.http.get<any>(url);
   }
 
+  // download file
   download_new_File(fileUrl: string): Observable<Blob> 
   {
     return this.http.get(fileUrl, { responseType: 'blob' });
   }
+
   
+  
+  
+  
+  // get title of the topic in quiz page
+  Get_Title_of_Topic(topic_id: number)
+  {
+    const url = `${Constants.api_url}/Home/Get_Title_of_Topic/${topic_id}`;
+    return this.http.get<any>(url);
+  }
+  
+  // get questions of the topic
+  Get_Questions(topic_id: number)
+  {
+    const url = `${Constants.api_url}/Home/Get_Questions_of_Topic/${topic_id}`;
+    return this.http.get<any>(url);
+  }
+
+  
+
 }

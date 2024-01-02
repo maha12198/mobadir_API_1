@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-import { ManagementService } from '../services/management.service';
+//import { ManagementService } from '../services/management.service';
 
 
 @Component({
@@ -18,8 +18,9 @@ export class TopicComponent {
 
   constructor(private route: ActivatedRoute,
               private home_service_api: HomeService,
-              private sanitizer: DomSanitizer,
-              private api : ManagementService)
+              private sanitizer: DomSanitizer
+              //private api : ManagementService
+              )
   {}
 
 

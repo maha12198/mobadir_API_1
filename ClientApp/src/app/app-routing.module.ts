@@ -27,11 +27,11 @@ const routes: Routes = [
   {path: 'all-topics-of-subject/:subjectId', component : AllTopicsOfSubjectComponent},
   // {path: 'all-topics-of-subject/:gradeId/:subjectId', component : AllTopicsOfSubjectComponent},
   {path: 'topic/:subjectId/:topicId', component : TopicComponent},
-  {path: 'quiz', component : QuizComponent},
+  {path: 'quiz/:subjectId/:topicId', component : QuizComponent},
   
       // {path : '**', component : HomeComponent}, //wildcard route // can be 404 error
       // {path: 'header', component : HeaderComponent},
-      {path: 'admin-test', component : AdminTestComponent},
+      //{path: 'admin-test', component : AdminTestComponent},
   
   // can activate auth guard => so only logged in users can access this component(the dashboard)
   //   to test if it works => delete the token from local storage and try to access the component

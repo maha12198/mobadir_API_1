@@ -153,7 +153,7 @@ namespace mobadir_API_1.Controllers
         // GET: api/Home/GetTopic/{topic_id}
         [HttpGet]
         [Route("GetTopic/{topic_id}")]
-        public async Task<ActionResult<IEnumerable<Topic>>> GetTopic(int? topic_id)
+        public async Task<ActionResult<Topic>> GetTopic(int? topic_id)
         {
             if (topic_id == null)
             {
@@ -180,6 +180,95 @@ namespace mobadir_API_1.Controllers
 
             return Ok(topic);
         }
+
+
+
+
+
+
+        // ------------------------------ Get topic title
+        // GET: api/Home/Get_Title_of_Topic/{topic_id}
+        [HttpGet("Get_Title_of_Topic/{topic_id}")]
+        public async Task<object> Get_Title_of_Topic(int? topic_id)
+        {
+            try
+            {
+                if (topic_id == null)
+                {
+                    return NotFound("topic_id is null");
+                }
+
+                var topic_title = await _context.Topics.Where(t => t.Id == topic_id)
+                                                       .Select(t => t.Title)
+                                                       .FirstOrDefaultAsync();
+
+                if (topic_title == null)
+                {
+                    return NotFound("No title found for this topic");
+                }
+
+                return Ok(new { title = topic_title });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception for debugging purposes
+                //Console.WriteLine($"Exception: {ex.Message}");
+
+                // Return a generic error message
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+
+
+
+        // ------------------------------ Get Questions of topic
+        // GET: api/Home/Get_Questions_of_Topic/{topic_id}
+        [HttpGet("Get_Questions_of_Topic/{topic_id}")]
+        public async Task<ActionResult<IEnumerable< Question>>> Get_Questions_of_Topic(int? topic_id)
+        {
+            if (topic_id == null)
+            {
+                return NotFound("topic_id is null");
+            }
+
+            var questions = await _context.Questions.Where(q => q.TopicId == topic_id)
+                                                    .Select(t=> new
+                                                    {
+                                                        answer = MapChoiceNumberToValue(t.Answer, t.Choice1, t.Choice2, t.Choice3, t.Choice4),
+                                                        options = new[] { t.Choice1, t.Choice2, t.Choice3, t.Choice4 },
+                                                        id = t.Id,
+                                                        imagePath = t.ImageUrl,
+                                                        question = t.QuestionText
+                                                    })
+                                                    .ToListAsync();
+
+            if (questions == null)
+            {
+                return NotFound("No questions were found for this topic");
+            }
+
+            return Ok(questions);
+        }
+
+
+        private static string MapChoiceNumberToValue(int? answer, string? choice1, string? choice2, string? choice3, string? choice4)
+        {
+            switch (answer)
+            {
+                case 1:
+                    return choice1!;
+                case 2:
+                    return choice2!;
+                case 3:
+                    return choice3!;
+                case 4:
+                    return choice4!;
+                default:
+                    return string.Empty; 
+            }
+        }
+
+
 
 
 

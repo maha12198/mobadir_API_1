@@ -103,7 +103,7 @@ namespace mobadir_API_1.Controllers
                 
                 string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
 
-                // new : fot the file type 
+                // new : for the file type 
                 // Extract file extension from the uploaded file name
                 string fileExtension = Path.GetExtension(file.FileName).ToLower();
 

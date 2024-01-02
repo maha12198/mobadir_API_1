@@ -1,5 +1,7 @@
 <div class="questions">
-    <div *ngIf="question!=null; else showScore" class="question-box">
+  
+  <!-- questions section -->
+  <div *ngIf="question!=null; else showScore" class="question-box">
         <!-- <h3>الســؤال {{i+1}}/{{totalQuestions}}</h3> -->
         <h3 class="question-title">الســؤال {{i+1}}</h3>
         <h3 class="ques-text mt-5 mb-4 d-flex justify-content-center">{{question.question}}</h3>
@@ -10,11 +12,10 @@
         <div class="options py-2" *ngFor="let option of question.options">
             <input
               type="radio"
-              name="option+{{i}}"
-              id="option1"
-              value="{{option}}"
-              (change)="onSelecting($any($event.target).value)"
-            />
+              [attr.name]="'option' + i"
+              [attr.id]="'option' + i + 'value'"
+              [value]="option"
+              (change)="onSelecting($any($event.target).value)" />
             {{option}}
         </div>
 
@@ -22,46 +23,48 @@
           <button class="prev px-3 ms-auto" *ngIf="i>0" (click)="onPrev()">السابق</button>
           <button class="next px-3" *ngIf="i!=totalQuestions-1" (click)="onNext()">التالي</button>
           <button class="next px-3 " *ngIf="i==totalQuestions-1" (click)="onNext()">إنهاء الاختبار</button>
-
         </div>
+  </div>
+      
+  <!-- score section -->
+  <ng-template #showScore>
+
+    <!-- section 1: The score -->
+    <div class="score mt-5 mb-3">
+      <h3 class="btn px-5">الدرجة : {{this.score}} / {{totalQuestions}}</h3>
     </div>
       
-    <!-- score section -->
-    <ng-template #showScore>
-        <div class="score mt-5 mb-3">
-          <h3 class="btn px-5">الدرجة : {{this.score}} / {{totalQuestions}}</h3>
-        </div>
-        
-        <!-- Display each answered question in a new row -->
-        <div *ngFor="let answeredQuestion of answeredQuestions; let i = index" class="answered-question-row mr-5">
-          <div class="answered-question">
-            <p class="font-weight-bold" style="font-size: 18px">{{answeredQuestion.question.question}}</p>
-            <p *ngFor="let option of answeredQuestion.question.options">
-              <input
-                type="radio"
-                [name]="'question' + i"
-                [value]="option"
-                [checked]="answeredQuestion.userAnswer === option"
-                disabled
-              />
-              <span [ngClass]="{'user-answer-correct': answeredQuestion.isCorrect && answeredQuestion.userAnswer === option, 'user-answer-incorrect': !answeredQuestion.isCorrect && answeredQuestion.userAnswer === option}">
-                {{option}}
-              </span>
-            </p>
-    
-            <!-- Display the correct answer only if the user's answer is incorrect -->
-            <p *ngIf="!answeredQuestion.isCorrect" class="correct-answer">
-              الإجابة الصحيحة :  {{answeredQuestion.question.answer}}
-            </p>
+    <!-- section 2: Display each answered question with user's answer and correct answer -->
+    <div *ngFor="let answeredQuestion of answeredQuestions; let i = index" class="answered-question-row mr-5">
+      <div class="answered-question">
+        <p class="font-weight-bold" style="font-size: 18px">{{answeredQuestion.question.question}}</p>
+        <p *ngFor="let option of answeredQuestion.question.options">
+          <input
+            type="radio"
+            [name]="'question' + i"
+            [value]="option"
+            [checked]="answeredQuestion.userAnswer === option"
+            disabled
+          />
+          <span [ngClass]="{'user-answer-correct': answeredQuestion.isCorrect && answeredQuestion.userAnswer === option, 'user-answer-incorrect': !answeredQuestion.isCorrect && answeredQuestion.userAnswer === option}">
+            {{option}}
+          </span>
+        </p>
 
-          </div>
-        </div>
+        <!-- display the correct answer only if the user's answer is incorrect -->
+        <p *ngIf="!answeredQuestion.isCorrect" class="correct-answer">
+          الإجابة الصحيحة :  {{answeredQuestion.question.answer}}
+        </p>
 
-        <div class="row d-flex justify-content-center mb-4">
-          <button class="btn btn-success mb-2" (click)="refreshQuiz()">إعـــادة الاختـبـــار</button>
-        </div>
+      </div>
+    </div>
 
-    </ng-template>
+    <!-- section 3: Button to begin/do the quiz again-->
+    <div class="row d-flex justify-content-center mb-4">
+      <button class="btn btn-success mb-2" (click)="refreshQuiz()">إعـــادة الاختـبـــار</button>
+    </div>
+
+  </ng-template>
 
 </div>
   

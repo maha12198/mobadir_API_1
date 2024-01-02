@@ -12,7 +12,7 @@
                         <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="video">فيديو الدرس</a></li>
                         <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="explain">شرح الدرس</a></li>
                         <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="files">الملفات المرفقة</a></li>
-                        <li><a [routerLink]="['/quiz']"> اختبار الدرس </a></li>
+                        <li><a [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس </a></li>
                     </ul>
                 </div>
             </div>
@@ -23,10 +23,10 @@
                 <div class="row d-flex">
                     <div class="flex-grow-1">
                         <h1 class="font-weight-bold"> الدرس: {{title}} </h1>
-                        <small class="pg-title-info text-muted">{{gradeName}} • {{subjectName}}</small>
+                        <small class="pg-title-info text-muted"> {{gradeName}} • {{subjectName}} </small>
                     </div>
                     <div class=" w-25">
-                        <button class="btn exam-btn" [routerLink]="['/quiz']"> اختبار الدرس</button>
+                        <button class="btn exam-btn" [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس</button>
                     </div>
                 </div>
                 

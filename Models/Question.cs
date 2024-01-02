@@ -28,8 +28,8 @@ namespace mobadir_API_1.Models
         [Column(TypeName = "nvarchar(100)")]
         public string? Choice4 { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
-        public string? Answer { get; set; }
+        //[Column(TypeName = "nvarchar(50)")]
+        public int? Answer { get; set; } // changed to int
 
 
         [Column("image_url", TypeName = "nvarchar(max)")]
