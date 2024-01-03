@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IQuestion } from 'src/app/models/IQuestion';
+import { NgToastService } from 'ng-angular-popup';
 
 
 @Component({
@@ -11,6 +12,9 @@ export class QuestionsComponent {
 
   // got the passed item form parent component ( quiz component )
   @Input() item;
+
+  constructor( private toast: NgToastService)
+  {}
 
   questions;
   question;
@@ -61,22 +65,53 @@ export class QuestionsComponent {
     if (this.answer == null || this.answer == undefined) 
     {
       console.log("null answer selected");
+
+      this.toast.error({ detail:"خطــأ", summary: "مـن فضــلك اختـر إجابـة الســؤال أولاً", duration: 2500, position:'topCenter'});
+        
       return;
     }
 
-    // check if the answer is correct
-    const isCorrect = this.answer === this.question.answer;
-    if (isCorrect)
+    // Track answers (to display them at the last step to the user)
+    const currentQuestion = this.questions[this.i];
+
+    // Check if the question is already in answeredQuestions
+    const existingIndex = this.answeredQuestions.findIndex(
+      (answeredQuestion) => answeredQuestion.question.question === currentQuestion.question
+    );
+    //console.log('prev ques:',this.answeredQuestions[existingIndex])
+
+    if (existingIndex !== -1)
+    {
+      // check if the stored prev same question was correct and the score was ++, we need to -- before proceeding to next step
+      if (currentQuestion.answer == this.answeredQuestions[existingIndex].userAnswer)
+      {
+        this.score--;
+        console.log('score --')
+      }
+      // Update the existing entry if the question is already answered
+      this.answeredQuestions[existingIndex] = 
+      {
+        question: { ...currentQuestion }, // Update the question
+        userAnswer: this.answer,
+        isCorrect: this.answer === currentQuestion.answer // Update isCorrect based on the new answer
+      };
+    }
+    else
+    {
+      // Add the question to answeredQuestions if it's not already answered
+      this.answeredQuestions.push(
+      {
+        question: { ...currentQuestion }, // Create a copy of the question
+        userAnswer: this.answer,
+        isCorrect:  this.answer === currentQuestion.answer
+      });
+    }
+        
+    // Update the score after tracking the answer
+    if (this.answer === currentQuestion.answer)
     {
       ++this.score;
     }
-
-    //track answers ( to display them at last step to the user)
-    this.answeredQuestions.push({
-      question: this.question,
-      userAnswer: this.answer,
-      isCorrect: isCorrect
-    });
     
     console.log("Score : ", this.score);
     console.log("Answer : ", this.answer);
@@ -85,7 +120,7 @@ export class QuestionsComponent {
     ++this.i;
     this.question = this.questions[this.i];
     
-    console.log(this.i);
+    //console.log(this.i);
     console.log("Question : ", this.question);
 
     //clear checks on the answer options
@@ -93,6 +128,8 @@ export class QuestionsComponent {
     radioButtons.forEach((radio: HTMLInputElement) => {
       radio.checked = false;
     }); 
+
+    this.answer = null;
   }
 
 

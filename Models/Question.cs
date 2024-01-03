@@ -37,8 +37,6 @@ namespace mobadir_API_1.Models
         
 
 
-
-
         [Column("topic_id")]
         public int? TopicId { get; set; }
 

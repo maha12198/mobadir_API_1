@@ -250,7 +250,7 @@ namespace mobadir_API_1.Controllers
             return Ok(questions);
         }
 
-
+        // to map the int number in answer to the corresponding string value of choices
         private static string MapChoiceNumberToValue(int? answer, string? choice1, string? choice2, string? choice3, string? choice4)
         {
             switch (answer)
