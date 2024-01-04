@@ -284,7 +284,25 @@ namespace mobadir_API_1.Controllers
             return Ok(new { message = "Topic Updated Sucessfully!" });
         }
 
-        
+
+
+
+        // DELETE: api/Topics/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTopic(int id)
+        {
+            var topic = await _context.Topics.FindAsync(id);
+
+            if (topic == null)
+            {
+                return NotFound();
+            }
+
+            _context.Topics.Remove(topic);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "topic deleted sucessfully !" });
+        }
 
 
 

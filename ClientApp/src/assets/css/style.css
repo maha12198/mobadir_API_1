@@ -917,7 +917,15 @@ color: #111;
   background-color: #DACC3E;
   color: black;
   font-size: large;
+}
 
+#view .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border: none !important;
+  border-color: transparent;
+}
+
+#view .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
+  border: none !important;
 }
 
 
@@ -993,19 +1001,27 @@ color: #111;
 }
 .questions .question-title {
   margin-bottom: 5px;
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
+  /* border-bottom: 1px solid black;
+  padding-bottom: 10px; */
+  /* new */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #cfc8c8;
+  border-radius: 10px; 
 }
+
+
 .questions .ques-text {
   font-size: 20px;
+  padding: 15px;
 }
 .questions .question-box {
   padding: 25px;
 }
 .questions .options {
   margin-top: 10px;
+  padding: 15px;
 }
 .questions input {
   margin-right: 5px;
@@ -1087,15 +1103,7 @@ color: #111;
 
 
 
- /* admin test page  ==> topic page */
-#view .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-  border: none !important;
-  border-color: transparent;
-}
 
-#view .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
-  border: none !important;
-}
 
 
 

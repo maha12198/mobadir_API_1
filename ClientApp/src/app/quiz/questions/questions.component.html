@@ -2,12 +2,18 @@
   
   <!-- questions section -->
   <div *ngIf="question!=null; else showScore" class="question-box">
-        <!-- <h3>الســؤال {{i+1}}/{{totalQuestions}}</h3> -->
-        <h3 class="question-title">الســؤال {{i+1}}</h3>
-        <h3 class="ques-text mt-5 mb-4 d-flex justify-content-center">{{question.question}}</h3>
+    
+        <div class="question-title quiz-info justify-content-between">
+          <h4>  س  {{i+1}} </h4>
+          <h4>عدد الأسئلة : {{totalQuestions}} </h4>
+        </div>
 
-        <!-- Display the image -->
-        <img *ngIf="question.imagePath" [src]="question.imagePath" alt="Question Image" class="question-image" />
+        <h3 class="ques-text mt-3 mb-2 font-weight-bold">{{question.question}}</h3>
+
+        <!-- the image -->
+        <div *ngIf="question.imagePath" style="padding: 15px;" class="d-flex justify-content-center">
+          <img [src]="question.imagePath" alt="Question Image" class="question-image" />
+        </div>
 
         <div class="options py-2" *ngFor="let option of question.options">
             <input
@@ -15,11 +21,11 @@
               [attr.name]="'option' + i"
               [attr.id]="'option' + i + 'value'"
               [value]="option"
-              (change)="onSelecting($any($event.target).value)" />
+              (change)="onSelecting($any($event.target).value)"/>
             {{option}}
         </div>
 
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-between" style="padding: 15px;">
           <button class="prev px-3 ms-auto" *ngIf="i>0" (click)="onPrev()">السابق</button>
           <button class="next px-3" *ngIf="i!=totalQuestions-1" (click)="onNext()">التالي</button>
           <button class="next px-3 " *ngIf="i==totalQuestions-1" (click)="onNext()">إنهاء الاختبار</button>
@@ -37,7 +43,8 @@
     <!-- section 2: Display each answered question with user's answer and correct answer -->
     <div *ngFor="let answeredQuestion of answeredQuestions; let i = index" class="answered-question-row mr-5">
       <div class="answered-question">
-        <p class="font-weight-bold" style="font-size: 18px">{{answeredQuestion.question.question}}</p>
+        <p style="font-size: 18px; font-weight: bold;">{{answeredQuestion.question.question}}</p>
+
         <p *ngFor="let option of answeredQuestion.question.options">
           <input
             type="radio"
