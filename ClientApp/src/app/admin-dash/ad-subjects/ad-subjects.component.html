@@ -24,13 +24,13 @@
     
                 <!-- the table -->
                 <div class="row mt-4 mr-3" >
-                    <table class="table table-hover text-center mx-4 w-100">
+                    <table class="table table-hover text-center mx-4 w-100 table-responsive-sm">
                         <thead>
                         <tr>
                             <!-- <th>م</th> -->
-                            <th>المادة</th>
-                            <th class="pr-4">الحالة</th>
-                            <th class="pr-4"></th>
+                            <th class="align-middle">المادة</th>
+                            <th class="pr-4 align-middle">الحالة</th>
+                            <th class="pr-4 align-middle"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                 <!-- <th class="align-middle">1</th> -->
                                 <td class="align-middle"> {{subject.name}} </td>
 
-                                <td class="align-middle d-flex justify-content-center">
+                                <td class="align-middle d-flex justify-content-center align-items-center">
                                     <div class="checkbox-wrapper-8">
                                         <input type="checkbox" [id]="'checkbox' + subject.id" class="tgl tgl-skewed" [checked]="subject.isVisible" (change)="onCheckboxChange($event, subject.id)">
                                         <label [for]="'checkbox' + subject.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
@@ -48,7 +48,6 @@
                                 <td class="align-middle">
                                     <input type="button" value="دروس المادة" [routerLink]="['/admin-all-topics', Passed_grade_Id, subject.id]" class="btn btn-secondary btn-lg smaller-font-size px-3 mx-3" >
                                 </td>
-
                             </tr>
                             
                         </tbody>

@@ -202,7 +202,7 @@ namespace mobadir_API_1.Controllers
 
 
 
-        // PUT: api/Topics/{topic_id}
+        // PUT: api/Topics1/{topic_id}
         [HttpPut("{topic_id}")]
         public async Task<IActionResult> PutTopic(int topic_id, [FromBody] Topic topic)
         {
@@ -217,6 +217,7 @@ namespace mobadir_API_1.Controllers
                 .Include(t => t.Files)
                 .Include(t => t.Questions)
                 .FirstOrDefaultAsync(t => t.Id == topic_id);
+
             if (existingTopic == null)
             {
                 return NotFound("No topic was found with this id");
@@ -224,6 +225,32 @@ namespace mobadir_API_1.Controllers
 
             // Update the properties of the existing topic
             _context.Entry(existingTopic).CurrentValues.SetValues(topic);
+
+            // update updated_at value
+            existingTopic.UpdatedAt = DateTime.Now;
+
+            // Update related entities, assuming Content is a complex type
+            if (existingTopic.Content != null)
+            {
+                if (topic.Content == null || topic.Content.Content == null)
+                {
+                    // If the new content is null, remove the existing content
+                    _context.TopicContents.Remove(existingTopic.Content);
+                }
+                else
+                {
+                    // Update the properties of the existing content
+                    _context.Entry(existingTopic.Content).CurrentValues.SetValues(topic.Content);
+                }
+            }
+            else
+            {
+                // If there is no existing content, but the new content is not null, add the new content
+                if (topic.Content != null && topic.Content.Content != null)
+                {
+                    existingTopic.Content = topic.Content;
+                }
+            }
 
             // ---------------- Update related entities
             // Update Files
@@ -245,6 +272,8 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Files.Add(newFile);
             }
+
+
             // Update Questions
             foreach (var existingQuestion in existingTopic.Questions.ToList())
             {
@@ -264,6 +293,8 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Questions.Add(newQuestion);
             }
+
+
 
             try
             {
@@ -287,18 +318,40 @@ namespace mobadir_API_1.Controllers
 
 
 
-        // DELETE: api/Topics/{id}
+        // DELETE: api/Topics1/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTopic(int id)
         {
-            var topic = await _context.Topics.FindAsync(id);
+            var topic = await _context.Topics.Include(t => t.Content)    
+                                             .Include(t => t.Files)    
+                                             .Include(t => t.Questions)
+                                             .FirstOrDefaultAsync(t => t.Id == id);
 
             if (topic == null)
             {
                 return NotFound();
             }
 
+            // Remove related entities
+            if (topic.Content != null)
+            {
+                _context.TopicContents.Remove(topic.Content);
+            }
+
+            if (topic.Files != null && topic.Files.Any())
+            {
+                _context.Files.RemoveRange(topic.Files);
+            }
+
+            if (topic.Questions != null && topic.Questions.Any())
+            {
+                _context.Questions.RemoveRange(topic.Questions);
+            }
+
+            // Remove the topic
             _context.Topics.Remove(topic);
+
+
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "topic deleted sucessfully !" });

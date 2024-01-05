@@ -82,6 +82,17 @@ export class ManagementService {
     return this.http.patch(url, { isVisible }); 
   }
 
+
+  // get all topics of the subject
+  Delete_topic(topic_id: number)
+  {
+    const url = `${Constants.api_url}/Topics1/${topic_id}`;
+
+    return this.http.delete<any>(url);
+  }
+
+
+
   
   
   // ------------------------ Add Topic Page ------------------------
@@ -93,8 +104,6 @@ export class ManagementService {
     return this.http.get<any>(url);
   }
 
-  
-  
 
   AddMainDataForTopic(newTopic: INewTopic, newContent: string, files: IFile[], questions: IQuestionModel[])
   {
@@ -115,30 +124,6 @@ export class ManagementService {
 
 
 
-
-  // UploadFile(formData)
-  // {
-  //   const url = `${Constants.api_url}/Upload`;
-
-  //   return this.http.post<any>(url, formData,  { reportProgress: true});
-  // }
-
-
-  // downloadFile(file: string|undefined): Observable<HttpEvent<Blob>> 
-  // {
-  //   return this.http.request(new HttpRequest(
-  //     'GET',
-  //     `${Constants.api_url}/Upload/download?file=${file}`,
-  //     null,
-  //     {
-  //       reportProgress: true,
-  //       responseType: 'blob'
-  //     }));
-  // }
-
-
-
-
   upload_new_file(formData)
   { 
     const url = `${Constants.api_url}/RichEditor/ImageUpload_1`;
@@ -146,7 +131,6 @@ export class ManagementService {
     return this.http.post<any>(url, formData);
 
   }
-
     
   download_new_File(fileUrl: string): Observable<Blob> 
   {

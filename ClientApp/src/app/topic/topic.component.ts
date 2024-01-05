@@ -46,6 +46,10 @@ export class TopicComponent {
 
   files;
 
+  has_questions: Boolean = false;
+
+  only_title: Boolean = false;
+
   ngOnInit()
   {
 
@@ -121,6 +125,18 @@ export class TopicComponent {
 
             this.files = this.topic_data.files;
             console.log(this.files);
+
+            this.has_questions = this.topic_data.has_questions;
+            console.log('Has_questions = ',this.has_questions);
+
+            // check if the topic has only a title and no data
+            if ( this.topic_data.videoUrl == null && this.topic_data.content == null
+                 && (this.topic_data.files == null || this.topic_data.files.length == 0)
+                 && this.has_questions == false)
+            {
+              this.only_title = true;
+              console.log('Only_title = ',this.only_title);
+            }
           }
         },
         error: (err) =>

@@ -54,12 +54,12 @@
                         <thead>
                         <tr>
                             <!-- <th>م</th> -->
-                            <th>عنوان الدرس</th>
-                            <th>المستخدم المضيف</th>
-                            <th>الفصل الدراسي</th>
-                            <th>الحالة</th>
-                            <th> تاريخ الاضافة</th>
-                            <th> آخر تعديل</th>
+                            <th class="align-middle">  عنوان الدرس </th>
+                            <th class="align-middle">المستخدم المضيف</th>
+                            <th class="align-middle">الفصل الدراسي</th>
+                            <th class="align-middle">الحالة</th>
+                            <th class="align-middle"> تاريخ الاضافة</th>
+                            <th class="align-middle"> آخر تعديل</th>
                             <th>  </th>
                         </tr>
                         </thead>
@@ -83,7 +83,16 @@
                                     {{ topic.updatedAt | date:'medium' }}
                                 </td>
                                 <td class="align-middle">
-                                    <input type="button" value="تعديل الدرس" [routerLink]="['/admin-edit-topic', passed_grade_id, passed_subject_id, topic.id]" class="btn btn-warning btn-lg smaller-font-size px-3 mx-3" >
+                                    <div class="d-flex">
+                                        <div>
+                                            <!-- Edit button -->
+                                            <input type="button" value="تعديل الدرس" [routerLink]="['/admin-edit-topic', passed_grade_id, passed_subject_id, topic.id]" class="btn btn-warning btn-lg smaller-font-size px-3 mx-2" >
+                                        </div>
+                                        <div>
+                                            <!-- Delete button -->
+                                            <input type="button" value="حذف الدرس" (click)="setEditUserId(topic.id)" data-toggle="modal" data-target="#confirm-delete-modal" class="btn btn-danger btn-lg smaller-font-size px-3 mx-2" >
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -101,3 +110,29 @@
 
 
 <app-ad-footer></app-ad-footer>
+
+
+
+<!-- Modal 1 -->
+<div class="modal" id="confirm-delete-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">حـــــذف درس </h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row mb-4">
+                    <label class=" label mr-3">هــل أنت متأكد من أنك تريـــد حذف هذا الدرس ؟</label>
+                </div>  
+            </div>
+
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary btn-lg smaller-font-size" data-dismiss="modal">إلغـــاء</button>
+                <button type="button" (click)="delete_topic()" class="btn btn-danger btn-lg smaller-font-size">حـــــذف</button>
+            </div>
+        </div>
+    </div>
+</div>

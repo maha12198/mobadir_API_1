@@ -170,7 +170,8 @@ namespace mobadir_API_1.Controllers
                                                     content = t.Content,
                                                     videoUrl = t.VideoUrl,
                                                     //questions = t.Questions,
-                                                    files = t.Files })
+                                                    files = t.Files,
+                                                    Has_questions = t.Questions.Any()  })
                                               .FirstOrDefaultAsync();
 
             if (topic == null)

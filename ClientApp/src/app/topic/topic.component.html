@@ -5,14 +5,14 @@
             <!-- right side -->
             <div class="left col-lg-3 col-sm-12 pl-5 mb-5">
                 <div class="title mt-3">
-                    <h3 class="font-weight-bold">قائـمـــــة الـــدرس</h3>
+                    <h3 *ngIf="!only_title" class="font-weight-bold">قائـمـــــة الـــدرس</h3>
                 </div>
                 <div>
                     <ul class="list-unstyled ">
-                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="video">فيديو الدرس</a></li>
-                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="explain">شرح الدرس</a></li>
-                        <li><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="files">الملفات المرفقة</a></li>
-                        <li><a [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس </a></li>
+                        <li *ngIf="video_url"><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="video">فيديو الدرس</a></li>
+                        <li *ngIf="articleData"><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="explain">شرح الدرس</a></li>
+                        <li *ngIf="files && files.length > 0"><a [routerLink]="['/topic', passed_subject_Id, passed_topic_Id]" fragment="files">الملفات المرفقة</a></li>
+                        <li *ngIf="has_questions" ><a [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس </a></li>
                     </ul>
                 </div>
             </div>
@@ -26,18 +26,23 @@
                         <small class="pg-title-info text-muted"> {{gradeName}} • {{subjectName}} </small>
                     </div>
                     <div class=" w-25">
-                        <button class="btn exam-btn" [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس</button>
+                        <button *ngIf="has_questions" class="btn exam-btn" [routerLink]="['/quiz', passed_subject_Id, passed_topic_Id]"> اختبار الدرس</button>
                     </div>
                 </div>
+
+                <div *ngIf="only_title" class="row mt-5">
+                    <h3> عفواً، سيتم اضافة محتويات هذا الدرس قريباً</h3>
+                </div>
+                
                 
                 <!-- فيديو الدرس -->
-                <div id="video" class="d-flex justify-content-center mb-2 mt-5">
+                <div id="video" *ngIf="video_url" class="d-flex justify-content-center mb-2 mt-5">
                     <iframe *ngIf="video_url" [src]="video_url" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
                 <!-- شرح الدرس -->
                 <div id="explain"></div>
-                <div id="view" class="mt-5" *ngIf="articleData">
+                <div id="view" class="mt-0" [class.mt-4]="video_url" *ngIf="articleData">
                     <ckeditor
                       [editor]="Editor"
                       [(ngModel)]="articleData"

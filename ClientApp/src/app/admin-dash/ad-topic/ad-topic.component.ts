@@ -440,15 +440,13 @@ export class AdTopicComponent {
 
     $('#add-file-browse-modal').modal('hide');
 
-    this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});
-    
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة الملف", duration: 2000, position:'topCenter'});  
     
     // Reset the flag for subsequent form submissions
     this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
     this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
 
     this.File_Url='';
-
   }
 
 
@@ -746,7 +744,6 @@ export class AdTopicComponent {
     this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
     
     this.File_Url='';
-
   }
 
 
@@ -787,8 +784,19 @@ export class AdTopicComponent {
     
     console.log("newTopic = ", this.newTopic);
 
-    this.new_content = this.editorForm?.get('body')?.value
-    console.log("newContent = ", this.new_content);
+    // Check if bodyValue is null or contains only spaces
+    const bodyValue = this.editorForm?.get('body')?.value;
+    if (bodyValue === null || /^\s*$/.test(bodyValue))
+    {
+      console.log("Body is null or contains only spaces");
+      this.new_content == null;
+      console.log("newContent = ", this.new_content);
+    }
+    else // it has a value
+    {
+      this.new_content = bodyValue;
+      console.log("newContent = ", this.new_content);
+    }
 
     console.log("test files passed: ", this.Files);
     console.log("test questions passed: ", this.Questions)
@@ -830,16 +838,29 @@ export class AdTopicComponent {
           this.Files = res.files;
           this.Questions = res.questions;
           
-          
-          console.log('Patch Editor Form Values is here')
+          console.log('Patch Editor Form Values is here');
+
           // Patch the form values with the topic data
           this.editorForm.patchValue({
             selectedTerm: this.Fetchedtopic.term,
             title: this.Fetchedtopic.title,
-            videoUrl: this.Fetchedtopic.videoUrl,
-            
-            body: this.Fetchedtopic.content.content,
+            //videoUrl: this.Fetchedtopic.videoUrl,
+            //body: this.Fetchedtopic.content.content,
           });
+
+          if (this.Fetchedtopic.videoUrl !== null)
+          {
+            this.editorForm.patchValue({
+              videoUrl: this.Fetchedtopic.videoUrl
+            });
+          }
+
+          if (this.Fetchedtopic.content && this.Fetchedtopic.content.content !== null)
+          {
+            this.editorForm.patchValue({
+              body: this.Fetchedtopic.content.content,
+            });
+          }
           
         },
         error: (err) => {
@@ -864,11 +885,35 @@ export class AdTopicComponent {
     console.log('this.editTopic = ',this.editTopic);
     //console.log('this.fetchedTopic = ',this.Fetchedtopic);
 
-
     this.editTopic.title = this.editorForm?.get('title')?.value;
-    this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value;
     this.editTopic.term = this.editorForm?.get('selectedTerm')?.value;
-    this.editTopic.content.content = this.editorForm?.get('body')?.value;
+
+    //this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value; // check this too
+    // Check if content is null or contains only spaces
+    const video = this.editorForm?.get('videoUrl')?.value;
+    if (video === null || /^\s*$/.test(video))
+    {
+      console.log("videoUrl is null or contains only spaces");
+      this.editTopic.videoUrl = null;
+    }
+    else // it has a value, then do normal
+    {
+      this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value;
+    }
+
+    //this.editTopic.content.content = this.editorForm?.get('body')?.value;
+    // Check if content is null or contains only spaces
+    const bodyValue = this.editorForm?.get('body')?.value;
+    if (bodyValue === null || /^\s*$/.test(bodyValue))
+    {
+      console.log("Body is null or contains only spaces");
+      this.editTopic.content = null;
+    }
+    else // it has a value, then do normal
+    {
+      this.editTopic.content.content = this.editorForm?.get('body')?.value;
+    }
+
     this.editTopic.files = this.Files;
     this.editTopic.questions = this.Questions;
 

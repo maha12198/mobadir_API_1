@@ -4,6 +4,8 @@ import { ITopic } from 'src/app/models/ITopic';
 import { ManagementService } from 'src/app/services/management.service';
 import { SearchPipe } from '../../pipes/search.pipe';
 
+declare var $: any; // Declare jQuery to avoid TypeScript errors
+
 @Component({
   selector: 'app-ad-all-topics',
   templateUrl: './ad-all-topics.component.html',
@@ -98,5 +100,30 @@ export class AdAllTopicsComponent {
     this.searchText = '';
   }
 
+
+  //---- to get the id of the selected topic in the table
+  // Variable to store the topic ID for deleting
+  Pass_Selected_TopicId!: number;
+  // Method to set the current user ID before showing the modal
+  setEditUserId(topicId: number) {
+    this.Pass_Selected_TopicId = topicId;
+    console.log('Pass_Selected_TopicId = ', this.Pass_Selected_TopicId);
+  }
+  delete_topic()
+  {
+    this.api_service.Delete_topic(this.Pass_Selected_TopicId).subscribe(
+      { next: (res)=> { 
+          console.log(res);
+
+          this.GetTopicsBySubject(this.passed_subject_id);
+
+          $('#confirm-delete-modal').modal('hide');
+        },
+        error: (err)=>{ 
+          console.log('Error in deleting the topic:', err);
+        }
+      }
+    ); 
+  }
 
 }
