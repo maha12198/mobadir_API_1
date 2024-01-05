@@ -204,16 +204,16 @@ namespace mobadir_API_1.Controllers
 
         // PUT: api/Topics1/{topic_id}
         [HttpPut("{topic_id}")]
-        public async Task<IActionResult> PutTopic(int topic_id, [FromBody] Topic topic)
+        public async Task<IActionResult> PutTopic(int topic_id, [FromBody] AddTopicModel topic)
         {
-            if (topic_id != topic.Id)
-            {
-                return BadRequest("topic_id does not match the topic id to be updated");
-            }
+            //if (topic_id != topic.new_topic.Id)
+            //{
+            //    return BadRequest("topic_id does not match the topic id to be updated");
+            //}
 
             // Retrieve the existing topic including related entities
             var existingTopic = await _context.Topics
-                .Include(t=>t.Content)
+                .Include(t => t.Content)
                 .Include(t => t.Files)
                 .Include(t => t.Questions)
                 .FirstOrDefaultAsync(t => t.Id == topic_id);
@@ -224,39 +224,48 @@ namespace mobadir_API_1.Controllers
             }
 
             // Update the properties of the existing topic
-            _context.Entry(existingTopic).CurrentValues.SetValues(topic);
+            //_context.Entry(existingTopic).CurrentValues.SetValues(topic);
+            existingTopic.Title = topic.new_topic.Title;
+            existingTopic.VideoUrl = topic.new_topic.VideoUrl;
+            existingTopic.Term = topic.new_topic.Term; // check
 
-            // update updated_at value
             existingTopic.UpdatedAt = DateTime.Now;
 
             // Update related entities, assuming Content is a complex type
-            if (existingTopic.Content != null)
+            if (existingTopic.Content != null) // if there was a content for that topic
             {
-                if (topic.Content == null || topic.Content.Content == null)
+                if (topic.new_content == null)
                 {
                     // If the new content is null, remove the existing content
                     _context.TopicContents.Remove(existingTopic.Content);
                 }
-                else
+                else // if there is value
                 {
                     // Update the properties of the existing content
-                    _context.Entry(existingTopic.Content).CurrentValues.SetValues(topic.Content);
+                    //_context.Entry(existingTopic.Content).CurrentValues.SetValues(topic.Content);
+                    existingTopic.Content.Content = topic.new_content;
                 }
             }
-            else
+            else // if there was not a content for this topic
             {
-                // If there is no existing content, but the new content is not null, add the new content
-                if (topic.Content != null && topic.Content.Content != null)
+                if ( topic.new_content != null)
                 {
-                    existingTopic.Content = topic.Content;
+                    // -----  Add new content
+                    var topicContent = new TopicContent
+                    {
+                        Content = topic.new_content,
+                    };
+                    // Associate content with the topic
+                    existingTopic.Content = topicContent;
                 }
+               
             }
 
             // ---------------- Update related entities
             // Update Files
             foreach (var existingFile in existingTopic.Files.ToList())
             {
-                var updatedFile = topic.Files.FirstOrDefault(f => f.Id == existingFile.Id);
+                var updatedFile = topic.passed_files.FirstOrDefault(f => f.Id == existingFile.Id);
                 if (updatedFile != null)
                 {
                     _context.Entry(existingFile).CurrentValues.SetValues(updatedFile);
@@ -268,7 +277,7 @@ namespace mobadir_API_1.Controllers
                 }
             }
             // Add new Files
-            foreach (var newFile in topic.Files.Where(f => f.Id == 0))
+            foreach (var newFile in topic.passed_files.Where(f => f.Id == 0))
             {
                 existingTopic.Files.Add(newFile);
             }
@@ -277,7 +286,7 @@ namespace mobadir_API_1.Controllers
             // Update Questions
             foreach (var existingQuestion in existingTopic.Questions.ToList())
             {
-                var updatedQuestion = topic.Questions.FirstOrDefault(f => f.Id == existingQuestion.Id);
+                var updatedQuestion = topic.passed_questions.FirstOrDefault(f => f.Id == existingQuestion.Id);
                 if (updatedQuestion != null)
                 {
                     _context.Entry(existingQuestion).CurrentValues.SetValues(updatedQuestion);
@@ -289,7 +298,7 @@ namespace mobadir_API_1.Controllers
                 }
             }
             // Add new Files
-            foreach (var newQuestion in topic.Questions.Where(f => f.Id == 0))
+            foreach (var newQuestion in topic.passed_questions.Where(f => f.Id == 0))
             {
                 existingTopic.Questions.Add(newQuestion);
             }

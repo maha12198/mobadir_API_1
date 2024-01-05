@@ -4,6 +4,7 @@ import { ISubject } from 'src/app/models/ISubject';
 import { ManagementService } from 'src/app/services/management.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { INewSubject } from 'src/app/models/INewSubject';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -39,16 +40,15 @@ export class AdSubjectsComponent {
     // Use the mapping to get the title based on the current grade ID
     return this.gradeTitles[this.Passed_grade_Id] || '';
   }
-
-  Passed_isVisible!: boolean;
-  
+ 
   constructor(private route : ActivatedRoute,
               private api_service: ManagementService,
               private fb: FormBuilder,
               private toast: NgToastService)
   {}
 
-
+  Passed_isVisible: boolean = true;
+  Edit_Subject_Form!: FormGroup;
   ngOnInit()
   {
     // get the grade id from route parameters (from grade page)
@@ -66,21 +66,28 @@ export class AdSubjectsComponent {
     this.Add_Subject_Form = this.fb.group(
       {
         name: ['', Validators.required],
-        is_Visible : ['true', Validators.required]
+        is_Visible : [true, Validators.required]
       }
     );
-
-    // At this point, the form has been initialized
-    this.Passed_isVisible = this.Add_Subject_Form?.get('is_Visible')?.value;
 
     // Subscribe to value changes of the is_Visible control
     this.Add_Subject_Form?.get('is_Visible')?.valueChanges.subscribe((value) => {
       this.Passed_isVisible = value;
+      console.log("visible value =", this.Passed_isVisible);
     });
 
-    //console.log("vis value", this.Passed_isVisible); //test
-    
+
+    //intialize Edit subject form
+    this.Edit_Subject_Form = this.fb.group(
+      {
+        name: ['', Validators.required]
+      }
+    );
+
   }
+
+
+
 
   get_subjects_of_the_grade(grade_Id: number)
   {
@@ -118,20 +125,13 @@ export class AdSubjectsComponent {
     );
   }
 
-  Add_Subject_Form!: FormGroup;
-  newSubject;
 
+
+
+  Add_Subject_Form!: FormGroup;
+  newSubject!: INewSubject;
   Add_new_subject()
   {
-    // Subscribe to value changes of the is_Visible control
-    // this.Add_Subject_Form?.get('is_Visible')?.valueChanges.subscribe((value) => {
-    //   if(value = 'undefined')
-    //   {
-    //     this.Passed_isVisible = true;
-    //   }
-    //   this.Passed_isVisible = value;
-    // });
-
     this.newSubject = {
       name: this.Add_Subject_Form?.get('name')?.value,
       isVisible: this.Passed_isVisible,
@@ -144,9 +144,42 @@ export class AdSubjectsComponent {
       {
         next: (res)=> {
           console.log(res.message);
+
           this.toast.success({ detail:"sucess", summary: "تمت إضافة المادة", duration: 2000, position:'topCenter'});
+          
           this.get_subjects_of_the_grade(this.Passed_grade_Id);
           $('#add-subject-modal').modal('hide');
+        },
+        error: (err)=> {
+          console.log(err);
+        }
+      }
+    );
+  }
+
+
+  selected_subject_id!: number;
+  Send_selected_subject(selected_subject: number)
+  {
+    this.selected_subject_id = selected_subject;
+    console.log('selected_subject_id = ', this.selected_subject_id);
+  }
+  Edit_subject_name()
+  {
+    const new_subject_name = this.Edit_Subject_Form?.get('name')?.value;
+
+    console.log('new_subject_name = ', new_subject_name); //test
+
+    this.api_service.Edit_subject_name(this.selected_subject_id, new_subject_name).subscribe(
+      {
+        next: (res)=> {
+          console.log(res.message);
+
+          this.toast.success({ detail:"sucess", summary: "تمت تعديل اسم المادة", duration: 2000, position:'topCenter'});
+          
+          this.get_subjects_of_the_grade(this.Passed_grade_Id);
+          
+          $('#edit-subject-modal').modal('hide');
         },
         error: (err)=> {
           console.log(err);

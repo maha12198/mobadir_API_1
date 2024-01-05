@@ -31,6 +31,7 @@
                             <th class="align-middle">المادة</th>
                             <th class="pr-4 align-middle">الحالة</th>
                             <th class="pr-4 align-middle"></th>
+                            <th class="pr-4 align-middle"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,10 @@
                                         <input type="checkbox" [id]="'checkbox' + subject.id" class="tgl tgl-skewed" [checked]="subject.isVisible" (change)="onCheckboxChange($event, subject.id)">
                                         <label [for]="'checkbox' + subject.id" data-tg-on="ظاهر" data-tg-off="مخفي" class="tgl-btn"></label>
                                     </div>
+                                </td>
+                                
+                                <td class="align-middle">
+                                    <input type="button" value="تعديل"  class="btn btn-warning btn-lg smaller-font-size px-3 mx-3"  data-toggle="modal" data-target="#edit-subject-modal" (click)="Send_selected_subject(subject.id)" >
                                 </td>
 
                                 <td class="align-middle">
@@ -112,6 +117,42 @@
                 <div class="modal-footer d-flex justify-content-between">
                     <button type="button" class="btn btn-danger smaller-font-size btn-lg" data-dismiss="modal">إغلاق</button>
                     <button type="submit" [disabled]="Add_Subject_Form.invalid" class="btn btn-primary smaller-font-size btn-lg">حفظ</button>
+                </div>
+            </form>
+      </div>
+    </div>
+</div>
+  
+
+
+
+<!-- ------------ Edit subject modal ------------ -->
+<div class="modal" id="edit-subject-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+            <!-- Modal Header -->
+            <div class="modal-header d-flex justify-content-between mb-3">
+                <h3 class="modal-title flex-grow-1 font-weight-bold">تعديل اسم المادة </h3>
+                <button type="button btn-modal-close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form [formGroup]="Edit_Subject_Form" (ngSubmit)="Edit_subject_name()">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    
+                    <div class="row mb-4">
+                        <div class="col-lg-4 col-md-4 label "> اسم المادة الجديد</div>
+                        <div class="col-lg-8 col-md-8">
+                            <input type="text" formControlName="name" class="form-control smaller-font-size " >
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-danger smaller-font-size btn-lg" data-dismiss="modal">إغلاق</button>
+                    <button type="submit" [disabled]="Edit_Subject_Form.invalid" class="btn btn-primary smaller-font-size btn-lg">حفظ</button>
                 </div>
             </form>
       </div>

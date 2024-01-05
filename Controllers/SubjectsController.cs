@@ -91,18 +91,68 @@ namespace mobadir_API_1.Controllers
         // -------------------------- Add new subject ---------------------
         // POST: api/Subjects
         [HttpPost]
-        public async Task<ActionResult<Subject>> PostSubject([FromBody] Subject subject)
+        public async Task<ActionResult<Subject>> PostSubject([FromBody]AddSubjectModel subject)
         {
             if (subject == null)
             {
                 return BadRequest("subject is null.");
             }
 
-            _context.Subjects.Add(subject);
+            var newSubject = new Subject
+            {
+                GradeId = subject.gradeId,
+                Name = subject.name,
+                IsVisible = subject.IsVisible
+            };
+
+            _context.Subjects.Add(newSubject);
+
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "subject added!" });
         }
+
+
+
+
+        // -------------------------- Edit subject name ---------------------
+        // PATCH: api/Subjects/EditSubjectName/{id}
+        [HttpPatch("EditSubjectName/{id}")]
+        public async Task<IActionResult> EditSubjectName(int id, [FromBody]SubjectUpdateNameModel subjectUpdateNameModel)
+        {
+            if (string.IsNullOrWhiteSpace(subjectUpdateNameModel.new_subject_name))
+            {
+                return BadRequest("New subject name cannot be empty or null.");
+            }
+
+            var subject = await _context.Subjects.FindAsync(id);
+
+            if (subject == null)
+            {
+                return NotFound("Subject not found.");
+            }
+
+            subject.Name = subjectUpdateNameModel.new_subject_name;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SubjectExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(new { message = "Subject name updated successfully!" });
+        }
+
 
     }
 
@@ -110,5 +160,17 @@ namespace mobadir_API_1.Controllers
     public class SubjectUpdateModel
     {
         public bool IsVisible { get; set; }
+    }
+
+    public class AddSubjectModel
+    {
+        public int gradeId { get; set; }
+        public bool IsVisible { get; set; }
+        public string name { get; set; }
+    }
+
+    public class SubjectUpdateNameModel
+    {
+        public string new_subject_name { get; set; }
     }
 }

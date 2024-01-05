@@ -755,7 +755,7 @@ export class AdTopicComponent {
   // ---------------- Add new Topic (Submit button) ------------------
   newTopic!: INewTopic;
   //topic_id!:number;
-  new_content!: string;
+  new_content!: string | null;
   AddTopicMainData()
   {
     if (this.Have_params == true)
@@ -789,7 +789,7 @@ export class AdTopicComponent {
     if (bodyValue === null || /^\s*$/.test(bodyValue))
     {
       console.log("Body is null or contains only spaces");
-      this.new_content == null;
+      this.new_content = null;
       console.log("newContent = ", this.new_content);
     }
     else // it has a value
@@ -833,7 +833,7 @@ export class AdTopicComponent {
           console.log('Data of Topic Fetched successfully:', res);
           
           this.Fetchedtopic = res;
-          console.log('Topic fetched: ', this.Fetchedtopic);
+          console.log('Fetchedtopic: ', this.Fetchedtopic);
 
           this.Files = res.files;
           this.Questions = res.questions;
@@ -875,18 +875,27 @@ export class AdTopicComponent {
 
   //editTopic!: IEditTopic;
   //editTopic!: INewTopic;
-  editTopic;
-  editContent!: string;
+  editTopic!: INewTopic;
+  editContent!: string | null;
   EditTopic()
   {
     console.log('Entered EditTopic function, Topic_id passed to the method = ', this.passed_topic_id);
 
-    this.editTopic = this.Fetchedtopic;
+    this.editTopic = this.Fetchedtopic.Topic;
     console.log('this.editTopic = ',this.editTopic);
-    //console.log('this.fetchedTopic = ',this.Fetchedtopic);
+    
+    this.editTopic =
+    {
+      title: this.editorForm?.get('title')?.value,
+      //videoUrl: this.Fetchedtopic.videoUrl,
+      term: this.editorForm?.get('selectedTerm')?.value,
+      //subjectId: this.Fetchedtopic.subjectId, 
+      //createdBy: this.user_id,
+    };
+    console.log('1- editTopic = ',this.editTopic);
 
-    this.editTopic.title = this.editorForm?.get('title')?.value;
-    this.editTopic.term = this.editorForm?.get('selectedTerm')?.value;
+    //this.editTopic.title = this.editorForm?.get('title')?.value;
+    //this.editTopic.term = this.editorForm?.get('selectedTerm')?.value;
 
     //this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value; // check this too
     // Check if content is null or contains only spaces
@@ -900,6 +909,7 @@ export class AdTopicComponent {
     {
       this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value;
     }
+    console.log('2- editTopic = ',this.editTopic);
 
     //this.editTopic.content.content = this.editorForm?.get('body')?.value;
     // Check if content is null or contains only spaces
@@ -907,19 +917,20 @@ export class AdTopicComponent {
     if (bodyValue === null || /^\s*$/.test(bodyValue))
     {
       console.log("Body is null or contains only spaces");
-      this.editTopic.content = null;
+      this.editContent = null;
     }
     else // it has a value, then do normal
     {
-      this.editTopic.content.content = this.editorForm?.get('body')?.value;
+      this.editContent = this.editorForm?.get('body')?.value;
     }
+    console.log('3- editContent = ',this.editContent);
 
-    this.editTopic.files = this.Files;
-    this.editTopic.questions = this.Questions;
+    //this.editTopic.files = this.Files;
+    //this.editTopic.questions = this.Questions;
 
-    console.log("editTopic = ", this.editTopic);
+    //console.log("editTopic = ", this.editTopic);
 
-    this.management_api_service.EditTopic(this.passed_topic_id, this.editTopic).subscribe(
+    this.management_api_service.EditTopic(this.passed_topic_id, this.editTopic, this.editContent, this.Files, this.Questions).subscribe(
      {
        next: (res) => {
           console.log(res.message);

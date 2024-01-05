@@ -1,10 +1,8 @@
 export interface INewTopic 
 {
     title?: string;
-    videoUrl?: string;
+    videoUrl?: string | null;
     term?: number;
     subjectId?: number;
     createdBy?: number;
-
-    //content?: string;
 }

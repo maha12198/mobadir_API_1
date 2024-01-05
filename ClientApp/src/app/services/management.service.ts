@@ -6,6 +6,7 @@ import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
 import { IQuestionModel } from '../models/IQuestionModel';
+import { INewSubject } from '../models/INewSubject';
 
 
 
@@ -55,12 +56,20 @@ export class ManagementService {
   }
 
   // add new subject
-  Add_subject( subjectObj : ISubject)
+  Add_subject( subjectObj : INewSubject)
   {
     const url = `${Constants.api_url}/Subjects`;
 
     return this.http.post<any>(url, subjectObj); 
   }
+
+  Edit_subject_name(subjectId: number, new_subject_name: string )
+  {
+    const url = `${Constants.api_url}/Subjects/EditSubjectName/${subjectId}`;
+
+    return this.http.patch<any>(url, {new_subject_name}); 
+  }
+
 
 
   // ------------------------ All Topics Page ------------------------
@@ -105,7 +114,7 @@ export class ManagementService {
   }
 
 
-  AddMainDataForTopic(newTopic: INewTopic, newContent: string, files: IFile[], questions: IQuestionModel[])
+  AddMainDataForTopic(newTopic: INewTopic, newContent: string| null, files: IFile[], questions: IQuestionModel[])
   {
     let input = 
     {
@@ -149,11 +158,20 @@ export class ManagementService {
   }
 
 
-  EditTopic(topic_id: number, topic_data)
+  EditTopic(topic_id: number, newTopic: INewTopic, newContent: string|null, files: IFile[], questions: IQuestionModel[])
   {
+    let input = 
+    {
+      //  attention: case sensitive to what is delcared in the api side
+      new_topic: newTopic,
+      new_content: newContent,
+      passed_files: files,
+      passed_questions: questions
+    }
+
     const url = `${Constants.api_url}/Topics1/${topic_id}`;
 
-    return this.http.put<any>(url, topic_data);
+    return this.http.put<any>(url, input);
   }
 
 
