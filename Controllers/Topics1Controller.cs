@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using mobadir_API_1.Models;
+
 
 namespace mobadir_API_1.Controllers
 {
@@ -370,6 +372,99 @@ namespace mobadir_API_1.Controllers
 
 
 
+        // ------------------------------------- Delete File From Server -----------------------------------------
+        //// test deleting a file from server
+        //[HttpPost("deleteFile")] // check the api mehtod again
+        //public async Task<IActionResult> DeleteFile([FromQuery] string fileUrl)
+        //{
+        //    try
+        //    {
+        //        bool Result = DeleteFileOnFtpServer(fileUrl);
+        //        //bool deletionResult = Result.deletionResult;
+
+        //        if (Result)
+        //        {
+        //            return Ok(new { Message = $"File at '{fileUrl}' deleted successfully." });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest(new { Message = $"Error deleting file at '{fileUrl}'." });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new { Message = $"Internal server error: {ex.Message}" });
+        //    }
+        //}
+
+
+        //public static bool DeleteFileOnFtpServer(string serverUri)
+        //{
+        //    try
+        //    {
+        //        // The serverUri parameter should use the ftp:// scheme.
+        //        // It contains the name of the server file that is to be deleted.
+        //        // Example: ftp://contoso.com/someFile.txt.
+
+        //        //string serverUri = "http://ahamdycs2012-001-site1.btempurl.com/uploads//1ab262cf-76ac-4d07-90ff-0baf43123352topicImageExp1.jpeg";
+
+        //        // Replace the beginning of the URL
+        //        string replacedUrl = ReplaceUrl(serverUri, "ftp://win5143.site4now.net/mobader/wwwroot");
+
+        //        Console.WriteLine("Original URL: " + serverUri);
+        //        Console.WriteLine("Replaced URL: " + replacedUrl);
+
+        //        // Convert the string to a URI
+        //        if (Uri.TryCreate(replacedUrl, UriKind.Absolute, out Uri new_serverUri))
+        //        {
+        //            if (new_serverUri.Scheme != Uri.UriSchemeFtp)
+        //            {
+        //                return false;
+        //            }
+
+        //            // Get the object used to communicate with the server.
+        //            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new_serverUri);
+        //            request.Credentials = new NetworkCredential("ahamdycs2012-001", "Ahmed123#");
+        //            request.Method = WebRequestMethods.Ftp.DeleteFile;
+
+        //            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+        //            //Console.WriteLine("Delete status: {0}", response.StatusDescription);
+        //            response.Close();
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            // Handle invalid URI
+        //            Console.WriteLine("Invalid URI: " + replacedUrl);
+        //            return false;
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
+
+
+
+
+        //static string ReplaceUrl(string originalUrl, string newBaseUrl)
+        //{
+        //    // Find the index of the first slash after the scheme
+        //    int indexOfSlash = originalUrl.IndexOf('/', originalUrl.IndexOf("//") + 2);
+
+        //    if (indexOfSlash != -1)
+        //    {
+        //        // Extract the path part of the URL
+        //        string pathPart = originalUrl.Substring(indexOfSlash);
+
+        //        // Concatenate the new base URL with the path part
+        //        return newBaseUrl.TrimEnd('/') + pathPart;
+        //    }
+
+        //    // If the URL format is unexpected, return the original URL
+        //    return originalUrl;
+        //}
 
 
 

@@ -447,6 +447,7 @@ export class AdTopicComponent {
     this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
 
     this.File_Url='';
+    this.File_Extension=''; //new
   }
 
 

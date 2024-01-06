@@ -91,6 +91,7 @@ export class LoginFormComponent {
                       },
         error: (err)=>{ console.log(err);
 
+                        // if the server is down
                         if (err.name === 'HttpErrorResponse' && err.status === 0)
                         {
                           this.alertMessage = 'حدث خطأ أثناء معالجة الطلب في نقطة الوصول';
