@@ -10,10 +10,6 @@
     
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\uploads\AdminLTE-3.2.0.zip" />
-    <Content Remove="wwwroot\uploads\AdminLTE-master.zip" />
-  </ItemGroup>
 
   <!--<ItemGroup>
     <Content Remove="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
@@ -84,53 +80,5 @@
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://json.schemastore.org/azure-devops-extension-manifest-1.0.json" /></VisualStudio></ProjectExtensions>
-
-  <!--<ItemGroup>
-    <None Include="wwwroot\mobadir-elearning-angular\3rdpartylicenses.txt" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\css\style.css" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\cal.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\icons\download.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\icons\pdf.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo2.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo3.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logo4.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\logoSM.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg2.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg3.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\math-bg33.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\mobadrLogo1.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\newsletter-bg.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\11.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\22.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\33.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers2\44.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\1.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\10_10.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\11_11.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\12_12.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\2.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\3.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\4.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\5.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\6.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\7.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\8.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\numbers3\9.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-1.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-2.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\pic-3.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topic.jpg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicEx.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp1.jpeg" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\images\topicImageExp2.png" />
-    <None Include="wwwroot\mobadir-elearning-angular\assets\js\script.js" />
-    <None Include="wwwroot\mobadir-elearning-angular\favicon.ico" />
-    <None Include="wwwroot\mobadir-elearning-angular\index.html" />
-    <None Include="wwwroot\mobadir-elearning-angular\main.5aa24e46fbadc516.js" />
-    <None Include="wwwroot\mobadir-elearning-angular\polyfills.c850ec5f6f3f7b4b.js" />
-    <None Include="wwwroot\mobadir-elearning-angular\runtime.55415674df33998c.js" />
-    <None Include="wwwroot\mobadir-elearning-angular\styles.ef46db3751d8e999.css" />
-  </ItemGroup>-->
 
 </Project>

@@ -57,10 +57,11 @@ internal class Program
         {
             options.AddDefaultPolicy(policy =>
             {
-                policy.AllowAnyOrigin() // or .WithOrigins("http://localhost:4200")
+                policy.AllowAnyOrigin() //.WithOrigins("http://localhost:4200")
                 .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowAnyOrigin();
+                .AllowAnyMethod();
+                //.SetIsOriginAllowedToAllowWildcardSubdomains();
+                //.AllowCredentials();
             });
         });
 
@@ -72,6 +73,13 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        
+        //app.UseHttpsRedirection();
+        // for the deployment
+        //app.UseStaticFiles(); // for the wwwroot folder
+        //app.UseRouting();
+
 
         // for enabling angular to call the api - enable policy
         app.UseCors();

@@ -80,7 +80,8 @@ namespace mobadir_API_1.Controllers
 
                 string newFileName = Guid.NewGuid().ToString() + file.FileName;
 
-                string ftpUrl = "ftp://win5143.site4now.net/mobader/wwwroot/uploads/" + newFileName;
+                //string ftpUrl = "ftp://win5143.site4now.net/mobader/wwwroot/uploads/" + newFileName;
+                string ftpUrl = "ftp://win8047.site4now.net/mobader/wwwroot/uploads/" + newFileName;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
 
@@ -100,8 +101,8 @@ namespace mobadir_API_1.Controllers
                 }
 
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                
-                string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
+                //string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
+                string imageUrl = "https://mobaaderr-001-site1.btempurl.com/uploads//" + newFileName;
 
                 // new : for the file type 
                 // Extract file extension from the uploaded file name

@@ -7,9 +7,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Cors;
 
 namespace mobadir_API_1.Controllers
 {
+    //[EnableCors()]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
