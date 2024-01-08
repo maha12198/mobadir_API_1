@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1kkWrDhlvZl9brX6u2wG6k552GcNNF8hFNtl0E6gjRk=",
+  "Hash": "8pTaBQjhee2JOUN6wuAEzmV+n5naeL0osJVNWjemNTc=",
   "Source": "mobadir_API_1",
   "BasePath": "_content/mobadir_API_1",
   "Mode": "Default",
@@ -1462,12 +1462,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\main.ba54dfdb533f0871.js",
+      "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\main.22f6144f95e82568.js",
       "SourceId": "mobadir_API_1",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\",
       "BasePath": "_content/mobadir_API_1",
-      "RelativePath": "main.ba54dfdb533f0871.js",
+      "RelativePath": "main.22f6144f95e82568.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1476,7 +1476,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\main.ba54dfdb533f0871.js"
+      "OriginalItemSpec": "wwwroot\\main.22f6144f95e82568.js"
     },
     {
       "Identity": "D:\\Mobadr Oman Website\\Project Folder\\Mobadir-ELearning-API\\mobadir_API_1\\mobadir_API_1\\wwwroot\\polyfills.c850ec5f6f3f7b4b.js",
