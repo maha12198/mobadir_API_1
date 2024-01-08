@@ -137,7 +137,7 @@ namespace mobadir_API_1.Controllers
                                       .Select(subject => new
                                       {
                                           SubjectName = subject.Name,
-                                          GradeName = subject.Grade.Name
+                                          GradeName = subject.Grade!.Name
                                       })
                                       .FirstOrDefaultAsync();
             if (infoToAddTopic == null)
@@ -210,7 +210,7 @@ namespace mobadir_API_1.Controllers
 
                 return Ok(new { title = topic_title });
             }
-            catch (Exception ex)
+            catch
             {
                 // Log the exception for debugging purposes
                 //Console.WriteLine($"Exception: {ex.Message}");

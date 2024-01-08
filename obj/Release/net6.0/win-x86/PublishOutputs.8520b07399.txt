@@ -1,7 +1,5 @@
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\mobadir_API_1.exe
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\appsettings.Development.json
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\appsettings.json
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\appsettings.Production.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\angular.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\dist\mobadir-elearning-angular\assets\admin\vendor\bootstrap-icons\bootstrap-icons.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\package-lock.json
@@ -10,6 +8,7 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\tsconfig.app.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\tsconfig.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\ClientApp\tsconfig.spec.json
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\constants.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\package-lock.json
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\mobadir_API_1.dll
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\PubTmp\Out\mobadir_API_1.runtimeconfig.json

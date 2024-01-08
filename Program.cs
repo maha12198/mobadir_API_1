@@ -1,11 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using mobadir_API_1.Models;
 using System.Text;
 using System.Text.Json.Serialization;
-using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
@@ -24,8 +22,6 @@ internal class Program
             option => option.UseSqlServer(connectionString));
 
         // ----------------- Jwt configuration starts here
-        //var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
-        //var jwtKey = builder.Configuration.GetSection("testsecretkey").Get<string>();
         builder.Services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -65,6 +61,11 @@ internal class Program
             });
         });
 
+        // new
+        // Add configuration from appsettings.json
+        builder.Configuration.AddJsonFile("constants.json", optional: false, reloadOnChange: true);
+
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -75,28 +76,16 @@ internal class Program
         }
 
         
-        //app.UseHttpsRedirection();
-        // for the deployment
-        //app.UseStaticFiles(); // for the wwwroot folder
-        //app.UseRouting();
-
-
         // for enabling angular to call the api - enable policy
         app.UseCors();
-
         app.UseHttpsRedirection();
-
-        
 
         // for the deployment
         app.UseStaticFiles(); // for the wwwroot folder
 
-
-        //new -- moved down
         app.UseAuthentication();
 
         app.UseAuthorization();
-
 
         app.MapFallbackToFile("index.html");
 

@@ -65,12 +65,6 @@ export class AdAllTopicsComponent {
         
         },
         error: (err)=> {
-          
-          // if (this.TopicsList1.length == 0 || this.TopicsList1.length < 0)
-          // {
-          //   console.log("No Topics were found for this subject!");
-          // }
-
           console.log("Error in Fetching Topics: ",err);
         }
       }

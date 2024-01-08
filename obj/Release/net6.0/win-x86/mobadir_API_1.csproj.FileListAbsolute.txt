@@ -248,5 +248,4 @@ D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadi
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\mobadir_API_1.pdb
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\mobadir_API_1.genruntimeconfig.cache
 D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\obj\Release\net6.0\win-x86\ref\mobadir_API_1.dll
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\win-x86\appsettings.json
-D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\win-x86\appsettings.Production.json
+D:\Mobadr Oman Website\Project Folder\Mobadir-ELearning-API\mobadir_API_1\mobadir_API_1\bin\Release\net6.0\win-x86\constants.json

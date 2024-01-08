@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using NuGet.Common;
 using NuGet.ProjectModel;
+using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -15,10 +16,13 @@ namespace mobadir_API_1.Controllers
     public class RichEditorController : ControllerBase
     {
         //private readonly IWebHostEnvironment _webHostEnvironment;
-        //public RichEditorController(IWebHostEnvironment webHostEnvironment)
-        //{
-        //    _webHostEnvironment = webHostEnvironment;
-        //}
+        private readonly IConfiguration _configuration;
+
+        public RichEditorController(IConfiguration configuration)
+        {
+            //_webHostEnvironment = webHostEnvironment;
+            _configuration = configuration;
+        }
 
 
         [HttpPost("ImageUpload_1")]
@@ -27,23 +31,13 @@ namespace mobadir_API_1.Controllers
             try
             {
                 IFormFile file = HttpContext.Request.Form.Files[0];
-
                 string newFileName = Guid.NewGuid().ToString() + file.FileName;
-
-                //string ftpUrl = "ftp://win5143.site4now.net/mobader/wwwroot/uploads/" + newFileName;
-                string ftpUrl = "ftp://win8047.site4now.net/mobader/wwwroot/uploads/" + newFileName;
+                string ftpUrl = _configuration["FtpUrl"] + newFileName;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
-
-                //request.Credentials = new NetworkCredential("ahamdycs2012-001", "Ahmed123#");
-                request.Credentials = new NetworkCredential("mobaaderr-001", "12345.Net");
-
-                request.Method = WebRequestMethods.Ftp.UploadFile;
-
+                request.Credentials = new NetworkCredential(_configuration["FtpUsername"], _configuration["FtpPassword"]);
+                request.Method = Ftp.UploadFile;
                 request.UsePassive = true;
-
-                var totalBytes = file.Length;
-                var uploadedBytes = 0L;
 
                 using (Stream ftpStream = request.GetRequestStream())
                 {
@@ -52,22 +46,13 @@ namespace mobadir_API_1.Controllers
                 }
 
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                //string imageUrl = "http://ahamdycs2012-001-site1.btempurl.com/uploads//" + newFileName;
-                //string imageUrl = "http://mobaaderr-001-site1.btempurl.com/uploads//" + newFileName;
-                string imageUrl = "https://mobaaderr-001-site1.btempurl.com/uploads//" + newFileName;
-
-                // new : for the file type 
-                // Extract file extension from the uploaded file name
-                string fileExtension = Path.GetExtension(file.FileName).ToLower();
+                string imageUrl = _configuration["ServerUrl"] + "/uploads//" + newFileName;
+                string fileExtension = Path.GetExtension(file.FileName).ToLower(); //Extract file extension from the uploaded file name
 
                 return await Task.FromResult(new { url = imageUrl, extension = fileExtension });
-
             }
             catch (WebException ex)
             {
-                String status = ((FtpWebResponse)ex.Response).StatusDescription;
-
-                // Log the exception or handle it in an appropriate way
                 return BadRequest(new { Message = "Image upload failed", Error = ex.Message });
             }
         }

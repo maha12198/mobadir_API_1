@@ -53,7 +53,7 @@ namespace mobadir_API_1.Models
         [NotMapped] 
         public TopicTerm TopicTerm
         {
-            get => (TopicTerm) Term;
+            get => (TopicTerm)Term!;
             set => Term = (int)value;
         } 
 
