@@ -1,12 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
-using NuGet.Common;
-using NuGet.ProjectModel;
-using System.Configuration;
-using System.IO;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Text;
 using static System.Net.WebRequestMethods;
 
 namespace mobadir_API_1.Controllers

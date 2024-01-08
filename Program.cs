@@ -36,7 +36,7 @@ internal class Program
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secure_secret_key")),
                 ValidateAudience = false,
                 ValidateIssuer = false,
-                // for make specific time for the authorized user
+                // to make specific time for the authorized user
                 ClockSkew = TimeSpan.Zero 
                 //ValidateLifetime = true,
             };
@@ -70,8 +70,7 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
-        
+  
         // for enabling angular to call the api - enable policy
         app.UseCors();
         app.UseHttpsRedirection();
