@@ -14,7 +14,6 @@ internal class Program
         // Add services to the container.
         builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-       
 
         // dbcontext injection
         var connectionString = builder.Configuration.GetConnectionString("MobadrDB");
@@ -56,13 +55,10 @@ internal class Program
                 policy.AllowAnyOrigin() //.WithOrigins("http://localhost:4200")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
-                //.SetIsOriginAllowedToAllowWildcardSubdomains();
-                //.AllowCredentials();
             });
         });
 
-        // new
-        // Add configuration from appsettings.json
+        // new: Add configuration file for constant vars
         builder.Configuration.AddJsonFile("constants.json", optional: false, reloadOnChange: true);
 
 

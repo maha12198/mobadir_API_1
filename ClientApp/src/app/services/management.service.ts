@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { Observable } from 'rxjs';
-import { ISubject } from '../models/ISubject';
 import { INewTopic } from '../models/INewTopic';
 import { IFile } from '../models/IFile';
 import { IQuestionModel } from '../models/IQuestionModel';
@@ -130,22 +129,28 @@ export class ManagementService {
     return this.http.post<any>(url, input).pipe();
   }
 
-
-
-
   upload_new_file(formData)
   { 
-    const url = `${Constants.api_url}/RichEditor/ImageUpload_1`;
+    const url = `${Constants.api_url}/RichEditor/FileUpload`;
 
     return this.http.post<any>(url, formData);
 
   }
-    
-  download_new_File(fileUrl: string): Observable<Blob> 
-  {
-    return this.http.get(fileUrl, { responseType: 'blob' });
-  }
 
+  upload_new_question_image(formData)
+  { 
+    const url = `${Constants.api_url}/RichEditor/Question_ImageUpload`;
+
+    return this.http.post<any>(url, formData);
+  }
+    
+  // download_new_File(fileUrl: string): Observable<Blob> 
+  // {
+  //   return this.http.get(fileUrl, { responseType: 'blob' });
+  // }
+
+
+  
 
 
   // ------------------ Edit Topic Page -----------------------

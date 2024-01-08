@@ -24,15 +24,15 @@ namespace mobadir_API_1.Controllers
             _configuration = configuration;
         }
 
-
-        [HttpPost("ImageUpload_1")]
-        public async Task<Object> ImageUpload_1()
+        // ------------------------------------------------ Upload Image in Editor -----------------------------------------
+        [HttpPost("Editor_ImageUpload")]
+        public async Task<Object> Editor_ImageUpload()
         {
             try
             {
                 IFormFile file = HttpContext.Request.Form.Files[0];
                 string newFileName = Guid.NewGuid().ToString() + file.FileName;
-                string ftpUrl = _configuration["FtpUrl"] + newFileName;
+                string ftpUrl = _configuration["FtpUrl"] + "/uploads/editor_images/" + newFileName;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
                 request.Credentials = new NetworkCredential(_configuration["FtpUsername"], _configuration["FtpPassword"]);
@@ -46,7 +46,74 @@ namespace mobadir_API_1.Controllers
                 }
 
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                string imageUrl = _configuration["ServerUrl"] + "/uploads//" + newFileName;
+                string imageUrl = _configuration["ServerUrl"] + "/uploads/editor_images/" + newFileName;
+                //string fileExtension = Path.GetExtension(file.FileName).ToLower(); //Extract file extension from the uploaded file name
+
+                return await Task.FromResult(new { url = imageUrl });
+            }
+            catch (WebException ex)
+            {
+                return BadRequest(new { Message = "Image upload failed", Error = ex.Message });
+            }
+        }
+
+
+        // ------------------------------------------------ Upload Image of Question -----------------------------------------
+        [HttpPost("Question_ImageUpload")]
+        public async Task<Object> Question_ImageUpload()
+        {
+            try
+            {
+                IFormFile file = HttpContext.Request.Form.Files[0];
+                string newFileName = Guid.NewGuid().ToString() + file.FileName;
+                string ftpUrl = _configuration["FtpUrl"] + "/uploads/question_images/" + newFileName;
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                request.Credentials = new NetworkCredential(_configuration["FtpUsername"], _configuration["FtpPassword"]);
+                request.Method = Ftp.UploadFile;
+                request.UsePassive = true;
+
+                using (Stream ftpStream = request.GetRequestStream())
+                {
+                    await file.CopyToAsync(ftpStream);
+                    ftpStream.Close();
+                }
+
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                string imageUrl = _configuration["ServerUrl"] + "/uploads/question_images/" + newFileName;
+                //string fileExtension = Path.GetExtension(file.FileName).ToLower(); //Extract file extension from the uploaded file name
+
+                return await Task.FromResult(new { url = imageUrl });
+            }
+            catch (WebException ex)
+            {
+                return BadRequest(new { Message = "Image upload failed", Error = ex.Message });
+            }
+        }
+
+        // ------------------------------------------------ Upload new File -----------------------------------------
+        [HttpPost("FileUpload")]
+        public async Task<Object> FileUpload()
+        {
+            try
+            {
+                IFormFile file = HttpContext.Request.Form.Files[0];
+                string newFileName = Guid.NewGuid().ToString() + file.FileName;
+                string ftpUrl = _configuration["FtpUrl"] + "/uploads/uploaded_files/" + newFileName;
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                request.Credentials = new NetworkCredential(_configuration["FtpUsername"], _configuration["FtpPassword"]);
+                request.Method = Ftp.UploadFile;
+                request.UsePassive = true;
+
+                using (Stream ftpStream = request.GetRequestStream())
+                {
+                    await file.CopyToAsync(ftpStream);
+                    ftpStream.Close();
+                }
+
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                string imageUrl = _configuration["ServerUrl"] + "/uploads/uploaded_files/" + newFileName;
                 string fileExtension = Path.GetExtension(file.FileName).ToLower(); //Extract file extension from the uploaded file name
 
                 return await Task.FromResult(new { url = imageUrl, extension = fileExtension });
@@ -56,7 +123,6 @@ namespace mobadir_API_1.Controllers
                 return BadRequest(new { Message = "Image upload failed", Error = ex.Message });
             }
         }
-
 
 
 

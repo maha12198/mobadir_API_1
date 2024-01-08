@@ -59,9 +59,6 @@ export class HomeService {
   {
     return this.http.get(fileUrl, { responseType: 'blob' });
   }
-
-  
-  
   
   
   // get title of the topic in quiz page

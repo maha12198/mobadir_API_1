@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import classicEditor from '@ckeditor/ckeditor5-build-classic'
-import {MyUploadAdapter} from '../../models/my-upload-adapter'
-
+import { MyUploadAdapter } from '../../models/my-upload-adapter'
 import { StoreUserService } from 'src/app/services/store-user.service';
-
 import { ActivatedRoute } from '@angular/router';
 import { ManagementService } from 'src/app/services/management.service';
 import { IGrades } from 'src/app/models/IGrades';
@@ -14,12 +11,9 @@ import { INewTopic } from 'src/app/models/INewTopic';
 import { IFile } from 'src/app/models/IFile';
 import { NgToastService } from 'ng-angular-popup';
 import { IQuestionModel } from 'src/app/models/IQuestionModel';
-
 import { Router } from '@angular/router';
 
-
 declare var $: any; // Declare jQuery to avoid TypeScript errors
-
 
 interface ITopicDataToAdd
 {
@@ -47,7 +41,6 @@ export class AdTopicComponent {
   passed_grade_id!:number;
   passed_subject_id!:number;
 
-
   // the main form in this page
   editorForm!: FormGroup;
 
@@ -55,7 +48,6 @@ export class AdTopicComponent {
 
   selectedGrade!: string;
   Have_params: boolean = true; 
-
   
   // for displaying add/edit buttons
   edit: boolean = false;
@@ -74,7 +66,6 @@ export class AdTopicComponent {
         console.log("Passed user id = ", this.user_id);
       }
     });
-
 
 
     // get the subjectId and gradeId from route parameters (from grade page)
@@ -156,14 +147,6 @@ export class AdTopicComponent {
     });
 
 
-          // test value selected in term dropdownlist
-          // this.editorForm?.get('selectedTerm')?.valueChanges.subscribe((value) => 
-          // {
-          //   console.log('Selected Term Value:', value);
-          // });
-
-
-    // ---------------------- populate data of topic in editor form (EDIT) ---------------------
     // Access the route snapshot to get the current path
     const currentPath = this.route.snapshot.routeConfig?.path;
     //console.log(currentPath); // test
@@ -180,11 +163,7 @@ export class AdTopicComponent {
       this.GetDataOfTopicToEdit(this.passed_topic_id);
     }
 
-
-   
- 
-
-
+    // ------------------------------ Form Intialization ----------------------------
     // intialize Files Form
     this.FilesForm = this.fb.group(
       {
@@ -217,6 +196,7 @@ export class AdTopicComponent {
       }
     );
 
+    // Intialize Update Questions Form
     this.UpdateQuestionsForm = this.fb.group(
       {
         QuesText_update: ['',[Validators.required]],
@@ -231,24 +211,19 @@ export class AdTopicComponent {
         attach_questions_image_update: ['']
       }
     );
-
-
-
   }
 
 
 
-  // getter method for this control to do a validation
+  // -------------------- getter methods for some controls to do a validation -------------------------------
   get FileName() 
   {
     return this.FilesForm.get('FileName');
   }
-  // getter method for this control to do a validation
   get AttachQuestionImage() 
   {
     return this.QuestionsForm.get('attach_questions_image');
   }
-  // getter method for this control to do a validation
   get attach_questions_image_update() 
   {
     return this.UpdateQuestionsForm.get('attach_questions_image_update');
@@ -259,7 +234,7 @@ export class AdTopicComponent {
 
 
   // -------------------------- CKeditor -----------------------
-  //some variables needed forfor CKeditor
+  //some variables needed for CKeditor
   private _value: string = '';
   public Editor = classicEditor;
   public editorConfig = {
@@ -277,13 +252,13 @@ export class AdTopicComponent {
       ],
     shouldNotGroupWhenFull: true
   },
-    //new for rtl support
+    //for rtl support
     language: {
       ui: 'ar',
       content: 'ar'
     }
   };
-  //some functions used for CK Editor
+  // functions used for CK Editor
   get value()
   {
     return this._value;
@@ -343,7 +318,9 @@ export class AdTopicComponent {
     );
   }
 
-  // In Add new Topic form Sidebar, change subject list based on the grade selected
+
+  // ------------------ get all subjects of the selected grade (dropdownlist of subject)
+  // **In Add new Topic from Sidebar, change subject list based on the grade selected
   onSelectGradeChange()
   {
     console.log('entered onSelectGrade function');
@@ -355,7 +332,7 @@ export class AdTopicComponent {
     }
   }
 
-
+  // ------------------ get all subjects of the selected grade (dropdownlist of subject)
   Subject_List!: ISubject[];
   get_subjects_of_the_grade(grade_Id)
   {
@@ -373,6 +350,8 @@ export class AdTopicComponent {
     );
   }
 
+  // ------------------ get grade and subject of selected subject (dropdownlists of grade and subject)
+  // **In Add new Topic inside a subject, autoselect grade an subject dropdownlists
   topicDataToAdd!: ITopicDataToAdd;
   GetDataToAddTopic(passed_subject_id)
   {
@@ -399,9 +378,6 @@ export class AdTopicComponent {
      }
    );
   }
-
-
-
 
 
 
@@ -500,13 +476,147 @@ export class AdTopicComponent {
 
 
 
+  
+  
+  // ---------------------------------------------------- QUESTIONS Part ------------------------------------------------
+
+  Questions: IQuestionModel[] =[];
+  QuestionsForm!: FormGroup;
+
+  //---------------------- Add new Question in Questions List -----------------
+  add_Question_InMemory()
+  {
+    // if the user attached a file and did not upload it 
+    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
+    {
+      alert('الرجاء رفع ملف الصورة أولا'); 
+      return;
+    }
+    
+    const newQuestion: IQuestionModel =
+    {
+      questionText: this.QuestionsForm?.get('questionText')?.value,
+      choice1: this.QuestionsForm?.get('choice1')?.value,
+      choice2: this.QuestionsForm?.get('choice2')?.value,
+      choice3: this.QuestionsForm?.get('choice3')?.value,
+      choice4: this.QuestionsForm?.get('choice4')?.value,
+      answer: this.QuestionsForm?.get('answer')?.value,
+
+      imageUrl: this.File_Url
+    };
+    console.log("new Question: ", newQuestion);
+
+    this.Questions.push(newQuestion);
+    console.log("Questions list Length = ", this.Questions.length);
+
+    this.QuestionsForm.reset();
+
+    $('#add-ques-modal').modal('hide');
+
+    this.toast.success({ detail:"sucess", summary: "تمت إضافة السؤال", duration: 2000, position:'topCenter'});
+    
+    // Reset the flag for subsequent form submissions
+    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
+    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+    
+    this.File_Url='';
+  }
+
+  
+  //-----------------------  Delete Question from memory------------------------
+  Pass_Selected_Question!: IQuestionModel;
+  UpdateQuestionsForm!: FormGroup;
+
+  // a function used to pass the file selected from the row of Files table  to the modal popup
+  SendQuestion_ToModal(question: IQuestionModel)
+  {
+    this.Pass_Selected_Question = question;
+
+    // Patch the form values with the selected question
+    this.UpdateQuestionsForm.patchValue(
+      {
+        QuesText_update: question.questionText,
+        Choice1_update: question.choice1,
+        Choice3_update: question.choice2,
+        Choice2_update: question.choice3,
+        Choice4_update: question.choice4,
+        Answer_update: question.answer
+      });
+
+    console.log(this.Pass_Selected_Question); 
+  }
+
+  // delete the selected question
+  deleteQuestion_InMemory()
+  {
+    console.log(this.Pass_Selected_Question); //test
+
+    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
+
+    if (index !== -1)
+    {
+      this.Questions.splice(index, 1);
+      console.log('Question deleted successfully');
+      $('#confirm-delete-ques-modal').modal('hide');
+    }
+  }
+
+  // get the image url of the question to populate it in src property of img tag ( to display the img)
+  getQuestionImageUrl(): any {
+    // "Pass_Selected_Question" is the current question
+    return this.Pass_Selected_Question ? this.Pass_Selected_Question.imageUrl : '';
+  }
+
+  Update_Question_InMemory()
+  {
+    // if the user attached a file and did not upload it 
+    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
+    {
+      alert('الرجاء رفع ملف الصورة أولا'); 
+      return;
+    }
+    // Update the question properties with the form values
+    const updatedQuestion: IQuestionModel =
+    {
+      questionText: this.UpdateQuestionsForm?.get('QuesText_update')?.value,
+      choice1: this.UpdateQuestionsForm?.get('Choice1_update')?.value,
+      choice2: this.UpdateQuestionsForm?.get('Choice2_update')?.value,
+      choice3: this.UpdateQuestionsForm?.get('Choice3_update')?.value,
+      choice4: this.UpdateQuestionsForm?.get('Choice4_update')?.value,
+      answer: this.UpdateQuestionsForm?.get('Answer_update')?.value,
+
+      imageUrl: this.File_Url
+    };
+
+    // Find the index of the selected question in the array
+    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
+
+    if (index !== -1)
+    {
+      // Update the question in the array
+      this.Questions[index] = updatedQuestion;
+      // Close the modal
+      $('#edit-ques-modal').modal('hide');
+    }
+
+    // Reset the form
+    this.UpdateQuestionsForm.reset();
+    this.toast.success({ detail:"sucess", summary: "تم تعديل السؤال", duration: 2000, position:'topCenter'});
+    
+    // Reset the flag for subsequent form submissions
+    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
+    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
+    
+    this.File_Url='';
+  }
 
 
 
 
 
 
-  // ------------------------------------------ UPLOAD FILE
+
+  // --------------------------------------------- UPLOADING PART (FILE/Question Image) ----------------------------------
   uploadFile!: File | null;
   handleFileInput(files: FileList)
   {
@@ -521,7 +631,8 @@ export class AdTopicComponent {
   File_Extension; //new
   uploadButtonClicked: boolean  = false;
   OneTimeUploadbuttonClicked: boolean = false; // to make the button clicked only one time
-  new_upload()
+  // ---------------------------  Upload new File ---------------------------
+  upload_new_file()
   {
     console.log('entered upload function');
 
@@ -567,184 +678,50 @@ export class AdTopicComponent {
       });
   }
 
-
-  // ------------------------------------------ DOWNLOAD FILE
-  // new_download()
-  // {
-  //   console.log('entered download function');
-
-  //   console.log('test printing the fileURL: ', this.File_Url);
-
-  //   this.management_api_service.download_new_File(this.File_Url).subscribe({
-  //     next: (data) => {
-  //       const blob = new Blob([data], { type: 'application/octet-stream' });
-
-  //       const link = document.createElement('a');
-  //       link.href = window.URL.createObjectURL(blob);
-  //       //link.download = 'filename.extension'; // Set a default filename or extract it from the response headers
-  //       if ( this.uploadFile != null)
-  //       {
-  //         link.download = this.uploadFile.name;
-  //       }
-  //       else
-  //       {
-  //         console.log('Upload file is null');
-  //       }
-  //       link.click();
-  //     },
-  //     error: (error) => {
-  //       console.error('File download failed:', error);
-  //     }
-  //   });
-  
-  // }
-
-
-
-
-
-
-
-  
-  // ------------------------------------------- QUESTIONS Part -----------------------------------------
-
-  Questions: IQuestionModel[] =[];
-  QuestionsForm!: FormGroup;
-
-  // Add new Question in Questions List
-  add_Question_InMemory()
+  // ---------------------------  Upload new Question Image ---------------------------
+  upload_new_Question_Image()
   {
+    console.log('entered upload function');
 
-    // if the user attached a file and did not upload it 
-    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
+    // ensure the user seleceted a a file
+    if (!this.uploadFile)
     {
-      alert('الرجاء رفع ملف الصورة أولا'); 
-      return;
-    }
-    
-    const newQuestion: IQuestionModel =
-    {
-      questionText: this.QuestionsForm?.get('questionText')?.value,
-      choice1: this.QuestionsForm?.get('choice1')?.value,
-      choice2: this.QuestionsForm?.get('choice2')?.value,
-      choice3: this.QuestionsForm?.get('choice3')?.value,
-      choice4: this.QuestionsForm?.get('choice4')?.value,
-      answer: this.QuestionsForm?.get('answer')?.value,
-
-      imageUrl: this.File_Url
-    };
-    console.log("new Question: ", newQuestion);
-
-    this.Questions.push(newQuestion);
-    console.log("Questions list Length = ", this.Questions.length);
-
-    this.QuestionsForm.reset();
-
-    $('#add-ques-modal').modal('hide');
-
-    this.toast.success({ detail:"sucess", summary: "تمت إضافة السؤال", duration: 2000, position:'topCenter'});
-    
-    
-    // Reset the flag for subsequent form submissions
-    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
-    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
-    
-    this.File_Url='';
-
-  }
-
-  
-  // Delete Questions from memory
-  Pass_Selected_Question!: IQuestionModel;
-  UpdateQuestionsForm!: FormGroup;
-  SendQuestion_ToModal(question: IQuestionModel) // used to pass the file selected from the row of Files table  to the modal popup
-  {
-    this.Pass_Selected_Question = question;
-
-    // Patch the form values with the selected question
-    this.UpdateQuestionsForm.patchValue({
-      QuesText_update: question.questionText,
-
-      Choice1_update: question.choice1,
-      Choice3_update: question.choice2,
-      Choice2_update: question.choice3,
-      Choice4_update: question.choice4,
-
-      Answer_update: question.answer,
-
-      //question_image_update: question.ImageUrl    //check this
-    });
-
-    //test
-    console.log("1", this.Pass_Selected_Question); 
-
-  }
-
-  deleteQuestion_InMemory()
-  {
-    console.log("2", this.Pass_Selected_Question); //test
-
-    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
-
-    if (index !== -1)
-    {
-      this.Questions.splice(index, 1);
-
-      console.log('Question deleted successfully');
-
-      $('#confirm-delete-ques-modal').modal('hide');
-    }
-  }
-
-
-  getQuestionImageUrl(): any {
-    // Assuming this.Pass_Selected_Question is the current question
-    return this.Pass_Selected_Question ? this.Pass_Selected_Question.imageUrl : '';
-  }
-  Update_Question_InMemory()
-  {
-    // if the user attached a file and did not upload it 
-    if ((this.AttachQuestionImage?.value) && (!this.uploadButtonClicked) )
-    {
-      alert('الرجاء رفع ملف الصورة أولا'); 
+      alert('الرجاء اختيار ملف اولا !');
       return;
     }
 
-    // Update the question properties with the form values
-    const updatedQuestion: IQuestionModel =
-    {
-      questionText: this.UpdateQuestionsForm?.get('QuesText_update')?.value,
-      choice1: this.UpdateQuestionsForm?.get('Choice1_update')?.value,
-      choice2: this.UpdateQuestionsForm?.get('Choice2_update')?.value,
-      choice3: this.UpdateQuestionsForm?.get('Choice3_update')?.value,
-      choice4: this.UpdateQuestionsForm?.get('Choice4_update')?.value,
-      answer: this.UpdateQuestionsForm?.get('Answer_update')?.value,
-
-      imageUrl: this.File_Url
-    };
-
-    // Find the index of the selected question in the array
-    const index = this.Questions.findIndex((f) => f === this.Pass_Selected_Question);
-
-    if (index !== -1) {
-      // Update the question in the array
-      this.Questions[index] = updatedQuestion;
-
-      // Close the modal
-      $('#edit-ques-modal').modal('hide');
+    if (!this.OneTimeUploadbuttonClicked) {
+      // Perform your button click logic here
+      console.log('Button clicked!');
+      
+      // Set the flag to true to disable the button
+      this.OneTimeUploadbuttonClicked = true;
     }
 
-    // Reset the form
-    this.UpdateQuestionsForm.reset();
+    const formData = new FormData();
+    formData.append(this.uploadFile.name, this.uploadFile);
 
-    this.toast.success({ detail:"sucess", summary: "تم تعديل السؤال", duration: 2000, position:'topCenter'});
-    
-    
-    // Reset the flag for subsequent form submissions
-    this.uploadButtonClicked = false; // that ensure the user uploaded the file before submitting/adding the file
-    this.OneTimeUploadbuttonClicked = false; // that ensure the user uploaded the file only once ( to prevent multiple upload of the same file)
-    
-    this.File_Url='';
+    console.log("form data: ", this.uploadFile.name, this.uploadFile); //test
+
+    this.toast.warning({ detail:"Info", summary: " الرجاء انتظار رسالة تأكيد رفع الصورة", sticky: true , position:'topCenter'});
+
+    this.management_api_service.upload_new_question_image(formData).subscribe(
+      { next: (res) => {
+          console.log('Question of the Image uploaded successfully:', res.url);
+          
+          this.File_Url = res.url;
+          
+          this.uploadButtonClicked = true; // Set the flag to true when the uplaod button is clicked
+        },
+        error: (err) => {
+          console.error('Question of the Image upload failed:',err);
+        },
+        complete: () => {
+          console.log('Entred Complete');
+
+          this.toast.success({ detail:"sucess", summary: "تم رفع الملف", duration: 2000, position:'topCenter'});
+        }
+      });
   }
 
 
@@ -752,10 +729,16 @@ export class AdTopicComponent {
 
 
 
+
+
+
+
+
+
+
   
-  // ---------------- Add new Topic (Submit button) ------------------
+  // ---------------------------------------------- Add Topic ---------------------------------------------------
   newTopic!: INewTopic;
-  //topic_id!:number;
   new_content!: string | null;
   AddTopicMainData()
   {
@@ -822,8 +805,9 @@ export class AdTopicComponent {
 
 
 
-  // ----------------------------------------- Edit Topic ----------------------------------------
+  // ------------------------------------------------- Edit Topic ------------------------------------------
 
+  // get data of the selected topic
   Fetchedtopic;
   GetDataOfTopicToEdit(topic_id)
   {
@@ -844,9 +828,7 @@ export class AdTopicComponent {
           // Patch the form values with the topic data
           this.editorForm.patchValue({
             selectedTerm: this.Fetchedtopic.term,
-            title: this.Fetchedtopic.title,
-            //videoUrl: this.Fetchedtopic.videoUrl,
-            //body: this.Fetchedtopic.content.content,
+            title: this.Fetchedtopic.title
           });
 
           if (this.Fetchedtopic.videoUrl !== null)
@@ -862,7 +844,6 @@ export class AdTopicComponent {
               body: this.Fetchedtopic.content.content,
             });
           }
-          
         },
         error: (err) => {
           console.error('Error in fetching topic data:',err);
@@ -871,11 +852,7 @@ export class AdTopicComponent {
   }
 
 
-
-
-
-  //editTopic!: IEditTopic;
-  //editTopic!: INewTopic;
+  // edit selected topic
   editTopic!: INewTopic;
   editContent!: string | null;
   EditTopic()
@@ -888,18 +865,11 @@ export class AdTopicComponent {
     this.editTopic =
     {
       title: this.editorForm?.get('title')?.value,
-      //videoUrl: this.Fetchedtopic.videoUrl,
-      term: this.editorForm?.get('selectedTerm')?.value,
-      //subjectId: this.Fetchedtopic.subjectId, 
-      //createdBy: this.user_id,
+      term: this.editorForm?.get('selectedTerm')?.value
     };
     console.log('1- editTopic = ',this.editTopic);
 
-    //this.editTopic.title = this.editorForm?.get('title')?.value;
-    //this.editTopic.term = this.editorForm?.get('selectedTerm')?.value;
-
-    //this.editTopic.videoUrl = this.editorForm?.get('videoUrl')?.value; // check this too
-    // Check if content is null or contains only spaces
+    // Check if videoUrl is null or contains only spaces
     const video = this.editorForm?.get('videoUrl')?.value;
     if (video === null || /^\s*$/.test(video))
     {
@@ -912,7 +882,6 @@ export class AdTopicComponent {
     }
     console.log('2- editTopic = ',this.editTopic);
 
-    //this.editTopic.content.content = this.editorForm?.get('body')?.value;
     // Check if content is null or contains only spaces
     const bodyValue = this.editorForm?.get('body')?.value;
     if (bodyValue === null || /^\s*$/.test(bodyValue))
@@ -925,11 +894,6 @@ export class AdTopicComponent {
       this.editContent = this.editorForm?.get('body')?.value;
     }
     console.log('3- editContent = ',this.editContent);
-
-    //this.editTopic.files = this.Files;
-    //this.editTopic.questions = this.Questions;
-
-    //console.log("editTopic = ", this.editTopic);
 
     this.management_api_service.EditTopic(this.passed_topic_id, this.editTopic, this.editContent, this.Files, this.Questions).subscribe(
      {
@@ -951,12 +915,7 @@ export class AdTopicComponent {
 
 
 
-
-
-
-
-
-  // confirm(): is the MAIN submit form function in this page
+  // -------------------------------------- MAIN submit form function in this page ----------------------------------------
   confirm ()
   {
     console.log("confirm method entered!");
@@ -964,18 +923,14 @@ export class AdTopicComponent {
     if( this.editorForm.invalid)
     {
       console.log("invalid FORM DATA");
-    
       this.toast.error({ detail:"Error", summary: "الرجاء ادخال بيانات الدرس", duration: 3000, position:'topCenter'});
-
       return;
     }
-
 
     if (this.add == true)
     {
       // -------- Add -------------
       this.AddTopicMainData();
-  
       this.editorForm.reset();
   
       // navigate to the prev page
@@ -987,22 +942,16 @@ export class AdTopicComponent {
       {
         this.router.navigate(['/admin-dash', this.user_id]);
       }
-  
     }
     else if ( this.edit == true )
     {
       // -------- Edit -------------
-      
       this.EditTopic();
-  
       this.editorForm.reset();
   
       // navigate to the prev page
       this.router.navigate(['/admin-all-topics', this.passed_grade_id, this.passed_subject_id]);
-    
     }
-
-
   }
 
   

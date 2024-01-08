@@ -261,7 +261,7 @@
                             </button> -->
                         </div>
                         <div class="col-md-4">
-                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || (FileName?.hasError('required'))" class="btn btn-dark smaller-font-size" (click)="new_upload()">
+                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || (FileName?.hasError('required'))" class="btn btn-dark smaller-font-size" (click)="upload_new_file()">
                                 رفـــع الملــــف
                             </button>
                         </div> 
@@ -430,7 +430,7 @@
                             <input type="file" formControlName="attach_questions_image" class="form-control-file" (change)="handleFileInput($any($event.target).files)">
                         </div>
                         <div class="col-md-5">
-                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(AttachQuestionImage?.value)" class="btn btn-dark smaller-font-size" (click)="new_upload()">
+                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(AttachQuestionImage?.value)" class="btn btn-dark smaller-font-size" (click)="upload_new_Question_Image()">
                                 رفـع ملـف الصورة
                             </button>
                         </div>
@@ -539,7 +539,7 @@
                             <input type="file" formControlName="attach_questions_image_update" class="form-control-file" (change)="handleFileInput($any($event.target).files)">
                         </div>
                         <div class="col-md-5">
-                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(attach_questions_image_update?.value)" class="btn btn-dark smaller-font-size" (click)="new_upload()">
+                            <button type="button" [disabled]="OneTimeUploadbuttonClicked || !(attach_questions_image_update?.value)" class="btn btn-dark smaller-font-size" (click)="upload_new_Question_Image()">
                                 رفـع ملـف الصورة
                             </button>
                         </div>
