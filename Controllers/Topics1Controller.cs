@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using mobadir_API_1.Models;
 
@@ -54,8 +48,7 @@ namespace mobadir_API_1.Controllers
                     topic.VideoUrl,
                     Term = topic.TopicTerm.ToString(), // Get the string representation of Term
                     topic.SubjectId,
-                    Username = topic.CreatedByNavigation?.Username,
-                    //topic.ContentId
+                    Username = topic.CreatedByNavigation?.Username
                 };
                 return topicDto;
             });
@@ -125,7 +118,7 @@ namespace mobadir_API_1.Controllers
                                       .Select(subject => new
                                       {
                                           SubjectName = subject.Name,
-                                          GradeName = subject.Grade.Name
+                                          GradeName = subject.Grade!.Name
                                       })
                                       .FirstOrDefaultAsync();
             if (infoToAddTopic == null)
@@ -154,12 +147,12 @@ namespace mobadir_API_1.Controllers
                     Content = topicModel.new_content,
                 };
                 // Associate content with the topic
-                topicModel.new_topic.Content = topicContent;
+                topicModel.new_topic!.Content = topicContent;
             }
 
             // ----- Add Files
             // iterate over the 'files' collection and add each file to the database
-            topicModel.new_topic.Files = new List<Models.File>();
+            topicModel.new_topic!.Files = new List<Models.File>();
             foreach (var file in topicModel.passed_files)
             {
                 topicModel.new_topic.Files.Add(file);
@@ -226,12 +219,11 @@ namespace mobadir_API_1.Controllers
             }
 
             // Update the properties of the existing topic
-            //_context.Entry(existingTopic).CurrentValues.SetValues(topic);
-            existingTopic.Title = topic.new_topic.Title;
+            existingTopic.Title = topic.new_topic!.Title;
             existingTopic.VideoUrl = topic.new_topic.VideoUrl;
             existingTopic.Term = topic.new_topic.Term; // check
 
-            existingTopic.UpdatedAt = DateTime.Now;
+            existingTopic.UpdatedAt = DateTime.UtcNow;
 
             // Update related entities, assuming Content is a complex type
             if (existingTopic.Content != null) // if there was a content for that topic
@@ -283,8 +275,6 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Files.Add(newFile);
             }
-
-
             // Update Questions
             foreach (var existingQuestion in existingTopic.Questions.ToList())
             {
@@ -304,9 +294,6 @@ namespace mobadir_API_1.Controllers
             {
                 existingTopic.Questions.Add(newQuestion);
             }
-
-
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -322,7 +309,6 @@ namespace mobadir_API_1.Controllers
                     throw;
                 }
             }
-
             return Ok(new { message = "Topic Updated Sucessfully!" });
         }
 
@@ -361,8 +347,6 @@ namespace mobadir_API_1.Controllers
 
             // Remove the topic
             _context.Topics.Remove(topic);
-
-
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "topic deleted sucessfully !" });
